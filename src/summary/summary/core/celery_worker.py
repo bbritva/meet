@@ -3,6 +3,7 @@
 # ruff: noqa: PLR0913
 
 import json
+import os
 import time
 from datetime import datetime, timezone
 from typing import Any
@@ -147,7 +148,17 @@ def transcribe_audio(
                     "timestamp_granularities": ["word", "segment"],
                     "response_format": "diarized_json",
                 },
-                files={"file": audio_file},
+                # `requests` omits the Content-Type header when given a
+                # bare file object. Some OpenAI-compatible ASR endpoints
+                # reject that multipart body (the Albert API returns 500),
+                # so send an explicit filename and content type.
+                files={
+                    "file": (
+                        os.path.basename(audio_file.name),
+                        audio_file,
+                        "application/octet-stream",
+                    )
+                },
                 headers={"Authorization": f"Bearer {api_key}"},
                 # Mimic OpenAI's timeout settings
                 timeout=(60, 10 * 60),
