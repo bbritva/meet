@@ -11,6 +11,7 @@ and this project adheres to
 ### Added
 
 - ✨(backend) make the LiveKit default video codec configurable
+- ✨(summary) correct mistranscribed acronyms in transcripts
 
 ### Changed
 

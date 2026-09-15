@@ -107,6 +107,12 @@ class Settings(BaseSettings):
     resolve_speaker_identities_enable_split_on_words: bool = True
     resolve_speaker_identities_max_word_duration: float = 1  # seconds
 
+    # Acronym correction
+    is_acronym_correction_enabled: bool = False
+    acronym_correction_min_confidence: float = 0.8
+    acronym_correction_top_k: int = 10
+    acronym_correction_min_similarity: float = 0.62
+
     # Webhook-related settings
     webhook_max_retries: int = 2
     webhook_status_forcelist: List[int] = [502, 503, 504]

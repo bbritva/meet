@@ -16,6 +16,7 @@ from celery.utils.log import get_task_logger
 from openai.types.audio import Transcription
 from requests import exceptions
 
+from summary.core.acronym_correction import correct_acronyms
 from summary.core.analytics import MetadataManager, get_analytics
 from summary.core.config import get_settings
 from summary.core.docs_service import create_document_in_lasuite_docs
@@ -272,6 +273,40 @@ def resolve_speaker_identities_and_apply_to(
         return transcription
 
 
+def _correct_acronyms_in(
+    *, transcription: WhisperXResponse, user_sub: str, task_id: str
+) -> WhisperXResponse:
+    """Correct mistranscribed acronyms and rewrite the transcription.
+
+    Args:
+        transcription: output of meet-whisperx, possibly with speakers resolved
+        user_sub: owner of the recording, for observability
+        task_id: current task id, used as the observability session id
+    """
+    user_has_tracing_consent = analytics.is_feature_enabled(
+        "summary-tracing-consent", distinct_id=user_sub
+    )
+    llm_service = LLMService(
+        llm_observability=LLMObservability(
+            user_has_tracing_consent=user_has_tracing_consent,
+            session_id=task_id,
+            user_id=user_sub,
+        )
+    )
+
+    corrected, corrections = correct_acronyms(
+        transcription=transcription,
+        llm_service=llm_service,
+    )
+    logger.info(
+        "Acronym correction for task %s: %d correction(s), %d applied",
+        task_id,
+        len(corrections),
+        sum(1 for correction in corrections if correction["applied"]),
+    )
+    return WhisperXResponse.model_validate(corrected)
+
+
 def format_transcript(
     transcription,
     context_language: str | None,
@@ -514,6 +549,17 @@ def process_audio_transcribe_v2_task(
             )
         except Exception as e:
             logger.error(f"Failed to resolve speaker identities, skipping: {e}")
+
+    # Correct the acronyms the speech recognition model transcribed as words
+    if settings.is_acronym_correction_enabled:
+        try:
+            transcription_res = _correct_acronyms_in(
+                transcription=transcription_res,
+                user_sub=payload.user_sub,
+                task_id=job_id,
+            )
+        except Exception as e:
+            logger.error(f"Failed to correct acronyms, skipping: {e}")
 
     should_push_to_docs = _should_push_to_docs(payload)
     # We do it synchronously for now
