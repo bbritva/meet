@@ -60,9 +60,31 @@ empêcherait de rejouer la démo hors ligne.
 - Les erreurs mesurées sont **nos propres erreurs**, écrites dans `errors.json`
   avant la mesure. Ce sont des chiffres synthétiques, pas des résultats de
   terrain.
-- Le rappel de 0,74 du résolveur de locuteurs est une **estimation ponctuelle** :
-  `temperature=0` n'est pas reproductible sur Albert, les répétitions donnent le
-  même score mais sur des items différents.
+- **La précision du résolveur de locuteurs n'est pas de 1,00.** Elle dépend
+  fortement du corpus (voir la docstring de `speaker_cues/llm_cues.py`) :
+
+  | corpus | précision | rappel |
+  |---|---|---|
+  | auto-présentations (cas 01-12) | 1,00 | 0,74 |
+  | passations denses (13-18) | 0,80 | 0,44 |
+  | **réunions longues et réalistes (19-21)** | **0,92** | **0,79** |
+
+  **Le chiffre à citer est 0,92 / 0,79** : c'est le corpus le plus proche d'une
+  vraie réunion. Ce transcript de démo est du type le plus favorable — quatre
+  auto-présentations nettes — donc il montre le meilleur cas, pas le cas moyen.
+  Une auto-présentation est une *observation* (« Ici Camille » : le locuteur
+  EST Camille), une passation est une *prédiction* sur le tour suivant, et les
+  réunions se coupent.
+- Chaque chiffre est **un seul tirage** : `temperature=0` n'est pas reproductible
+  sur Albert, les répétitions donnent un score voisin mais sur des items
+  différents. Compter +/- une étiquette par cas.
+- **La limite est la DÉTECTION, pas l'arbitrage.** Le modèle voit 73 des 108
+  indices de la vérité terrain (le regex en voit 31). Deux stratégies
+  d'arbitrage plus fines ont été implémentées et mesurées : la première a
+  déplacé une étiquette sur 63 exécutions, la seconde ne s'est jamais
+  déclenchée sur 42. Aucune n'est livrée. Le même constat vaut côté acronymes :
+  `type est`, `bloc note` et `Christ` ne sont jamais signalés à l'étape 1, donc
+  aucun glossaire ne peut les rattraper.
 - Un nombre de tests unitaires n'est pas une mesure de justesse, et n'est pas
   présenté comme telle ici.
 - Le modèle est celui que la pile a déjà configuré : `LLM_MODEL=openweight-large`
