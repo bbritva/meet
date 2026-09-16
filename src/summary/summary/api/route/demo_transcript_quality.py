@@ -369,7 +369,17 @@ async def run_transcript_quality_demo(
             "count": len(attendees),
         },
         "before": {"markdown": before.markdown},
-        "after": {"markdown": after.markdown},
+        "after": {
+            "markdown": after.markdown,
+            # The corrected transcript itself, not only its rendered markdown.
+            # A caller that wants to *keep* the result -- Dictaphone's import
+            # route stores it as a real recording's transcript -- needs the
+            # structured WhisperX response (segments, words, speakers), because
+            # markdown cannot be turned back into one. Additive: the `/demo`
+            # page ignores this field and renders exactly what it rendered
+            # before.
+            "transcript": after.transcription.model_dump(),
+        },
         "corrections": _correction_rows(
             after.corrections, entries, after.transcription
         ),
