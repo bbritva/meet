@@ -40,10 +40,23 @@ demo. No real meeting has ever gone through this pipeline. The ground truth is
 Usage, on the host (not in a container, nothing is rebuilt):
 
     cd src/summary
-    PYTHONHASHSEED=0 uv run --python 3.13 --with-editable . \\
-        --with python-multipart python demo/glossary_page.py
+    PYTHONHASHSEED=0 uv run --no-project --python 3.13 \\
+        --with 'fastapi[standard]' --with python-multipart \\
+        --with pydantic-settings --with celery --with redis --with minio \\
+        --with openai --with posthog --with requests \\
+        --with 'sentry-sdk[fastapi,celery]' --with langfuse \\
+        python demo/glossary_page.py
 
 then open http://localhost:8799.
+
+`--no-project` is the load-bearing flag, and the dependencies are listed by
+hand for the same reason. Without it `uv` tries to build the project in
+`src/summary` first, and that build fails on a conflict that predates this
+page: setuptools' flat-layout discovery sees both `demo/` and `summary/` as
+top-level packages and refuses to guess ("Multiple top-level packages
+discovered in a flat-layout"). `--with-editable .` hits the same wall. No
+`PYTHONPATH` is needed: the two `sys.path.insert` calls below already put
+`demo/` and `src/summary` on the path.
 
 `PYTHONHASHSEED=0` is not decorative: `PhoneticIndex.by_key` holds acronyms in
 a `set` and `candidates()` breaks ties by iteration order, so without a pinned

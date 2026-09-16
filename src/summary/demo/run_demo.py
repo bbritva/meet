@@ -821,7 +821,12 @@ glossaire, et affiche l'avant/après, la liste des corrections et le score.
 
 ```sh
 cd src/summary
-PYTHONHASHSEED=0 uv run --python 3.13 python demo/glossary_page.py
+PYTHONHASHSEED=0 uv run --no-project --python 3.13 \\
+    --with 'fastapi[standard]' --with python-multipart \\
+    --with pydantic-settings --with celery --with redis --with minio \\
+    --with openai --with posthog --with requests \\
+    --with 'sentry-sdk[fastapi,celery]' --with langfuse \\
+    python demo/glossary_page.py
 ```
 
 Puis http://localhost:8799. Rien n'est reconstruit, aucun conteneur n'est
@@ -829,6 +834,14 @@ touché : la page tourne sur l'hôte et lit `env.d/development/summary`, le mêm
 fichier que `celery-summary-transcribe`. Un bouton séparé « Publier dans Docs »
 crée un troisième document ; il n'y a pas de publication automatique, sinon
 chaque essai laisserait un document derrière lui.
+
+`--no-project` n'est pas cosmétique, et les dépendances sont listées à la main
+pour la même raison : sans lui, `uv` construit d'abord le projet de
+`src/summary`, et cette construction échoue sur un conflit antérieur à cette
+page — la découverte « flat-layout » de setuptools voit `demo/` et `summary/`
+comme deux paquets de premier niveau et refuse de choisir (« Multiple top-level
+packages discovered in a flat-layout »). `--with-editable .` bute sur le même
+mur. Commande vérifiée telle quelle avant d'être écrite ici.
 
 | | |
 |---|---|
