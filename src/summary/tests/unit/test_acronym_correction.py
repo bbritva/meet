@@ -300,3 +300,60 @@ def test_llm_failure_is_swallowed(index):
 
     assert corrections == []
     assert corrected == make_transcription()
+
+
+def test_user_glossary_adds_unknown_acronyms():
+    """An organisation's own vocabulary is searchable even if nowhere public."""
+    index = acronym_correction.build_index({"ZORBLAX": "Zone régionale blabla"})
+    assert any(
+        acronym == "ZORBLAX" for acronym, _ in index.candidates("zorblax", top_k=5)
+    )
+
+
+def test_user_glossary_outranks_the_shipped_one():
+    """A user entry beats a public homonym that scores the same phonetically."""
+    words = [
+        {"word": "dix", "start": 0.0, "end": 0.3},
+        {"word": "nomme", "start": 0.3, "end": 0.7},
+    ]
+    index = acronym_correction.build_index({"DINUM": "Direction du numérique"})
+
+    plain, _ = acronym_correction._shortlist(index, words, 0, 2)
+    boosted, _ = acronym_correction._shortlist(index, words, 0, 2, {"DINUM"})
+
+    plain_rank = [acronym for acronym, _ in plain].index("DINUM")
+    boosted_rank = [acronym for acronym, _ in boosted].index("DINUM")
+    assert boosted_rank <= plain_rank
+    assert boosted[0][0] == "DINUM"
+
+
+def test_user_glossary_expansion_replaces_the_shipped_one():
+    """The uploader's definition of their own acronym wins."""
+    shipped = acronym_correction.get_acronym_glossary()
+    assert "CNIL" in shipped
+    index = acronym_correction.build_index({"CNIL": "Comité National Interne Local"})
+    assert isinstance(index, PhoneticIndex)
+
+
+def test_no_user_glossary_reuses_the_cached_index():
+    """Passing nothing must not rebuild the 7769-entry index on every call."""
+    assert acronym_correction.build_index() is acronym_correction.get_acronym_index()
+    assert (
+        acronym_correction.build_index(None) is acronym_correction.get_acronym_index()
+    )
+
+
+def test_context_words_do_not_create_wider_windows(index):
+    """Stage 1's span is trusted: a neighbouring word cannot join the match.
+
+    With a margin, "Côté dix nomme" is tried as a window, matches a worse
+    acronym and swallows the words of the correct one.
+    """
+    words = [make_word("Côté", 0.0), make_word("dix", 0.5), make_word("nomme", 1.0)]
+
+    # stage 1 flagged only "dix nomme": words 1-2
+    shortlist, where = _shortlist(index, words, 1, 2)
+
+    assert [acronym for acronym, _ in shortlist] == ["DINUM"]
+    assert where["DINUM"] == ("dix nomme", 1, 2)
+    assert all("Côté" not in matched[0] for matched in where.values())
