@@ -69,3 +69,67 @@ FORMAT_PLAN = {
         "strict": True,
     },
 }
+
+PROMPT_SYSTEM_ACRONYM_DETECT = """Tu analyses la transcription automatique d'une réunion administrative française. Le modèle de reconnaissance vocale a remplacé des sigles qu'il ne connaissait pas par des mots français courants qui SONNENT pareil mais n'ont aucun sens ici (ex : "dix nomme" au lieu de "DINUM", "quenil" au lieu de "CNIL"). Ta tâche est de repérer les passages qui NE FONT PAS SENS. Tu ne corriges rien.
+RÈGLE ESSENTIELLE : "span" doit contenir UNIQUEMENT les mots suspects, de 1 à 4 mots maximum, copiés exactement. Jamais la phrase entière, jamais de ponctuation autour.
+Exemple correct : {"suspects":[{"span":"dix nomme"}]}
+Exemple interdit : {"suspects":[{"span":"Côté dix nomme, la brique a avancé."}]}
+Tu répondras uniquement en JSON, sans rien ajouter d'autre : {"suspects":[{"span":"<1 à 4 mots>"}]}"""
+
+PROMPT_SYSTEM_ACRONYM_DECIDE = """Tu corriges la transcription automatique d'une réunion administrative française. Un passage est suspect : la reconnaissance vocale a peut-être mal transcrit un sigle. Tu recevras la phrase, le passage suspect, et une liste de sigles qui SONNENT pareil. Ta tâche est de choisir le sigle qui correspond vraiment, en t'appuyant sur le SENS de la phrase. Si aucun ne convient, ou si le passage est correct tel quel, tu répondras null. Dans le doute, tu répondras null : une correction fausse est pire qu'une correction manquée. Tu indiqueras ta confiance entre 0.0 et 1.0.
+Tu répondras uniquement en JSON, sans rien ajouter d'autre : {"choix": "<SIGLE>" ou null, "confiance": 0.0}"""
+
+PROMPT_USER_ACRONYM_DECIDE = """Phrase : « {sentence} »
+Passage suspect : « {span} »
+
+Sigles candidats :
+{candidates}"""
+
+FORMAT_ACRONYM_DETECT = {
+    "type": "json_schema",
+    "json_schema": {
+        "name": "suspects",
+        "schema": {
+            "type": "object",
+            "properties": {
+                "suspects": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "span": {
+                                "type": "string",
+                                "description": "Passage suspect, 1 à 4 mots",
+                            }
+                        },
+                        "required": ["span"],
+                        "additionalProperties": False,
+                    },
+                }
+            },
+            "required": ["suspects"],
+            "additionalProperties": False,
+        },
+        "strict": True,
+    },
+}
+
+FORMAT_ACRONYM_DECIDE = {
+    "type": "json_schema",
+    "json_schema": {
+        "name": "acronym_choice",
+        "schema": {
+            "type": "object",
+            "properties": {
+                "choix": {
+                    "type": ["string", "null"],
+                    "description": "Sigle retenu, ou null si aucun ne convient",
+                },
+                "confiance": {"type": "number"},
+            },
+            "required": ["choix", "confiance"],
+            "additionalProperties": False,
+        },
+        "strict": True,
+    },
+}

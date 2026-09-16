@@ -126,6 +126,12 @@ class Settings(BaseSettings):
     # late joiner). Turn off to never emit a name that is not an invitee.
     resolve_speaker_cues_allow_unknown_self_id: bool = True
 
+    # Acronym correction
+    is_acronym_correction_enabled: bool = False
+    acronym_correction_min_confidence: float = 0.8
+    acronym_correction_top_k: int = 10
+    acronym_correction_min_similarity: float = 0.62
+
     # Webhook-related settings
     webhook_max_retries: int = 2
     webhook_status_forcelist: List[int] = [502, 503, 504]

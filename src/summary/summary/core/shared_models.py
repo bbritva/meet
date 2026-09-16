@@ -25,6 +25,11 @@ class WordSegment(BaseModel):
         title="Speaker",
         description="Speaker identifier for the word segment.",
     )
+    corrected: bool | None = Field(
+        default=None,
+        title="Corrected",
+        description="True when the word was rewritten by acronym correction.",
+    )
 
 
 class Segment(BaseModel):
