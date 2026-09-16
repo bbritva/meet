@@ -380,7 +380,11 @@ def resolve_speaker_identities_and_apply_to(
 
 
 def _correct_acronyms_in(
-    *, transcription: WhisperXResponse, user_sub: str, task_id: str
+    *,
+    transcription: WhisperXResponse,
+    user_sub: str,
+    task_id: str,
+    user_glossary: dict[str, str] | None = None,
 ) -> WhisperXResponse:
     """Correct mistranscribed acronyms and rewrite the transcription.
 
@@ -388,6 +392,8 @@ def _correct_acronyms_in(
         transcription: output of meet-whisperx, possibly with speakers resolved
         user_sub: owner of the recording, for observability
         task_id: current task id, used as the observability session id
+        user_glossary: the caller's own {acronym: expansion} entries, extending
+            the glossary shipped with the service. None keeps today's behaviour.
     """
     user_has_tracing_consent = analytics.is_feature_enabled(
         "summary-tracing-consent", distinct_id=user_sub
@@ -403,6 +409,7 @@ def _correct_acronyms_in(
     corrected, corrections = correct_acronyms(
         transcription=transcription,
         llm_service=llm_service,
+        user_glossary=user_glossary,
     )
     logger.info(
         "Acronym correction for task %s: %d correction(s), %d applied",
@@ -671,6 +678,7 @@ def process_audio_transcribe_v2_task(
                 transcription=transcription_res,
                 user_sub=payload.user_sub,
                 task_id=job_id,
+                user_glossary=payload.user_glossary,
             )
         except Exception as e:
             logger.error(f"Failed to correct acronyms, skipping: {e}")

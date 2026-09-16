@@ -108,6 +108,13 @@ class TranscribeTaskApiRequest(SharedV2TaskCreation):
         " speakers from spoken name cues when no metadata is available.",
         default=None,
     )
+    user_glossary: dict[str, str] | None = Field(
+        title="User Glossary",
+        description="An organisation's own {acronym: expansion} entries. They"
+        " extend the glossary shipped with the service and outrank it on a"
+        " phonetic near-tie, since the uploader knows their own vocabulary.",
+        default=None,
+    )
     push_to_docs_config: PushToDocsTranscriptConfig | None = Field(
         title="Push to Docs info",
         description="If set, configuration for pushing to docs",

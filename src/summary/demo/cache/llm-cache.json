@@ -29,6 +29,11 @@
   "name": "speaker-cues",
   "reply": "[\n  {\"index\": 24, \"type\": \"none\", \"name\": null, \"raw\": \"internes. Le PCA a été relu la semaine dernière.\"},\n  {\"index\": 25, \"type\": \"none\", \"name\": null, \"raw\": \"Les trois sont indépendantes, mais elles partagent la même fenêtre.\"},\n  {\"index\": 26, \"type\": \"none\", \"name\": null, \"raw\": \"Trois opérations sur une seule fenêtre, c'est beaucoup.\"},\n  {\"index\": 27, \"type\": \"none\", \"name\": null, \"raw\": \"Si la montée de version dérape, nous n'aurons pas le temps de revenir en arrière avant l'ouverture du lundi matin.\"},\n  {\"index\": 28, \"type\": \"none\", \"name\": null, \"raw\": \"Je propose de sortir la rotation des certificats et de la traiter la semaine suivante.\"},\n  {\"index\": 29, \"type\": \"none\", \"name\": null, \"raw\": \"Quel est le risque à décaler la rotation ?\"},\n  {\"index\": 30, \"type\": \"none\", \"name\": null, \"raw\": \"Faible : le certificat le plus proche expire à la mi-novembre.\"},\n  {\"index\": 31, \"type\": \"none\", \"name\": null, \"raw\": \"Une semaine de décalage ne change rien, et ça allège franchement la fenêtre.\"},\n  {\"index\": 32, \"type\": \"none\", \"name\": null, \"raw\": \"Je suis favorable à la proposition.\"},\n  {\"index\": 33, \"type\": \"none\", \"name\": null, \"raw\": \"Alors on fait comme ça.\"},\n  {\"index\": 34, \"type\": \"none\", \"name\": null, \"raw\": \"Deux opérations le premier week-end, la rotation le week-end suivant.\"},\n  {\"index\": 35, \"type\": \"none\", \"name\": null, \"raw\": \"Je mets à jour le calendrier de maintenance, je préviens les équipes applicatives et la DSI.\"}\n]"
  },
+ "1be815640b584ffcadaaf214e7818147cd5f6e88f5ec71a5fdbd80d01292aab4": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\n  \"choix\": null,\n  \"confiance\": 0.7\n}"
+ },
  "1e6a4cb404d107a006945483ff17d3450bcd55845303eb961f016770b2c5db49": {
   "model": "openweight-large",
   "name": "speaker-cues",
@@ -174,6 +179,11 @@
   "name": "acronym-detect",
   "reply": "{\"suspects\":[]}"
  },
+ "95d624dc71ecb0ff312b8dd8357178e24a4efc2c272c5423dae304061c772be3": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\n  \"choix\": \"DOPC\",\n  \"confiance\": 0.6\n}"
+ },
  "9a5a19356cb1e2c3a9f6e5d01ddc438fbe08823a300026ccdbd8a424c442d9a7": {
   "model": "openweight-large",
   "name": "acronym-detect",
@@ -198,6 +208,11 @@
   "model": "openweight-large",
   "name": "acronym-detect",
   "reply": "{\"suspects\":[]}"
+ },
+ "adbdf2a38d0665865ab10f0f81b37bb26b88adc6c583c2e32842d725d5b00611": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\n  \"choix\": null,\n  \"confiance\": 0.87\n}"
  },
  "c8c9e6550d95d3b61e075f7a241a38ae37cf738b791b1304319311e8f485feb3": {
   "model": "openweight-large",

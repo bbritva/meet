@@ -199,13 +199,25 @@ class DocIdCapture(logging.Handler):
 # --------------------------------------------------------------------------
 # the pipeline, in `celery_worker` order
 # --------------------------------------------------------------------------
-def run_pipeline(celery_worker, whisperx_response, attendees, flags, job_id, language):
+def run_pipeline(
+    celery_worker,
+    whisperx_response,
+    attendees,
+    flags,
+    job_id,
+    language,
+    user_glossary=None,
+):
     """Mirror `process_audio_transcribe_v2_task`'s stages for one flag set.
 
     The gates are copied from `celery_worker.py` (the block that starts at
     "Assign speakers and rewrite transcription/diarization output"), with the
     two settings replaced by `flags`. `metadata` is None throughout: this run
     is the Dictaphone shape, where VAD metadata never exists.
+
+    `user_glossary` goes to `_correct_acronyms_in` as an argument, the same way
+    `process_audio_transcribe_v2_task` passes `payload.user_glossary`. Default
+    None, so a caller that does not have one keeps today's behaviour.
     """
     from summary.core.config import get_settings  # noqa: PLC0415
 
@@ -239,6 +251,7 @@ def run_pipeline(celery_worker, whisperx_response, attendees, flags, job_id, lan
             transcription=transcription,
             user_sub=DOCS_SUB,
             task_id=job_id,
+            user_glossary=user_glossary,
         )
         corrections = CORRECTIONS_SLOT["corrections"]
 

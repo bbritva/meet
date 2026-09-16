@@ -16,14 +16,12 @@ imports it and calls `run_demo.run_pipeline`, which calls the three functions
     _correct_acronyms_in()  ->  correct_acronyms()
     format_transcript()                         markdown
 
-Two seams are added on top of `run_demo.install_scaffolding`, both of which
-observe rather than change:
+The glossary is passed, not injected: `_correct_acronyms_in` now takes
+`user_glossary` and `process_audio_transcribe_v2_task` forwards
+`payload.user_glossary`, so this page hands it to `run_demo.run_pipeline` the
+same way the worker does. One seam is added on top of
+`run_demo.install_scaffolding`, and it observes rather than changes:
 
-  * `celery_worker.correct_acronyms` is wrapped once more, to inject
-    `user_glossary=`. `_correct_acronyms_in` resolves that name as a module
-    global at call time, so the injection lands at the exact call boundary the
-    worker would use if it ever passed a glossary. Nothing inside
-    `acronym_correction.py` is touched.
   * `acronym_correction._detect_suspect_spans` is wrapped to record what stage
     1 flagged. The README used to say "la démo n'instrumente pas l'étape 1";
     it is instrumented here, because it is the only signal that separates "the
@@ -136,9 +134,9 @@ logging.basicConfig(level=logging.INFO, format="%(name)s | %(message)s")
 logging.getLogger("httpx").setLevel(logging.WARNING)
 logging.getLogger("openai").setLevel(logging.WARNING)
 
-#: The glossary the injected `user_glossary=` argument reads, and the spans
-#: stage 1 flagged. Module globals like `run_demo`'s own slots, and guarded by
-#: the same lock: two overlapping requests would scramble them.
+#: The glossary `_run` forwards as `user_glossary=`, and the spans stage 1
+#: flagged. Module globals like `run_demo`'s own slots, and guarded by the
+#: same lock: two overlapping requests would scramble them.
 GLOSSARY_SLOT: dict = {"glossary": None}
 SPANS_SLOT: dict = {"spans": []}
 LOCK = threading.Lock()
@@ -149,20 +147,14 @@ LAST: dict = {"with": None, "without": None}
 
 
 def install_seams(celery_worker, acronym_correction) -> None:
-    """Add the glossary injection and the stage-1 capture, once.
+    """Add the stage-1 capture, once.
 
-    Both wrap what is already installed and delegate to it. Neither changes a
-    decision: one supplies an argument `correct_acronyms` already accepts, the
-    other copies out a list on its way past.
+    The glossary is no longer injected by a wrapper: `_correct_acronyms_in`
+    now takes `user_glossary` as an argument and `run_pipeline` forwards it,
+    so the page hands it over the same way `process_audio_transcribe_v2_task`
+    hands over `payload.user_glossary`. This seam only observes: it copies the
+    stage-1 span list out on its way past and changes no decision.
     """
-    captured_correct = celery_worker.correct_acronyms
-
-    def correct_with_glossary(**kwargs):
-        kwargs.setdefault("user_glossary", GLOSSARY_SLOT["glossary"])
-        return captured_correct(**kwargs)
-
-    celery_worker.correct_acronyms = correct_with_glossary
-
     real_detect = acronym_correction._detect_suspect_spans
 
     def detect_and_capture(segments, llm_service):
@@ -223,6 +215,7 @@ class Pipeline:
             flags,
             job_id,
             "fr",
+            user_glossary=GLOSSARY_SLOT["glossary"],
         )
 
     def before(self) -> str:
