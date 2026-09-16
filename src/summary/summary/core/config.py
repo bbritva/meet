@@ -107,6 +107,25 @@ class Settings(BaseSettings):
     resolve_speaker_identities_enable_split_on_words: bool = True
     resolve_speaker_identities_max_word_duration: float = 1  # seconds
 
+    # Speaker attribution from spoken name cues: the fallback used when the
+    # VAD metadata above is missing or unreadable, which is the common case
+    # (both collection gates default to off, and Dictaphone never has any).
+    is_resolve_speaker_cues_enabled: bool = True
+    resolve_speaker_cues_confidence_threshold: float = 0.6
+    # "regex" matches a closed list of templates and costs nothing. "llm"
+    # reads the sentence and recovers more, but then every transcript costs
+    # model calls, so regex is the default.
+    resolve_speaker_cues_detector: str = "regex"
+    # Hard ceiling on model calls for ONE transcript, so a pathological
+    # segmentation cannot scale without bound (~45 calls per meeting hour).
+    resolve_speaker_cues_max_llm_calls: int = 400
+    resolve_speaker_cues_llm_batch_size: int = 12
+    # How close a mangled span must be to a roster name to count as that name.
+    resolve_speaker_cues_fuzzy_threshold: float = 0.75
+    # Accept a self-identification whose name is not on the attendee list (a
+    # late joiner). Turn off to never emit a name that is not an invitee.
+    resolve_speaker_cues_allow_unknown_self_id: bool = True
+
     # Webhook-related settings
     webhook_max_retries: int = 2
     webhook_status_forcelist: List[int] = [502, 503, 504]

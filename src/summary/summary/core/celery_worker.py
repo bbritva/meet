@@ -51,8 +51,10 @@ from summary.core.shared_models import (
     WhisperXResponse,
     webhook_payload_adapter,
 )
+from summary.core.speaker_cues.attendees import normalise_attendees
+from summary.core.speaker_cues.llm_cues import transport_from_llm_service
+from summary.core.speaker_dispatch import resolve_speakers
 from summary.core.transcript_formatter import TranscriptFormatter
-from summary.core.user_assign import resolve_speaker_identities
 from summary.core.webhook_service import (
     call_webhook_v2,
 )
@@ -223,48 +225,153 @@ def transcribe_audio(
     return transcription
 
 
-def resolve_speaker_identities_and_apply_to(
-    *, transcription: WhisperXResponse, recording_metadata: RecordingMetadata, task_id
-) -> WhisperXResponse:
-    """Assign users to detected speakers and rewrite the transcriptions.
+def _read_recording_metadata(
+    recording_metadata: RecordingMetadata | None, task_id
+) -> dict | None:
+    """Fetch the VAD metadata blob, or None when it cannot be used.
+
+    An unreadable blob is no longer fatal: it is one of the two cases the
+    cue-based fallback exists for, so we log and let the caller try that route
+    instead of skipping speaker assignment entirely.
 
     Args:
-        transcription: output of meet-whisperx after transcription and diarization
-        recording_metadata: Metadata of the recording
+        recording_metadata: The payload's metadata block, or None.
         task_id: current task id, for logging purposes
+
+    Returns:
+        The parsed metadata dict, or None.
     """
+    if recording_metadata is None:
+        return None
+
     logger.debug(
         "recording_start_dt: %s ; recording_end_dt: %s",
         recording_metadata.started_at,
         recording_metadata.ended_at,
     )
-
-    logger.debug("Running resolve_speaker_identities")
     try:
-        metadata = file_service.read_cloud_storage_json(
+        return file_service.read_cloud_storage_json(
             recording_metadata.cloud_storage_url
         )
-        speaker_mapping = resolve_speaker_identities(
-            metadata,
-            transcription.model_dump(),
-            recording_metadata.started_at,
-            recording_metadata.ended_at,
-        )
-        new_transcription = speaker_mapping.apply_to(transcription.model_dump())
-        return WhisperXResponse.model_validate(new_transcription)
-
     except FileServiceException as exc:
         logger.error(
-            "Error reading metadata for task %s; skipping speaker assignment."
+            "Error reading metadata for task %s; falling back to name cues."
             " Error: %s",
             task_id,
             exc,
         )
-        return transcription
+        return None
+
+
+def _cue_options(task_id, user_sub: str) -> dict:
+    """Build the cue resolver's keyword arguments from the settings.
+
+    Settings are read here and passed down, so the cue modules themselves stay
+    free of any configuration dependency -- which is also what lets their unit
+    tests run without an environment.
+
+    Args:
+        task_id: current task id, used as the observability session id
+        user_sub: owner of the recording, for observability
+
+    Returns:
+        Keyword arguments for `resolve_speaker_identities_from_cues`.
+    """
+    options = {
+        "confidence_threshold": settings.resolve_speaker_cues_confidence_threshold,
+        "fuzzy_threshold": settings.resolve_speaker_cues_fuzzy_threshold,
+        "allow_unknown_self_id": settings.resolve_speaker_cues_allow_unknown_self_id,
+        "detector": settings.resolve_speaker_cues_detector,
+    }
+
+    if settings.resolve_speaker_cues_detector != "llm":
+        return options
+
+    # Only the LLM detector needs a transport, and it is not the default: a
+    # regex run must never build an LLM client it will not use.
+    user_has_tracing_consent = analytics.is_feature_enabled(
+        "summary-tracing-consent", distinct_id=user_sub
+    )
+    llm_service = LLMService(
+        llm_observability=LLMObservability(
+            user_has_tracing_consent=user_has_tracing_consent,
+            session_id=task_id,
+            user_id=user_sub,
+        )
+    )
+    options["detector_options"] = {
+        "complete": transport_from_llm_service(llm_service),
+        "model": settings.llm_model,
+        "batch_size": settings.resolve_speaker_cues_llm_batch_size,
+        "max_calls": settings.resolve_speaker_cues_max_llm_calls,
+    }
+    return options
+
+
+def resolve_speaker_identities_and_apply_to(
+    *,
+    transcription: WhisperXResponse,
+    recording_metadata: RecordingMetadata | None,
+    task_id,
+    attendees=None,
+    user_sub: str = "",
+) -> WhisperXResponse:
+    """Assign users to detected speakers and rewrite the transcriptions.
+
+    Dispatches between the two resolvers: VAD overlap when the recording
+    metadata is present and usable, spoken name cues otherwise. The VAD path
+    keeps priority because it measures who spoke rather than inferring it.
+
+    Args:
+        transcription: output of meet-whisperx after transcription and diarization
+        recording_metadata: Metadata of the recording, or None
+        task_id: current task id, for logging purposes
+        attendees: the meeting's attendee list, or None
+        user_sub: owner of the recording, for observability
+
+    Returns:
+        The transcription with speaker labels replaced, or unchanged when no
+        resolver could say anything.
+    """
+    logger.debug("Running speaker resolution")
+    try:
+        metadata = (
+            _read_recording_metadata(recording_metadata, task_id)
+            if settings.is_resolve_speaker_identities_enabled
+            else None
+        )
+        roster = (
+            normalise_attendees(attendees)
+            if settings.is_resolve_speaker_cues_enabled
+            else []
+        )
+
+        dispatched = resolve_speakers(
+            transcription.model_dump(),
+            metadata=metadata,
+            recording_start=(
+                recording_metadata.started_at if recording_metadata else None
+            ),
+            recording_end=recording_metadata.ended_at if recording_metadata else None,
+            attendees=roster,
+            cue_options=_cue_options(task_id, user_sub),
+        )
+        logger.info(
+            "Speaker resolution for task %s: source=%s (%s), %d assigned,"
+            " %d unassigned",
+            task_id,
+            dispatched.source,
+            dispatched.reason,
+            len(dispatched.result.assignments),
+            len(dispatched.result.unassigned_speakers),
+        )
+
+        new_transcription = dispatched.result.apply_to(transcription.model_dump())
+        return WhisperXResponse.model_validate(new_transcription)
 
     except Exception as exc:
         logger.exception(
-            "resolve_speaker_identities failed for task %s; skipping"
+            "Speaker resolution failed for task %s; skipping"
             " speaker assignment. Error: %s",
             task_id,
             exc,
@@ -505,12 +612,20 @@ def process_audio_transcribe_v2_task(
         return failure_payload.model_dump()
 
     # Assign speakers and rewrite transcription/diarization output
-    if settings.is_resolve_speaker_identities_enabled and payload.metadata is not None:
+    can_resolve_from_vad = (
+        settings.is_resolve_speaker_identities_enabled and payload.metadata is not None
+    )
+    can_resolve_from_cues = settings.is_resolve_speaker_cues_enabled and bool(
+        payload.attendees
+    )
+    if can_resolve_from_vad or can_resolve_from_cues:
         try:
             transcription_res = resolve_speaker_identities_and_apply_to(
                 transcription=transcription_res,
                 recording_metadata=payload.metadata,
                 task_id=job_id,
+                attendees=payload.attendees,
+                user_sub=payload.user_sub,
             )
         except Exception as e:
             logger.error(f"Failed to resolve speaker identities, skipping: {e}")

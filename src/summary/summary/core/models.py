@@ -32,6 +32,22 @@ class RecordingMetadata(BaseModel):
     ended_at: AwareDatetime = Field(title="End time of the recording to transcribe")
 
 
+class Attendee(BaseModel):
+    """One invited participant, as the calendar invite names them."""
+
+    name: str = Field(
+        title="Name",
+        description="The attendee's display name. Spoken name cues in the"
+        " transcript are matched against it.",
+    )
+    email: EmailStr | None = Field(
+        default=None,
+        title="Email",
+        description="The attendee's email, used as the participant id of a"
+        " cue-based speaker assignment.",
+    )
+
+
 class PushToDocsBaseConfig(BaseModel):
     """Model containing information for pushing transcript and summaries to docs."""
 
@@ -84,6 +100,12 @@ class TranscribeTaskApiRequest(SharedV2TaskCreation):
     metadata: RecordingMetadata | None = Field(
         title="Metadata",
         description="The metadata for the transcribe task.",
+        default=None,
+    )
+    attendees: list[Attendee] | None = Field(
+        title="Attendees",
+        description="The people invited to the meeting. Used to attribute"
+        " speakers from spoken name cues when no metadata is available.",
         default=None,
     )
     push_to_docs_config: PushToDocsTranscriptConfig | None = Field(

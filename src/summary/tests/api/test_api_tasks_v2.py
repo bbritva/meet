@@ -43,6 +43,7 @@ class TestTasksV2:
                 "tenant_id": "test-tenant",
                 "user_email": None,
                 "metadata": None,
+                "attendees": None,
                 "push_to_docs_config": None,
             }
         ]
