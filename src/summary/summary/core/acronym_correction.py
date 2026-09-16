@@ -51,6 +51,10 @@ MAX_WINDOW_WORDS = 4
 # Words looked at on each side of a flagged passage: the LLM usually reports a
 # span slightly wider or narrower than the actual error.
 WINDOW_MARGIN = 1
+# An acronym supplied by the organisation outranks one mined from public corpora:
+# the uploader knows their own vocabulary. Large enough to beat a phonetic near-tie
+# (DINUM 0.80 vs DICOM 0.80), small enough not to force a clearly worse match.
+USER_GLOSSARY_BONUS = 0.20
 
 # Longest token sequence considered when locating a flagged passage.
 MAX_LOCATE_WORDS = 8
@@ -79,6 +83,19 @@ def get_acronym_glossary() -> dict[str, str]:
 def get_acronym_index() -> PhoneticIndex:
     """Build the phonetic index once per worker process."""
     return PhoneticIndex(get_acronym_glossary())
+
+
+def build_index(user_glossary: Optional[dict[str, str]] = None) -> PhoneticIndex:
+    """Index the shipped glossary, extended by an organisation's own entries.
+
+    A user entry with the same acronym replaces the shipped expansion: the
+    uploader's definition of their own vocabulary wins.
+    """
+    if not user_glossary:
+        return get_acronym_index()
+    merged = dict(get_acronym_glossary())
+    merged.update(user_glossary)
+    return PhoneticIndex(merged)
 
 
 def _normalize(text: str) -> str:
@@ -222,7 +239,11 @@ def _window_candidates(
 
 
 def _shortlist(
-    index: PhoneticIndex, words: list[dict[str, Any]], word_index: int, n_words: int
+    index: PhoneticIndex,
+    words: list[dict[str, Any]],
+    word_index: int,
+    n_words: int,
+    user_acronyms: Optional[set[str]] = None,
 ) -> tuple[list[tuple[str, float]], dict[str, tuple[str, int, int]]]:
     """Build one ranked shortlist for the region around a flagged passage.
 
@@ -248,7 +269,12 @@ def _shortlist(
         if positions & claimed:
             continue
         claimed |= positions
-        for acronym, score in candidates:
+        for acronym, raw_score in candidates:
+            score = (
+                min(1.0, raw_score + USER_GLOSSARY_BONUS)
+                if user_acronyms and acronym in user_acronyms
+                else raw_score
+            )
             if acronym not in pool or score > pool[acronym][0]:
                 pool[acronym] = (score, text, start, length)
 
@@ -261,15 +287,29 @@ def _shortlist(
 
 
 def _decide(
-    sentence: str, span: str, shortlist: list[tuple[str, float]], llm_service
+    sentence: str,
+    span: str,
+    shortlist: list[tuple[str, float]],
+    llm_service,
+    user_glossary: Optional[dict[str, str]] = None,
 ) -> tuple[Optional[str], float]:
-    """Ask the LLM to pick an acronym from the shortlist, or reject it."""
-    glossary = get_acronym_glossary()
-    candidates = "\n".join(
-        f"- {acronym}"
-        + (f" ({glossary[acronym][:70]})" if glossary.get(acronym) else "")
-        for acronym, _ in shortlist
-    )
+    """Ask the LLM to pick an acronym from the shortlist, or reject it.
+
+    Entries from the organisation's own glossary are marked, so the model can
+    prefer them over homonyms mined from public corpora.
+    """
+    glossary = dict(get_acronym_glossary())
+    if user_glossary:
+        glossary.update(user_glossary)
+    lines = []
+    for acronym, _ in shortlist:
+        line = f"- {acronym}"
+        if glossary.get(acronym):
+            line += f" ({glossary[acronym][:70]})"
+        if user_glossary and acronym in user_glossary:
+            line += "  [glossaire de l'organisation]"
+        lines.append(line)
+    candidates = "\n".join(lines)
     user_prompt = PROMPT_USER_ACRONYM_DECIDE.format(
         sentence=sentence.strip(), span=span, candidates=candidates
     )
@@ -367,6 +407,7 @@ def correct_acronyms(
     transcription: Any,
     llm_service,
     index: Optional[PhoneticIndex] = None,
+    user_glossary: Optional[dict[str, str]] = None,
 ) -> tuple[dict[str, Any], list[dict[str, Any]]]:
     """Correct the acronyms a speech recognition model got wrong.
 
@@ -374,7 +415,10 @@ def correct_acronyms(
         transcription: a WhisperXResponse or the equivalent plain dict.
         llm_service: the LLMService used for the detection and decision stages.
         index: phonetic index to match against; defaults to the glossary
-            shipped with the service.
+            shipped with the service, extended by `user_glossary`.
+        user_glossary: an organisation's own {acronym: expansion} entries. They
+            extend the shipped glossary and outrank it on a phonetic near-tie,
+            since the uploader knows their own vocabulary.
 
     Returns:
         The corrected transcription as a dict, and the list of corrections.
@@ -388,7 +432,8 @@ def correct_acronyms(
     if not segments:
         return corrected, []
 
-    phonetic_index = index if index is not None else get_acronym_index()
+    phonetic_index = index if index is not None else build_index(user_glossary)
+    user_acronyms = set(user_glossary) if user_glossary else None
 
     located: list[tuple[str, tuple[int, int, int]]] = []
     seen: set[tuple[int, int, int]] = set()
@@ -403,12 +448,18 @@ def correct_acronyms(
     corrections: list[dict[str, Any]] = []
     for span, (segment_index, word_index, n_words) in located:
         words = list(segments[segment_index].get("words") or [])
-        shortlist, where = _shortlist(phonetic_index, words, word_index, n_words)
+        shortlist, where = _shortlist(
+            phonetic_index, words, word_index, n_words, user_acronyms
+        )
         if not shortlist:
             continue
 
         choice, confidence = _decide(
-            segments[segment_index].get("text", ""), span, shortlist, llm_service
+            segments[segment_index].get("text", ""),
+            span,
+            shortlist,
+            llm_service,
+            user_glossary,
         )
         if not choice or choice not in where:
             continue
