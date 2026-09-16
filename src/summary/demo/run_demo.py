@@ -803,6 +803,125 @@ def variance_section() -> str:
     return "\n".join(out)
 
 
+#: Appended to README.md after the report. It lives here, and not typed by
+#: hand into README.md, because `main()` rewrites that file wholesale: a
+#: section written straight into the markdown would disappear on the next run.
+GLOSSARY_PAGE = """
+## 9. La page « glossaire de l'organisation »
+
+`correct_acronyms(..., user_glossary=...)` existe depuis `6429eb44` et n'a
+jamais servi : `celery_worker._correct_acronyms_in` ne passe aucun mapping, donc
+`build_index`, le `USER_GLOSSARY_BONUS` (0,20) et le marqueur
+`[glossaire de l'organisation]` du prompt ne se déclenchent pas en production.
+`demo/glossary_page.py` est la première chose qui les exerce.
+
+On dépose un glossaire en texte brut, la page rejoue le même pipeline que
+`run_demo.py` — elle l'importe, elle ne le recopie pas — avec et sans
+glossaire, et affiche l'avant/après, la liste des corrections et le score.
+
+```sh
+cd src/summary
+PYTHONHASHSEED=0 uv run --python 3.13 python demo/glossary_page.py
+```
+
+Puis http://localhost:8799. Rien n'est reconstruit, aucun conteneur n'est
+touché : la page tourne sur l'hôte et lit `env.d/development/summary`, le même
+fichier que `celery-summary-transcribe`. Un bouton séparé « Publier dans Docs »
+crée un troisième document ; il n'y a pas de publication automatique, sinon
+chaque essai laisserait un document derrière lui.
+
+| | |
+|---|---|
+| `glossary_page.py` | le serveur : deux passages, le score, la publication |
+| `glossary_page.html` | la page : dépôt par glisser-déposer **et** par clic |
+| `glossary_parser.py` | l'analyseur tolérant (`=`, `;`, `:`), texte brut uniquement |
+| `sample-glossary.txt` | le glossaire d'exemple, **figé avant la mesure** |
+
+### Ce que la mesure donne
+
+Même entrée, même seuil (0,80), 12 erreurs d'acronyme dans le périmètre.
+
+| passage | corrigées | sous le seuil | manquées | faux positifs |
+|---|---|---|---|---|
+| sans glossaire (témoin, rejoué depuis le cache) | **7 / 12** | 1 | 4 | 0 |
+| avec `sample-glossary.txt` (15 entrées) | **7 / 12** | 0 | 5 | 1 |
+
+Le glossaire **n'améliore pas le score sur ce transcript**. Le seul faux positif
+est `dix nomme` → DICOM à 0,70 : sous le seuil, donc **non appliqué** au
+document — mais c'est bien un faux positif de plus qu'au passage témoin, et il
+est compté comme tel.
+
+Il faut lire ces deux lignes avec la variance en tête : le passage `run2`, même
+code et **sans** glossaire, donne 6/12 avec 2 sous le seuil (§8). Un écart d'une
+unité ne distingue donc pas un effet du glossaire d'un tirage d'Albert.
+
+### DINUM franchit-il le seuil ? Non.
+
+L'arithmétique attendue — 0,75 + 0,20 = 0,95 — additionne deux nombres qui n'ont
+rien à voir. Le bonus s'applique à la **similarité phonétique**, dans
+`_shortlist` ; `_decide` reçoit la liste et **jette les scores**
+(`for acronym, _ in shortlist`). Le seuil, lui, compare la `confiance` rendue
+par le modèle. Le bonus ne peut donc pas déplacer le nombre que le seuil
+regarde. Ce qu'il fait vraiment : DINUM passe de 0,80 à 1,00 dans la liste et
+gagne le marqueur `[glossaire de l'organisation]` dans le prompt.
+
+Mesuré en rejouant la seule décision `e1` dix fois, cache contourné :
+
+| condition | acronyme choisi | confiance | au-dessus de 0,80 |
+|---|---|---|---|
+| sans glossaire | DINUM 5/5 | 0,65 – 0,85 | **1 / 5** |
+| avec glossaire | DINUM 4/5, DICOM 1/5 | 0,60 – 0,85 | **2 / 5** |
+
+Autrement dit : DINUM était déjà choisi sans glossaire, et le glossaire ne le
+fait pas franchir le seuil de façon fiable. À n = 5, l'écart ne se distingue pas
+du bruit.
+
+### Les quatre manquées : le glossaire ne peut structurellement rien y faire
+
+- `type est` → Typst, `bloc note` → BlockNote, `Christ` → Grist : **l'étape 1
+  ne signale jamais ces passages** (9 passages signalés sur 12 erreurs, la page
+  les affiche). Sans signalement, aucune liste de candidats n'est construite :
+  il n'y a rien sur quoi un glossaire pourrait peser. Pourtant la cible est bien
+  en tête de liste quand on la construit à la main (Typst 0,80 → 1,00 avec le
+  glossaire, BlockNote déjà à 1,00).
+- `dos pecs` → Docspec : le passage **est** signalé, mais Docspec n'entre jamais
+  dans la liste. Sa similarité phonétique est sous
+  `acronym_correction_min_similarity` (0,62), et le bonus est ajouté **après**
+  ce filtre. Un glossaire ne rattrape donc pas un mot phonétiquement éloigné.
+
+### Une croyance à corriger
+
+L'idée que ces cinq noms manqueraient parce qu'un corpus administratif ignore le
+vocabulaire d'une équipe est **fausse ici** : les 15 termes du glossaire
+d'exemple, DINUM, Typst, Docspec, BlockNote et Grist compris, sont **déjà** dans
+le glossaire livré de 7769 entrées. Sur ce transcript, la démonstration ne peut
+pas raconter « votre vocabulaire est absent ». Ce qu'elle montre est plus utile :
+où la fonctionnalité bloque réellement — à l'étape 1, et au filtre de
+similarité.
+
+### Si Albert est injoignable
+
+`_decide` rattrape ses propres exceptions et rend `(None, 0.0)` : l'étape échoue
+**en silence**, le passage revient avec moins de corrections et rien ne remonte.
+Vérifié en pointant `LLM_BASE_URL` sur un port mort — HTTP 200, sept corrections
+au lieu de huit, aucune erreur. La page collecte donc les avertissements du
+journal et affiche un bandeau rouge « passage dégradé » : un passage abîmé qui
+ressemble à un passage propre est exactement le genre de silence que cette démo
+doit refuser.
+
+### Honnêteté
+
+Le transcript, l'invitation `.ics` et les quatre participants sont des **mocks**
+écrits pour cette démonstration ; aucune vraie réunion n'est passée dans ce
+pipeline. La vérité terrain est `errors.json`, écrite avant la mesure.
+`sample-glossary.txt` a été figé avant la mesure et n'a pas été retouché après
+coup : ajuster les développés en voyant le score reviendrait à régler la démo
+pour qu'elle flatte le résultat.
+
+Capture : `/Users/macair/dinum/screenshots/demo-glossary-page.png`.
+"""
+
+
 README_HEADER = """# Démo — qualité des transcriptions : avant / après
 
 Deux fonctionnalités, un seul transcript, deux documents La Suite Docs.
@@ -1159,7 +1278,14 @@ def main() -> int:
         handle.write(report + "\n")
     with open(os.path.join(DEMO_ROOT, "README.md"), "w", encoding="utf-8") as handle:
         handle.write(
-            README_HEADER + "\n" + HONESTY + "\n" + report + "\n" + variance_section()
+            README_HEADER
+            + "\n"
+            + HONESTY
+            + "\n"
+            + report
+            + "\n"
+            + variance_section()
+            + GLOSSARY_PAGE
         )
 
     print()

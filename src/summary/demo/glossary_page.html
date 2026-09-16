@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Démo — glossaire d'acronymes de l'organisation</title>
+<style>
+  :root {
+    --ink: #1b1b1f; --muted: #58586b; --line: #d9d9e2; --bg: #fbfbfd;
+    --card: #ffffff; --ok: #1d7a4c; --warn: #9a6200; --bad: #b3261e;
+    --accent: #2b3a8f; --accent-soft: #eef1ff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 24px; background: var(--bg); color: var(--ink);
+    font: 15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  main { max-width: 1120px; margin: 0 auto; }
+  h1 { font-size: 24px; margin: 0 0 4px; }
+  h2 { font-size: 17px; margin: 0 0 12px; }
+  h3 { font-size: 14px; margin: 18px 0 8px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+  p { margin: 0 0 10px; }
+  .sub { color: var(--muted); margin-bottom: 18px; }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px; margin-bottom: 18px; }
+  .honesty { background: #fff8e8; border-color: #e8d49a; }
+  .honesty ul { margin: 6px 0 0; padding-left: 20px; }
+  .honesty li { margin-bottom: 4px; }
+  #drop {
+    border: 2px dashed var(--line); border-radius: 10px; padding: 26px;
+    text-align: center; color: var(--muted); background: #fcfcff; cursor: pointer;
+  }
+  #drop.over { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 12px; }
+  button {
+    font: inherit; padding: 8px 14px; border-radius: 7px; border: 1px solid var(--accent);
+    background: var(--accent); color: #fff; cursor: pointer;
+  }
+  button.ghost { background: #fff; color: var(--accent); }
+  button:disabled { opacity: .5; cursor: progress; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { text-align: left; padding: 6px 9px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .03em; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; }
+  pre { background: #f4f4f8; border: 1px solid var(--line); border-radius: 8px; padding: 12px; overflow: auto; max-height: 420px; white-space: pre-wrap; }
+  .panes { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .tag { display: inline-block; padding: 1px 7px; border-radius: 20px; font-size: 12px; border: 1px solid var(--line); }
+  .tag.user { background: var(--accent-soft); border-color: #b9c2f0; color: var(--accent); }
+  .tag.ok { background: #e8f5ee; border-color: #a9d8bf; color: var(--ok); }
+  .tag.warn { background: #fdf3e0; border-color: #e3c78e; color: var(--warn); }
+  .tag.bad { background: #fdeceb; border-color: #eab3ae; color: var(--bad); }
+  .error { background: #fdeceb; border: 1px solid #eab3ae; color: var(--bad); border-radius: 8px; padding: 12px; margin-top: 12px; }
+  .hidden { display: none; }
+  .note { color: var(--muted); font-size: 13px; }
+  ul.spans { margin: 0; padding-left: 20px; font-family: ui-monospace, Menlo, monospace; font-size: 13px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Glossaire de l'organisation → transcript corrigé</h1>
+  <p class="sub">
+    Déposez un glossaire d'acronymes en texte brut. La page rejoue le même
+    pipeline que <code>celery_worker</code> —
+    <code>resolve_speaker_identities_and_apply_to</code> →
+    <code>correct_acronyms(user_glossary=…)</code> →
+    <code>format_transcript</code> — sur le transcript mocké <code>flow-1-technique</code>,
+    avec et sans glossaire.
+  </p>
+
+  <section class="honesty">
+    <h2>Honnêteté — à lire d'abord</h2>
+    <ul>
+      <li><strong>Le transcript et les participants sont fabriqués.</strong> Le JSON WhisperX,
+          l'invitation <code>.ics</code> et les quatre noms sont des mocks écrits pour cette
+          démonstration. Aucune vraie réunion n'est passée dans ce pipeline.</li>
+      <li>La vérité terrain est <code>errors.json</code>, écrite <em>avant</em> la mesure.
+          Ce sont nos propres erreurs, donc des chiffres synthétiques.</li>
+      <li>Le glossaire d'exemple a été figé avant la mesure et n'a pas été retouché après
+          avoir vu le score.</li>
+      <li>Les réponses d'Albert sont mises en cache sur disque. Une décision inédite
+          (glossaire différent) est un vrai appel réseau ; si Albert est injoignable,
+          la page affiche l'erreur au lieu de planter.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>1. Charger un glossaire</h2>
+    <div id="drop">
+      <strong>Déposez le fichier ici</strong><br>
+      <span class="note">ou cliquez pour choisir un fichier — texte brut uniquement
+      (<code>.txt</code>, <code>.csv</code>, ou sans extension)</span>
+      <input type="file" id="file" accept=".txt,.csv,.text,.list" class="hidden">
+    </div>
+    <div class="row">
+      <button id="btn-sample" class="ghost">Charger le glossaire d'exemple</button>
+      <button id="btn-control" class="ghost">Lancer sans glossaire (témoin)</button>
+      <span id="status" class="note"></span>
+    </div>
+    <div id="error" class="error hidden"></div>
+  </section>
+
+  <section id="glossary-card" class="hidden">
+    <h2>2. Glossaire lu</h2>
+    <p class="note" id="glossary-count"></p>
+    <table>
+      <thead><tr><th>Acronyme</th><th>Développé</th></tr></thead>
+      <tbody id="glossary-body"></tbody>
+    </table>
+    <div id="skipped-card" class="hidden">
+      <h3>Lignes ignorées</h3>
+      <ul class="spans" id="skipped-body"></ul>
+    </div>
+  </section>
+
+  <section id="degraded-card" class="hidden error">
+    <h2>⚠ Passage dégradé — à ne pas lire comme un résultat</h2>
+    <p>
+      Une ou plusieurs décisions ont échoué. <code>_decide</code> rattrape ses propres
+      exceptions et rend <code>(None, 0.0)</code> : l'étape échoue <strong>en silence</strong>
+      et le passage revient avec moins de corrections, sans erreur. Les avertissements
+      correspondants :
+    </p>
+    <ul class="spans" id="degraded-body"></ul>
+  </section>
+
+  <section id="score-card" class="hidden">
+    <h2>3. Score contre <code>errors.json</code></h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Passage</th>
+          <th class="num">corrigées</th>
+          <th class="num">sous le seuil</th>
+          <th class="num">manquées</th>
+          <th class="num">faux positifs</th>
+        </tr>
+      </thead>
+      <tbody id="score-body"></tbody>
+    </table>
+    <p class="note" id="score-note"></p>
+
+    <h3>Détail, erreur par erreur</h3>
+    <table>
+      <thead>
+        <tr><th>id</th><th>Whisper a écrit</th><th>attendu</th><th>résultat</th><th>confiance</th><th>source</th></tr>
+      </thead>
+      <tbody id="detail-body"></tbody>
+    </table>
+
+    <h3>Faux positifs</h3>
+    <div id="fp-body"></div>
+  </section>
+
+  <section id="corrections-card" class="hidden">
+    <h2>4. Corrections décidées</h2>
+    <p class="note">
+      Chaque ligne : ce que Whisper a écrit, l'acronyme retenu, la confiance rendue par le
+      modèle, et si la correction a été appliquée au document. Le seuil est lu dans
+      <code>acronym_correction_min_confidence</code>.
+    </p>
+    <table>
+      <thead>
+        <tr><th>Whisper a écrit</th><th>acronyme retenu</th><th class="num">confiance</th><th>appliquée</th><th>source</th><th>phrase</th></tr>
+      </thead>
+      <tbody id="corrections-body"></tbody>
+    </table>
+
+    <h3>Étape 1 — passages signalés par le modèle</h3>
+    <p class="note">
+      Le glossaire n'agit qu'à l'étape 2 (liste de candidats et prompt de décision). Un
+      passage que l'étape 1 n'a jamais signalé ne peut pas être rattrapé par un glossaire,
+      quel qu'il soit.
+    </p>
+    <ul class="spans" id="spans-body"></ul>
+  </section>
+
+  <section id="transcript-card" class="hidden">
+    <h2>5. Avant / après</h2>
+    <div class="panes">
+      <div>
+        <h3>Avant — les deux fonctionnalités désactivées</h3>
+        <pre id="before-pane">(chargement…)</pre>
+      </div>
+      <div>
+        <h3 id="after-title">Après</h3>
+        <pre id="after-pane"></pre>
+      </div>
+    </div>
+  </section>
+
+  <section id="publish-card" class="hidden">
+    <h2>6. Publier dans Docs</h2>
+    <p class="note">
+      Crée un troisième document La Suite Docs à partir du passage affiché. Volontairement
+      derrière un bouton : publier à chaque dépôt encombrerait Docs d'un document par essai.
+    </p>
+    <div class="row">
+      <button id="btn-publish">Publier dans Docs</button>
+      <span id="publish-status" class="note"></span>
+    </div>
+  </section>
+</main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const state = { control: null, glossary: null, shown: null };
+
+function setStatus(text) { $("status").textContent = text; }
+function showError(text) { $("error").textContent = text; $("error").classList.remove("hidden"); }
+function clearError() { $("error").classList.add("hidden"); $("error").textContent = ""; }
+function busy(on) { document.querySelectorAll("button").forEach((b) => { b.disabled = on; }); }
+
+async function loadBefore() {
+  const response = await fetch("/api/before");
+  const data = await response.json();
+  $("before-pane").textContent = data.error ? data.error : data.markdown;
+}
+
+async function runWith(file) {
+  clearError();
+  busy(true);
+  setStatus(file ? "Correction en cours avec le glossaire…" : "Passage témoin en cours…");
+  const body = new FormData();
+  if (file) body.append("file", file);
+  let data;
+  try {
+    const response = await fetch("/api/run", { method: "POST", body });
+    data = await response.json();
+  } catch (err) {
+    busy(false); setStatus(""); showError("Le serveur de démo n'a pas répondu : " + err);
+    return;
+  }
+  busy(false);
+  setStatus("");
+  if (data.error) {
+    showError(data.error + (data.skipped ? "\n" + data.skipped.join("\n") : ""));
+    return;
+  }
+  if (data.with_glossary) { state.glossary = data; } else { state.control = data; }
+  state.shown = data;
+  render(data);
+}
+
+function render(data) {
+  if (data.with_glossary) {
+    $("glossary-card").classList.remove("hidden");
+    $("glossary-count").textContent =
+      data.glossary.length + " entrée(s) lue(s) dans le fichier déposé.";
+    $("glossary-body").innerHTML = data.glossary
+      .map((e) => `<tr><td><code>${esc(e.acronym)}</code></td><td>${esc(e.expansion)}</td></tr>`)
+      .join("");
+    if (data.skipped.length) {
+      $("skipped-card").classList.remove("hidden");
+      $("skipped-body").innerHTML = data.skipped.map((s) => `<li>${esc(s)}</li>`).join("");
+    } else {
+      $("skipped-card").classList.add("hidden");
+    }
+  }
+
+  const warnings = data.warnings || [];
+  if (warnings.length) {
+    $("degraded-card").classList.remove("hidden");
+    $("degraded-body").innerHTML = warnings.map((w) => `<li>${esc(w)}</li>`).join("");
+  } else {
+    $("degraded-card").classList.add("hidden");
+  }
+
+  $("score-card").classList.remove("hidden");
+  const rows = [];
+  if (state.control) rows.push(["sans glossaire (témoin)", state.control.counts]);
+  if (state.glossary) rows.push(["avec le glossaire déposé", state.glossary.counts]);
+  $("score-body").innerHTML = rows
+    .map(([label, c]) => `<tr><td>${esc(label)}</td>` +
+      `<td class="num"><strong>${c.caught}</strong> / ${c.in_scope}</td>` +
+      `<td class="num">${c.below_floor}</td><td class="num">${c.missed}</td>` +
+      `<td class="num">${c.false_positives}</td></tr>`)
+    .join("");
+  $("score-note").textContent =
+    "Seuil d'application : " + data.min_confidence +
+    ". Une correction trouvée mais sous le seuil est remontée dans la liste d'audit et " +
+    "n'est PAS appliquée au document.";
+
+  $("detail-body").innerHTML = data.rows.map((r) => {
+    const tag = r.verdict === "corrigée" ? "ok" : (r.verdict === "sous le seuil" ? "warn" : "bad");
+    const source = r.from_user
+      ? '<span class="tag user">glossaire de l\'organisation</span>'
+      : (r.in_shipped_glossary ? '<span class="tag">glossaire livré</span>' : '<span class="tag">absent des glossaires</span>');
+    return `<tr><td>${esc(r.id)}</td><td><code>${esc(r.wrong)}</code></td>` +
+      `<td><strong>${esc(r.correct)}</strong></td>` +
+      `<td><span class="tag ${tag}">${esc(r.verdict)}</span></td>` +
+      `<td class="num">${r.confidence === null ? "—" : r.confidence.toFixed(2)}</td>` +
+      `<td>${source}</td></tr>`;
+  }).join("");
+
+  $("fp-body").innerHTML = data.false_positives.length
+    ? `<table><thead><tr><th>mot remplacé</th><th>par</th><th class="num">confiance</th><th>appliquée</th><th>source</th></tr></thead><tbody>` +
+      data.false_positives.map((f) =>
+        `<tr><td><code>${esc(f.wrong)}</code></td><td><strong>${esc(f.correct)}</strong></td>` +
+        `<td class="num">${f.confidence.toFixed(2)}</td>` +
+        `<td>${f.applied ? '<span class="tag bad">oui</span>' : '<span class="tag">non</span>'}</td>` +
+        `<td>${f.from_user ? '<span class="tag user">glossaire de l\'organisation</span>' : '<span class="tag">glossaire livré</span>'}</td></tr>`
+      ).join("") + "</tbody></table>"
+    : '<p class="note"><span class="tag ok">zéro faux positif</span> sur ce passage.</p>';
+
+  $("corrections-card").classList.remove("hidden");
+  $("corrections-body").innerHTML = data.corrections.map((c) =>
+    `<tr><td><code>${esc(c.wrong)}</code></td><td><strong>${esc(c.correct)}</strong></td>` +
+    `<td class="num">${c.confidence.toFixed(2)}</td>` +
+    `<td>${c.applied ? '<span class="tag ok">appliquée</span>' : '<span class="tag warn">non appliquée</span>'}</td>` +
+    `<td>${c.from_user ? '<span class="tag user">glossaire de l\'organisation</span>' : '<span class="tag">glossaire livré</span>'}</td>` +
+    `<td class="note">${esc(c.sentence)}</td></tr>`).join("");
+
+  $("spans-body").innerHTML = data.flagged_spans.length
+    ? data.flagged_spans.map((s) => `<li>${esc(s)}</li>`).join("")
+    : "<li>(aucun passage signalé)</li>";
+
+  $("transcript-card").classList.remove("hidden");
+  $("after-title").textContent = data.with_glossary
+    ? "Après — avec le glossaire de l'organisation"
+    : "Après — sans glossaire (comportement actuel du service)";
+  $("after-pane").textContent = data.markdown;
+
+  $("publish-card").classList.remove("hidden");
+  $("publish-status").textContent = "";
+}
+
+const drop = $("drop");
+drop.addEventListener("click", () => $("file").click());
+$("file").addEventListener("change", (event) => {
+  if (event.target.files.length) runWith(event.target.files[0]);
+});
+["dragenter", "dragover"].forEach((name) =>
+  drop.addEventListener(name, (event) => { event.preventDefault(); drop.classList.add("over"); }));
+["dragleave", "drop"].forEach((name) =>
+  drop.addEventListener(name, (event) => { event.preventDefault(); drop.classList.remove("over"); }));
+drop.addEventListener("drop", (event) => {
+  const file = event.dataTransfer.files[0];
+  if (file) runWith(file);
+});
+
+$("btn-sample").addEventListener("click", async () => {
+  const response = await fetch("/api/sample");
+  const data = await response.json();
+  runWith(new File([data.text], data.filename, { type: "text/plain" }));
+});
+
+$("btn-control").addEventListener("click", () => runWith(null));
+
+$("btn-publish").addEventListener("click", async () => {
+  busy(true);
+  $("publish-status").textContent = "Publication…";
+  const response = await fetch("/api/publish", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ which: state.shown && state.shown.with_glossary ? "with" : "without" }),
+  });
+  const data = await response.json();
+  busy(false);
+  $("publish-status").innerHTML = data.error
+    ? `<span class="tag bad">${esc(data.error)}</span>`
+    : `Document créé : <a href="${esc(data.url)}" target="_blank">${esc(data.url)}</a>`;
+});
+
+loadBefore();
+</script>
+</body>
+</html>

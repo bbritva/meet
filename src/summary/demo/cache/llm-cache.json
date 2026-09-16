@@ -4,6 +4,11 @@
   "name": "acronym-decide",
   "reply": "{\"choix\": \"Keycloak\", \"confiance\": 0.95}"
  },
+ "07fb97d51fd4bf2978ef4e9ab72401da6f0b669b2214fc35fb29272e4967a761": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\n  \"choix\": \"Menshen\",\n  \"confiance\": 0.9\n}"
+ },
  "10d7076ead4601f9bf2cd57c663634529be7b1fa3fdeefa9dd1fbe982835266e": {
   "model": "openweight-large",
   "name": "acronym-decide",
@@ -49,10 +54,25 @@
   "name": "acronym-detect",
   "reply": "{\"suspects\":[]}"
  },
+ "3713472916ad8991980aadc013518ec45fe1611a6577ec90e71894f15bd83e60": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\"choix\": \"CRDT\", \"confiance\": 0.95}"
+ },
+ "393a1817a980bc97972e15871dec03f7f53f5e709b9e4078f9e2bfe62082a5ad": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\"choix\":\"WOPI\",\"confiance\":0.9}"
+ },
  "3d486ada9a19d4e62e1b91db7d6f0940bd79dbbd05c830e3356ba2a9e9b6d91f": {
   "model": "openweight-large",
   "name": "acronym-decide",
   "reply": "{\"choix\": \"OIDC\", \"confiance\": 0.95}"
+ },
+ "3e069a990faee8a99473dff3e982bb01c1a4a63e088897fa266bfc38ceeaaa13": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\n  \"choix\": \"Keycloak\",\n  \"confiance\": 0.95\n}"
  },
  "3f3997037419e634b5a5b0278971f1c0df5cd7a770f3844bbf3cdb07b32acf03": {
   "model": "openweight-large",
@@ -179,6 +199,11 @@
   "name": "acronym-detect",
   "reply": "{\"suspects\":[]}"
  },
+ "c8c9e6550d95d3b61e075f7a241a38ae37cf738b791b1304319311e8f485feb3": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\"choix\": \"Yjs\", \"confiance\": 0.95}"
+ },
  "cd961e093c6e981e2f5cb38659f1d2e806ab500457a722554ef828fa329c51be": {
   "model": "openweight-large",
   "name": "speaker-cues",
@@ -194,10 +219,20 @@
   "name": "speaker-cues",
   "reply": "[{\"index\":12,\"type\":\"self_id\",\"name\":\"Mathilde Roux\",\"raw\":\"Mathilde, bonjour. Est-ce que ça se voit côté utilisateur ?\"},{\"index\":13,\"type\":\"none\",\"name\":null,\"raw\":\"Oui, une latence de deux à trois secondes à la reprise.\"},{\"index\":14,\"type\":\"none\",\"name\":null,\"raw\":\"Ce n'est pas bloquant, mais c'est visible, surtout sur les documents partagés à plus de dix personnes.\"},{\"index\":15,\"type\":\"none\",\"name\":null,\"raw\":\"On le garde en risque ouvert pour l'instant.\"},{\"index\":16,\"type\":\"handoff\",\"name\":\"Karim Sahli\",\"raw\":\"Karim, le stockage ?\"},{\"index\":17,\"type\":\"self_id\",\"name\":\"Karim Sahli\",\"raw\":\"Karim, bonjour à tous. Les deux applications écrivent dans mini eau, mais avec deux conventions de nommage différentes.\"},{\"index\":18,\"type\":\"none\",\"name\":null,\"raw\":\"Drive préfixe les objets par identifiant d'espace, Docs par identifiant de document.\"},{\"index\":19,\"type\":\"none\",\"name\":null,\"raw\":\"Pour la sauvegarde et pour la purge, ça complique beaucoup le tri.\"},{\"index\":20,\"type\":\"none\",\"name\":null,\"raw\":\"On ne sait pas dire, aujourd'hui, quels objets appartiennent à quel service.\"},{\"index\":21,\"type\":\"none\",\"name\":null,\"raw\":\"Et pour Drive, on passe toujours par whoopee pour l'édition bureautique ?\"},{\"index\":22,\"type\":\"none\",\"name\":null,\"raw\":\"Oui. Le protocole impose son propre système de jetons, donc on se retrouve avec deux chaînes d'autorisation en parallèle.\"},{\"index\":23,\"type\":\"none\",\"name\":null,\"raw\":\"C'est le principal point de dette technique sur cette partie.\"}]"
  },
+ "e34b2c97b070f60e62c0897a3f98a4c0cafba52f0cf2175704fc0d8f87c58e3c": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\"choix\": \"DICOM\", \"confiance\": 0.7}"
+ },
  "e8c7220900feed110eeea672cfaa34f823b9e0e152a298fe23cc13dd65157e05": {
   "model": "openweight-large",
   "name": "acronym-detect",
   "reply": "{\"suspects\":[]}"
+ },
+ "ecd78382a80315a55420816f8bbc6a0c9c204bf88c368eb78096fb3ed74e4543": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\"choix\": \"MinIO\", \"confiance\": 0.86}"
  },
  "ef355494cb5b8878317cdf3948abcc7ff3fb62bb0fac26210e0dd2e7a7d98b40": {
   "model": "openweight-large",

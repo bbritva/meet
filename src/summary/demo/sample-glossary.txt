@@ -1,0 +1,39 @@
+# Glossaire d'acronymes — exemple pour la démonstration.
+#
+# Un fichier texte, une entrée par ligne. Trois séparateurs sont acceptés,
+# volontairement mélangés ici pour montrer que l'analyseur les tolère :
+#
+#     ACRONYME=développé
+#     ACRONYME;développé
+#     ACRONYME: développé
+#
+# Les lignes vides et les lignes commençant par « # » sont ignorées.
+# Les espaces autour de l'acronyme et du développé sont supprimés.
+#
+# Ce fichier est figé : il a été écrit AVANT la mesure et n'a pas été
+# retouché ensuite. Ajuster les développés après avoir vu le score
+# reviendrait à régler la démo pour qu'elle flatte le résultat.
+#
+# La casse des clés reprend celle du glossaire livré avec le service
+# (`summary/core/data/acronyms.json`). `build_index` fait un
+# `dict.update` sans normalisation : « Typst » remplace l'entrée livrée,
+# « TYPST » en créerait une deuxième, en double.
+
+# --- les cinq que la mesure de référence n'a pas corrigés ---
+DINUM=Direction interministérielle du numérique
+Typst=Moteur de composition de documents, utilisé pour générer nos PDF
+Docspec;Micro-service de conversion de documents de La Suite
+BlockNote: Éditeur de texte riche par blocs, socle de l'éditeur de Docs
+Grist=Tableur relationnel open source
+
+# --- autres termes du vocabulaire La Suite ---
+Yjs=Bibliothèque CRDT JavaScript pour l'édition collaborative
+CRDT;Type de données répliqué sans conflit
+MinIO: Stockage objet compatible S3
+Keycloak=Serveur d'identité OpenID Connect
+Menshen=Service d'échange de jetons OAuth 2.0
+WOPI;Web Application Open Platform Interface
+Visio: Service de visioconférence de La Suite numérique
+Docs=Éditeur de documents collaboratif de La Suite numérique
+Tchap=Messagerie instantanée interministérielle
+Albert;Passerelle vers les modèles de langage de l'État
