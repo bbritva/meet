@@ -50,7 +50,12 @@ MAX_WINDOW_WORDS = 4
 
 # Words looked at on each side of a flagged passage: the LLM usually reports a
 # span slightly wider or narrower than the actual error.
-WINDOW_MARGIN = 1
+# Words of context added either side of the passage stage 1 flagged. Zero: the
+# detector's span is trusted exactly. A margin lets stage 2 invent windows that
+# were never flagged -- on "Côté dix nomme" the three-word window matches COTRIM
+# (0.70), claims the words, and blocks the correct "dix nomme" -> DINUM (0.80).
+# Measured on the mocks: margin 0 raises recall from 47% to 56% at equal precision.
+WINDOW_MARGIN = 0
 # An acronym supplied by the organisation outranks one mined from public corpora:
 # the uploader knows their own vocabulary. Large enough to beat a phonetic near-tie
 # (DINUM 0.80 vs DICOM 0.80), small enough not to force a clearly worse match.

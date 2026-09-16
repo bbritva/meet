@@ -341,3 +341,19 @@ def test_no_user_glossary_reuses_the_cached_index():
     assert (
         acronym_correction.build_index(None) is acronym_correction.get_acronym_index()
     )
+
+
+def test_context_words_do_not_create_wider_windows(index):
+    """Stage 1's span is trusted: a neighbouring word cannot join the match.
+
+    With a margin, "Côté dix nomme" is tried as a window, matches a worse
+    acronym and swallows the words of the correct one.
+    """
+    words = [make_word("Côté", 0.0), make_word("dix", 0.5), make_word("nomme", 1.0)]
+
+    # stage 1 flagged only "dix nomme": words 1-2
+    shortlist, where = _shortlist(index, words, 1, 2)
+
+    assert [acronym for acronym, _ in shortlist] == ["DINUM"]
+    assert where["DINUM"] == ("dix nomme", 1, 2)
+    assert all("Côté" not in matched[0] for matched in where.values())
