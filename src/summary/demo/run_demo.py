@@ -1,4 +1,4 @@
-"""Before / after demo for the two transcript-quality features.
+r"""Before / after demo for the two transcript-quality features.
 
 Runs one mocked WhisperX transcript through the pipeline twice and pushes both
 results to La Suite Docs as two documents.
@@ -44,7 +44,9 @@ Usage (inside `celery-summary-transcribe`, where `/app` is `src/summary`):
 
 # A demo script is one long linear story on purpose; splitting it into
 # helpers would hide the order of operations the demo is about.
-# ruff: noqa: PLR0912, PLR0913, PLR0915, T201
+# The long lines are markdown table rows inside the README template:
+# wrapping them would break the table.
+# ruff: noqa: PLR0912, PLR0913, PLR0915, PLR0917, T201, E501
 
 from __future__ import annotations
 
@@ -91,7 +93,9 @@ class Flags:
     is_acronym_correction_enabled: bool
 
 
-BEFORE = Flags(is_resolve_speaker_cues_enabled=False, is_acronym_correction_enabled=False)
+BEFORE = Flags(
+    is_resolve_speaker_cues_enabled=False, is_acronym_correction_enabled=False
+)
 AFTER = Flags(is_resolve_speaker_cues_enabled=True, is_acronym_correction_enabled=True)
 
 
@@ -162,6 +166,7 @@ class LogCapture(logging.Handler):
     """Keeps the INFO lines that prove each stage actually ran."""
 
     def __init__(self):
+        """Start with an empty buffer, at INFO."""
         super().__init__(level=logging.INFO)
         self.lines: list[str] = []
 
@@ -169,7 +174,7 @@ class LogCapture(logging.Handler):
         """Store the formatted message."""
         try:
             self.lines.append(record.getMessage())
-        except Exception:  # pragma: no cover - a broken log line is not fatal
+        except Exception:  # noqa: S110  a broken log line must not stop the demo
             pass
 
 
@@ -181,6 +186,7 @@ class DocIdCapture(logging.Handler):
     """
 
     def __init__(self):
+        """Start with no ids collected, at INFO."""
         super().__init__(level=logging.INFO)
         self.ids: list[str] = []
 
@@ -346,7 +352,7 @@ def speaker_score(before_transcription, after_transcription, errors):
         rows.append((index, label, expected, got, got == expected))
 
     seen: dict[str, tuple] = {}
-    for index, label, expected, got, ok in rows:
+    for _index, label, expected, got, ok in rows:
         seen.setdefault(label, (label, expected, got, ok))
     return sorted(seen.values())
 
@@ -384,7 +390,9 @@ def score(corrections, errors):
             continue
         index, correction = match
         used.add(index)
-        right = correction["correct"].strip().lower() == error["correct"].strip().lower()
+        right = (
+            correction["correct"].strip().lower() == error["correct"].strip().lower()
+        )
         if right and correction["applied"]:
             caught.append((error, correction))
         elif right:
@@ -484,7 +492,7 @@ def build_report(context) -> str:
     add("")
 
     add("## 3. Preuve par acronyme\n")
-    add("Format : `ACRONYME ← \"ce que Whisper a écrit\", confiance, appliqué ou non`\n")
+    add('Format : `ACRONYME ← "ce que Whisper a écrit", confiance, appliqué ou non`\n')
     add("### Appliqués (confiance ≥ %.2f)\n" % context["min_confidence"])
     add("```")
     for line in context["applied"] or ["(aucun)"]:
@@ -515,8 +523,14 @@ def build_report(context) -> str:
     )
     add("| Résultat | Nombre |")
     add("|---|---|")
-    add("| corrigées (appliquées, bonne réponse) | **%d / %d** |" % (len(result["caught"]), len(result["in_scope"])))
-    add("| bonne réponse mais sous le seuil (non appliquée) | %d |" % len(result["below_floor"]))
+    add(
+        "| corrigées (appliquées, bonne réponse) | **%d / %d** |"
+        % (len(result["caught"]), len(result["in_scope"]))
+    )
+    add(
+        "| bonne réponse mais sous le seuil (non appliquée) | %d |"
+        % len(result["below_floor"])
+    )
     add("| manquées | %d |" % len(result["missed"]))
     add("| faux positifs | %d |" % len(result["false_positives"]))
     add("")
@@ -528,13 +542,21 @@ def build_report(context) -> str:
     for error, correction in result["caught"]:
         verdicts[error["id"]] = "corrigée (%.2f)" % correction["confidence"]
     for error, correction in result["below_floor"]:
-        verdicts[error["id"]] = "trouvée mais sous le seuil (%.2f) — non appliquée" % correction["confidence"]
+        verdicts[error["id"]] = (
+            "trouvée mais sous le seuil (%.2f) — non appliquée"
+            % correction["confidence"]
+        )
     for error in result["missed"]:
         verdicts.setdefault(error["id"], "manquée")
     for error in result["in_scope"]:
         add(
             "| %s | %s | %s | %s |"
-            % (error["id"], error["wrong"], error["correct"], verdicts.get(error["id"], "manquée"))
+            % (
+                error["id"],
+                error["wrong"],
+                error["correct"],
+                verdicts.get(error["id"], "manquée"),
+            )
         )
     add("")
 
@@ -592,7 +614,10 @@ def build_report(context) -> str:
     add("| id | Whisper a écrit | attendu | type |")
     add("|---|---|---|---|")
     for error in result["out_of_scope"]:
-        add("| %s | %s | %s | %s |" % (error["id"], error["wrong"], error["correct"], error["type"]))
+        add(
+            "| %s | %s | %s | %s |"
+            % (error["id"], error["wrong"], error["correct"], error["type"])
+        )
     add("")
     add(
         "Ce sont deux nombres (`treize`→`trente`, `dix-huit`→`dix-sept`) et un nom"
@@ -608,9 +633,7 @@ def build_report(context) -> str:
         " indice de nom, le résolveur n'attribue rien.\n"
     )
     refusal = context["refusal"]
-    add(
-        "- participants invités : %s" % ", ".join(refusal["attendees"])
-    )
+    add("- participants invités : %s" % ", ".join(refusal["attendees"]))
     add("- labels dans la transcription : %s" % ", ".join(refusal["labels"]))
     add("- noms attribués : **%s**" % (", ".join(refusal["assigned"]) or "aucun"))
     add("- labels laissés en `SPEAKER_XX` : **%s**" % ", ".join(refusal["unassigned"]))
@@ -639,8 +662,14 @@ def build_report(context) -> str:
         " transforme tout défaut de cache en erreur :\n"
     )
     add("```")
-    add("passage 1 : %d réponses lues en cache, %d appels à Albert" % (context["stats1"]["hits"], context["stats1"]["misses"]))
-    add("passage 2 (--offline, tout défaut de cache = erreur) : %d en cache, %d appels" % (context["stats2"]["hits"], context["stats2"]["misses"]))
+    add(
+        "passage 1 : %d réponses lues en cache, %d appels à Albert"
+        % (context["stats1"]["hits"], context["stats1"]["misses"])
+    )
+    add(
+        "passage 2 (--offline, tout défaut de cache = erreur) : %d en cache, %d appels"
+        % (context["stats2"]["hits"], context["stats2"]["misses"])
+    )
     add("markdown identique entre les deux passages : %s" % context["replay_identical"])
     add("```")
     add("")
@@ -684,7 +713,12 @@ def variance_section() -> str:
             continue
         with open(path, encoding="utf-8") as handle:
             text = handle.read()
-        numbers = re.findall(r"^\| (?:corrigées|bonne réponse|manquées|faux positifs)[^|]*\| \*{0,2}([0-9]+)", text, re.M)
+        numbers = re.findall(
+            r"^\| (?:corrigées|bonne réponse|manquées|faux positifs)"
+            r"[^|]*\| \*{0,2}([0-9]+)",
+            text,
+            re.M,
+        )
         if len(numbers) == 4:
             out.append("| %s | %s | %s | %s | %s |" % (label, *numbers))
         block = re.search(r"### Sous le seuil.*?```\n(.*?)```", text, re.S)
@@ -860,8 +894,10 @@ def main() -> int:
     WhisperXResponse.model_validate(raw)
 
     print("=" * 78)
-    print("Entrée : mocks/flow-1-technique — %d segments, %d participants invités"
-          % (len(raw["segments"]), len(attendees)))
+    print(
+        "Entrée : mocks/flow-1-technique — %d segments, %d participants invités"
+        % (len(raw["segments"]), len(attendees))
+    )
     print("Modèle : %s (Albert)" % settings.llm_model)
     print("PAS de métadonnées VAD : c'est la situation Dictaphone.")
     print("=" * 78)
@@ -875,7 +911,9 @@ def main() -> int:
         "demo-before",
         "fr",
     )
-    with open(os.path.join(OUT_DIR, "flow-1-before.md"), "w", encoding="utf-8") as handle:
+    with open(
+        os.path.join(OUT_DIR, "flow-1-before.md"), "w", encoding="utf-8"
+    ) as handle:
         handle.write(before.markdown)
 
     # ---------------- AFTER -----------------
@@ -892,7 +930,9 @@ def main() -> int:
         "hits": STATS["hits"] - stats_before_after["hits"],
         "misses": STATS["misses"] - stats_before_after["misses"],
     }
-    with open(os.path.join(OUT_DIR, "flow-1-after.md"), "w", encoding="utf-8") as handle:
+    with open(
+        os.path.join(OUT_DIR, "flow-1-after.md"), "w", encoding="utf-8"
+    ) as handle:
         handle.write(after.markdown)
 
     if after.markdown == before.markdown:
@@ -931,7 +971,9 @@ def main() -> int:
         celery_worker,
         WhisperXResponse.model_validate(case_raw),
         case_attendees,
-        Flags(is_resolve_speaker_cues_enabled=True, is_acronym_correction_enabled=False),
+        Flags(
+            is_resolve_speaker_cues_enabled=True, is_acronym_correction_enabled=False
+        ),
         "demo-refusal",
         "fr",
     )
@@ -962,7 +1004,9 @@ def main() -> int:
         "rejeté %-11s %s" % (label, reason)
         for label, reason in (refusal_run.trace.rejected if refusal_run.trace else [])
     ]
-    with open(os.path.join(OUT_DIR, "06-no-cues-after.md"), "w", encoding="utf-8") as handle:
+    with open(
+        os.path.join(OUT_DIR, "06-no-cues-after.md"), "w", encoding="utf-8"
+    ) as handle:
         handle.write(refusal_run.markdown)
 
     # ---------------- evidence ---------------
@@ -1031,8 +1075,12 @@ def main() -> int:
         "stats1": stats1,
         "stats2": stats2,
         "replay_identical": "oui" if replay.markdown == after.markdown else "NON",
-        "logs": [line for line in logs.lines if "resolution for task" in line.lower()
-                 or line.startswith("Acronym correction")],
+        "logs": [
+            line
+            for line in logs.lines
+            if "resolution for task" in line.lower()
+            or line.startswith("Acronym correction")
+        ],
     }
 
     report = build_report(context)
@@ -1055,7 +1103,9 @@ def main() -> int:
         )
 
     print()
-    print("Écrit : demo/README.md, demo/out/report.md, demo/out/flow-1-{before,after}.md")
+    print(
+        "Écrit : demo/README.md, demo/out/report.md, demo/out/flow-1-{before,after}.md"
+    )
     return 0
 
 

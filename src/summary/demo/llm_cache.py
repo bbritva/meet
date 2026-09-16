@@ -99,7 +99,9 @@ class CachingLLMService:
         if directory:
             os.makedirs(directory, exist_ok=True)
         with open(self._path, "w", encoding="utf-8") as handle:
-            json.dump(self._entries, handle, ensure_ascii=False, indent=1, sort_keys=True)
+            json.dump(
+                self._entries, handle, ensure_ascii=False, indent=1, sort_keys=True
+            )
 
     def call(
         self,
@@ -117,7 +119,8 @@ class CachingLLMService:
 
         if self._offline:
             raise CacheMiss(
-                "offline run: no cached answer for a %r call (key %s)" % (name, key[:12])
+                "offline run: no cached answer for a %r call (key %s)"
+                % (name, key[:12])
             )
 
         reply = self._service().call(
