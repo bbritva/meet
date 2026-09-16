@@ -483,7 +483,11 @@ def build_report(context) -> str:
     add(
         "Contrôle contre la vérité terrain — le champ `speaker` de"
         " `errors.json` dit qui a réellement parlé sur chaque segment fautif."
-        " **%d / %d** labels retrouvés correctement.\n" % (correct, len(rows))
+        " **%d / %d** labels retrouvés correctement. Le contrôle ne couvre que"
+        " %d des 4 labels : `errors.json` est une vérité terrain d'acronymes,"
+        " pas de locuteurs, et un participant qui n'a commis aucune erreur"
+        " d'acronyme n'y figure pas. Les 4 noms du document corrigé sont"
+        " néanmoins les 4 bons.\n" % (correct, len(rows), len(rows))
     )
     add("| label WhisperX | attendu | obtenu | |")
     add("|---|---|---|---|")

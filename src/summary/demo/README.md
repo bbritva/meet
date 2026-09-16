@@ -96,7 +96,7 @@ Nadia Berger ← self_id, « Ici Nadia. », segment 1 (confiance 0.95, label SPE
 
 Labels laissés en `SPEAKER_XX` dans le document corrigé : **aucun**
 
-Contrôle contre la vérité terrain — le champ `speaker` de `errors.json` dit qui a réellement parlé sur chaque segment fautif. **3 / 3** labels retrouvés correctement.
+Contrôle contre la vérité terrain — le champ `speaker` de `errors.json` dit qui a réellement parlé sur chaque segment fautif. **3 / 3** labels retrouvés correctement. Le contrôle ne couvre que 3 des 4 labels : `errors.json` est une vérité terrain d'acronymes, pas de locuteurs, et un participant qui n'a commis aucune erreur d'acronyme n'y figure pas. Les 4 noms du document corrigé sont néanmoins les 4 bons.
 
 | label WhisperX | attendu | obtenu | |
 |---|---|---|---|
