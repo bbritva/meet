@@ -44,6 +44,26 @@ all applied here, after the answer comes back:
      P in the third person somewhere else in the meeting. The model answers
      one segment at a time and cannot see that it just contradicted itself.
 
+Measured accuracy
+-----------------
+Three corpora, all synthetic, ordered from most to least flattering:
+
+  * **self-identification heavy** (cases 01-12): precision 1.00, recall 0.74;
+  * **handoff-dense** (13-18): precision 0.80, recall 0.44. Handoff-only
+    recall 0.47. Built one-failure-mode-per-case, so this is a worst case;
+  * **long and realistic** (19-21, 25-28 min, ~1 cue per speaker becomes 3-5):
+    **precision 0.92, recall 0.79**, handoff-only recall 0.80. This is the
+    closest thing we have to a real meeting and the number to quote.
+
+Recall on handoffs is roughly half that on self-identifications, because a
+self-id is an observation ("Ici Camille" — the speaker IS Camille) while a
+handoff is a prediction about who speaks next, and meetings interrupt.
+
+The limit is DETECTION, not arbitration. The model sees 73 of 108 ground-truth
+cues (regex sees 31). A global bipartite assignment and a closed-set
+elimination rule were both implemented and measured: the first changed one
+label in 63 runs, the second never fired in 42. Neither is shipped.
+
 What it misses, measured on the held-out cases 07-12
 ----------------------------------------------------
 Five labels out of nineteen, in three families:
@@ -68,8 +88,8 @@ came back as a `handoff` with `name: null`. Rule 4 of the prompt (say nothing
 rather than risk a wrong name) firing where it did not need to.
 
 `temperature=0` does not make this reproducible: two cold runs both scored
-14/19 with perfect precision, on different labels. The committed cache freezes
-one draw.
+14/19 on cases 07-12, on DIFFERENT labels. Every figure above is one draw;
+treat them as +/- one label per case. The committed cache freezes that draw.
 
 Caching
 -------
