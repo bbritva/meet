@@ -12,6 +12,10 @@ explain it. Falling through to the cue resolver is strictly better: it can only
 add names the VAD path was never going to produce.
 """
 
+# The signature names every input a resolver can use, on purpose: the
+# whole job of this module is choosing between them.
+# ruff: noqa: PLR0913
+
 from __future__ import annotations
 
 import logging

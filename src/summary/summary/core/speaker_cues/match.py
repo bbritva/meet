@@ -83,6 +83,7 @@ class SpanMatch:
 
     @property
     def best(self) -> Candidate | None:
+        """The strongest candidate, or None when the span matched nobody."""
         return self.candidates[0] if self.candidates else None
 
     @property

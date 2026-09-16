@@ -40,6 +40,11 @@ Three rules exist purely for precision:
     into two confident guesses.
 """
 
+# The knobs are deliberately explicit rather than a config object: this
+# is the measured contract of the resolver, and every default here is a
+# number the corpus justified.
+# ruff: noqa: PLR0912, PLR0913, PLR0917
+
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -228,7 +233,7 @@ def resolve_speaker_identities_from_cues(
     trace = trace if trace is not None else ResolutionTrace()
     if detector == "llm":
         # Imported here so the regex path never pays for the network module.
-        from summary.core.speaker_cues.llm_cues import detect_cues_llm
+        from summary.core.speaker_cues.llm_cues import detect_cues_llm  # noqa: PLC0415
 
         trace.cues = detect_cues_llm(
             segments,

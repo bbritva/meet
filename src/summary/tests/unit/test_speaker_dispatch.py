@@ -69,7 +69,10 @@ def _metadata_from(transcript):
 
 
 class Dispatch(unittest.TestCase):
+    """Dispatch."""
+
     def test_metadata_present_uses_vad(self):
+        """Metadata present uses vad."""
         transcript = _transcript()
         metadata, start, end = _metadata_from(transcript)
         got = resolve_speakers(
@@ -87,6 +90,7 @@ class Dispatch(unittest.TestCase):
         )
 
     def test_no_metadata_uses_cues(self):
+        """No metadata uses cues."""
         got = resolve_speakers(_transcript(), attendees=ATTENDEES)
         self.assertEqual(got.source, CUES)
         self.assertFalse(got.fell_back)
@@ -96,6 +100,7 @@ class Dispatch(unittest.TestCase):
         )
 
     def test_unusable_metadata_falls_back_to_cues(self):
+        """Unusable metadata falls back to cues."""
         # metadata present but the events are junk -> VAD yields nothing
         got = resolve_speakers(
             _transcript(),
@@ -109,6 +114,7 @@ class Dispatch(unittest.TestCase):
         self.assertTrue(got.result.assignments)
 
     def test_broken_metadata_does_not_crash(self):
+        """Broken metadata does not crash."""
         got = resolve_speakers(
             _transcript(),
             metadata={"events": [{"nope": 1}], "participants": []},
@@ -119,6 +125,7 @@ class Dispatch(unittest.TestCase):
         self.assertEqual(got.source, CUES)
 
     def test_neither_input_leaves_every_label_unassigned(self):
+        """Neither input leaves every label unassigned."""
         transcript = _transcript()
         got = resolve_speakers(transcript)
         self.assertEqual(got.source, NONE)
@@ -127,6 +134,7 @@ class Dispatch(unittest.TestCase):
         self.assertEqual(sorted(got.result.unassigned_speakers), labels)
 
     def test_fallback_can_be_disabled(self):
+        """Fallback can be disabled."""
         got = resolve_speakers(
             _transcript(),
             metadata={"events": [], "participants": []},

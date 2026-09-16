@@ -80,6 +80,11 @@ cache committed, `score.py` runs offline and reproduces the published numbers
 exactly.
 """
 
+# Wide signatures are the injection points the tests rely on (transport,
+# cache, batch size, ceiling), and the branchiness is the defensive
+# parsing and the guards. Both are the point of the module.
+# ruff: noqa: PLR0911, PLR0912, PLR0913, PLR0917
+
 import hashlib
 import json
 import logging
@@ -237,6 +242,7 @@ class SegmentCache:
     """
 
     def __init__(self, path: str | None = DEFAULT_CACHE_PATH):
+        """Load the cache at `path`, or start an empty in-memory one."""
         self.path = path
         self.entries: dict[str, dict] = {}
         self.dirty = False
@@ -248,6 +254,7 @@ class SegmentCache:
 
     @staticmethod
     def key(model: str, roster: list[str], text: str) -> str:
+        """Return the cache key for one segment under one roster."""
         blob = json.dumps(
             [PROMPT_VERSION, model, roster, text],
             ensure_ascii=False,
@@ -256,6 +263,7 @@ class SegmentCache:
         return hashlib.sha256(blob.encode("utf-8")).hexdigest()
 
     def get(self, key: str) -> dict | None:
+        """Return the cached answer for `key`, or None, counting the hit."""
         entry = self.entries.get(key)
         if entry is None:
             self.misses += 1
@@ -264,10 +272,12 @@ class SegmentCache:
         return entry
 
     def set(self, key: str, value: dict) -> None:
+        """Store one answer, marking the cache dirty."""
         self.entries[key] = value
         self.dirty = True
 
     def save(self) -> None:
+        """Write the cache back to disk, if it has a path and has changed."""
         if not (self.path and self.dirty):
             return
         with open(self.path, "w", encoding="utf-8") as handle:
@@ -638,10 +648,12 @@ def detect_cues_llm(
     missing = [i for i in range(len(segments)) if i not in answers]
     fallback_cues: list[Cue] = []
     if missing:
-        from summary.core.speaker_cues.cues import detect_cues as _regex_detect
+        from summary.core.speaker_cues.cues import (  # noqa: PLC0415
+            detect_cues as _regex_detect,
+        )
 
         window = [segments[i] for i in missing]
-        remap = {local: original for local, original in enumerate(missing)}
+        remap = dict(enumerate(missing))
         for cue in _regex_detect(
             window, attendees, allow_unknown_self_id=allow_unknown_self_id
         ):

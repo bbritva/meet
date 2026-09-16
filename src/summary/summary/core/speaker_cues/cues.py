@@ -29,7 +29,13 @@ corpus, so any self-identification whose name is preceded by substitution
 phrasing is demoted to ``mention``.
 """
 
+# The detector is a long linear scan over one closed list of French
+# templates. Splitting it to satisfy a complexity budget would scatter
+# rules that are only correct read in order, so it stays as measured.
+# ruff: noqa: PLR0912, PLR0913, PLR0915, PLR0917
+
 import re
+import unicodedata
 from dataclasses import dataclass, field
 
 from summary.core.speaker_cues.match import (
@@ -276,8 +282,6 @@ def tokenize(text: str) -> list[Token]:
 
 
 def _strip_accents_lower(text: str) -> str:
-    import unicodedata
-
     decomposed = unicodedata.normalize("NFD", text.lower())
     return "".join(c for c in decomposed if unicodedata.category(c) != "Mn")
 
@@ -450,7 +454,7 @@ def _detect_in_segment(
     def take(span: tuple[int, int]) -> None:
         consumed.update(range(span[0], span[1]))
 
-    for position, token in enumerate(tokens):
+    for position in range(len(tokens)):
         trigger = _self_id_trigger(tokens, position)
         if trigger is None:
             continue
@@ -522,7 +526,7 @@ def _detect_in_segment(
             )
             take(unknown_span)
 
-    for position, token in enumerate(tokens):
+    for position in range(len(tokens)):
         trigger_name = _handoff_trigger(tokens, position)
         if trigger_name is None:
             continue

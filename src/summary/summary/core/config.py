@@ -185,6 +185,23 @@ class Settings(BaseSettings):
         return self
 
     @model_validator(mode="after")
+    def validate_speaker_cues_detector(self):
+        """Validate the cue detector name.
+
+        Caught at startup rather than per task: the resolver raises on an
+        unknown detector, and the worker logs and skips speaker assignment on
+        any error, so a typo here would silently disable the feature instead
+        of failing.
+        """
+        allowed = ("regex", "llm")
+        if self.resolve_speaker_cues_detector not in allowed:
+            raise ValueError(
+                f"resolve_speaker_cues_detector must be one of {allowed}, got"
+                f" '{self.resolve_speaker_cues_detector}'"
+            )
+        return self
+
+    @model_validator(mode="after")
     def validate_docs_config(self):
         """Validate docs integration configuration."""
         if not self.is_lasuite_docs_integration_enabled:
