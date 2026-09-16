@@ -34,9 +34,9 @@ class DispatchResult:
     """What came back, and which resolver produced it."""
 
     result: AssignmentResult
-    source: str                    # VAD | CUES | NONE
-    reason: str                    # why this path was taken, for logs and tests
-    fell_back: bool = False        # the VAD path was tried and did not work
+    source: str  # VAD | CUES | NONE
+    reason: str  # why this path was taken, for logs and tests
+    fell_back: bool = False  # the VAD path was tried and did not work
 
 
 def _is_useful(result: AssignmentResult | None) -> bool:
@@ -60,7 +60,9 @@ def resolve_speakers(
     """
     cue_options = dict(cue_options or {})
 
-    have_vad = bool(metadata) and recording_start is not None and recording_end is not None
+    have_vad = (
+        bool(metadata) and recording_start is not None and recording_end is not None
+    )
     have_cues = bool(attendees)
 
     if have_vad:
@@ -68,8 +70,10 @@ def resolve_speakers(
             vad = resolve_speaker_identities(
                 metadata, transcription, recording_start, recording_end
             )
-        except Exception as error:                      # noqa: BLE001
-            logger.warning("VAD assignment failed (%s); considering the cue path", error)
+        except Exception as error:
+            logger.warning(
+                "VAD assignment failed (%s); considering the cue path", error
+            )
             vad = None
 
         if _is_useful(vad):
@@ -88,10 +92,13 @@ def resolve_speakers(
         reason = "no usable metadata" if not have_vad else "VAD produced nothing"
         return DispatchResult(cues, CUES, reason, fell_back=have_vad)
 
-    labels = sorted({
-        seg.get("speaker") for seg in (transcription.get("segments") or [])
-        if seg.get("speaker")
-    })
+    labels = sorted(
+        {
+            seg.get("speaker")
+            for seg in (transcription.get("segments") or [])
+            if seg.get("speaker")
+        }
+    )
     return DispatchResult(
         AssignmentResult(assignments=[], unassigned_speakers=labels),
         NONE,

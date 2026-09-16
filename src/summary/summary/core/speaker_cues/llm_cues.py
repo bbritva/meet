@@ -217,8 +217,9 @@ def build_user_prompt(batch: list[tuple[int, str, str]]) -> str:
     """
     lines = ["Segments à analyser :", ""]
     for index, speaker, text in batch:
-        lines.append("[%d] (%s) %s" % (index, speaker or "SPEAKER_??",
-                                       (text or "").strip()))
+        lines.append(
+            "[%d] (%s) %s" % (index, speaker or "SPEAKER_??", (text or "").strip())
+        )
     return "\n".join(lines)
 
 
@@ -249,7 +250,8 @@ class SegmentCache:
     def key(model: str, roster: list[str], text: str) -> str:
         blob = json.dumps(
             [PROMPT_VERSION, model, roster, text],
-            ensure_ascii=False, sort_keys=True,
+            ensure_ascii=False,
+            sort_keys=True,
         )
         return hashlib.sha256(blob.encode("utf-8")).hexdigest()
 
@@ -269,8 +271,9 @@ class SegmentCache:
         if not (self.path and self.dirty):
             return
         with open(self.path, "w", encoding="utf-8") as handle:
-            json.dump(self.entries, handle, ensure_ascii=False,
-                      indent=1, sort_keys=True)
+            json.dump(
+                self.entries, handle, ensure_ascii=False, indent=1, sort_keys=True
+            )
             handle.write("\n")
         self.dirty = False
 
@@ -426,9 +429,7 @@ def classify_segments(
             try:
                 reply = complete(system, build_user_prompt(batch))
             except LLMException as error:
-                raise LLMUnavailable(
-                    "the LLM is unreachable: %s" % error
-                ) from error
+                raise LLMUnavailable("the LLM is unreachable: %s" % error) from error
             elapsed += time.time() - began
             calls += 1
             answers = parse_response(reply, indices)
@@ -444,15 +445,17 @@ def classify_segments(
         cache.save()
 
     if stats is not None:
-        stats.update({
-            "calls": calls,
-            "segments": len(segments),
-            "asked": len(todo),
-            "cache_hits": cache.hits,
-            "seconds": round(elapsed, 2),
-            "capped": capped,
-            "max_calls": max_calls,
-        })
+        stats.update(
+            {
+                "calls": calls,
+                "segments": len(segments),
+                "asked": len(todo),
+                "cache_hits": cache.hits,
+                "seconds": round(elapsed, 2),
+                "capped": capped,
+                "max_calls": max_calls,
+            }
+        )
     return results
 
 
@@ -518,7 +521,8 @@ def cue_from_answer(
                 candidates=[c.name for c in match.candidates],
                 reason=(
                     "third-person mention: proves the person exists, nothing else"
-                    if kind == MENTION else ""
+                    if kind == MENTION
+                    else ""
                 ),
             ),
             "",
@@ -528,7 +532,8 @@ def cue_from_answer(
     # the invite never heard of -- and only a name-shaped one.
     if kind is not SELF_ID:
         return None, "%r is not on the roster and the cue is a %s -- rejected" % (
-            name, answer["type"],
+            name,
+            answer["type"],
         )
     if not allow_unknown_self_id:
         return None, "%r is not on the roster and out-of-roster self-id is off" % name
@@ -579,16 +584,17 @@ def drop_self_contradictions(
     for cue in cues:
         if cue.kind is SELF_ID and cue.name in mentioned.get(cue.speaker, ()):
             if rejected is not None:
-                rejected.append((
-                    cue.speaker,
-                    "segment %d: self_id %r dropped -- the same voice mentions "
-                    "%s in the third person elsewhere"
-                    % (cue.segment_index, cue.span, cue.name),
-                ))
+                rejected.append(
+                    (
+                        cue.speaker,
+                        "segment %d: self_id %r dropped -- the same voice mentions "
+                        "%s in the third person elsewhere"
+                        % (cue.segment_index, cue.span, cue.name),
+                    )
+                )
             continue
         kept.append(cue)
     return kept
-
 
 
 def transport_from_llm_service(llm_service, name: str = "speaker-cues"):
@@ -611,6 +617,7 @@ def transport_from_llm_service(llm_service, name: str = "speaker-cues"):
 
     return complete
 
+
 def detect_cues_llm(
     segments: list[dict],
     attendees: list[dict[str, str]],
@@ -632,6 +639,7 @@ def detect_cues_llm(
     fallback_cues: list[Cue] = []
     if missing:
         from summary.core.speaker_cues.cues import detect_cues as _regex_detect
+
         window = [segments[i] for i in missing]
         remap = {local: original for local, original in enumerate(missing)}
         for cue in _regex_detect(
@@ -646,12 +654,16 @@ def detect_cues_llm(
         if not answer:
             continue
         cue, reason = cue_from_answer(
-            index, segment, answer, attendees,
+            index,
+            segment,
+            answer,
+            attendees,
             allow_unknown_self_id=allow_unknown_self_id,
         )
         if cue is not None:
             cues.append(cue)
         elif reason and rejected is not None:
-            rejected.append((segment.get("speaker") or "", "segment %d: %s"
-                             % (index, reason)))
+            rejected.append(
+                (segment.get("speaker") or "", "segment %d: %s" % (index, reason))
+            )
     return drop_self_contradictions(cues, rejected)

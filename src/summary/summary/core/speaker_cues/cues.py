@@ -44,7 +44,7 @@ SELF_ID = "self_id"
 HANDOFF = "handoff"
 MENTION = "mention"
 
-_PUNCT = ".,;:!?…«»\"()[]–—"
+_PUNCT = '.,;:!?…«»"()[]–—'
 #: Punctuation that ends a sentence, as opposed to merely separating inside
 #: one. The difference matters: a template may reach across the comma of
 #: "Gaël Prigent, bonjour", but never across the full stop of "...parlé à
@@ -57,27 +57,139 @@ _EXACT_ONLY = 1.01
 
 #: Words that cannot start a name. This is the "C'est un / le / la" guard.
 _FUNCTION_WORDS = {
-    "le", "la", "les", "l", "un", "une", "des", "du", "de", "d", "ce", "cet",
-    "cette", "ces", "c", "mon", "ma", "mes", "ton", "ta", "tes", "son", "sa",
-    "ses", "notre", "nos", "votre", "vos", "leur", "leurs", "je", "j", "tu",
-    "il", "elle", "on", "nous", "vous", "ils", "elles", "me", "te", "se", "y",
-    "en", "que", "qu", "qui", "quoi", "dont", "ou", "et", "mais", "donc",
-    "or", "ni", "car", "ne", "n", "pas", "plus", "moins", "tres", "bien",
-    "deja", "encore", "toujours", "jamais", "aussi", "alors", "apres",
-    "avant", "pour", "par", "sur", "sous", "dans", "avec", "sans", "chez",
-    "vers", "entre", "a", "au", "aux", "si", "tout", "toute", "tous",
-    "toutes", "meme", "comme", "quand", "lors", "ainsi", "exactement",
-    "simplement", "vraiment", "surtout", "peut", "etre", "il", "cela", "ca",
-    "rien", "trop", "assez", "autre", "autres", "beaucoup", "possible",
-    "normal", "clair", "faux", "vrai",
+    "le",
+    "la",
+    "les",
+    "l",
+    "un",
+    "une",
+    "des",
+    "du",
+    "de",
+    "d",
+    "ce",
+    "cet",
+    "cette",
+    "ces",
+    "c",
+    "mon",
+    "ma",
+    "mes",
+    "ton",
+    "ta",
+    "tes",
+    "son",
+    "sa",
+    "ses",
+    "notre",
+    "nos",
+    "votre",
+    "vos",
+    "leur",
+    "leurs",
+    "je",
+    "j",
+    "tu",
+    "il",
+    "elle",
+    "on",
+    "nous",
+    "vous",
+    "ils",
+    "elles",
+    "me",
+    "te",
+    "se",
+    "y",
+    "en",
+    "que",
+    "qu",
+    "qui",
+    "quoi",
+    "dont",
+    "ou",
+    "et",
+    "mais",
+    "donc",
+    "or",
+    "ni",
+    "car",
+    "ne",
+    "n",
+    "pas",
+    "plus",
+    "moins",
+    "tres",
+    "bien",
+    "deja",
+    "encore",
+    "toujours",
+    "jamais",
+    "aussi",
+    "alors",
+    "apres",
+    "avant",
+    "pour",
+    "par",
+    "sur",
+    "sous",
+    "dans",
+    "avec",
+    "sans",
+    "chez",
+    "vers",
+    "entre",
+    "a",
+    "au",
+    "aux",
+    "si",
+    "tout",
+    "toute",
+    "tous",
+    "toutes",
+    "meme",
+    "comme",
+    "quand",
+    "lors",
+    "ainsi",
+    "exactement",
+    "simplement",
+    "vraiment",
+    "surtout",
+    "peut",
+    "etre",
+    "cela",
+    "ca",
+    "rien",
+    "trop",
+    "assez",
+    "autre",
+    "autres",
+    "beaucoup",
+    "possible",
+    "normal",
+    "clair",
+    "faux",
+    "vrai",
 }
 
 #: Phrasings that put somebody else's name in the current speaker's mouth.
 _SUBSTITUTION = (
-    "je remplace", "je le remplace", "je la remplace", "en remplacement de",
-    "a la place de", "au nom de", "de la part de", "pour le compte de",
-    "je represente", "je parle pour", "je parle au nom", "je supplee",
-    "je viens a la place", "je prends la suite de", "je reprends le dossier de",
+    "je remplace",
+    "je le remplace",
+    "je la remplace",
+    "en remplacement de",
+    "a la place de",
+    "au nom de",
+    "de la part de",
+    "pour le compte de",
+    "je represente",
+    "je parle pour",
+    "je parle au nom",
+    "je supplee",
+    "je viens a la place",
+    "je prends la suite de",
+    "je reprends le dossier de",
 )
 
 _MAX_SPAN_TOKENS = 3
@@ -150,9 +262,7 @@ def tokenize(text: str) -> list[Token]:
         trail = piece[len(piece.rstrip(_PUNCT)) :]
         token = Token(
             raw=stripped,
-            norm=re.sub(
-                r"[^a-z']", "", _strip_accents_lower(stripped)
-            ),
+            norm=re.sub(r"[^a-z']", "", _strip_accents_lower(stripped)),
             index=len(tokens),
             brk_before=pending_break or bool(lead),
             brk_after=bool(trail),
@@ -264,9 +374,13 @@ def _resolve_span(
         if not match.candidates:
             continue
         score = match.candidates[0].score
-        if best_match is None or score > best_match.candidates[0].score or (
-            score == best_match.candidates[0].score
-            and (span[1] - span[0]) > (best_span[1] - best_span[0])
+        if (
+            best_match is None
+            or score > best_match.candidates[0].score
+            or (
+                score == best_match.candidates[0].score
+                and (span[1] - span[0]) > (best_span[1] - best_span[0])
+            )
         ):
             best_span, best_match = span, match
     return best_span, best_match
@@ -353,8 +467,15 @@ def _detect_in_segment(
         if span is not None:
             if _is_substituted(tokens, span[0]):
                 cue = _make_cue(
-                    MENTION, index, speaker, tokens, span, match,
-                    trigger_name, quote_lo, quote_hi,
+                    MENTION,
+                    index,
+                    speaker,
+                    tokens,
+                    span,
+                    match,
+                    trigger_name,
+                    quote_lo,
+                    quote_hi,
                 )
                 cue.reason = "first-person substitution: the speaker is not this person"
                 cues.append(cue)
@@ -362,8 +483,15 @@ def _detect_in_segment(
                 continue
             cues.append(
                 _make_cue(
-                    SELF_ID, index, speaker, tokens, span, match,
-                    trigger_name, quote_lo, quote_hi,
+                    SELF_ID,
+                    index,
+                    speaker,
+                    tokens,
+                    span,
+                    match,
+                    trigger_name,
+                    quote_lo,
+                    quote_hi,
                 )
             )
             take(span)
@@ -413,19 +541,35 @@ def _detect_in_segment(
             continue
         cues.append(
             _make_cue(
-                HANDOFF, index, speaker, tokens, span, match,
-                trigger_name, span[0], position + 3,
+                HANDOFF,
+                index,
+                speaker,
+                tokens,
+                span,
+                match,
+                trigger_name,
+                span[0],
+                position + 3,
             )
         )
         take(span)
 
     for span in _remaining_name_spans(tokens, consumed, attendees):
-        match = match_span(_text_of(tokens, span), attendees, fuzzy_threshold=_EXACT_ONLY)
+        match = match_span(
+            _text_of(tokens, span), attendees, fuzzy_threshold=_EXACT_ONLY
+        )
         if not match.candidates:
             continue
         cue = _make_cue(
-            MENTION, index, speaker, tokens, span, match, "third-person",
-            max(0, span[0] - 3), span[1] + 3,
+            MENTION,
+            index,
+            speaker,
+            tokens,
+            span,
+            match,
+            "third-person",
+            max(0, span[0] - 3),
+            span[1] + 3,
         )
         cue.reason = "third-person mention: proves the person exists, nothing else"
         cues.append(cue)
@@ -433,9 +577,7 @@ def _detect_in_segment(
     return cues
 
 
-def _self_id_trigger(
-    tokens: list[Token], position: int
-) -> tuple[str, str, int] | None:
+def _self_id_trigger(tokens: list[Token], position: int) -> tuple[str, str, int] | None:
     """Return (direction, template name, end index) if a self-id template fires."""
     token = tokens[position]
     nxt = tokens[position + 1] if position + 1 < len(tokens) else None

@@ -255,8 +255,7 @@ def _read_recording_metadata(
         )
     except FileServiceException as exc:
         logger.error(
-            "Error reading metadata for task %s; falling back to name cues."
-            " Error: %s",
+            "Error reading metadata for task %s; falling back to name cues. Error: %s",
             task_id,
             exc,
         )

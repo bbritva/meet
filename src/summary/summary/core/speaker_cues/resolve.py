@@ -112,9 +112,7 @@ def _noisy_or(scores: list[float]) -> float:
     return min(combined, 0.99)
 
 
-def _handoff_target(
-    segments: list[dict], cue: Cue, lookahead: int
-) -> str | None:
+def _handoff_target(segments: list[dict], cue: Cue, lookahead: int) -> str | None:
     """The next different speaker after the segment that carried the handoff."""
     for index in range(cue.segment_index + 1, len(segments)):
         speaker = segments[index].get("speaker")
@@ -277,7 +275,11 @@ def resolve_speaker_identities_from_cues(
             continue
         if score < confidence_threshold:
             trace.rejected.append(
-                (speaker, "confidence %.2f below threshold %.2f" % (score, confidence_threshold))
+                (
+                    speaker,
+                    "confidence %.2f below threshold %.2f"
+                    % (score, confidence_threshold),
+                )
             )
             continue
         claims[speaker] = SpeakerAssignment(
