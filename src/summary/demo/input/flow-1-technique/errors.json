@@ -1,0 +1,270 @@
+{
+  "errors": [
+    {
+      "id": "e1",
+      "wrong": "dix nomme",
+      "correct": "DINUM",
+      "segment_index": 5,
+      "word_indices": [
+        5,
+        6
+      ],
+      "start": 37.391,
+      "end": 38.194,
+      "scores": [
+        0.94,
+        0.91
+      ],
+      "type": "pronounced",
+      "speaker": "Julien Perrot"
+    },
+    {
+      "id": "e2",
+      "wrong": "y grec js",
+      "correct": "Yjs",
+      "segment_index": 6,
+      "word_indices": [
+        8,
+        9,
+        10
+      ],
+      "start": 46.106,
+      "end": 47.059,
+      "scores": [
+        0.35,
+        0.41,
+        0.52
+      ],
+      "type": "spelled",
+      "speaker": "Julien Perrot"
+    },
+    {
+      "id": "e3",
+      "wrong": "serre des thés",
+      "correct": "CRDT",
+      "segment_index": 7,
+      "word_indices": [
+        7,
+        8,
+        9
+      ],
+      "start": 50.188,
+      "end": 51.467,
+      "scores": [
+        0.52,
+        0.47,
+        0.58
+      ],
+      "type": "spelled",
+      "speaker": "Julien Perrot"
+    },
+    {
+      "id": "e4",
+      "wrong": "treize",
+      "correct": "trente",
+      "segment_index": 10,
+      "word_indices": [
+        4
+      ],
+      "start": 72.25,
+      "end": 72.699,
+      "scores": [
+        0.9
+      ],
+      "type": "number",
+      "speaker": "Julien Perrot"
+    },
+    {
+      "id": "e5",
+      "wrong": "mini eau",
+      "correct": "MinIO",
+      "segment_index": 17,
+      "word_indices": [
+        9,
+        10
+      ],
+      "start": 124.435,
+      "end": 125.104,
+      "scores": [
+        0.44,
+        0.39
+      ],
+      "type": "pronounced",
+      "speaker": "Karim Sahli"
+    },
+    {
+      "id": "e6",
+      "wrong": "whoopee",
+      "correct": "WOPI",
+      "segment_index": 21,
+      "word_indices": [
+        7
+      ],
+      "start": 150.565,
+      "end": 151.003,
+      "scores": [
+        0.87
+      ],
+      "type": "pronounced",
+      "speaker": "Mathilde Roux"
+    },
+    {
+      "id": "e7",
+      "wrong": "qui cloaque",
+      "correct": "Keycloak",
+      "segment_index": 26,
+      "word_indices": [
+        4,
+        5
+      ],
+      "start": 184.99,
+      "end": 185.763,
+      "scores": [
+        0.88,
+        0.92
+      ],
+      "type": "pronounced",
+      "speaker": "Julien Perrot"
+    },
+    {
+      "id": "e8",
+      "wrong": "oh idée sait",
+      "correct": "OIDC",
+      "segment_index": 27,
+      "word_indices": [
+        6,
+        7,
+        8
+      ],
+      "start": 190.563,
+      "end": 191.601,
+      "scores": [
+        0.38,
+        0.42,
+        0.35
+      ],
+      "type": "spelled",
+      "speaker": "Julien Perrot"
+    },
+    {
+      "id": "e9",
+      "wrong": "main chêne",
+      "correct": "Menshen",
+      "segment_index": 30,
+      "word_indices": [
+        3,
+        4
+      ],
+      "start": 212.129,
+      "end": 212.916,
+      "scores": [
+        0.9,
+        0.86
+      ],
+      "type": "pronounced",
+      "speaker": "Julien Perrot"
+    },
+    {
+      "id": "e10",
+      "wrong": "dix-huit",
+      "correct": "dix-sept",
+      "segment_index": 36,
+      "word_indices": [
+        2
+      ],
+      "start": 253.243,
+      "end": 253.731,
+      "scores": [
+        0.66
+      ],
+      "type": "number",
+      "speaker": "Mathilde Roux"
+    },
+    {
+      "id": "e11",
+      "wrong": "type est",
+      "correct": "Typst",
+      "segment_index": 38,
+      "word_indices": [
+        3,
+        4
+      ],
+      "start": 262.758,
+      "end": 263.478,
+      "scores": [
+        0.49,
+        0.43
+      ],
+      "type": "pronounced",
+      "speaker": "Mathilde Roux"
+    },
+    {
+      "id": "e12",
+      "wrong": "Marie-Anne",
+      "correct": "Marianne",
+      "segment_index": 38,
+      "word_indices": [
+        12
+      ],
+      "start": 266.6,
+      "end": 267.114,
+      "scores": [
+        0.81
+      ],
+      "type": "proper_noun",
+      "speaker": "Mathilde Roux"
+    },
+    {
+      "id": "e13",
+      "wrong": "dos pecs",
+      "correct": "Docspec",
+      "segment_index": 41,
+      "word_indices": [
+        12,
+        13
+      ],
+      "start": 292.436,
+      "end": 293.31,
+      "scores": [
+        0.86,
+        0.9
+      ],
+      "type": "pronounced",
+      "speaker": "Mathilde Roux"
+    },
+    {
+      "id": "e14",
+      "wrong": "bloc note",
+      "correct": "BlockNote",
+      "segment_index": 42,
+      "word_indices": [
+        9,
+        10
+      ],
+      "start": 302.515,
+      "end": 303.265,
+      "scores": [
+        0.58,
+        0.55
+      ],
+      "type": "pronounced",
+      "speaker": "Julien Perrot"
+    },
+    {
+      "id": "e15",
+      "wrong": "Christ",
+      "correct": "Grist",
+      "segment_index": 46,
+      "word_indices": [
+        7
+      ],
+      "start": 326.328,
+      "end": 326.812,
+      "scores": [
+        0.93
+      ],
+      "type": "pronounced",
+      "speaker": "Mathilde Roux"
+    }
+  ]
+}

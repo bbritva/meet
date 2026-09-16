@@ -1,0 +1,44 @@
+{
+  "SPEAKER_00": {
+    "name": null,
+    "evidence": "no_cue",
+    "segment_index": null,
+    "quote": null,
+    "confidence": "impossible",
+    "candidates": [
+      "Damien Laroche",
+      "Fabienne Roussel",
+      "Ingrid Hoffmann",
+      "Pascal Nourry"
+    ],
+    "note": "Réellement Fabienne Roussel. Rien dans la transcription ne permet de le déduire : ne pas attribuer est la bonne réponse."
+  },
+  "SPEAKER_01": {
+    "name": null,
+    "evidence": "no_cue",
+    "segment_index": null,
+    "quote": null,
+    "confidence": "impossible",
+    "candidates": [
+      "Damien Laroche",
+      "Fabienne Roussel",
+      "Ingrid Hoffmann",
+      "Pascal Nourry"
+    ],
+    "note": "Réellement Damien Laroche. Rien dans la transcription ne permet de le déduire : ne pas attribuer est la bonne réponse."
+  },
+  "SPEAKER_02": {
+    "name": null,
+    "evidence": "no_cue",
+    "segment_index": null,
+    "quote": null,
+    "confidence": "impossible",
+    "candidates": [
+      "Damien Laroche",
+      "Fabienne Roussel",
+      "Ingrid Hoffmann",
+      "Pascal Nourry"
+    ],
+    "note": "Réellement Ingrid Hoffmann. Rien dans la transcription ne permet de le déduire : ne pas attribuer est la bonne réponse."
+  }
+}

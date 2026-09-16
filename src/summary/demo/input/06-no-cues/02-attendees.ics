@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//DINUM//La Suite Calendars 1.0//FR
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+BEGIN:VEVENT
+UID:c6-88b1470d@calendar.numerique.gouv.fr
+DTSTAMP:20260923T083000Z
+DTSTART:20260926T083000Z
+DTEND:20260926T090000Z
+SUMMARY:Point hebdomadaire — infrastructure et supervision
+LOCATION:https://visio.numerique.gouv.fr/infra-supervision-hebdo
+DESCRIPTION:Réunion en visioconférence. Ordre du jour en pièce jointe.
+ORGANIZER;CN=Fabienne Roussel:mailto:fabienne.roussel@dinum.gouv.fr
+ATTENDEE;CN=Damien Laroche;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;RSVP=TRUE
+ :mailto:damien.laroche@dinum.gouv.fr
+ATTENDEE;CN=Fabienne Roussel;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;RSVP=TR
+ UE:mailto:fabienne.roussel@dinum.gouv.fr
+ATTENDEE;CN=Ingrid Hoffmann;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;RSVP=TRU
+ E:mailto:ingrid.hoffmann@dinum.gouv.fr
+ATTENDEE;CN=Pascal Nourry;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;RSVP=TRUE:
+ mailto:pascal.nourry@dinum.gouv.fr
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//DINUM//La Suite Calendars 1.0//FR
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+BEGIN:VEVENT
+UID:flow1-7c3d91ab@calendar.numerique.gouv.fr
+DTSTAMP:20260914T080000Z
+DTSTART:20260915T080000Z
+DTEND:20260915T084000Z
+SUMMARY:Point d'architecture hebdomadaire — La Suite
+LOCATION:https://visio.numerique.gouv.fr/lasuite-archi-hebdo
+DESCRIPTION:Collaboration temps réel dans Docs\, stockage objet\, mini-app
+ lications.
+ORGANIZER;CN=Nadia Berger:mailto:nadia.berger@dinum.gouv.fr
+ATTENDEE;CN=Julien Perrot;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;RSVP=TRUE:
+ mailto:julien.perrot@dinum.gouv.fr
+ATTENDEE;CN=Karim Sahli;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;RSVP=TRUE:ma
+ ilto:karim.sahli@dinum.gouv.fr
+ATTENDEE;CN=Mathilde Roux;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;RSVP=TRUE:
+ mailto:mathilde.roux@dinum.gouv.fr
+ATTENDEE;CN=Nadia Berger;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;RSVP=TRUE:m
+ ailto:nadia.berger@dinum.gouv.fr
+END:VEVENT
+END:VCALENDAR
