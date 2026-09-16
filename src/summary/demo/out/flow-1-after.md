@@ -2,7 +2,7 @@
 
  **Nadia Berger**:  Bonjour à toutes et à tous.  Ici Nadia. On ouvre le point d'architecture hebdomadaire sur La Suite.  Trois sujets à l'ordre du jour : la collaboration en temps réel dans Docs, le stockage objet, et l'intégration des mini-applications.  On a quarante minutes, donc on garde les débats techniques pour la fin.  Julien, tu démarres ?
 
- **Julien Perrot**:  Bonjour, Julien à l'appareil. Côté dix nomme, la brique de collaboration a bien avancé ce mois-ci.  Le serveur temps réel tourne maintenant entièrement sur y grec js.  Le modèle de données repose sur CRDT, donc la fusion des modifications se fait sans verrou côté serveur.  On a retiré le dernier verrou pessimiste la semaine dernière.
+ **Julien Perrot**:  Bonjour, Julien à l'appareil. Côté dix nomme, la brique de collaboration a bien avancé ce mois-ci.  Le serveur temps réel tourne maintenant entièrement sur Yjs.  Le modèle de données repose sur des CRDT, donc la fusion des modifications se fait sans verrou côté serveur.  On a retiré le dernier verrou pessimiste la semaine dernière.
 
  **Nadia Berger**:  Et la reconnexion après une coupure réseau, c'est réglé ?
 
@@ -14,7 +14,7 @@
 
  **Nadia Berger**:  On le garde en risque ouvert pour l'instant.  Karim, le stockage ?
 
- **Karim Sahli**:  Karim, bonjour à tous. Les deux applications écrivent MinIO avec deux conventions de nommage différentes.  Drive préfixe les objets par identifiant d'espace, Docs par identifiant de document.  Pour la sauvegarde et pour la purge, ça complique beaucoup le tri.  On ne sait pas dire, aujourd'hui, quels objets appartiennent à quel service.
+ **Karim Sahli**:  Karim, bonjour à tous. Les deux applications écrivent dans MinIO, mais avec deux conventions de nommage différentes.  Drive préfixe les objets par identifiant d'espace, Docs par identifiant de document.  Pour la sauvegarde et pour la purge, ça complique beaucoup le tri.  On ne sait pas dire, aujourd'hui, quels objets appartiennent à quel service.
 
  **Mathilde Roux**:  Et pour Drive, on passe toujours par WOPI pour l'édition bureautique ?
 
@@ -26,7 +26,7 @@
 
  **Mathilde Roux**:  Et l'échange de jetons entre applications, on a tranché ?
 
- **Julien Perrot**:  On passe par Menshen implémente l'échange de jetons décrit dans la RFC 8693.  Ça permet à Docs d'appeler l'API de Drive au nom de l'utilisateur, sans redemander une authentification.  C'est encore expérimental, mais la mécanique fonctionne en intégration.
+ **Julien Perrot**:  On passe par Menshen, qui implémente l'échange de jetons décrit dans la RFC 8693.  Ça permet à Docs d'appeler l'API de Drive au nom de l'utilisateur, sans redemander une authentification.  C'est encore expérimental, mais la mécanique fonctionne en intégration.
 
  **Karim Sahli**:  Attention quand même : ce composant n'est pas encore empaqueté pour notre chaîne de déploiement.  Il faudra prévoir un vrai travail d'industrialisation, avec les sondes et les journaux qui vont avec.
 

@@ -443,6 +443,81 @@ HONESTY = """## Honnêteté — à lire avant tout le reste
 """
 
 
+def misses_prose(result, min_confidence: float) -> str:
+    """Explain the misses from what was measured, not from a fixed story.
+
+    This paragraph used to be hard-coded: DINUM missed because the widened
+    window matched COTRIM, and four free-software names absent from the
+    glossary. Both statements became false once `WINDOW_MARGIN` dropped to 0,
+    and a paragraph that contradicts the table above it is worse than no
+    paragraph. Everything that can move between runs is now read back from the
+    score buckets and from the glossary itself.
+    """
+    from summary.core.acronym_correction import (  # noqa: PLC0415
+        get_acronym_glossary,
+    )
+
+    glossary = get_acronym_glossary()
+    known = {key.upper() for key in glossary}
+
+    def label(error) -> str:
+        return "**`%s` → %s (%s)**" % (error["wrong"], error["correct"], error["id"])
+
+    lines = []
+
+    for error, correction in result["below_floor"]:
+        text = (
+            "- %s est **trouvé** à %.2f et remonté dans la liste d'audit, mais"
+            " sous le seuil de %.2f : le document garde le mot de Whisper."
+            % (label(error), correction["confidence"], min_confidence)
+        )
+        if error["id"] == "e1":
+            text += (
+                " C'est un changement de comportement : au passage précédent il"
+                " était **manqué**, parce que la fenêtre élargie « Côté dix"
+                " nomme » matchait COTRIM (0.70), réclamait les mots et bloquait"
+                " « dix nomme » → DINUM. `WINDOW_MARGIN = 0` (commit 28729b37)"
+                " supprime cette fenêtre que personne n'avait signalée, et le bon"
+                " candidat atteint l'arbitrage — sans convaincre le modèle pour"
+                " autant. Corrigé, il ne l'est toujours pas."
+            )
+        lines.append(text + "\n")
+
+    absent = [e for e in result["missed"] if e["correct"].upper() not in known]
+    present = [e for e in result["missed"] if e["correct"].upper() in known]
+
+    if absent:
+        lines.append(
+            "- %s : absents du glossaire administratif de %d entrées. Rien à"
+            " décider si le candidat n'existe pas.\n"
+            % (", ".join(label(error) for error in absent), len(glossary))
+        )
+    if present:
+        lines.append(
+            "- %s : ces entrées **sont** pourtant dans le glossaire de %d"
+            " entrées. Le blocage ne vient donc pas d'un candidat manquant :"
+            " soit l'étape 1 n'a pas signalé le passage, soit le modèle a"
+            " refusé à l'étape 2. La démo n'instrumente pas l'étape 1 et ne"
+            " tranche pas entre les deux.\n"
+            % (", ".join(label(error) for error in present), len(glossary))
+        )
+
+    count = len(result["false_positives"])
+    if count:
+        lines.append(
+            "- **%d faux positif(s)** sur ce transcript : un mot a été remplacé"
+            " par une réponse qui n'est pas celle de la vérité terrain.\n" % count
+        )
+    else:
+        lines.append(
+            "- **Zéro faux positif** sur ce transcript. C'est le sens du"
+            " compromis : le seuil de %.2f est réglé pour la précision, pas"
+            " pour le rappel.\n" % min_confidence
+        )
+
+    return "".join(lines)
+
+
 def build_report(context) -> str:
     """The evidence tables, the score and the refusal case, as markdown."""
     out = []
@@ -457,8 +532,8 @@ def build_report(context) -> str:
     add("")
     add(
         "Captures d'écran des deux documents ouverts dans Docs :"
-        " `/Users/macair/dinum/screenshots/demo-docs-transcript-brut.png` et"
-        " `…-corrige.png`.\n"
+        " `/Users/macair/dinum/screenshots/demo-docs-transcript-brut-v2.png`"
+        " et `…-corrige-v2.png`.\n"
     )
     add(
         "Markdown correspondant, tel qu'il a été poussé :"
@@ -572,11 +647,10 @@ def build_report(context) -> str:
     if over:
         add("### Effet de bord observé : la fenêtre mange des mots voisins\n")
         add(
-            "La même règle de « plus longue fenêtre d'abord » qui fait manquer"
-            " DINUM fait aussi remplacer plus de mots que nécessaire. Le mot"
-            " juste arrive, mais la phrase perd un mot autour. À regarder"
-            " avant toute mise en production — ce n'est pas une invention de"
-            " contenu, c'est une phrase abîmée.\n"
+            "La règle de « plus longue fenêtre d'abord » a remplacé ici plus"
+            " de mots que nécessaire. Le mot juste arrive, mais la phrase perd"
+            " un mot autour. À regarder avant toute mise en production — ce"
+            " n'est pas une invention de contenu, c'est une phrase abîmée.\n"
         )
         add("| attendu | fenêtre réellement remplacée | phrase obtenue |")
         add("|---|---|---|")
@@ -594,25 +668,7 @@ def build_report(context) -> str:
         add("")
 
     add("### Ce qui a été manqué, et pourquoi\n")
-    add(
-        "- **`dix nomme` → DINUM (e1)** est manqué, et c'est un bug connu,"
-        " documenté avant cette démo (`BRIEF-demo-agent-acronyms.md` §10) :"
-        " la fenêtre de 3 mots « Côté dix nomme » ressemble à COTRIM (0.70)"
-        " et, parce que les fenêtres sont réclamées de la plus longue à la"
-        " plus courte, elle bloque la fenêtre de 2 mots qui aurait donné"
-        " DINUM. Le seuil de confiance empêche COTRIM de passer, donc le"
-        " document reste juste — mais l'exemple phare ne se corrige pas.\n"
-        "- **`y grec js` → Yjs (e2)**, **`type est` → Typst (e11)**,"
-        " **`dos pecs` → Docspec (e13)**, **`bloc note` → BlockNote (e14)** :"
-        " ces noms de logiciels libres ne sont pas dans le glossaire"
-        " administratif de 7769 entrées. Rien à décider si le candidat"
-        " n'existe pas.\n"
-        "- **`Christ` → Grist (e15)** dépend du passage : voir la section"
-        " variance plus bas.\n"
-        "- **Zéro faux positif** sur ce transcript. C'est le sens du"
-        " compromis : le seuil de 0,8 est réglé pour la précision, pas pour"
-        " le rappel.\n"
-    )
+    add(misses_prose(result, context["min_confidence"]))
 
     add("### Hors périmètre — la correction d'acronymes ne les vise pas\n")
     add("| id | Whisper a écrit | attendu | type |")

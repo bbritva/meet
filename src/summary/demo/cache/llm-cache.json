@@ -49,6 +49,11 @@
   "name": "acronym-detect",
   "reply": "{\"suspects\":[]}"
  },
+ "3d486ada9a19d4e62e1b91db7d6f0940bd79dbbd05c830e3356ba2a9e9b6d91f": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\"choix\": \"OIDC\", \"confiance\": 0.95}"
+ },
  "3f3997037419e634b5a5b0278971f1c0df5cd7a770f3844bbf3cdb07b32acf03": {
   "model": "openweight-large",
   "name": "acronym-detect",
@@ -89,6 +94,11 @@
   "name": "speaker-cues",
   "reply": "[\n  {\"index\": 12, \"type\": \"none\", \"name\": null, \"raw\": \"La supervision décrit l'infrastructure telle qu'elle était au moment de son installation, pas telle qu'elle est aujourd'hui.\"},\n  {\"index\": 13, \"type\": \"none\", \"name\": null, \"raw\": \"Tant qu'elle n'est pas générée à partir de l'inventaire réel, ça se reproduira.\"},\n  {\"index\": 14, \"type\": \"none\", \"name\": null, \"raw\": \"Est-ce qu'on a un inventaire réel exploitable ?\"},\n  {\"index\": 15, \"type\": \"none\", \"name\": null, \"raw\": \"Partiellement. L'inventaire existe pour les machines virtuelles, pas pour les volumes attachés.\"},\n  {\"index\": 16, \"type\": \"none\", \"name\": null, \"raw\": \"Il faudrait étendre la collecte, ce qui représente une charge de deux à trois semaines, et une modification du droit de lecture\"},\n  {\"index\": 17, \"type\": \"none\", \"name\": null, \"raw\": \"sur l'hyperviseur.\"},\n  {\"index\": 18, \"type\": \"none\", \"name\": null, \"raw\": \"La modification du droit de lecture demande un passage en comité de sécurité, parce que le référentiel de l'ANSSI l'impose.\"},\n  {\"index\": 19, \"type\": \"none\", \"name\": null, \"raw\": \"Ce n'est pas bloquant, mais il faut compter un mois de délai, parce que le comité ne siège qu'une fois par mois.\"},\n  {\"index\": 20, \"type\": \"none\", \"name\": null, \"raw\": \"On lance la demande cette semaine alors, sinon nous serons en février.\"},\n  {\"index\": 21, \"type\": \"none\", \"name\": null, \"raw\": \"Sujet suivant : la fenêtre de maintenance.\"},\n  {\"index\": 22, \"type\": \"none\", \"name\": null, \"raw\": \"Elle est prévue le premier week-end d'octobre.\"},\n  {\"index\": 23, \"type\": \"none\", \"name\": null, \"raw\": \"Trois opérations sont prévues : la montée de version du serveur de bases, le remplacement d'un commutateur, et la rotation des certificats\"}\n]"
  },
+ "650a242b6fa16c537d0c74b7cab5332fd5e547d23a9a7432b5834881f3313e35": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\"choix\": \"Keycloak\", \"confiance\": 0.95}"
+ },
  "665dc2114b4c694154183b8537f0d6689ec20769aef10f94c7d90c18db71e4a8": {
   "model": "openweight-large",
   "name": "acronym-detect",
@@ -104,6 +114,11 @@
   "name": "acronym-detect",
   "reply": "{\"suspects\":[{\"span\":\"dos pecs\"}]}"
  },
+ "72b1e2c72cb915856467bb41a99a40342646f40786de6215b4ecc5e7143af2de": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\n  \"choix\": \"MinIO\",\n  \"confiance\": 0.85\n}"
+ },
  "78627b65458e61094ca48f0c63a32fc437f94883dc38ae51b62187dd28186472": {
   "model": "openweight-large",
   "name": "speaker-cues",
@@ -113,6 +128,16 @@
   "model": "openweight-large",
   "name": "acronym-decide",
   "reply": "{\"choix\":\"OIDC\",\"confiance\":0.93}"
+ },
+ "7abff15c2447b0990d7638ba5d9aa80fb69fe03e30a289759f7537669c833d71": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\"choix\": \"Yjs\", \"confiance\": 0.95}"
+ },
+ "8c1c09fa05e5de978d4f930bf316a32d5c95a5aa3593169af9b80d2685783bbc": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\n  \"choix\": null,\n  \"confiance\": 0.2\n}"
  },
  "8e0dfad63c77ef5587b9cee4af6c830f84669779ca75f19309984b118f173330": {
   "model": "openweight-large",
@@ -133,6 +158,11 @@
   "model": "openweight-large",
   "name": "acronym-detect",
   "reply": "{\"suspects\":[{\"span\":\"qui cloaque\"},{\"span\":\"oh idée sait\"}]}"
+ },
+ "9ccd4076af0a6540c6aeb4fbe8c8119fab5160e0249bdb1ffe93516d7cbbf85b": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\"choix\": \"CRDT\", \"confiance\": 0.95}"
  },
  "a7525a8982efd9543926a198f058fb5b4f13d8c8251d370d8c0954e75ae7239d": {
   "model": "openweight-large",
@@ -173,5 +203,15 @@
   "model": "openweight-large",
   "name": "acronym-detect",
   "reply": "{\"suspects\":[{\"span\":\"dix nomme\"},{\"span\":\"y grec js\"},{\"span\":\"serre des thés\"}]}"
+ },
+ "f1d27aae436765ae3c24121f9a2037aa4b6713184aefa27c478a71d6d0979708": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\n  \"choix\": \"DINUM\",\n  \"confiance\": 0.75\n}"
+ },
+ "f35f9ad09d409b81e0560c88b34ed46b997a824210484d72c1197f244a43fa56": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\n  \"choix\": \"Menshen\",\n  \"confiance\": 0.85\n}"
  }
 }

@@ -1,23 +1,8 @@
 {
- "07dc85465ceeddfce6a3efe0231921b9aed0ac28a14ae575ee9225bbc94b7c94": {
-  "model": "openweight-large",
-  "name": "acronym-decide",
-  "reply": "{\"choix\": \"Keycloak\", \"confiance\": 0.95}"
- },
- "10d7076ead4601f9bf2cd57c663634529be7b1fa3fdeefa9dd1fbe982835266e": {
-  "model": "openweight-large",
-  "name": "acronym-decide",
-  "reply": "{\n  \"choix\": null,\n  \"confiance\": 0.9\n}"
- },
  "11b1be5e1c1b12f7f4e6e7661428505b8ca2e98e227bb57490f57b14764efebf": {
   "model": "openweight-large",
   "name": "speaker-cues",
   "reply": "[\n  {\"index\": 0, \"type\": \"none\", \"name\": null, \"raw\": \"Bonjour à toutes et à tous.\"},\n  {\"index\": 1, \"type\": \"self_id\", \"name\": \"Nadia Berger\", \"raw\": \"Ici Nadia. On ouvre le point d'architecture hebdomadaire sur La Suite.\"},\n  {\"index\": 2, \"type\": \"none\", \"name\": null, \"raw\": \"Trois sujets à l'ordre du jour : la collaboration en temps réel dans Docs, le stockage objet, et l'intégration des mini-applications.\"},\n  {\"index\": 3, \"type\": \"none\", \"name\": null, \"raw\": \"On a quarante minutes, donc on garde les débats techniques pour la fin.\"},\n  {\"index\": 4, \"type\": \"handoff\", \"name\": \"Julien Perrot\", \"raw\": \"Julien, tu démarres ?\"},\n  {\"index\": 5, \"type\": \"self_id\", \"name\": \"Julien Perrot\", \"raw\": \"Bonjour, Julien à l'appareil. Côté dix nomme, la brique de collaboration a bien avancé ce mois-ci.\"},\n  {\"index\": 6, \"type\": \"none\", \"name\": null, \"raw\": \"Le serveur temps réel tourne maintenant entièrement sur y grec js.\"},\n  {\"index\": 7, \"type\": \"none\", \"name\": null, \"raw\": \"Le modèle de données repose sur des serre des thés, donc la fusion des modifications se fait sans verrou côté serveur.\"},\n  {\"index\": 8, \"type\": \"none\", \"name\": null, \"raw\": \"On a retiré le dernier verrou pessimiste la semaine dernière.\"},\n  {\"index\": 9, \"type\": \"none\", \"name\": null, \"raw\": \"Et la reconnexion après une coupure réseau, c'est réglé ?\"},\n  {\"index\": 10, \"type\": \"none\", \"name\": null, \"raw\": \"Pas encore. Au-delà de treize secondes hors ligne, le client renvoie l'état complet du document au lieu d'un delta.\"},\n  {\"index\": 11, \"type\": \"none\", \"name\": null, \"raw\": \"Sur un document long, ça provoque un pic de mémoire côté back-end, et parfois une fusion qui duplique un paragraphe.\"}\n]"
- },
- "14044dc41de844142d680d929156d4659c335baa887c299aed57818d7b67436f": {
-  "model": "openweight-large",
-  "name": "acronym-decide",
-  "reply": "{\n  \"choix\": null,\n  \"confiance\": 0.9\n}"
  },
  "17972fcbd58f14d51453685bdc894d9a6f374598705b75483735fe541e90d11d": {
   "model": "openweight-large",
@@ -27,27 +12,22 @@
  "1e6a4cb404d107a006945483ff17d3450bcd55845303eb961f016770b2c5db49": {
   "model": "openweight-large",
   "name": "speaker-cues",
-  "reply": "[\n  {\n    \"index\": 24,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Tant qu'on ne l'a pas résorbé, chaque évolution d'authentification doit être faite deux fois.\"\n  },\n  {\n    \"index\": 25,\n    \"type\": \"handoff\",\n    \"name\": \"Julien Perrot\",\n    \"raw\": \"Julien, où en est l'unification de l'authentification ?\"\n  },\n  {\n    \"index\": 26,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"En local, on garde qui cloaque pour le développement.\"\n  },\n  {\n    \"index\": 27,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"En production, c'est ProConnect. Le flux oh idée sait est identique, seule l'URL de découverte change.\"\n  },\n  {\n    \"index\": 28,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Les équipes qui arrivent sur le projet se trompent souvent là-dessus, donc il faut une note claire.\"\n  },\n  {\n    \"index\": 29,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Et l'échange de jetons entre applications, on a tranché ?\"\n  },\n  {\n    \"index\": 30,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"On passe par main chêne, qui implémente l'échange de jetons décrit dans la RFC 8693.\"\n  },\n  {\n    \"index\": 31,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Ça permet à Docs d'appeler l'API de Drive au nom de l'utilisateur, sans redemander une authentification.\"\n  },\n  {\n    \"index\": 32,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"C'est encore expérimental, mais la mécanique fonctionne en intégration.\"\n  },\n  {\n    \"index\": 33,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Attention quand même : ce composant n'est pas encore empaqueté pour notre chaîne de déploiement.\"\n  },\n  {\n    \"index\": 34,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Il faudra prévoir un vrai travail d'industrialisation, avec les sondes et les journaux qui vont avec.\"\n  },\n  {\n    \"index\": 35,\n    \"type\": \"handoff\",\n    \"name\": \"Mathilde Roux\",\n    \"raw\": \"Noté. Mathilde, les mini-applications.\"\n  }\n]"
+  "reply": "[\n  {\"index\": 24, \"type\": \"none\", \"name\": null, \"raw\": \"Tant qu'on ne l'a pas résorbé, chaque évolution d'authentification doit être faite deux fois.\"},\n  {\"index\": 25, \"type\": \"handoff\", \"name\": \"Julien Perrot\", \"raw\": \"Julien, où en est l'unification de l'authentification ?\"},\n  {\"index\": 26, \"type\": \"none\", \"name\": null, \"raw\": \"En local, on garde qui cloaque pour le développement.\"},\n  {\"index\": 27, \"type\": \"none\", \"name\": null, \"raw\": \"En production, c'est ProConnect. Le flux oh idée sait est identique, seule l'URL de découverte change.\"},\n  {\"index\": 28, \"type\": \"none\", \"name\": null, \"raw\": \"Les équipes qui arrivent sur le projet se trompent souvent là-dessus, donc il faut une note claire.\"},\n  {\"index\": 29, \"type\": \"none\", \"name\": null, \"raw\": \"Et l'échange de jetons entre applications, on a tranché ?\"},\n  {\"index\": 30, \"type\": \"none\", \"name\": null, \"raw\": \"On passe par main chêne, qui implémente l'échange de jetons décrit dans la RFC 8693.\"},\n  {\"index\": 31, \"type\": \"none\", \"name\": null, \"raw\": \"Ça permet à Docs d'appeler l'API de Drive au nom de l'utilisateur, sans redemander une authentification.\"},\n  {\"index\": 32, \"type\": \"none\", \"name\": null, \"raw\": \"C'est encore expérimental, mais la mécanique fonctionne en intégration.\"},\n  {\"index\": 33, \"type\": \"none\", \"name\": null, \"raw\": \"Attention quand même : ce composant n'est pas encore empaqueté pour notre chaîne de déploiement.\"},\n  {\"index\": 34, \"type\": \"none\", \"name\": null, \"raw\": \"Il faudra prévoir un vrai travail d'industrialisation, avec les sondes et les journaux qui vont avec.\"},\n  {\"index\": 35, \"type\": \"handoff\", \"name\": \"Mathilde Roux\", \"raw\": \"Noté. Mathilde, les mini-applications.\"}\n]"
  },
  "234bfd8a4fca0f7e08941f602a9eb78e97609c22f4665ef6afce84f4fee00362": {
   "model": "openweight-large",
   "name": "acronym-detect",
   "reply": "{\"suspects\":[]}"
  },
- "2a05bb0400628307c279356adfaa11e14358dea6ef20254fc5a1bfddd3c33ccb": {
-  "model": "openweight-large",
-  "name": "acronym-decide",
-  "reply": "{\n  \"choix\": \"CRDT\",\n  \"confiance\": 0.85\n}"
- },
- "2b40e31a6cd26271ba2b9ebcfbd975b879c701fed4b9920f29064f37cc45c524": {
-  "model": "openweight-large",
-  "name": "acronym-decide",
-  "reply": "{\"choix\": \"Menshen\", \"confiance\": 0.8}"
- },
  "3652e74b93eb16d4a2cc5c47d8f5394cf0690730046fc57b71f06af3bbc48053": {
   "model": "openweight-large",
   "name": "acronym-detect",
   "reply": "{\"suspects\":[]}"
+ },
+ "3d486ada9a19d4e62e1b91db7d6f0940bd79dbbd05c830e3356ba2a9e9b6d91f": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\"choix\": \"OIDC\", \"confiance\": 0.95}"
  },
  "3f3997037419e634b5a5b0278971f1c0df5cd7a770f3844bbf3cdb07b32acf03": {
   "model": "openweight-large",
@@ -57,22 +37,17 @@
  "444dfff2c59c69d533ef8908c01ceb1efc6d3816c9d5d344726d01d9e030dab0": {
   "model": "openweight-large",
   "name": "speaker-cues",
-  "reply": "[\n  {\"index\": 36, \"type\": \"none\", \"name\": null, \"raw\": \"On a dix-huit demandes remontées par les ministères.\"},\n  {\"index\": 37, \"type\": \"none\", \"name\": null, \"raw\": \"La plus fréquente, de loin, c'est l'export en PDF depuis Docs.\"},\n  {\"index\": 38, \"type\": \"mention\", \"name\": null, \"raw\": \"Le prototype utilise type est avec un gabarit qui reprend la charte Marie-Anne et le bloc marque de l'État.\"},\n  {\"index\": 39, \"type\": \"none\", \"name\": null, \"raw\": \"Le problème, c'est que Docs n'expose pas d'export côté serveur.\"},\n  {\"index\": 40, \"type\": \"none\", \"name\": null, \"raw\": \"Tout se fait dans le navigateur aujourd'hui, donc on ne peut pas générer un document depuis une tâche planifiée.\"},\n  {\"index\": 41, \"type\": \"none\", \"name\": null, \"raw\": \"Soit on ajoute un point d'entrée côté back-end, soit on passe par dos pecs, le micro-service de conversion de documents.\"},\n  {\"index\": 42, \"type\": \"none\", \"name\": null, \"raw\": \"Ce service est prévu pour convertir du DOCX vers bloc note, pas l'inverse.\"},\n  {\"index\": 43, \"type\": \"none\", \"name\": null, \"raw\": \"Il faudrait écrire le chemin retour, et ce n'est pas une petite tâche.\"},\n  {\"index\": 44, \"type\": \"none\", \"name\": null, \"raw\": \"Chiffrez les deux options, on tranchera hors réunion avec le sponsor.\"},\n  {\"index\": 45, \"type\": \"none\", \"name\": null, \"raw\": \"D'accord. Dernier sujet : les tableurs.\"},\n  {\"index\": 46, \"type\": \"none\", \"name\": null, \"raw\": \"Est-ce qu'on continue à stocker les fichiers Christ dans Drive, ou est-ce qu'on attend le prototype interne ?\"},\n  {\"index\": 47, \"type\": \"none\", \"name\": null, \"raw\": \"On les stocke, mais on ne les intègre pas.\"}\n]"
+  "reply": "[\n  {\"index\": 36, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_02) On a dix-huit demandes remontées par les ministères.\"},\n  {\"index\": 37, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_02) La plus fréquente, de loin, c'est l'export en PDF depuis Docs.\"},\n  {\"index\": 38, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_02) Le prototype utilise type est avec un gabarit qui reprend la charte Marie-Anne et le bloc marque de l'État.\"},\n  {\"index\": 39, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_01) Le problème, c'est que Docs n'expose pas d'export côté serveur.\"},\n  {\"index\": 40, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_01) Tout se fait dans le navigateur aujourd'hui, donc on ne peut pas générer un document depuis une tâche planifiée.\"},\n  {\"index\": 41, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_02) Soit on ajoute un point d'entrée côté back-end, soit on passe par dos pecs, le micro-service de conversion de documents.\"},\n  {\"index\": 42, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_01) Ce service est prévu pour convertir du DOCX vers bloc note, pas l'inverse.\"},\n  {\"index\": 43, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_01) Il faudrait écrire le chemin retour, et ce n'est pas une petite tâche.\"},\n  {\"index\": 44, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_00) Chiffrez les deux options, on tranchera hors réunion avec le sponsor.\"},\n  {\"index\": 45, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_02) D'accord. Dernier sujet : les tableurs.\"},\n  {\"index\": 46, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_02) Est-ce qu'on continue à stocker les fichiers Christ dans Drive, ou est-ce qu'on attend le prototype interne ?\"},\n  {\"index\": 47, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_03) On les stocke, mais on ne les intègre pas.\"}\n]"
  },
  "45e3b98277fc279491df2ebafaf7023ee5a9ffa937e88a41204f28425c152f81": {
   "model": "openweight-large",
   "name": "speaker-cues",
-  "reply": "[\n  {\"index\": 48, \"type\": \"none\", \"name\": null, \"raw\": \"C'est un logiciel tiers, avec sa propre base de données et sa propre authentification.\"},\n  {\"index\": 49, \"type\": \"none\", \"name\": null, \"raw\": \"Le jour où on voudra l'intégrer vraiment, il faudra reprendre le sujet depuis le début.\"},\n  {\"index\": 50, \"type\": \"none\", \"name\": null, \"raw\": \"Et il n'y a toujours pas de réponse sur les widgets.\"},\n  {\"index\": 51, \"type\": \"none\", \"name\": null, \"raw\": \"La question avait déjà été posée l'an dernier pendant les journées de développement, elle est restée sans suite.\"},\n  {\"index\": 52, \"type\": \"mention\", \"name\": \"Julien Perrot\", \"raw\": \"On récapitule les actions. Julien documente le flux entre Keycloak et ProConnect pour les nouveaux arrivants.\"},\n  {\"index\": 53, \"type\": \"mention\", \"name\": \"Karim Sahli\", \"raw\": \"Karim ouvre un ticket sur le nommage des objets dans le stockage.\"},\n  {\"index\": 54, \"type\": \"mention\", \"name\": \"Mathilde Roux\", \"raw\": \"Mathilde chiffre les deux options d'export PDF, avec une estimation en jours-homme.\"},\n  {\"index\": 55, \"type\": \"none\", \"name\": null, \"raw\": \"J'ai besoin d'un accès à la pré-production pour tester la sauvegarde.\"},\n  {\"index\": 56, \"type\": \"none\", \"name\": null, \"raw\": \"Je passe par qui ?\"},\n  {\"index\": 57, \"type\": \"none\", \"name\": null, \"raw\": \"Par la DSI, avec une demande sur l'outil de tickets.\"},\n  {\"index\": 58, \"type\": \"none\", \"name\": null, \"raw\": \"Mets-moi en copie, je relancerai si besoin.\"},\n  {\"index\": 59, \"type\": \"none\", \"name\": null, \"raw\": \"Une dernière chose : la prochaine réunion tombe pendant les congés scolaires.\"}\n]"
+  "reply": "[\n  {\"index\": 48, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_03) C'est un logiciel tiers, avec sa propre base de données et sa propre authentification.\"},\n  {\"index\": 49, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_03) Le jour où on voudra l'intégrer vraiment, il faudra reprendre le sujet depuis le début.\"},\n  {\"index\": 50, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_01) Et il n'y a toujours pas de réponse sur les widgets.\"},\n  {\"index\": 51, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_01) La question avait déjà été posée l'an dernier pendant les journées de développement, elle est restée sans suite.\"},\n  {\"index\": 52, \"type\": \"mention\", \"name\": \"Julien Perrot\", \"raw\": \"(SPEAKER_00) On récapitule les actions. Julien documente le flux entre Keycloak et ProConnect pour les nouveaux arrivants.\"},\n  {\"index\": 53, \"type\": \"mention\", \"name\": \"Karim Sahli\", \"raw\": \"(SPEAKER_00) Karim ouvre un ticket sur le nommage des objets dans le stockage.\"},\n  {\"index\": 54, \"type\": \"mention\", \"name\": \"Mathilde Roux\", \"raw\": \"(SPEAKER_00) Mathilde chiffre les deux options d'export PDF, avec une estimation en jours-homme.\"},\n  {\"index\": 55, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_03) J'ai besoin d'un accès à la pré-production pour tester la sauvegarde.\"},\n  {\"index\": 56, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_03) Je passe par qui ?\"},\n  {\"index\": 57, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_00) Par la DSI, avec une demande sur l'outil de tickets.\"},\n  {\"index\": 58, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_00) Mets-moi en copie, je relancerai si besoin.\"},\n  {\"index\": 59, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_02) Une dernière chose : la prochaine réunion tombe pendant les congés scolaires.\"}\n]"
  },
  "4b22e154a20f09de371a1c76a965cb28d2dd2b303d834a93ddd98c9be814143e": {
   "model": "openweight-large",
   "name": "acronym-detect",
   "reply": "{\"suspects\":[]}"
- },
- "4cf2f8bd47454a2d644f7c58d3edff5df97a560fac1a8ce0944ecbab1778c21c": {
-  "model": "openweight-large",
-  "name": "acronym-decide",
-  "reply": "{\"choix\": \"MinIO\", \"confiance\": 0.9}"
  },
  "4e80559dc9b6973da85d668f490c666a2cf402e7b0416f3f21395ccf0143b4b7": {
   "model": "openweight-large",
@@ -87,32 +62,37 @@
  "5fed46fa031a69abe0c5037d6de3441018223fe2af64dfc1f2a957be7c7c8135": {
   "model": "openweight-large",
   "name": "speaker-cues",
-  "reply": "[\n  {\"index\": 12, \"type\": \"none\", \"name\": null, \"raw\": \"La supervision décrit l'infrastructure telle qu'elle était au moment de son installation, pas telle qu'elle est aujourd'hui.\"},\n  {\"index\": 13, \"type\": \"none\", \"name\": null, \"raw\": \"Tant qu'elle n'est pas générée à partir de l'inventaire réel, ça se reproduira.\"},\n  {\"index\": 14, \"type\": \"none\", \"name\": null, \"raw\": \"Est-ce qu'on a un inventaire réel exploitable ?\"},\n  {\"index\": 15, \"type\": \"none\", \"name\": null, \"raw\": \"Partiellement. L'inventaire existe pour les machines virtuelles, pas pour les volumes attachés.\"},\n  {\"index\": 16, \"type\": \"none\", \"name\": null, \"raw\": \"Il faudrait étendre la collecte, ce qui représente une charge de deux à trois semaines, et une modification du droit de lecture\"},\n  {\"index\": 17, \"type\": \"none\", \"name\": null, \"raw\": \"sur l'hyperviseur.\"},\n  {\"index\": 18, \"type\": \"none\", \"name\": null, \"raw\": \"La modification du droit de lecture demande un passage en comité de sécurité, parce que le référentiel de l'ANSSI l'impose.\"},\n  {\"index\": 19, \"type\": \"none\", \"name\": null, \"raw\": \"Ce n'est pas bloquant, mais il faut compter un mois de délai, parce que le comité ne siège qu'une fois par mois.\"},\n  {\"index\": 20, \"type\": \"none\", \"name\": null, \"raw\": \"On lance la demande cette semaine alors, sinon nous serons en février.\"},\n  {\"index\": 21, \"type\": \"none\", \"name\": null, \"raw\": \"Sujet suivant : la fenêtre de maintenance.\"},\n  {\"index\": 22, \"type\": \"none\", \"name\": null, \"raw\": \"Elle est prévue le premier week-end d'octobre.\"},\n  {\"index\": 23, \"type\": \"none\", \"name\": null, \"raw\": \"Trois opérations sont prévues : la montée de version du serveur de bases, le remplacement d'un commutateur, et la rotation des certificats\"}\n]"
+  "reply": "[\n  {\n    \"index\": 12,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"La supervision décrit l'infrastructure telle qu'elle était au moment de son installation, pas telle qu'elle est aujourd'hui.\"\n  },\n  {\n    \"index\": 13,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Tant qu'elle n'est pas générée à partir de l'inventaire réel, ça se reproduira.\"\n  },\n  {\n    \"index\": 14,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Est-ce qu'on a un inventaire réel exploitable ?\"\n  },\n  {\n    \"index\": 15,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Partiellement. L'inventaire existe pour les machines virtuelles, pas pour les volumes attachés.\"\n  },\n  {\n    \"index\": 16,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Il faudrait étendre la collecte, ce qui représente une charge de deux à trois semaines, et une modification du droit de lecture\"\n  },\n  {\n    \"index\": 17,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"sur l'hyperviseur.\"\n  },\n  {\n    \"index\": 18,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"La modification du droit de lecture demande un passage en comité de sécurité, parce que le référentiel de l'ANSSI l'impose.\"\n  },\n  {\n    \"index\": 19,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Ce n'est pas bloquant, mais il faut compter un mois de délai, parce que le comité ne siège qu'une fois par mois.\"\n  },\n  {\n    \"index\": 20,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"On lance la demande cette semaine alors, sinon nous serons en février.\"\n  },\n  {\n    \"index\": 21,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Sujet suivant : la fenêtre de maintenance.\"\n  },\n  {\n    \"index\": 22,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Elle est prévue le premier week-end d'octobre.\"\n  },\n  {\n    \"index\": 23,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Trois opérations sont prévues : la montée de version du serveur de bases, le remplacement d'un commutateur, et la rotation des certificats\"\n  }\n]"
  },
  "665dc2114b4c694154183b8537f0d6689ec20769aef10f94c7d90c18db71e4a8": {
   "model": "openweight-large",
   "name": "acronym-detect",
   "reply": "{\"suspects\":[{\"span\":\"mini eau\"}]}"
  },
- "6b9399a78fed83ad82c546a3b72c3b11a58a71d0478320133754160e1550cea0": {
-  "model": "openweight-large",
-  "name": "acronym-decide",
-  "reply": "{\"choix\": null, \"confiance\": 0.9}"
- },
  "705dbfd7b5cca7712db3995831e28c22223fccbde0296c37bc7a784ff8576205": {
   "model": "openweight-large",
   "name": "acronym-detect",
   "reply": "{\"suspects\":[{\"span\":\"dos pecs\"}]}"
  },
+ "72b1e2c72cb915856467bb41a99a40342646f40786de6215b4ecc5e7143af2de": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\n  \"choix\": \"MinIO\",\n  \"confiance\": 0.95\n}"
+ },
  "78627b65458e61094ca48f0c63a32fc437f94883dc38ae51b62187dd28186472": {
   "model": "openweight-large",
   "name": "speaker-cues",
-  "reply": "[\n  {\"index\": 0, \"type\": \"none\", \"name\": null, \"raw\": \"Bonjour à tous. On enchaîne sur le point hebdomadaire infrastructure.\"},\n  {\"index\": 1, \"type\": \"none\", \"name\": null, \"raw\": \"Deux sujets ce matin : l'incident de jeudi dernier sur la supervision, et la préparation de la fenêtre de maintenance.\"},\n  {\"index\": 2, \"type\": \"mention\", \"name\": \"Damien Laroche\", \"raw\": \"On commence par l'incident, comme Damien l'avait signalé au dernier comité.\"},\n  {\"index\": 3, \"type\": \"none\", \"name\": null, \"raw\": \"L'incident a duré une heure quarante.\"},\n  {\"index\": 4, \"type\": \"none\", \"name\": null, \"raw\": \"La cause immédiate est un disque saturé sur le collecteur de métriques.\"},\n  {\"index\": 5, \"type\": \"none\", \"name\": null, \"raw\": \"La cause profonde, c'est qu'aucune alerte ne surveille le remplissage de ce disque en particulier, alors que toutes les autres partitions sont\"},\n  {\"index\": 6, \"type\": \"none\", \"name\": null, \"raw\": \"couvertes.\"},\n  {\"index\": 7, \"type\": \"none\", \"name\": null, \"raw\": \"Pourquoi cette partition est-elle passée à travers ?\"},\n  {\"index\": 8, \"type\": \"none\", \"name\": null, \"raw\": \"Elle a été ajoutée après la mise en place de la supervision, lors d'une extension de capacité.\"},\n  {\"index\": 9, \"type\": \"none\", \"name\": null, \"raw\": \"Le modèle d'alerte n'a pas été régénéré, et personne ne l'a vu parce que le tableau de bord n'affiche que les partitions\"},\n  {\"index\": 10, \"type\": \"none\", \"name\": null, \"raw\": \"déjà connues.\"},\n  {\"index\": 11, \"type\": \"none\", \"name\": null, \"raw\": \"C'est un schéma qu'on a déjà rencontré sur le stockage objet l'an dernier.\"}\n]"
+  "reply": "[\n  {\"index\": 0, \"type\": \"none\", \"name\": null, \"raw\": \"Bonjour à tous. On enchaîne sur le point hebdomadaire infrastructure.\"},\n  {\"index\": 1, \"type\": \"none\", \"name\": null, \"raw\": \"Deux sujets ce matin : l'incident de jeudi dernier sur la supervision, et la préparation de la fenêtre de maintenance.\"},\n  {\"index\": 2, \"type\": \"mention\", \"name\": \"Damien Laroche\", \"raw\": \"On commence par l'incident, comme Damien l'avait signalé au dernier comité.\"},\n  {\"index\": 3, \"type\": \"none\", \"name\": null, \"raw\": \"L'incident a duré une heure quarante.\"},\n  {\"index\": 4, \"type\": \"none\", \"name\": null, \"raw\": \"La cause immédiate est un disque saturé sur le collecteur de métriques.\"},\n  {\"index\": 5, \"type\": \"none\", \"name\": null, \"raw\": \"La cause profonde, c'est qu'aucune alerte ne surveille le remplissage de ce disque en particulier, alors que toutes les autres partitions sont\"},\n  {\"index\": 6, \"type\": \"none\", \"name\": null, \"raw\": \"couver​tes.\"},\n  {\"index\": 7, \"type\": \"none\", \"name\": null, \"raw\": \"Pourquoi cette partition est-elle passée à travers ?\"},\n  {\"index\": 8, \"type\": \"none\", \"name\": null, \"raw\": \"Elle a été ajoutée après la mise en place de la supervision, lors d'une extension de capacité.\"},\n  {\"index\": 9, \"type\": \"none\", \"name\": null, \"raw\": \"Le modèle d'alerte n'a pas été régénéré, et personne ne l'a vu parce que le tableau de bord n'affiche que les partitions\"},\n  {\"index\": 10, \"type\": \"none\", \"name\": null, \"raw\": \"déjà connues.\"},\n  {\"index\": 11, \"type\": \"none\", \"name\": null, \"raw\": \"C'est un schéma qu'on a déjà rencontré sur le stockage objet l'an dernier.\"}\n]"
  },
- "78ea3aeff19acf93d33c9980bbc529f20044b5bdd1db8e866be11868c6affd76": {
+ "7abff15c2447b0990d7638ba5d9aa80fb69fe03e30a289759f7537669c833d71": {
   "model": "openweight-large",
   "name": "acronym-decide",
-  "reply": "{\"choix\":\"OIDC\",\"confiance\":0.95}"
+  "reply": "{\"choix\": \"Yjs\", \"confiance\": 0.95}"
+ },
+ "8c1c09fa05e5de978d4f930bf316a32d5c95a5aa3593169af9b80d2685783bbc": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\n  \"choix\": null,\n  \"confiance\": 0.7\n}"
  },
  "8e0dfad63c77ef5587b9cee4af6c830f84669779ca75f19309984b118f173330": {
   "model": "openweight-large",
@@ -132,12 +112,17 @@
  "9a5a19356cb1e2c3a9f6e5d01ddc438fbe08823a300026ccdbd8a424c442d9a7": {
   "model": "openweight-large",
   "name": "acronym-detect",
-  "reply": "{\"suspects\":[{\"span\":\"qui cloaque\"},{\"span\":\"oh idée sait\"}]}"
+  "reply": "{\"suspects\":[{\"span\":\"oh idée sait\"}]}"
  },
  "9af5245f3cbdc7899506ae9b2c7319bf3cd66eed257074b9a9d8d41e8008bbc2": {
   "model": "openweight-large",
   "name": "acronym-decide",
-  "reply": "{\"choix\": \"Grist\", \"confiance\": 0.6}"
+  "reply": "{\n  \"choix\": \"Grist\",\n  \"confiance\": 0.75\n}"
+ },
+ "9ccd4076af0a6540c6aeb4fbe8c8119fab5160e0249bdb1ffe93516d7cbbf85b": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\"choix\": \"CRDT\", \"confiance\": 0.92}"
  },
  "a7525a8982efd9543926a198f058fb5b4f13d8c8251d370d8c0954e75ae7239d": {
   "model": "openweight-large",
@@ -157,7 +142,7 @@
  "cd961e093c6e981e2f5cb38659f1d2e806ab500457a722554ef828fa329c51be": {
   "model": "openweight-large",
   "name": "speaker-cues",
-  "reply": "[{\"index\": 60, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_02) On décale d'une semaine ?\"}, {\"index\": 61, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_00) On décale. Je renvoie une invitation cet après-midi.\"}, {\"index\": 62, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_00) Merci à toutes et à tous, bonne journée.\"}]"
+  "reply": "[\n  {\"index\": 60, \"type\": \"none\", \"name\": null, \"raw\": \"On décale d'une semaine ?\"},\n  {\"index\": 61, \"type\": \"none\", \"name\": null, \"raw\": \"On décale. Je renvoie une invitation cet après-midi.\"},\n  {\"index\": 62, \"type\": \"none\", \"name\": null, \"raw\": \"Merci à toutes et à tous, bonne journée.\"}\n]"
  },
  "d4605e33f413f92098ee81a5d86a994797a2d83cf447c912377a5a4fdd936ea2": {
   "model": "openweight-large",
@@ -167,7 +152,7 @@
  "d793144084d03e942984bf88cc059df2e14dfbd3a554d946cb007e017085b818": {
   "model": "openweight-large",
   "name": "speaker-cues",
-  "reply": "[{\"index\":12,\"type\":\"self_id\",\"name\":\"Mathilde Roux\",\"raw\":\"Mathilde, bonjour. Est-ce que ça se voit côté utilisateur ?\"},\n {\"index\":13,\"type\":\"none\",\"name\":null,\"raw\":\"Oui, une latence de deux à trois secondes à la reprise.\"},\n {\"index\":14,\"type\":\"none\",\"name\":null,\"raw\":\"Ce n'est pas bloquant, mais c'est visible, surtout sur les documents partagés à plus de dix personnes.\"},\n {\"index\":15,\"type\":\"none\",\"name\":null,\"raw\":\"On le garde en risque ouvert pour l'instant.\"},\n {\"index\":16,\"type\":\"handoff\",\"name\":\"Karim Sahli\",\"raw\":\"Karim, le stockage ?\"},\n {\"index\":17,\"type\":\"self_id\",\"name\":\"Karim Sahli\",\"raw\":\"Karim, bonjour à tous. Les deux applications écrivent dans mini eau, mais avec deux conventions de nommage différentes.\"},\n {\"index\":18,\"type\":\"none\",\"name\":null,\"raw\":\"Drive préfixe les objets par identifiant d'espace, Docs par identifiant de document.\"},\n {\"index\":19,\"type\":\"none\",\"name\":null,\"raw\":\"Pour la sauvegarde et pour la purge, ça complique beaucoup le tri.\"},\n {\"index\":20,\"type\":\"none\",\"name\":null,\"raw\":\"On ne sait pas dire, aujourd'hui, quels objets appartiennent à quel service.\"},\n {\"index\":21,\"type\":\"none\",\"name\":null,\"raw\":\"Et pour Drive, on passe toujours par whoopee pour l'édition bureautique ?\"},\n {\"index\":22,\"type\":\"none\",\"name\":null,\"raw\":\"Oui. Le protocole impose son propre système de jetons, donc on se retrouve avec deux chaînes d'autorisation en parallèle.\"},\n {\"index\":23,\"type\":\"none\",\"name\":null,\"raw\":\"C'est le principal point de dette technique sur cette partie.\"}]"
+  "reply": "[\n  {\n    \"index\": 12,\n    \"type\": \"self_id\",\n    \"name\": \"Mathilde Roux\",\n    \"raw\": \"Mathilde, bonjour. Est-ce que ça se voit côté utilisateur ?\"\n  },\n  {\n    \"index\": 13,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Oui, une latence de deux à trois secondes à la reprise.\"\n  },\n  {\n    \"index\": 14,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Ce n'est pas bloquant, mais c'est visible, surtout sur les documents partagés à plus de dix personnes.\"\n  },\n  {\n    \"index\": 15,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"On le garde en risque ouvert pour l'instant.\"\n  },\n  {\n    \"index\": 16,\n    \"type\": \"handoff\",\n    \"name\": \"Karim Sahli\",\n    \"raw\": \"Karim, le stockage ?\"\n  },\n  {\n    \"index\": 17,\n    \"type\": \"self_id\",\n    \"name\": \"Karim Sahli\",\n    \"raw\": \"Karim, bonjour à tous. Les deux applications écrivent dans mini eau, mais avec deux conventions de nommage différentes.\"\n  },\n  {\n    \"index\": 18,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Drive préfixe les objets par identifiant d'espace, Docs par identifiant de document.\"\n  },\n  {\n    \"index\": 19,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Pour la sauvegarde et pour la purge, ça complique beaucoup le tri.\"\n  },\n  {\n    \"index\": 20,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"On ne sait pas dire, aujourd'hui, quels objets appartiennent à quel service.\"\n  },\n  {\n    \"index\": 21,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Et pour Drive, on passe toujours par whoopee pour l'édition bureautique ?\"\n  },\n  {\n    \"index\": 22,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Oui. Le protocole impose son propre système de jetons, donc on se retrouve avec deux chaînes d'autorisation en parallèle.\"\n  },\n  {\n    \"index\": 23,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"C'est le principal point de dette technique sur cette partie.\"\n  }\n]"
  },
  "e8c7220900feed110eeea672cfaa34f823b9e0e152a298fe23cc13dd65157e05": {
   "model": "openweight-large",
@@ -177,6 +162,16 @@
  "ef355494cb5b8878317cdf3948abcc7ff3fb62bb0fac26210e0dd2e7a7d98b40": {
   "model": "openweight-large",
   "name": "acronym-detect",
-  "reply": "{\"suspects\":[{\"span\":\"dix nomme\"},{\"span\":\"serre des thés\"},{\"span\":\"y grec js\"}]}"
+  "reply": "{\"suspects\":[{\"span\":\"dix nomme\"},{\"span\":\"y grec js\"},{\"span\":\"serre des thés\"}]}"
+ },
+ "f1d27aae436765ae3c24121f9a2037aa4b6713184aefa27c478a71d6d0979708": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\"choix\": \"DINUM\", \"confiance\": 0.75}"
+ },
+ "f35f9ad09d409b81e0560c88b34ed46b997a824210484d72c1197f244a43fa56": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\"choix\":\"Menshen\",\"confiance\":0.92}"
  }
 }

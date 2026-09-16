@@ -75,11 +75,11 @@ empêcherait de rejouer la démo hors ligne.
 ## 1. Les deux documents
 
 - **AVANT** — Réunion architecture — transcript brut
-  http://localhost:8700/docs/1ed36d67-c730-4d6a-b26e-b58556966382/
+  http://localhost:8700/docs/9142519d-5ded-44de-a085-d411de066429/
 - **APRÈS** — Réunion architecture — transcript corrigé
-  http://localhost:8700/docs/787d416f-38fc-4d06-a4b2-a92cd7899d69/
+  http://localhost:8700/docs/ffd96509-0ec9-4a72-abff-988987de653b/
 
-Captures d'écran des deux documents ouverts dans Docs : `/Users/macair/dinum/screenshots/demo-docs-transcript-brut.png` et `…-corrige.png`.
+Captures d'écran des deux documents ouverts dans Docs : `/Users/macair/dinum/screenshots/demo-docs-transcript-brut-v2.png` et `…-corrige-v2.png`.
 
 Markdown correspondant, tel qu'il a été poussé : `demo/out/flow-1-before.md` et `demo/out/flow-1-after.md`.
 
@@ -111,12 +111,13 @@ Format : `ACRONYME ← "ce que Whisper a écrit", confiance, appliqué ou non`
 ### Appliqués (confiance ≥ 0.80)
 
 ```
-CRDT ← "des serre des thés", confidence 0.90, applied [segment 7, word 6]
-MinIO ← "dans mini eau mais", confidence 0.86, applied [segment 17, word 8]
+Yjs ← "y grec js", confidence 0.95, applied [segment 6, word 8]
+CRDT ← "serre des thés", confidence 0.95, applied [segment 7, word 7]
+MinIO ← "mini eau", confidence 0.85, applied [segment 17, word 9]
 WOPI ← "whoopee", confidence 0.85, applied [segment 21, word 7]
 Keycloak ← "qui cloaque", confidence 0.95, applied [segment 26, word 4]
-OIDC ← "oh idée sait", confidence 0.93, applied [segment 27, word 6]
-Menshen ← "main chêne qui", confidence 0.85, applied [segment 30, word 3]
+OIDC ← "oh idée sait", confidence 0.95, applied [segment 27, word 6]
+Menshen ← "main chêne", confidence 0.85, applied [segment 30, word 3]
 ```
 
 ### Sous le seuil — signalés mais **NON appliqués**
@@ -124,7 +125,7 @@ Menshen ← "main chêne qui", confidence 0.85, applied [segment 30, word 3]
 C'est l'histoire de la précision : la correction est trouvée, elle est remontée dans la liste d'audit, et le document n'est pas modifié.
 
 ```
-(aucun)
+DINUM ← "dix nomme", confidence 0.75, NOT applied (below floor) [segment 5, word 5]
 ```
 
 ## 4. Score contre `errors.json`
@@ -133,44 +134,33 @@ Vérité terrain : **15 erreurs** au total, dont **12 erreurs d'acronyme** (le p
 
 | Résultat | Nombre |
 |---|---|
-| corrigées (appliquées, bonne réponse) | **6 / 12** |
-| bonne réponse mais sous le seuil (non appliquée) | 0 |
-| manquées | 6 |
+| corrigées (appliquées, bonne réponse) | **7 / 12** |
+| bonne réponse mais sous le seuil (non appliquée) | 1 |
+| manquées | 4 |
 | faux positifs | 0 |
 
 ### Détail, erreur par erreur
 
 | id | Whisper a écrit | attendu | résultat |
 |---|---|---|---|
-| e1 | dix nomme | DINUM | manquée |
-| e2 | y grec js | Yjs | manquée |
-| e3 | serre des thés | CRDT | corrigée (0.90) |
-| e5 | mini eau | MinIO | corrigée (0.86) |
+| e1 | dix nomme | DINUM | trouvée mais sous le seuil (0.75) — non appliquée |
+| e2 | y grec js | Yjs | corrigée (0.95) |
+| e3 | serre des thés | CRDT | corrigée (0.95) |
+| e5 | mini eau | MinIO | corrigée (0.85) |
 | e6 | whoopee | WOPI | corrigée (0.85) |
 | e7 | qui cloaque | Keycloak | corrigée (0.95) |
-| e8 | oh idée sait | OIDC | corrigée (0.93) |
+| e8 | oh idée sait | OIDC | corrigée (0.95) |
 | e9 | main chêne | Menshen | corrigée (0.85) |
 | e11 | type est | Typst | manquée |
 | e13 | dos pecs | Docspec | manquée |
 | e14 | bloc note | BlockNote | manquée |
 | e15 | Christ | Grist | manquée |
 
-### Effet de bord observé : la fenêtre mange des mots voisins
-
-La même règle de « plus longue fenêtre d'abord » qui fait manquer DINUM fait aussi remplacer plus de mots que nécessaire. Le mot juste arrive, mais la phrase perd un mot autour. À regarder avant toute mise en production — ce n'est pas une invention de contenu, c'est une phrase abîmée.
-
-| attendu | fenêtre réellement remplacée | phrase obtenue |
-|---|---|---|
-| `serre des thés` → CRDT | `des serre des thés` → CRDT | Le modèle de données repose sur CRDT, donc la fusion des modifications se fait sans verrou côté serveur. |
-| `mini eau` → MinIO | `dans mini eau mais` → MinIO | Karim, bonjour à tous. Les deux applications écrivent MinIO avec deux conventions de nommage différentes. |
-| `main chêne` → Menshen | `main chêne qui` → Menshen | On passe par Menshen implémente l'échange de jetons décrit dans la RFC 8693. |
-
 ### Ce qui a été manqué, et pourquoi
 
-- **`dix nomme` → DINUM (e1)** est manqué, et c'est un bug connu, documenté avant cette démo (`BRIEF-demo-agent-acronyms.md` §10) : la fenêtre de 3 mots « Côté dix nomme » ressemble à COTRIM (0.70) et, parce que les fenêtres sont réclamées de la plus longue à la plus courte, elle bloque la fenêtre de 2 mots qui aurait donné DINUM. Le seuil de confiance empêche COTRIM de passer, donc le document reste juste — mais l'exemple phare ne se corrige pas.
-- **`y grec js` → Yjs (e2)**, **`type est` → Typst (e11)**, **`dos pecs` → Docspec (e13)**, **`bloc note` → BlockNote (e14)** : ces noms de logiciels libres ne sont pas dans le glossaire administratif de 7769 entrées. Rien à décider si le candidat n'existe pas.
-- **`Christ` → Grist (e15)** dépend du passage : voir la section variance plus bas.
-- **Zéro faux positif** sur ce transcript. C'est le sens du compromis : le seuil de 0,8 est réglé pour la précision, pas pour le rappel.
+- **`dix nomme` → DINUM (e1)** est **trouvé** à 0.75 et remonté dans la liste d'audit, mais sous le seuil de 0.80 : le document garde le mot de Whisper. C'est un changement de comportement : au passage précédent il était **manqué**, parce que la fenêtre élargie « Côté dix nomme » matchait COTRIM (0.70), réclamait les mots et bloquait « dix nomme » → DINUM. `WINDOW_MARGIN = 0` (commit 28729b37) supprime cette fenêtre que personne n'avait signalée, et le bon candidat atteint l'arbitrage — sans convaincre le modèle pour autant. Corrigé, il ne l'est toujours pas.
+- **`type est` → Typst (e11)**, **`dos pecs` → Docspec (e13)**, **`bloc note` → BlockNote (e14)**, **`Christ` → Grist (e15)** : ces entrées **sont** pourtant dans le glossaire de 7769 entrées. Le blocage ne vient donc pas d'un candidat manquant : soit l'étape 1 n'a pas signalé le passage, soit le modèle a refusé à l'étape 2. La démo n'instrumente pas l'étape 1 et ne tranche pas entre les deux.
+- **Zéro faux positif** sur ce transcript. C'est le sens du compromis : le seuil de 0.80 est réglé pour la précision, pas pour le rappel.
 
 ### Hors périmètre — la correction d'acronymes ne les vise pas
 
@@ -213,11 +203,11 @@ markdown identique entre les deux passages : oui
 
 ```
 Speaker resolution for task demo-after: source=cues (no usable metadata), 4 assigned, 0 unassigned
-Acronym correction: 6 correction(s) found, 6 applied
-Acronym correction for task demo-after: 6 correction(s), 6 applied
+Acronym correction: 8 correction(s) found, 7 applied
+Acronym correction for task demo-after: 8 correction(s), 7 applied
 Speaker resolution for task demo-after: source=cues (no usable metadata), 4 assigned, 0 unassigned
-Acronym correction: 6 correction(s) found, 6 applied
-Acronym correction for task demo-after: 6 correction(s), 6 applied
+Acronym correction: 8 correction(s) found, 7 applied
+Acronym correction for task demo-after: 8 correction(s), 7 applied
 Speaker resolution for task demo-refusal: source=cues (no usable metadata), 0 assigned, 3 unassigned
 ```
 
@@ -227,16 +217,17 @@ Même entrée, même code, même seuil — seule la génération d'Albert change
 
 | passage | corrigées | sous le seuil | manquées | faux positifs |
 |---|---|---|---|---|
-| passage de référence (celui publié) | 6 | 0 | 6 | 0 |
-| report-run2.md | 6 | 1 | 5 | 0 |
+| passage de référence (celui publié) | 7 | 1 | 4 | 0 |
+| report-run2.md | 6 | 2 | 4 | 0 |
 
 Corrections sous le seuil observées, passage par passage :
 
 ```
 passage de référence (celui publié):
-  (aucun)
+  DINUM ← "dix nomme", confidence 0.75, NOT applied (below floor) [segment 5, word 5]
 report-run2.md:
-  Grist ← "Christ", confidence 0.60, NOT applied (below floor) [segment 46, word 7]
+  DINUM ← "dix nomme", confidence 0.75, NOT applied (below floor) [segment 5, word 5]
+  Grist ← "Christ", confidence 0.75, NOT applied (below floor) [segment 46, word 7]
 ```
 
 C'est exactement ce que le seuil est censé faire : quand le modèle n'est pas sûr, la correction est **remontée dans la liste d'audit** et le document reste tel quel. Une erreur laissée en place se corrige à la relecture ; un mot inventé, non.

@@ -3,6 +3,10 @@
 - **AVANT** — Réunion architecture — transcript brut (non publié)
 - **APRÈS** — Réunion architecture — transcript corrigé (non publié)
 
+Captures d'écran des deux documents ouverts dans Docs : `/Users/macair/dinum/screenshots/demo-docs-transcript-brut-v2.png` et `…-corrige-v2.png`.
+
+Markdown correspondant, tel qu'il a été poussé : `demo/out/flow-1-before.md` et `demo/out/flow-1-after.md`.
+
 ## 2. Preuve par nom (résolveur d'indices, détecteur `llm`)
 
 Format : `Nom ← type d'indice, « citation », segment`
@@ -16,7 +20,7 @@ Nadia Berger ← self_id, « Ici Nadia. », segment 1 (confiance 0.95, label SPE
 
 Labels laissés en `SPEAKER_XX` dans le document corrigé : **aucun**
 
-Contrôle contre la vérité terrain — le champ `speaker` de `errors.json` dit qui a réellement parlé sur chaque segment fautif. **3 / 3** labels retrouvés correctement.
+Contrôle contre la vérité terrain — le champ `speaker` de `errors.json` dit qui a réellement parlé sur chaque segment fautif. **3 / 3** labels retrouvés correctement. Le contrôle ne couvre que 3 des 4 labels : `errors.json` est une vérité terrain d'acronymes, pas de locuteurs, et un participant qui n'a commis aucune erreur d'acronyme n'y figure pas. Les 4 noms du document corrigé sont néanmoins les 4 bons.
 
 | label WhisperX | attendu | obtenu | |
 |---|---|---|---|
@@ -31,12 +35,12 @@ Format : `ACRONYME ← "ce que Whisper a écrit", confiance, appliqué ou non`
 ### Appliqués (confiance ≥ 0.80)
 
 ```
-CRDT ← "des serre des thés", confidence 0.85, applied [segment 7, word 6]
-MinIO ← "dans mini eau mais", confidence 0.90, applied [segment 17, word 8]
+Yjs ← "y grec js", confidence 0.95, applied [segment 6, word 8]
+CRDT ← "serre des thés", confidence 0.92, applied [segment 7, word 7]
+MinIO ← "mini eau", confidence 0.95, applied [segment 17, word 9]
 WOPI ← "whoopee", confidence 0.90, applied [segment 21, word 7]
-Keycloak ← "qui cloaque", confidence 0.95, applied [segment 26, word 4]
 OIDC ← "oh idée sait", confidence 0.95, applied [segment 27, word 6]
-Menshen ← "main chêne qui", confidence 0.80, applied [segment 30, word 3]
+Menshen ← "main chêne", confidence 0.92, applied [segment 30, word 3]
 ```
 
 ### Sous le seuil — signalés mais **NON appliqués**
@@ -44,7 +48,8 @@ Menshen ← "main chêne qui", confidence 0.80, applied [segment 30, word 3]
 C'est l'histoire de la précision : la correction est trouvée, elle est remontée dans la liste d'audit, et le document n'est pas modifié.
 
 ```
-Grist ← "Christ", confidence 0.60, NOT applied (below floor) [segment 46, word 7]
+DINUM ← "dix nomme", confidence 0.75, NOT applied (below floor) [segment 5, word 5]
+Grist ← "Christ", confidence 0.75, NOT applied (below floor) [segment 46, word 7]
 ```
 
 ## 4. Score contre `errors.json`
@@ -54,26 +59,33 @@ Vérité terrain : **15 erreurs** au total, dont **12 erreurs d'acronyme** (le p
 | Résultat | Nombre |
 |---|---|
 | corrigées (appliquées, bonne réponse) | **6 / 12** |
-| bonne réponse mais sous le seuil (non appliquée) | 1 |
-| manquées | 5 |
+| bonne réponse mais sous le seuil (non appliquée) | 2 |
+| manquées | 4 |
 | faux positifs | 0 |
 
 ### Détail, erreur par erreur
 
 | id | Whisper a écrit | attendu | résultat |
 |---|---|---|---|
-| e1 | dix nomme | DINUM | manquée |
-| e2 | y grec js | Yjs | manquée |
-| e3 | serre des thés | CRDT | corrigée (0.85) |
-| e5 | mini eau | MinIO | corrigée (0.90) |
+| e1 | dix nomme | DINUM | trouvée mais sous le seuil (0.75) — non appliquée |
+| e2 | y grec js | Yjs | corrigée (0.95) |
+| e3 | serre des thés | CRDT | corrigée (0.92) |
+| e5 | mini eau | MinIO | corrigée (0.95) |
 | e6 | whoopee | WOPI | corrigée (0.90) |
-| e7 | qui cloaque | Keycloak | corrigée (0.95) |
+| e7 | qui cloaque | Keycloak | manquée |
 | e8 | oh idée sait | OIDC | corrigée (0.95) |
-| e9 | main chêne | Menshen | corrigée (0.80) |
+| e9 | main chêne | Menshen | corrigée (0.92) |
 | e11 | type est | Typst | manquée |
 | e13 | dos pecs | Docspec | manquée |
 | e14 | bloc note | BlockNote | manquée |
-| e15 | Christ | Grist | trouvée mais sous le seuil (0.60) — non appliquée |
+| e15 | Christ | Grist | trouvée mais sous le seuil (0.75) — non appliquée |
+
+### Ce qui a été manqué, et pourquoi
+
+- **`dix nomme` → DINUM (e1)** est **trouvé** à 0.75 et remonté dans la liste d'audit, mais sous le seuil de 0.80 : le document garde le mot de Whisper. C'est un changement de comportement : au passage précédent il était **manqué**, parce que la fenêtre élargie « Côté dix nomme » matchait COTRIM (0.70), réclamait les mots et bloquait « dix nomme » → DINUM. `WINDOW_MARGIN = 0` (commit 28729b37) supprime cette fenêtre que personne n'avait signalée, et le bon candidat atteint l'arbitrage — sans convaincre le modèle pour autant. Corrigé, il ne l'est toujours pas.
+- **`Christ` → Grist (e15)** est **trouvé** à 0.75 et remonté dans la liste d'audit, mais sous le seuil de 0.80 : le document garde le mot de Whisper.
+- **`qui cloaque` → Keycloak (e7)**, **`type est` → Typst (e11)**, **`dos pecs` → Docspec (e13)**, **`bloc note` → BlockNote (e14)** : ces entrées **sont** pourtant dans le glossaire de 7769 entrées. Le blocage ne vient donc pas d'un candidat manquant : soit l'étape 1 n'a pas signalé le passage, soit le modèle a refusé à l'étape 2. La démo n'instrumente pas l'étape 1 et ne tranche pas entre les deux.
+- **Zéro faux positif** sur ce transcript. C'est le sens du compromis : le seuil de 0.80 est réglé pour la précision, pas pour le rappel.
 
 ### Hors périmètre — la correction d'acronymes ne les vise pas
 
@@ -107,8 +119,8 @@ Le piège est le segment 2, « comme Damien l'avait signalé » : une mention à
 Toutes les réponses d'Albert sont en cache sur disque (`demo/cache/llm-cache.json`, clé = hash du modèle et des deux prompts). Le second passage est rejoué avec `--offline`, qui transforme tout défaut de cache en erreur :
 
 ```
-run 1 (réseau autorisé) : 0 réponses en cache, 32 appels à Albert
-run 2 (--offline)        : 32 réponses en cache, 0 appels à Albert
+passage 1 : 0 réponses lues en cache, 31 appels à Albert
+passage 2 (--offline, tout défaut de cache = erreur) : 31 en cache, 0 appels
 markdown identique entre les deux passages : oui
 ```
 
@@ -116,10 +128,10 @@ markdown identique entre les deux passages : oui
 
 ```
 Speaker resolution for task demo-after: source=cues (no usable metadata), 4 assigned, 0 unassigned
-Acronym correction: 7 correction(s) found, 6 applied
-Acronym correction for task demo-after: 7 correction(s), 6 applied
+Acronym correction: 8 correction(s) found, 6 applied
+Acronym correction for task demo-after: 8 correction(s), 6 applied
 Speaker resolution for task demo-after: source=cues (no usable metadata), 4 assigned, 0 unassigned
-Acronym correction: 7 correction(s) found, 6 applied
-Acronym correction for task demo-after: 7 correction(s), 6 applied
+Acronym correction: 8 correction(s) found, 6 applied
+Acronym correction for task demo-after: 8 correction(s), 6 applied
 Speaker resolution for task demo-refusal: source=cues (no usable metadata), 0 assigned, 3 unassigned
 ```
