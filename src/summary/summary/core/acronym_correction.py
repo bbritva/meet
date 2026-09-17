@@ -408,6 +408,20 @@ def _apply_to_word_segments(
         return
 
 
+def _floor_for(acronym: str, user_acronyms: Optional[set[str]]) -> float:
+    """The confidence an acronym must reach before it is written back.
+
+    An organisation that uploaded an acronym has already vouched for it, so the
+    bar is lower: a 0.75 decision on a declared acronym is better evidence than
+    0.75 on one guessed from a public corpus. The reported confidence stays the
+    model's own, so the audit trail is not inflated.
+    """
+    floor = settings.acronym_correction_min_confidence
+    if user_acronyms and acronym in user_acronyms:
+        floor -= settings.acronym_correction_user_glossary_relief
+    return floor
+
+
 def correct_acronyms(
     transcription: Any,
     llm_service,
@@ -478,7 +492,7 @@ def correct_acronyms(
                 "wrong": wrong,
                 "correct": choice,
                 "confidence": confidence,
-                "applied": confidence >= settings.acronym_correction_min_confidence,
+                "applied": confidence >= _floor_for(choice, user_acronyms),
             }
         )
 

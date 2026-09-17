@@ -357,3 +357,16 @@ def test_context_words_do_not_create_wider_windows(index):
     assert [acronym for acronym, _ in shortlist] == ["DINUM"]
     assert where["DINUM"] == ("dix nomme", 1, 2)
     assert all("Côté" not in matched[0] for matched in where.values())
+
+
+def test_user_glossary_lowers_the_confidence_floor():
+    """A declared acronym is applied at a confidence a guessed one would not be."""
+    plain = acronym_correction._floor_for("DINUM", None)
+    declared = acronym_correction._floor_for("DINUM", {"DINUM"})
+    other = acronym_correction._floor_for("DICOM", {"DINUM"})
+
+    assert declared < plain
+    assert other == plain
+    # the case that motivated it: 0.75 passes only when declared
+    assert 0.75 >= declared
+    assert 0.75 < plain

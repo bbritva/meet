@@ -110,6 +110,7 @@ class Settings(BaseSettings):
     # Acronym correction
     is_acronym_correction_enabled: bool = False
     acronym_correction_min_confidence: float = 0.8
+    acronym_correction_user_glossary_relief: float = 0.1
     acronym_correction_top_k: int = 10
     acronym_correction_min_similarity: float = 0.62
 
