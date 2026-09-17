@@ -1,4 +1,54 @@
 {
+ "00012baa6b6129f68a6d24572f4be990a9ab8aadae8444676f86eba190bd8048": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "023360c663debd4d6802d327f4f56fa1d3b7829daf0903e5e02c7b45f6df042f": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "03a34c721d767efdcbe525a75d9f5a53ebb24c66b8c01da91e1088b684e52462": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"dix nomme\"},{\"span\":\"y grec js\"},{\"span\":\"serre des thés\"}]}"
+ },
+ "046f93ffe91aa8e098608f6748b189632a6ff917c77fc8421058635fe1a12554": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 204, \"type\": \"none\", \"name\": null, \"raw\": \"Mais je n'aime que les faits et les chiffres, mais votre question m'invite à prendre un peu de hauteur et donc je le fais immédiatement.\"},\n  {\"index\": 205, \"type\": \"none\", \"name\": null, \"raw\": \"Il y a deux grands scénarios, soit le crépuscule de la civilisation des Lumières.\"},\n  {\"index\": 206, \"type\": \"none\", \"name\": null, \"raw\": \"Vous avez Henri Kissinger, beaucoup de grands noms de l'IA qui vont dans cette direction là.\"},\n  {\"index\": 207, \"type\": \"none\", \"name\": null, \"raw\": \"Ou en face, il y a Yann Lequin qui me semble-t-il est un peu tout seul dans la matière, qui voit une nouvelle renaissance.\"},\n  {\"index\": 208, \"type\": \"none\", \"name\": null, \"raw\": \"Je tiens à rappeler qu'Yann Lequin travaille chez Meta, donc l'écouter, c'est comme écouter Philippe Maurice sur les dangers du tabac.\"},\n  {\"index\": 209, \"type\": \"none\", \"name\": null, \"raw\": \"Personnellement, ça me gêne.\"},\n  {\"index\": 210, \"type\": \"none\", \"name\": null, \"raw\": \"Je sais qu'on fait des commissions dans ce pays avec ces acteurs là, donc en termes de conflits d'intérêts, ça pose question.\"},\n  {\"index\": 211, \"type\": \"none\", \"name\": null, \"raw\": \"Alors du côté du crépuscule, qu'est-ce qu'on voit ?\"},\n  {\"index\": 212, \"type\": \"none\", \"name\": null, \"raw\": \"Un retour vers un modèle analogue à l'ancien régime.\"},\n  {\"index\": 213, \"type\": \"none\", \"name\": null, \"raw\": \"Accroissement des inégalités, on n'avait pas attendu l'IA pour ça, mais là on a mis la seconde.\"},\n  {\"index\": 214, \"type\": \"none\", \"name\": null, \"raw\": \"Captation de l'attention des travailleurs zombies, appauvrissement des esprits engendrés par l'addiction aux écrans, TikTok, Métaverse, Snapchat, bon tout genre de bêtises, avec son lot d'égo-portraits faits sur des téléphones intelligents.\"},\n  {\"index\": 215, \"type\": \"none\", \"name\": null, \"raw\": \"Et en face, une noblesse de l'algorithme.\"}\n]"
+ },
+ "04e1169864ed324f18bd2dda2d8f3843564d1d3e1466c78c5d782b4e2b83db46": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 516, \"type\": \"none\", \"name\": null, \"raw\": \"Qu'est-ce que vous observez de ce point de vue ?\"},\n  {\"index\": 517, \"type\": \"mention\", \"name\": null, \"raw\": \"Les études, notamment celle de Daniel Kahneman, montrent que nous avons de très mauvais jugements pour évaluer les gens.\"},\n  {\"index\": 518, \"type\": \"none\", \"name\": null, \"raw\": \"Alors même que nous avons tendance à penser que nous avons un excellent jugement.\"},\n  {\"index\": 519, \"type\": \"none\", \"name\": null, \"raw\": \"Ça, c'est un autre biais.\"},\n  {\"index\": 520, \"type\": \"none\", \"name\": null, \"raw\": \"C'est le biais de confiance en soi qui nous amène toujours à penser qu'on fait partie des 10% des meilleurs sur un sujet critique.\"},\n  {\"index\": 521, \"type\": \"none\", \"name\": null, \"raw\": \"10% des gens qui créent une entreprise sont persuadés qu'eux, ils n'auront pas de problème.\"},\n  {\"index\": 522, \"type\": \"none\", \"name\": null, \"raw\": \"Les conducteurs pensent tous faire partie des 10% des meilleurs conducteurs, les profs des 10% des meilleurs profs, etc. Surtout d'ailleurs quand on est des hommes, pour la conduite notamment.\"},\n  {\"index\": 523, \"type\": \"mention\", \"name\": null, \"raw\": \"Mais ça, c'est des travaux de Daniel Kahneman qui me montrent.\"},\n  {\"index\": 524, \"type\": \"none\", \"name\": null, \"raw\": \"Et chez les recruteurs, oui, il y a toute une littérature qui montre à quel point nous sommes des mauvais recruteurs.\"},\n  {\"index\": 525, \"type\": \"none\", \"name\": null, \"raw\": \"Et pourtant, en tant que recruteur, si vous recrutez, et je vais aussi recruter, on a tendance à penser que c'est vrai, mais pas nous.\"},\n  {\"index\": 526, \"type\": \"none\", \"name\": null, \"raw\": \"Voilà.\"},\n  {\"index\": 527, \"type\": \"none\", \"name\": null, \"raw\": \"En tout cas, ceux qui fournissent des solutions à base d'IA pour le recrutement connaissent ces travaux et souvent, dans leur argumentaire de vente, les décrivent en disant, grosso modo, si on prend un certain nombre de statistiques, le jugement humain moyen pour recruter un candidat, c'est aussi efficace que pile ou face.\"}\n]"
+ },
+ "052f661a5437316626ad3737ad1c4806402dc767e6b496daee0037871544b96d": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"méfcine\"}]}"
+ },
+ "054cd76d5463f401c14f473e51d282b0bb6e5dcd606118281e5e0a18094cbe28": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "06c4423c60fe1edc93a70ec57daa130087d683eb6901d6e4d9dc2b799211caee": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "07c151d0dd183800ec1ebfbc4f9962072d407c78e389fe4385b2989d8ce90266": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "07cb9687c7231b4aa62815f099fdc0de9f2c28d24630be3450fae655a33afd67": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
  "07dc85465ceeddfce6a3efe0231921b9aed0ac28a14ae575ee9225bbc94b7c94": {
   "model": "openweight-large",
   "name": "acronym-decide",
@@ -8,6 +58,36 @@
   "model": "openweight-large",
   "name": "acronym-decide",
   "reply": "{\n  \"choix\": \"Menshen\",\n  \"confiance\": 0.9\n}"
+ },
+ "0963d757aba368a18f4ffca07f4abc13ec6eb2fee27e0613ad4ad99a8c38e05d": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\n    \"index\": 540,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Voilà, donc comment on y prend garde ?\"\n  },\n  {\n    \"index\": 541,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Eh bien, en diversifiant les équipes de concepteurs, en s'assurant qu'il y a des hommes, des femmes, qui a différentes cultures, qui a différentes sensibilités et pas simplement les gens de la tech qui sont des hommes blancs très diplômés et qui ont à peu près une quarantaine d'années.\"\n  },\n  {\n    \"index\": 542,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"On a un contre exemple, mais voilà, je n'ai pas de problème avec cette catégorie de population.\"\n  },\n  {\n    \"index\": 543,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Mais dans les faits, ce n'est pas une population qui est très représentative.\"\n  },\n  {\n    \"index\": 544,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Et puis après, on a toute une manière d'avoir des jeux de données beaucoup plus équilibrés.\"\n  },\n  {\n    \"index\": 545,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"On peut créer des données synthétiques, notamment de façon à ce que le système s'entraîne sur des bases de données qui ne sont pas représentatives de nos biais, mais qui sont représentatives de notre éthique.\"\n  },\n  {\n    \"index\": 546,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Ça, c'est une façon qu'on peut avoir d'essayer de créer des systèmes qui soient un peu moins discriminants.\"\n  },\n  {\n    \"index\": 547,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Quand vous mettez un humain dans la boucle, c'est souvent l'hypothèse qu'on croit suffisante.\"\n  },\n  {\n    \"index\": 548,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"En fait, ça ne l'est pas.\"\n  },\n  {\n    \"index\": 549,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Parce que beaucoup d'études le montrent, j'en ai cité une ou deux, que le fait d'être assisté par une entité IA, ça produit un effet de déresponsabilisation.\"\n  },\n  {\n    \"index\": 550,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Un très bon article dans la revue du MIT de cet été qui montrait qu'il s'intéressait au système de conduite autonome.\"\n  },\n  {\n    \"index\": 551,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"et également le système d'évaluation de récidive dans la justice étatsunienne, Compass.\"\n  }\n]"
+ },
+ "09e90074433d2c88b67fd7ba5e5266812a2a8b17d4b191da9eb71f960cf6d336": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "0a880fc3bef8db6342e5fd19d20ccbafb48129c1babe8ab7fc9342c8dca35b69": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "0b622940a6dab59811669009a7cf5fde8a2fb7212d786cafbc70c6aba1fb8161": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 336, \"type\": \"none\", \"name\": null, \"raw\": \"Et par ailleurs, par contre, le problème que ça a adressé était d'une grande modernité.\"},\n  {\"index\": 337, \"type\": \"none\", \"name\": null, \"raw\": \"Alors, je ne peux pas aller trop loin pour ne pas dévoyer le concours, mais en fait, il avait une manière de rendre les employés acteurs de leur activité, qui était très moderne pour le coup.\"},\n  {\"index\": 338, \"type\": \"none\", \"name\": null, \"raw\": \"Et donc, il y avait une très grande modernité sociale.\"},\n  {\"index\": 339, \"type\": \"none\", \"name\": null, \"raw\": \"Mais une forme quand même de ringardiste technologique.\"},\n  {\"index\": 340, \"type\": \"none\", \"name\": null, \"raw\": \"Donc, on voit bien que c'est assez significatif de ce que je disais tout à l'heure sur la façon dont la technique, elle avance très vite.\"},\n  {\"index\": 341, \"type\": \"none\", \"name\": null, \"raw\": \"Mais dès qu'on va vers la réalité du monde social, du monde du travail, eh bien, ça ralentit, ça ralentit.\"},\n  {\"index\": 342, \"type\": \"none\", \"name\": null, \"raw\": \"Et presque c'est normal parce que le monde humain a ses propres\"},\n  {\"index\": 343, \"type\": \"none\", \"name\": null, \"raw\": \"que l'on a tendance à stigmatiser, mais qui en fait sont liées à notre rythme.\"},\n  {\"index\": 344, \"type\": \"none\", \"name\": null, \"raw\": \"Nous avons des rythmes collectifs, des rythmes personnels, et les brutaliser, quelque part, c'est risquer de la casse.\"},\n  {\"index\": 345, \"type\": \"none\", \"name\": null, \"raw\": \"Pour ceux qui sont dans la tech, ça va passer vite.\"},\n  {\"index\": 346, \"type\": \"none\", \"name\": null, \"raw\": \"Pour ceux qui sont anti-tech, ça va trop vite.\"},\n  {\"index\": 347, \"type\": \"none\", \"name\": null, \"raw\": \"On doit trouver un rythme commun.\"}\n]"
+ },
+ "0df4d49674e0376d22923a765446b733d6b98dc8367fbb56e8b7f84aa0f5359e": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\n  \"choix\": \"Menshen\",\n  \"confiance\": 0.9\n}"
+ },
+ "0faa92549c9e8609e6cb78574aacfb274cba877f78e350f6f07a63368502b047": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
  },
  "10d7076ead4601f9bf2cd57c663634529be7b1fa3fdeefa9dd1fbe982835266e": {
   "model": "openweight-large",
@@ -19,30 +99,195 @@
   "name": "speaker-cues",
   "reply": "[\n  {\n    \"index\": 0,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Bonjour à toutes et à tous.\"\n  },\n  {\n    \"index\": 1,\n    \"type\": \"self_id\",\n    \"name\": \"Nadia Berger\",\n    \"raw\": \"Ici Nadia. On ouvre le point d'architecture hebdomadaire sur La Suite.\"\n  },\n  {\n    \"index\": 2,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Trois sujets à l'ordre du jour : la collaboration en temps réel dans Docs, le stockage objet, et l'intégration des mini-applications.\"\n  },\n  {\n    \"index\": 3,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"On a quarante minutes, donc on garde les débats techniques pour la fin.\"\n  },\n  {\n    \"index\": 4,\n    \"type\": \"handoff\",\n    \"name\": \"Julien Perrot\",\n    \"raw\": \"Julien, tu démarres ?\"\n  },\n  {\n    \"index\": 5,\n    \"type\": \"self_id\",\n    \"name\": \"Julien Perrot\",\n    \"raw\": \"Bonjour, Julien à l'appareil. Côté dix nomme, la brique de collaboration a bien avancé ce mois-ci.\"\n  },\n  {\n    \"index\": 6,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Le serveur temps réel tourne maintenant entièrement sur y grec js.\"\n  },\n  {\n    \"index\": 7,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Le modèle de données repose sur des serre des thés, donc la fusion des modifications se fait sans verrou côté serveur.\"\n  },\n  {\n    \"index\": 8,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"On a retiré le dernier verrou pessimiste la semaine dernière.\"\n  },\n  {\n    \"index\": 9,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Et la reconnexion après une coupure réseau, c'est réglé ?\"\n  },\n  {\n    \"index\": 10,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Pas encore. Au-delà de treize secondes hors ligne, le client renvoie l'état complet du document au lieu d'un delta.\"\n  },\n  {\n    \"index\": 11,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Sur un document long, ça provoque un pic de mémoire côté back-end, et parfois une fusion qui duplique un paragraphe.\"\n  }\n]"
  },
+ "1241c7aa2c0f7d8910b2c7fa31a8e9cb60f32355bb69c9f676bffa44bd2bf97a": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "126c9a9ad50fa5411cdb2fc3c16532c97b088f706b74eeb520937458d60d37b5": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "1319c01d756425313d28be3a6a6c73c31ab5503c354027f4f9e0ca012770888f": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "134339cb3fec69734aa24965e8814c33f53176f1c7ecac7d9bab7ea34cce028e": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 408, \"type\": \"none\", \"name\": null, \"raw\": \"Je ne la connais pas très bien dans le public.\"},\n  {\"index\": 409, \"type\": \"none\", \"name\": null, \"raw\": \"Mentor, là, vous allez voir, on est quand même très loin chez Amazon.\"},\n  {\"index\": 410, \"type\": \"none\", \"name\": null, \"raw\": \"Mentor, c'est quand même celui à qui Ulysse confie son fils pendant son périple.\"},\n  {\"index\": 411, \"type\": \"none\", \"name\": null, \"raw\": \"Souvent, les noms utilisés pour les IA sont assez...\"},\n  {\"index\": 412, \"type\": \"none\", \"name\": null, \"raw\": \"C'est terrible, quand même pour le plaisir, mais l'IA Midas, c'est celle qui avait utilisé l'État du Michigan pour traquer les fraudeurs aux allocations chômage.\"},\n  {\"index\": 413, \"type\": \"none\", \"name\": null, \"raw\": \"30 000 familles endettées, scandale d'État.\"},\n  {\"index\": 414, \"type\": \"none\", \"name\": null, \"raw\": \"Midas, comment on appelle ça Midas ?\"},\n  {\"index\": 415, \"type\": \"none\", \"name\": null, \"raw\": \"Il faut vraiment être une inculture crasse ou être très méchant.\"},\n  {\"index\": 416, \"type\": \"none\", \"name\": null, \"raw\": \"On peut être les deux.\"},\n  {\"index\": 417, \"type\": \"none\", \"name\": null, \"raw\": \"Donc l'IA Mentor qui sert à contrôler les chauffeurs, mais là aussi, ça marche très mal.\"},\n  {\"index\": 418, \"type\": \"none\", \"name\": null, \"raw\": \"Typiquement, les chauffeurs, ils disent que quand ils passent sur une bosse avec leur véhicule, l'application l'IA qui est derrière, elle croit que le chauffeur utilise son téléphone et donc vous prenez des pénalités ou autre.\"},\n  {\"index\": 419, \"type\": \"none\", \"name\": null, \"raw\": \"Et j'ai lu hier dans la presse que là, Amazon, pour les 100 derniers mètres, ils ont prévu d'avoir des lunettes de réalité augmentée pour diriger, piloter les êtres humains.\"}\n]"
+ },
+ "13a4da1abd7ea3812f3d20a00439b81ae36288662a7f51d46295ef2f40ccf940": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
  "14044dc41de844142d680d929156d4659c335baa887c299aed57818d7b67436f": {
   "model": "openweight-large",
   "name": "acronym-decide",
   "reply": "{\n  \"choix\": null,\n  \"confiance\": 0.96\n}"
+ },
+ "1423137f1f4918d04f3815e16d34bfaf0d23cb58196503fcc11db660e2b38bba": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "14b298754a8f594202840b0311a1577d2e1966278c06fe8da806e05324e1f947": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[{\"index\":576,\"type\":\"none\",\"name\":null,\"raw\":\"J'invite à aller voir ça, c'est hyper intéressant.\"},{\"index\":577,\"type\":\"none\",\"name\":null,\"raw\":\"Une étude a montré que si vous prenez une IA dysfonctionnelle,\"},{\"index\":578,\"type\":\"none\",\"name\":null,\"raw\":\"Vous la donnez à des individus dans des tests de laboratoire, si vous ne leur laissez que 10 secondes, les individus ne seront en désaccord qu'à 50%.\"},{\"index\":579,\"type\":\"none\",\"name\":null,\"raw\":\"Si vous leur laissez 25 secondes, ils seront en désaccord à 67%.\"},{\"index\":580,\"type\":\"none\",\"name\":null,\"raw\":\"Si ensuite vous ajoutez un score de confiance que l'IA a dans son propre évaluation, avec des éléments de ce type-là, on peut diminuer.\"},{\"index\":581,\"type\":\"none\",\"name\":null,\"raw\":\"les risques.\"},{\"index\":582,\"type\":\"none\",\"name\":null,\"raw\":\"Donc, mon propos, c'est vraiment, il y a des sciences, il y a des laboratoires, regardons ce qui se fait pour utiliser l'IA de la bonne manière, tout simplement.\"},{\"index\":583,\"type\":\"none\",\"name\":null,\"raw\":\"Et comme dans le domaine de l'aéronautique civile, qu'il y a un crash d'avion, on veut savoir pourquoi.\"},{\"index\":584,\"type\":\"none\",\"name\":null,\"raw\":\"On veut vraiment savoir et on creuse.\"},{\"index\":585,\"type\":\"none\",\"name\":null,\"raw\":\"C'est ce qu'on appelle les organisations de fiabilité, c'était évoqué ce matin.\"},{\"index\":586,\"type\":\"none\",\"name\":null,\"raw\":\"Moi, au départ, j'étudie des organisations de fiabilité, armées, pompiers, etc., qui se posent la question de vraiment, ils font tout pour ne pas qu'il y ait des catastrophes.\"},{\"index\":587,\"type\":\"none\",\"name\":null,\"raw\":\"Et là, depuis 4 ans, je travaille sur l'IA et je me dis qu'il y a moins d'attention et c'est bien dommage parce qu'il y a des enjeux importants.\"}]"
+ },
+ "162e49ff4a30b2623174283202ecb1081c2d37077184ea6372c15bca6874440c": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"Christ\"}]}"
  },
  "17972fcbd58f14d51453685bdc894d9a6f374598705b75483735fe541e90d11d": {
   "model": "openweight-large",
   "name": "speaker-cues",
   "reply": "[\n  {\"index\": 24, \"type\": \"none\", \"name\": null, \"raw\": \"internes. Le PCA a été relu la semaine dernière.\"},\n  {\"index\": 25, \"type\": \"none\", \"name\": null, \"raw\": \"Les trois sont indépendantes, mais elles partagent la même fenêtre.\"},\n  {\"index\": 26, \"type\": \"none\", \"name\": null, \"raw\": \"Trois opérations sur une seule fenêtre, c'est beaucoup.\"},\n  {\"index\": 27, \"type\": \"none\", \"name\": null, \"raw\": \"Si la montée de version dérape, nous n'aurons pas le temps de revenir en arrière avant l'ouverture du lundi matin.\"},\n  {\"index\": 28, \"type\": \"none\", \"name\": null, \"raw\": \"Je propose de sortir la rotation des certificats et de la traiter la semaine suivante.\"},\n  {\"index\": 29, \"type\": \"none\", \"name\": null, \"raw\": \"Quel est le risque à décaler la rotation ?\"},\n  {\"index\": 30, \"type\": \"none\", \"name\": null, \"raw\": \"Faible : le certificat le plus proche expire à la mi-novembre.\"},\n  {\"index\": 31, \"type\": \"none\", \"name\": null, \"raw\": \"Une semaine de décalage ne change rien, et ça allège franchement la fenêtre.\"},\n  {\"index\": 32, \"type\": \"none\", \"name\": null, \"raw\": \"Je suis favorable à la proposition.\"},\n  {\"index\": 33, \"type\": \"none\", \"name\": null, \"raw\": \"Alors on fait comme ça.\"},\n  {\"index\": 34, \"type\": \"none\", \"name\": null, \"raw\": \"Deux opérations le premier week-end, la rotation le week-end suivant.\"},\n  {\"index\": 35, \"type\": \"none\", \"name\": null, \"raw\": \"Je mets à jour le calendrier de maintenance, je préviens les équipes applicatives et la DSI.\"}\n]"
  },
+ "18555b85bbd1087def3fea84c744e06a7e123317fca144b7153d3d8bf4880154": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "19469e655e928748c4af10d6f8878a8869cb281518b779e087bdf74c336259d2": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\n    \"index\": 444,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[444] (SPEAKER_01) On voit qu'on n'est plus seulement sur des effets organisationnels, mais des effets à l'échelle sociétaux.\"\n  },\n  {\n    \"index\": 445,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[445] (SPEAKER_01) Et le tragique, c'est que lorsque les entreprises recrutent ces personnes-là, il y a des études qui montrent que ces entreprises-là sont à 36% moins susceptibles d'être confrontées à des pénuries de talent, et que sur tout un tas de critères, ces personnes-là sont plus performantes.\"\n  },\n  {\n    \"index\": 446,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[446] (SPEAKER_01) Donc là, vous voyez que c'est vraiment stupide.\"\n  },\n  {\n    \"index\": 447,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[447] (SPEAKER_01) Autre point intéressant, il y a des IA qui font les entretiens d'embauche de manière totalement autonome.\"\n  },\n  {\n    \"index\": 448,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[448] (SPEAKER_01) Vous avez peut-être entendu parler de higher view, retorio, my interview.\"\n  },\n  {\n    \"index\": 449,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[449] (SPEAKER_01) Ça vous pose des questions, et la promesse derrière, c'est la quantification de l'employabilité du candidat.\"\n  },\n  {\n    \"index\": 450,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[450] (SPEAKER_01) Il y a même Google qui propose Google Warm Up, qui est une IA pour vous entraîner à faire des entretiens d'embauche avec des IA.\"\n  },\n  {\n    \"index\": 451,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[451] (SPEAKER_01) On reboucle la boucle, c'est une catastrophe.\"\n  },\n  {\n    \"index\": 452,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[452] (SPEAKER_01) Ça pèsera, ça devrait peser un milliard en 2030, le marché de ces IA qui font des entretiens.\"\n  },\n  {\n    \"index\": 453,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[453] (SPEAKER_01) C'est 600 millions aujourd'hui.\"\n  },\n  {\n    \"index\": 454,\n    \"type\": \"mention\",\n    \"name\": null,\n    \"raw\": \"[454] (SPEAKER_04) Peut-être, Sondès, vous pouvez compléter avec une autre approche, j'imagine, sur les douanes et comment l'IA est utilisée dans des programmes de mobilité des personnels et est-ce qu'il y a justement un contrôle humain dans ces processus ?\"\n  },\n  {\n    \"index\": 455,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[455] (SPEAKER_03) Je vais avoir une lecture très opérationnelle, très terrain du sujet.\"\n  }\n]"
+ },
+ "19697d30ed2c085bc299f523dc471abb19628ee2208f107dcd91bd7a56d6daf3": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "1aa3771989fd7927f53c06d2d013ff7b4cf1b96267ddc9f49916f5075d7f7472": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"oreille bientôt\"},{\"span\":\"Watson Maison\"},{\"span\":\"rebouquer\"}]}"
+ },
+ "1aa3f9b2cce6a60beac2844c68e5196548d00098ff757fd3048e9be7addfa14b": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[{\"index\":672,\"type\":\"none\",\"name\":null,\"raw\":\"Donc la formation est importante pour les deux.\"},{\"index\":673,\"type\":\"none\",\"name\":null,\"raw\":\"Et donc, pour revenir à ce que j'ai dit au début, les métiers eux-mêmes vont changer.\"},{\"index\":674,\"type\":\"none\",\"name\":null,\"raw\":\"Ça, c'est clair.\"},{\"index\":675,\"type\":\"none\",\"name\":null,\"raw\":\"Ce n'est pas qu'ils vont disparaître, mais ils vont changer.\"},{\"index\":676,\"type\":\"none\",\"name\":null,\"raw\":\"Et on a fait certaines études à l'OCDE où on a regardé des données de vacatures.\"},{\"index\":677,\"type\":\"none\",\"name\":null,\"raw\":\"Ça se dit en français ?\"},{\"index\":678,\"type\":\"none\",\"name\":null,\"raw\":\"Vacation, c'est ça ?\"},{\"index\":679,\"type\":\"none\",\"name\":null,\"raw\":\"Vacation, le mot ?\"},{\"index\":680,\"type\":\"none\",\"name\":null,\"raw\":\"D'accord.\"},{\"index\":681,\"type\":\"none\",\"name\":null,\"raw\":\"Et les compétences qui sont demandées par les entreprises ?\"},{\"index\":682,\"type\":\"none\",\"name\":null,\"raw\":\"Et une chose qui est intéressante, on a regardé des entreprises qui sont les plus exposées à l'IA et on a regardé au long du temps ce qui s'est passé avec les compétences que ces entreprises-là demandaient.\"},{\"index\":683,\"type\":\"none\",\"name\":null,\"raw\":\"Alors je vais lire un peu.\"}]"
+ },
+ "1ae999a740f4b5c44c43d1748c5a2a0731635aa2194049c6dcb7b6618f2f2f3f": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "1bbc7c1631828619998f87e4dafac63868e377af16c655be4513375a84bb23d0": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "1bd3baaaa373a9442f71b02932d193c01e57fa24cdac9712bd7038df5ce5dc64": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
  "1be815640b584ffcadaaf214e7818147cd5f6e88f5ec71a5fdbd80d01292aab4": {
   "model": "openweight-large",
   "name": "acronym-decide",
   "reply": "{\n  \"choix\": null,\n  \"confiance\": 0.7\n}"
+ },
+ "1c125743d2bb286b65442cffc43140417eac9a080b562f0bb31001183e55dd37": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"mini eau\"}]}"
+ },
+ "1d3533d1e3016513cac8865c31be6b6b56a1edcbe6d6fbb2825521486b2e9550": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "1d49926927fdca9916cb1414f51fcce1666084d0c7286d55b2e9b729f2d632bd": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 468, \"type\": \"none\", \"name\": null, \"raw\": \"Donc je n'ai pas une vision macroéconomique du sujet, mais en tout cas d'un point de vue purement opérationnel.\"},\n  {\"index\": 469, \"type\": \"none\", \"name\": null, \"raw\": \"Dans un programme de transformation comme celui que je dirige au sein de la douane, ce qu'on remarque d'un point de vue opérationnel au plus près du terrain, c'est qu'on crée davantage d'activités parce qu'on est beaucoup plus précis, parce qu'on travaille de manière plus efficiente.\"},\n  {\"index\": 470, \"type\": \"none\", \"name\": null, \"raw\": \"Et parce qu'aussi, on a intégré, encore une fois, le métier dans la construction de l'outil.\"},\n  {\"index\": 471, \"type\": \"none\", \"name\": null, \"raw\": \"Et donc, ils se sont pleinement propriétaires de l'outil.\"},\n  {\"index\": 472, \"type\": \"none\", \"name\": null, \"raw\": \"Et ils ne subissent pas cette solution.\"},\n  {\"index\": 473, \"type\": \"none\", \"name\": null, \"raw\": \"Alors, on teste d'autres méthodes.\"},\n  {\"index\": 474, \"type\": \"none\", \"name\": null, \"raw\": \"On a des sujets autour de la computer vision pour le traitement des images.\"},\n  {\"index\": 475, \"type\": \"none\", \"name\": null, \"raw\": \"On commence tout juste.\"},\n  {\"index\": 476, \"type\": \"none\", \"name\": null, \"raw\": \"Alors, on est très, très intéressé.\"},\n  {\"index\": 477, \"type\": \"none\", \"name\": null, \"raw\": \"par rapport à l'intelligence artificielle générative.\"},\n  {\"index\": 478, \"type\": \"none\", \"name\": null, \"raw\": \"Donc on commence tout juste à tester ce type d'algorithme.\"},\n  {\"index\": 479, \"type\": \"none\", \"name\": null, \"raw\": \"On utilise Albert sur Nubo pour la sphère SI.\"}\n]"
+ },
+ "1e27100f5676a141635896c8ebd2a525a2f0d8147fb3022f90cd8b38b6b817c3": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
  },
  "1e6a4cb404d107a006945483ff17d3450bcd55845303eb961f016770b2c5db49": {
   "model": "openweight-large",
   "name": "speaker-cues",
   "reply": "[{\"index\":24,\"type\":\"none\",\"name\":null,\"raw\":\"Tant qu'on ne l'a pas résorbé, chaque évolution d'authentification doit être faite deux fois.\"},{\"index\":25,\"type\":\"handoff\",\"name\":\"Julien Perrot\",\"raw\":\"Julien, où en est l'unification de l'authentification ?\"},{\"index\":26,\"type\":\"none\",\"name\":null,\"raw\":\"En local, on garde qui cloaque pour le développement.\"},{\"index\":27,\"type\":\"none\",\"name\":null,\"raw\":\"En production, c'est ProConnect. Le flux oh idée sait est identique, seule l'URL de découverte change.\"},{\"index\":28,\"type\":\"none\",\"name\":null,\"raw\":\"Les équipes qui arrivent sur le projet se trompent souvent là-dessus, donc il faut une note claire.\"},{\"index\":29,\"type\":\"none\",\"name\":null,\"raw\":\"Et l'échange de jetons entre applications, on a tranché ?\"},{\"index\":30,\"type\":\"none\",\"name\":null,\"raw\":\"On passe par main chêne, qui implémente l'échange de jetons décrit dans la RFC 8693.\"},{\"index\":31,\"type\":\"none\",\"name\":null,\"raw\":\"Ça permet à Docs d'appeler l'API de Drive au nom de l'utilisateur, sans redemander une authentification.\"},{\"index\":32,\"type\":\"none\",\"name\":null,\"raw\":\"C'est encore expérimental, mais la mécanique fonctionne en intégration.\"},{\"index\":33,\"type\":\"none\",\"name\":null,\"raw\":\"Attention quand même : ce composant n'est pas encore empaqueté pour notre chaîne de déploiement.\"},{\"index\":34,\"type\":\"none\",\"name\":null,\"raw\":\"Il faudra prévoir un vrai travail d'industrialisation, avec les sondes et les journaux qui vont avec.\"},{\"index\":35,\"type\":\"handoff\",\"name\":\"Mathilde Roux\",\"raw\":\"Noté. Mathilde, les mini-applications.\"}]"
  },
+ "2065d182b3316c1d4e7746be9cc9435cc6817feaa475529216f5edc9f6361eea": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "223de50a8c8377596533f2207e8e11d61e8aa4a1bbec4491db320abd85d69652": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "22678ee4c72893d7a3226b60efafbf798ddc0d61bbb8e91ccb1adc59ce6eb263": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "2324450a2abdf45000b2d77d624dabe1d636d0395914395d4c550fd27e88a8db": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
  "234bfd8a4fca0f7e08941f602a9eb78e97609c22f4665ef6afce84f4fee00362": {
   "model": "openweight-large",
   "name": "acronym-detect",
   "reply": "{\"suspects\":[]}"
+ },
+ "235d72a4eac895daaf46d1a26c384402e948079a49635517b752a2524a2d68ad": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 252, \"type\": \"none\", \"name\": null, \"raw\": \"Et c'est qu'un exemple.\"},\n  {\"index\": 253, \"type\": \"none\", \"name\": null, \"raw\": \"Je peux parler d'Instagram, de YouTube et de tutti quanti.\"},\n  {\"index\": 254, \"type\": \"none\", \"name\": null, \"raw\": \"Pour terminer avec ça, il faut bien voir que si la santé mentale est...\"},\n  {\"index\": 255, \"type\": \"none\", \"name\": null, \"raw\": \"est en train de se détériorer, notamment chez nos plus jeunes, c'est parce que, de la même manière que Charlie Chaplin, dans l'usine, travaillait, devenait un rouage, était broyé dans son corps et dans sa psyché, désormais, c'est nous tous qui travaillons.\"},\n  {\"index\": 256, \"type\": \"none\", \"name\": null, \"raw\": \"Donc, attention, le temps libre, dans les faits, ce n'est pas du temps libre.\"},\n  {\"index\": 257, \"type\": \"none\", \"name\": null, \"raw\": \"C'est faux.\"},\n  {\"index\": 258, \"type\": \"none\", \"name\": null, \"raw\": \"Et là, vraiment, en dernière phrase, pour ma part, en étant très français, en aimant l'État, j'en appelle à la création d'un ministère du temps libre.\"},\n  {\"index\": 259, \"type\": \"none\", \"name\": null, \"raw\": \"Alors, ce n'est pas nouveau, vous me direz, on l'a fait en 36, en 81.\"},\n  {\"index\": 260, \"type\": \"none\", \"name\": null, \"raw\": \"Pourquoi ?\"},\n  {\"index\": 261, \"type\": \"none\", \"name\": null, \"raw\": \"Pour lutter contre la mise au pas et la mise au travail de toute la population par les géants de la tech.\"},\n  {\"index\": 262, \"type\": \"none\", \"name\": null, \"raw\": \"Je vous remercie.\"},\n  {\"index\": 263, \"type\": \"none\", \"name\": null, \"raw\": \"Merci.\"}\n]"
+ },
+ "23ffde3f98a92c67fa3797d6fd1335533d0c2c4f160612e674fb9acc4b686b00": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "255e317d62afbfcab30bf2d3ef6311ab1d411d208014758c928b1f99cc475e7d": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\"choix\":\"Keycloak\",\"confiance\":0.95}"
+ },
+ "25bc08cbdf1e027ed16191f6c76f6a4c7744bf403bfc58ce27420a3b258e73bc": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "25d8b3d9f7d2e1aad0448edd4fe40ecc5f3c07d9aaecc6c8da911d4022d0f8d5": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "26611c6936a219aded0daf15f6acf542b3feecdbdef83c14581e9edc793b9ec4": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "26cb3d3565c9f9db78380b38d9fbdb08c57fde564b1823effccbe6a262ec8ad0": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"méfcine\"}]}"
+ },
+ "27215a23f0e7f514f71ba1277c333c84ef42ae3527284ece45f2e415b7fbeb53": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "2959cf1a9888d149af324514d9282372be0217438f363b7ab51bf15907dbec86": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 324, \"type\": \"none\", \"name\": null, \"raw\": \"Et on était un peu deux profils tech, il y avait quelqu'un qui était vraiment un développeur, et puis moi, Inria, on m'assimile un peu à la tech, et tous les autres c'était DRH.\"},\n  {\"index\": 325, \"type\": \"none\", \"name\": null, \"raw\": \"Et en fait l'application qui va gagner, elle aurait pu être développée dans les années 80.\"},\n  {\"index\": 326, \"type\": \"none\", \"name\": null, \"raw\": \"C'est de l'IA dite symbolique à base de règles.\"},\n  {\"index\": 327, \"type\": \"none\", \"name\": null, \"raw\": \"Tous les autres, ils sont sur de la data, des réseaux de neurones profonds, tout, incroyable.\"},\n  {\"index\": 328, \"type\": \"none\", \"name\": null, \"raw\": \"L'autre, c'est des règles, des règles, des règles.\"},\n  {\"index\": 329, \"type\": \"none\", \"name\": null, \"raw\": \"Mais tous les RH étaient là pour dire que, d'une part, il y avait un vrai besoin RH qui était adressé, tel que dans le monde qu'ils connaissaient.\"},\n  {\"index\": 330, \"type\": \"none\", \"name\": null, \"raw\": \"Alors que les super pouvoirs, ça leur faisait un peu peur.\"},\n  {\"index\": 331, \"type\": \"none\", \"name\": null, \"raw\": \"Et par ailleurs, la solution était rassurante parce qu'elle était explicable, parce qu'elle était frugale.\"},\n  {\"index\": 332, \"type\": \"none\", \"name\": null, \"raw\": \"On pouvait l'installer en local.\"},\n  {\"index\": 333, \"type\": \"none\", \"name\": null, \"raw\": \"Il n'y avait pas besoin de changer tout.\"},\n  {\"index\": 334, \"type\": \"none\", \"name\": null, \"raw\": \"Il n'y avait pas besoin d'être data centré, comme on dit, d'avoir une organisation data centrée.\"},\n  {\"index\": 335, \"type\": \"none\", \"name\": null, \"raw\": \"Non, c'était un petit programme.\"}\n]"
  },
  "2a05bb0400628307c279356adfaa11e14358dea6ef20254fc5a1bfddd3c33ccb": {
   "model": "openweight-large",
@@ -54,6 +299,96 @@
   "name": "acronym-decide",
   "reply": "{\n  \"choix\": \"Menshen\",\n  \"confiance\": 0.85\n}"
  },
+ "2de121b5dd88e178ad1e7593b14a61138a9bbc8fe62d2ac50ed38a882c6735fe": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\"choix\":\"CRDT\",\"confiance\":0.99}"
+ },
+ "2e7252b11784becd4276bcf769fa4292a8e6c9cd1e5e9b0eae1ebeb729341936": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "2fa0f3c945c03c3713bc50c05377de3ce11379d94b397da8372b3c02073a3dcb": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "301e82acd0685de9ccf8260f4c79fa2747560e1bd3d9e32bedeb77a994d6c6c3": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "308f1c5e9301428cd6de95b5e851ed593bff375b3c374b2e89d6a423414cd130": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"UNI\"}]}"
+ },
+ "3093c5bffc636dc16c0425cacb336f02f4ab15645cbc0a99c31b984589be5016": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "30f21008ac1db9536dfd6e6c4f2b73a8944a3399e86d07f935827910afd4dec4": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "3107a8d7a25af0f5a1d27adf93c32c6b962dab937f6e972f9d9c4e112e76b9be": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 312, \"type\": \"none\", \"name\": null, \"raw\": \"Et dans toutes les entreprises, il y a un vivier, un conchéri, parce qu'on les a identifiés comme des forts potentiels.\"},\n  {\"index\": 313, \"type\": \"none\", \"name\": null, \"raw\": \"Et ces forts potentiels, ils ont souvent certains égards.\"},\n  {\"index\": 314, \"type\": \"none\", \"name\": null, \"raw\": \"comme par exemple des learning expéditions avec des gens inspirants, comme des propositions régulières pour avoir des projets à l'intérieur, une mission à l'étranger, etc. Vous avez des systèmes d'IA qui suivent, qui traquent un peu ce top 10% et qui, lorsqu'il voit une opportunité qui manque un peu sur son CV à l'intérieur de l'entreprise, va lui pousser\"},\n  {\"index\": 315, \"type\": \"none\", \"name\": null, \"raw\": \"Une opportunité dans l'entreprise.\"},\n  {\"index\": 316, \"type\": \"none\", \"name\": null, \"raw\": \"Alors évidemment, si vous faites partie du top 10%, c'est génial.\"},\n  {\"index\": 317, \"type\": \"none\", \"name\": null, \"raw\": \"Quand vous êtes fait partie, vous vous dites peut-être qu'il y a une injustice quelque part.\"},\n  {\"index\": 318, \"type\": \"none\", \"name\": null, \"raw\": \"Elle était déjà là, mais il y a finalement quelque part l'industrialise, cette injustice.\"},\n  {\"index\": 319, \"type\": \"none\", \"name\": null, \"raw\": \"Donc on voit bien qu'il y a une très grande créativité.\"},\n  {\"index\": 320, \"type\": \"none\", \"name\": null, \"raw\": \"Hier, pour vous dire, j'étais dans un jury pour des solutions IA pour les RH.\"},\n  {\"index\": 321, \"type\": \"none\", \"name\": null, \"raw\": \"Et j'espère que personne n'a participé parce que le résultat sous embargo.\"},\n  {\"index\": 322, \"type\": \"none\", \"name\": null, \"raw\": \"Mais ce qui est intéressant, c'est qu'on a vu un peu ces catégories, on va dire, l'Everyday AI, celles qui...\"},\n  {\"index\": 323, \"type\": \"none\", \"name\": null, \"raw\": \"Améliore un peu l'existant et le game changing AI, celle qui vous donne un truc que vous ne pouvez pas faire.\"}\n]"
+ },
+ "31995cc4acef7afa2c088a8d401c26ddc3aba1af9f9d1b831f6488348a52607e": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "31a4b942ce1822fbf97178b9b2cd8b0c78ed4552791423ea79a0024795bf5fa3": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"dos pecs\"}]}"
+ },
+ "31b5510bd64b40aa3e122841670b6b566c9f0ef7c9e42203dbc964911c20b4a9": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "335d498e7899207d18de9612a6443444054e51831ee03dc9f179f6f2b82836d9": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\n  \"choix\": null,\n  \"confiance\": 0.7\n}"
+ },
+ "33919b739e3c6d956a20e02f0997e5427e6eebf37abd2a9d2763183c5dbab76a": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "33abd34107a37fb075355199559fc17c06e457daa12008cc6ad54e13b01e3de9": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "33da476b595489b78a3fe202b5f264ae53cffec479f3968875df2f7fc55d6528": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 612, \"type\": \"none\", \"name\": null, \"raw\": \"Ils peuvent rester contre l'IA à l'issue de cette formation, mais ils peuvent dire aussi qu'ils ont eu une formation qui les a passionnés parce qu'ils ont mieux compris quelque chose qui est un phénomène de société.\"},\n  {\"index\": 613, \"type\": \"none\", \"name\": null, \"raw\": \"Aujourd'hui, ça va bien au-delà de quelques grandes organisations.\"},\n  {\"index\": 614, \"type\": \"none\", \"name\": null, \"raw\": \"Nous sommes parents et nous avons nos enfants qui utilisent l'IA à l'école.\"},\n  {\"index\": 615, \"type\": \"none\", \"name\": null, \"raw\": \"Et des profs qui l'interdisent ou des profs qui ne veulent plus donner des devoirs.\"},\n  {\"index\": 616, \"type\": \"none\", \"name\": null, \"raw\": \"C'est un sujet de société aujourd'hui.\"},\n  {\"index\": 617, \"type\": \"none\", \"name\": null, \"raw\": \"Ce n'est pas un sujet qui est réservé à un club, des listes d'experts, de grandes organisations, de grandes administrations comme le méfcine.\"},\n  {\"index\": 618, \"type\": \"none\", \"name\": null, \"raw\": \"C'est un sujet de société.\"},\n  {\"index\": 619, \"type\": \"none\", \"name\": null, \"raw\": \"Donc on est tous en capacité si on comprend un peu mieux ce que c'est.\"},\n  {\"index\": 620, \"type\": \"none\", \"name\": null, \"raw\": \"Le dialogue social aujourd'hui, il existe, il est dans différentes situations.\"},\n  {\"index\": 621, \"type\": \"none\", \"name\": null, \"raw\": \"Il y a évidemment le cas le plus emblématique, c'est il y a un sujet IA dans l'entreprise et puis il y a un devoir d'information.\"},\n  {\"index\": 622, \"type\": \"none\", \"name\": null, \"raw\": \"Et puis derrière, on en discute.\"},\n  {\"index\": 623, \"type\": \"none\", \"name\": null, \"raw\": \"D'ailleurs, je suis dans ce cadre là, dans un dialogue social au sein du méfcine, puisque l'INRIA porte une étude\"}\n]"
+ },
+ "352b804d914698533a0eaed2c136cf62c1108cf8390bc063abb1a3a435e3b440": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "35d7a7a634825be5b5b7c2744ea420a653a83e35dc9ac5c8ab06f24ef0826310": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "3612ad7e989bd7f9dfb68b03314414849e3587f4fcbb26334aa8c60e52043895": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"méfcine\"},{\"span\":\"laboria\"}]}"
+ },
  "3652e74b93eb16d4a2cc5c47d8f5394cf0690730046fc57b71f06af3bbc48053": {
   "model": "openweight-large",
   "name": "acronym-detect",
@@ -64,15 +399,35 @@
   "name": "acronym-decide",
   "reply": "{\"choix\": \"CRDT\", \"confiance\": 0.95}"
  },
+ "38647c982fe6e0c7bb9e92ffdf3602213bbf7ecac3987100bb04b99816619485": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
  "393a1817a980bc97972e15871dec03f7f53f5e709b9e4078f9e2bfe62082a5ad": {
   "model": "openweight-large",
   "name": "acronym-decide",
   "reply": "{\"choix\":\"WOPI\",\"confiance\":0.9}"
  },
+ "3b39ade79df0fb5628a2011a6b8541e7e589ed96f880ee16e9efe6a8be2e46cf": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
  "3d486ada9a19d4e62e1b91db7d6f0940bd79dbbd05c830e3356ba2a9e9b6d91f": {
   "model": "openweight-large",
   "name": "acronym-decide",
   "reply": "{\"choix\": \"OIDC\", \"confiance\": 0.95}"
+ },
+ "3de39c58ffc4daf99e13430f94e180a6450402ea6879249b587489058f592e04": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "3e065520ef56672d926cb06fa70b537cb7e0472a2f805ec8791aca4bf9a1a780": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
  },
  "3e069a990faee8a99473dff3e982bb01c1a4a63e088897fa266bfc38ceeaaa13": {
   "model": "openweight-large",
@@ -84,17 +439,77 @@
   "name": "acronym-detect",
   "reply": "{\"suspects\":[{\"span\":\"whoopee\"}]}"
  },
+ "4038a61e19768c6fb9f69ee64f450eac6a065bdd6e67150854d45412b0333e41": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"GRH\"}]}"
+ },
+ "4236b4513cbb35bef4bf815872911d8d254ce5b10c8cd21b57ebc4afceda6850": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "42e4a3ac2329c475c1ce4b59bbe7ac27b399fe79084dfec5e502605b911a7161": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "43c597006190dfb52c15afa7533979f6854043f95563e78e6236254756d8bc40": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "4409fab5d60afdeed93457eb2f0bacbaad253506e5d5ca6b4c7776d3172eceb6": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"conchéri\"}]}"
+ },
+ "4431345e20015269cf07d93c3bc1d77a292c1f34c8e308609ad7598f7dc768aa": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\n    \"index\": 276,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"(SPEAKER_02) ne nous intéresse plus ou tel qu'il a évolué ne nous intéresse plus, eh bien on se dit je ne sais faire que ça.\"\n  },\n  {\n    \"index\": 277,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"(SPEAKER_02) Alors qu'en fait on sait faire plein d'autres choses et notamment on a des compétences transverses qui permettent de pivoter plus facilement vers certaines catégories de métiers qu'on ne connaît pas forcément.\"\n  },\n  {\n    \"index\": 278,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"(SPEAKER_02) et auxquelles on ne penserait pas.\"\n  },\n  {\n    \"index\": 279,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"(SPEAKER_02) Et donc là, l'idée, c'était de développer des solutions qui créent une interaction pour aller chercher ces expériences.\"\n  },\n  {\n    \"index\": 280,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"(SPEAKER_02) Et l'idée, c'est que derrière, l'outil est en capacité de faire un certain nombre de propositions, non pas basées sur les hard skills, les compétences verticales métiers, techniques, mais plutôt les compétences transversales.\"\n  },\n  {\n    \"index\": 281,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"(SPEAKER_02) Donc ça, ce sont des choses...\"\n  },\n  {\n    \"index\": 282,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"(SPEAKER_02) qui ne sont pas révolutionnaires par rapport à la problématique que ça adresse, mais on essaie de voir comment l'IA peut venir la rendre plus efficace.\"\n  },\n  {\n    \"index\": 283,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"(SPEAKER_02) Notre tendance, c'est plutôt de donner des nouveaux pouvoirs au RH.\"\n  },\n  {\n    \"index\": 284,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"(SPEAKER_02) Par exemple, des pouvoirs de prédiction.\"\n  },\n  {\n    \"index\": 285,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"(SPEAKER_02) Il y a des solutions d'IA qui sont en train de se développer dans le public et dans le privé pour prédire les démissions des collaborateurs.\"\n  },\n  {\n    \"index\": 286,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"(SPEAKER_02) Donc ça, c'est un nouveau pouvoir.\"\n  },\n  {\n    \"index\": 287,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"(SPEAKER_02) Je ne dis pas que de temps en temps, quand vous croisez un collègue, que vous lui parlez, vous dites celui-là ne va pas rester longtemps.\"\n  }\n]"
+ },
  "444dfff2c59c69d533ef8908c01ceb1efc6d3816c9d5d344726d01d9e030dab0": {
   "model": "openweight-large",
   "name": "speaker-cues",
   "reply": "[\n  {\"index\": 36, \"type\": \"none\", \"name\": null, \"raw\": \"On a dix-huit demandes remontées par les ministères.\"},\n  {\"index\": 37, \"type\": \"none\", \"name\": null, \"raw\": \"La plus fréquente, de loin, c'est l'export en PDF depuis Docs.\"},\n  {\"index\": 38, \"type\": \"none\", \"name\": null, \"raw\": \"Le prototype utilise type est avec un gabarit qui reprend la charte Marie-Anne et le bloc marque de l'État.\"},\n  {\"index\": 39, \"type\": \"none\", \"name\": null, \"raw\": \"Le problème, c'est que Docs n'expose pas d'export côté serveur.\"},\n  {\"index\": 40, \"type\": \"none\", \"name\": null, \"raw\": \"Tout se fait dans le navigateur aujourd'hui, donc on ne peut pas générer un document depuis une tâche planifiée.\"},\n  {\"index\": 41, \"type\": \"none\", \"name\": null, \"raw\": \"Soit on ajoute un point d'entrée côté back-end, soit on passe par dos pecs, le micro-service de conversion de documents.\"},\n  {\"index\": 42, \"type\": \"none\", \"name\": null, \"raw\": \"Ce service est prévu pour convertir du DOCX vers bloc note, pas l'inverse.\"},\n  {\"index\": 43, \"type\": \"none\", \"name\": null, \"raw\": \"Il faudrait écrire le chemin retour, et ce n'est pas une petite tâche.\"},\n  {\"index\": 44, \"type\": \"none\", \"name\": null, \"raw\": \"Chiffrez les deux options, on tranchera hors réunion avec le sponsor.\"},\n  {\"index\": 45, \"type\": \"none\", \"name\": null, \"raw\": \"D'accord. Dernier sujet : les tableurs.\"},\n  {\"index\": 46, \"type\": \"none\", \"name\": null, \"raw\": \"Est-ce qu'on continue à stocker les fichiers Christ dans Drive, ou est-ce qu'on attend le prototype interne ?\"},\n  {\"index\": 47, \"type\": \"none\", \"name\": null, \"raw\": \"On les stocke, mais on ne les intègre pas.\"}\n]"
+ },
+ "45b3309cc0c8aa789bfd25cf450ea118b170bf65dfc8916c303eb5590a8f4f0b": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
  },
  "45e3b98277fc279491df2ebafaf7023ee5a9ffa937e88a41204f28425c152f81": {
   "model": "openweight-large",
   "name": "speaker-cues",
   "reply": "[\n  {\n    \"index\": 48,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"C'est un logiciel tiers, avec sa propre base de données et sa propre authentification.\"\n  },\n  {\n    \"index\": 49,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Le jour où on voudra l'intégrer vraiment, il faudra reprendre le sujet depuis le début.\"\n  },\n  {\n    \"index\": 50,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Et il n'y a toujours pas de réponse sur les widgets.\"\n  },\n  {\n    \"index\": 51,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"La question avait déjà été posée l'an dernier pendant les journées de développement, elle est restée sans suite.\"\n  },\n  {\n    \"index\": 52,\n    \"type\": \"mention\",\n    \"name\": \"Julien Perrot\",\n    \"raw\": \"On récapitule les actions. Julien documente le flux entre Keycloak et ProConnect pour les nouveaux arrivants.\"\n  },\n  {\n    \"index\": 53,\n    \"type\": \"mention\",\n    \"name\": \"Karim Sahli\",\n    \"raw\": \"Karim ouvre un ticket sur le nommage des objets dans le stockage.\"\n  },\n  {\n    \"index\": 54,\n    \"type\": \"mention\",\n    \"name\": \"Mathilde Roux\",\n    \"raw\": \"Mathilde chiffre les deux options d'export PDF, avec une estimation en jours-homme.\"\n  },\n  {\n    \"index\": 55,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"J'ai besoin d'un accès à la pré-production pour tester la sauvegarde.\"\n  },\n  {\n    \"index\": 56,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Je passe par qui ?\"\n  },\n  {\n    \"index\": 57,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Par la DSI, avec une demande sur l'outil de tickets.\"\n  },\n  {\n    \"index\": 58,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Mets-moi en copie, je relancerai si besoin.\"\n  },\n  {\n    \"index\": 59,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Une dernière chose : la prochaine réunion tombe pendant les congés scolaires.\"\n  }\n]"
  },
+ "471bef8421afd0dd5e22ae088ec62b84874a794b938335af98e2731348280990": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "4918ff9e84d107f0dc7b9078956fa196ed4e982de047ef288ed05f38294aaaab": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 72, \"type\": \"none\", \"name\": null, \"raw\": \"On s'est dit, oui, il existe les études de l'OCDE et il existe d'autres études, mais celles d'OCDE font référence avec cette vision macro.\"},\n  {\"index\": 73, \"type\": \"none\", \"name\": null, \"raw\": \"Et peut-être que nous, ce qu'on pourrait apporter, c'est une vision très micro, justement.\"},\n  {\"index\": 74, \"type\": \"none\", \"name\": null, \"raw\": \"Et donc, ce que l'on a fait, c'est plutôt essayer d'aller sur les lieux de travail.\"},\n  {\"index\": 75, \"type\": \"none\", \"name\": null, \"raw\": \"où effectivement sont mises en œuvre des solutions à base d'intelligence artificielle qui sont parfois en phase d'expérimentation, parfois sont déjà déployées et produites, ce qui est beaucoup plus rare, je vais y revenir, pour aller regarder l'ensemble de l'écosystème d'un projet, de celui qui décide d'introduire l'IA dans une activité à celui qui n'a rien décidé mais qui voit son métier transformé par le fait qu'il doit utiliser l'intelligence artificielle.\"},\n  {\"index\": 76, \"type\": \"none\", \"name\": null, \"raw\": \"La première chose qu'il faut bien entendre, c'est que si la discussion, c'est normal, qui nous anime, c'est comment l'IA transforme le travail.\"},\n  {\"index\": 77, \"type\": \"none\", \"name\": null, \"raw\": \"Aujourd'hui, ce que l'on observe, pardonnez-moi, c'est plutôt comment le travail transforme l'IA.\"},\n  {\"index\": 78, \"type\": \"none\", \"name\": null, \"raw\": \"C'est-à-dire qu'on a...\"},\n  {\"index\": 79, \"type\": \"none\", \"name\": null, \"raw\": \"Des solutions, par exemple, une solution qui est capable de, par la vision, d'identifier des défauts sur des pièces de voiture.\"},\n  {\"index\": 80, \"type\": \"none\", \"name\": null, \"raw\": \"Donc ça, on a une solution, on l'a entraîné et elle arrive à un certain niveau de performance.\"},\n  {\"index\": 81, \"type\": \"none\", \"name\": null, \"raw\": \"Donc on se dit, c'est intéressant d'aller la déployer sur le lieu de travail.\"},\n  {\"index\": 82, \"type\": \"none\", \"name\": null, \"raw\": \"Mais là, ce sont d'autres questions qui sont soulevées.\"},\n  {\"index\": 83, \"type\": \"none\", \"name\": null, \"raw\": \"C'est-à-dire que le lieu de travail, c'est des humains, ce sont des processus, ce sont des organisations.\"}\n]"
+ },
+ "4a6353d098aff844fa9e649dcbb20147f86319bbdbc2e6c499782bacb18b61b2": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
  "4b22e154a20f09de371a1c76a965cb28d2dd2b303d834a93ddd98c9be814143e": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "4c73df8ae449855fcfbd0639058399b7cd0abca7d68a7bd44fcb5088a4e4593d": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\"choix\": null, \"confiance\": 0.7}"
+ },
+ "4c8f56e51b57d487b792af6de9f0183c92b4e3b76aad9207dd12386290a7a220": {
   "model": "openweight-large",
   "name": "acronym-detect",
   "reply": "{\"suspects\":[]}"
@@ -104,45 +519,235 @@
   "name": "acronym-decide",
   "reply": "{\n  \"choix\": \"MinIO\",\n  \"confiance\": 0.86\n}"
  },
+ "4d4d4fd6a4cf1a961968d9797dd39df346d6125ac446e0311d6c6cf997fde831": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"GPT d'ici\"},{\"span\":\"Les Moulineaux\"}]}"
+ },
+ "4dae51630de93b8bb82133cde7d6df00f51802ed4f20b5bf3fe68738054cd09e": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\"choix\":\"DINUM\",\"confiance\":0.75}"
+ },
  "4e80559dc9b6973da85d668f490c666a2cf402e7b0416f3f21395ccf0143b4b7": {
   "model": "openweight-large",
   "name": "acronym-decide",
   "reply": "{\n  \"choix\": \"WOPI\",\n  \"confiance\": 0.85\n}"
+ },
+ "4fee4df8afb0b47b8399575a55d2f7c39a9fed66d6e65b3bf3d8dac64f7722c3": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"Sondès\"}]}"
+ },
+ "55386d26943575e233c71cf31c085393d83b4119b11ec8a8e7c64716affa8ad8": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "55609d1dd55538658ac7d916b2bc15d280f384841090d33dee5fb73aa6b4d0c1": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "5592a4a3e77e207079f0e3d616ae4988212399c394bc71566f41bf030b28841d": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\n    \"index\": 96,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Par exemple, dans quelle mesure l'intégration d'un outil à base d'IA trouble l'expression de la reconnaissance du travailleur ?\"\n  },\n  {\n    \"index\": 97,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Un travailleur s'est construit autour d'une certaine expérience, autour de certaines compétences.\"\n  },\n  {\n    \"index\": 98,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Il en tire un certain nombre de reconnaissance.\"\n  },\n  {\n    \"index\": 99,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Et derrière, à partir du moment où, comme tu l'as dit, peut-être les...\"\n  },\n  {\n    \"index\": 100,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"que les performances sont moyennisées ou sont plus proches, c'est-à-dire on débute sur un travail et puis en fait on a une accélération de la courbe de performance, dans quelle mesure le travailleur expérimenté peut se sentir fragilisé par ces nouveaux combos junior-IA ?\"\n  },\n  {\n    \"index\": 101,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"qui très vite semble être en capacité de tutoyer leur performance, pas de l'égaler, mais de la tutoyer, et puis que ce soit illégal par ailleurs, avec peut-être des rémunérations plus faibles, etc., quand on débute dans un métier.\"\n  },\n  {\n    \"index\": 102,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Donc là, on peut avoir un sujet.\"\n  },\n  {\n    \"index\": 103,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Couille de la reconnaissance.\"\n  },\n  {\n    \"index\": 104,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Quel est mon résultat ?\"\n  },\n  {\n    \"index\": 105,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Qu'est-ce qui permet de dire « ça, c'est toi qui l'as fait ».\"\n  },\n  {\n    \"index\": 106,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Notamment, par exemple, lorsque le travail évolue de producteur vers éditeur.\"\n  },\n  {\n    \"index\": 107,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Je suis moins en train de faire, je suis plus en train de superviser la machine qui fait.\"\n  }\n]"
+ },
+ "5852e4109d33a686cd845293ff4538a71b689323634a040d83ce9071786f6a7d": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\n    \"index\": 60,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[60] (SPEAKER_00) Une intensification aussi du travail qu'on a vu dans nos études.\"\n  },\n  {\n    \"index\": 61,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[61] (SPEAKER_00) Certains travailleurs qui nous disent que leur travail est devenu beaucoup plus intensif.\"\n  },\n  {\n    \"index\": 62,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[62] (SPEAKER_00) Et des employeurs qui nous disent que pour ces raisons-là, ils ont gardé certaines tâches routines pour justement permettre à ces travailleurs de prendre des petites pauses.\"\n  },\n  {\n    \"index\": 63,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[63] (SPEAKER_00) Ou d'autres employeurs qui nous ont dit...\"\n  },\n  {\n    \"index\": 64,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[64] (SPEAKER_00) On a maintenant plus de pauses dans le travail pour justement permettre à ces gens-là de se reposer parce que l'IA a mené à une intensification du travail.\"\n  },\n  {\n    \"index\": 65,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[65] (SPEAKER_00) Donc, des côtés positifs, aussi bien que négatifs.\"\n  },\n  {\n    \"index\": 66,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[66] (SPEAKER_00) Finalement, sur l'inclusivité, j'ai déjà soulevé un risque, je pense, que l'IA pourrait augmenter les différences entre les travailleurs plus qualifiés et moins qualifiés dans le marché du travail.\"\n  },\n  {\n    \"index\": 67,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[67] (SPEAKER_00) Je pense qu'il y a beaucoup plus d'opportunités pour les travailleurs qualifiés que pour les travailleurs moins qualifiés.\"\n  },\n  {\n    \"index\": 68,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[68] (SPEAKER_00) Mais il y a peut-être aussi, au sein par exemple de certains métiers, des opportunités.\"\n  },\n  {\n    \"index\": 69,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[69] (SPEAKER_00) On a vu quelques études, surtout aux Etats-Unis, qui ont démontré que l'IA peut surtout, pour les travailleurs les moins productifs, augmenter leur productivité, diminuer les différences de productivité entre travailleurs, ce qui pourrait avoir un impact aussi sur les différences en salaire au sein de certains métiers.\"\n  },\n  {\n    \"index\": 70,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[70] (SPEAKER_00) Autre opportunité par exemple pour des travailleurs avec handicap.\"\n  },\n  {\n    \"index\": 71,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[71] (SPEAKER_00) Il y a déjà beaucoup de solutions basées sur l'IA qui existent, qui permettent à des travailleurs avec des handicaps de surmonter certaines barrières que ces personnes-là avaient dans le passé pour participer dans le marché du travail.\"\n  }\n]"
+ },
+ "589ad71e09bfeeb90a2ecaea5c141d4b90e9670ba7d840e7a5dc2e2ba665541d": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\n    \"index\": 216,\n    \"type\": \"mention\",\n    \"name\": null,\n    \"raw\": \"[216] (SPEAKER_01) Le philosophe Jacques Ellul parlait, lui, d'aristocratie technicienne.\"\n  },\n  {\n    \"index\": 217,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[217] (SPEAKER_01) Alors, concernant les nouvelles lumières, malheureusement, ce n'est pas nos politiques qui les proposent.\"\n  },\n  {\n    \"index\": 218,\n    \"type\": \"mention\",\n    \"name\": null,\n    \"raw\": \"[218] (SPEAKER_01) Sam Altman, leur revenu universel, il a déjà commencé avec son projet Worldcon.\"\n  },\n  {\n    \"index\": 219,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[219] (SPEAKER_01) La réduction du temps de travail, oui, l'enrichissement de l'éducation pour offrir aux individus\"\n  },\n  {\n    \"index\": 220,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[220] (SPEAKER_01) Du temps, des capacités pour embrasser des activités nobles, épanouissantes, art, nature, amour, philosophie.\"\n  },\n  {\n    \"index\": 221,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[221] (SPEAKER_01) Mais le problème, c'est que nous sommes des adorateurs du travail.\"\n  },\n  {\n    \"index\": 222,\n    \"type\": \"mention\",\n    \"name\": null,\n    \"raw\": \"[222] (SPEAKER_01) Anna Arendt écrivait « Travailler, c'est l'asservissement, la nécessité ».\"\n  },\n  {\n    \"index\": 223,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[223] (SPEAKER_01) Donc, si on se libère du travail, mais tant mieux, car depuis quand le travail est une chose bonne ?\"\n  },\n  {\n    \"index\": 224,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[224] (SPEAKER_01) Je ne sais pas, ça c'est le mensonge de la société industrielle.\"\n  },\n  {\n    \"index\": 225,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[225] (SPEAKER_01) Vous ne faites pas avoir.\"\n  },\n  {\n    \"index\": 226,\n    \"type\": \"mention\",\n    \"name\": null,\n    \"raw\": \"[226] (SPEAKER_01) Anna Arendt écrivait que « L'automatisation viderait les usines ».\"\n  },\n  {\n    \"index\": 227,\n    \"type\": \"mention\",\n    \"name\": null,\n    \"raw\": \"[227] (SPEAKER_01) Applaudit ça à Arendt.\"\n  }\n]"
+ },
+ "58ffa1354ac4d2600a6365522b51a071f0b742f1fd8d4012bbf815b42f264f10": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "5a1ed1bfa7859ce4cb736a39b8576e7e3373e9040ba597ac175d83481acaf8e4": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
  },
  "5a4aabe17f8fe1cf0708dbf83f0c0d5128eaa8cf0febc356720c747dbd84c3c6": {
   "model": "openweight-large",
   "name": "acronym-detect",
   "reply": "{\"suspects\":[]}"
  },
+ "5ae3cc954ffaad34a5c9203872b9eb4de8a16af389c5fb9f71e6ccf9343c8fd4": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "5dded6da95ff8397e8fb2464795f8d8d6b19f52fa9764856a1a2fbd85e49d898": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 504, \"type\": \"none\", \"name\": null, \"raw\": \"Donc on a des KPI sur l'utilisation des ressources, on a des KPI sur la latence, et puis on s'efforce, dans la mesure du possible, de tracer les logs et d'archiver un maximum de logs.\"},\n  {\"index\": 505, \"type\": \"none\", \"name\": null, \"raw\": \"Alors bien sûr, on est assez rapidement confronté à une question de ressources, et donc on revient sur le sujet de la frugalité de la solution.\"},\n  {\"index\": 506, \"type\": \"none\", \"name\": null, \"raw\": \"Mais en tout cas on est convaincu que outiller la capacité de contrôle et mettre l'agent en responsabilité sur l'outil c'est vraiment une garantie de succès et une garantie de maîtrise du périmètre.\"},\n  {\"index\": 507, \"type\": \"none\", \"name\": null, \"raw\": \"Et le dernier point, c'est l'alerting, l'analyse en temps réel d'un comportement qui serait un comportement inattendu ou inhabituel du système d'IA.\"},\n  {\"index\": 508, \"type\": \"none\", \"name\": null, \"raw\": \"Là, c'est vraiment l'objectif de remettre en construction, en reconstruction, un outil qui serait déjà en run, lorsque l'agent estime que l'outil est déviant ou commet des erreurs.\"},\n  {\"index\": 509, \"type\": \"none\", \"name\": null, \"raw\": \"Donc voilà, les trois points qui permettent, à notre échelle, d'un point de vue opérationnel, de mettre en place des systèmes de contrôle de ces outils.\"},\n  {\"index\": 510, \"type\": \"none\", \"name\": null, \"raw\": \"Et c'est un chantier colossal.\"},\n  {\"index\": 511, \"type\": \"none\", \"name\": null, \"raw\": \"J'imagine.\"},\n  {\"index\": 512, \"type\": \"none\", \"name\": null, \"raw\": \"On a pris un petit peu de retard, donc je vous demanderai d'être assez bref dans les futures questions et réponses.\"},\n  {\"index\": 513, \"type\": \"none\", \"name\": null, \"raw\": \"Pour finir sur ces questions de GRH, il y a la question des biais potentiellement générés, renforcés par les IA, notamment dans les recrutements ou la gestion des parcours.\"},\n  {\"index\": 514, \"type\": \"handoff\", \"name\": null, \"raw\": \"Peut‑être, Yann Ferguson, est‑ce que vous pouvez nous dire un mot de cette question‑la ?\"},\n  {\"index\": 515, \"type\": \"none\", \"name\": null, \"raw\": \"Est‑ce que ces craintes‑la sont totalement justifiées ?\"}\n]"
+ },
  "5fed46fa031a69abe0c5037d6de3441018223fe2af64dfc1f2a957be7c7c8135": {
   "model": "openweight-large",
   "name": "speaker-cues",
   "reply": "[\n  {\"index\": 12, \"type\": \"none\", \"name\": null, \"raw\": \"La supervision décrit l'infrastructure telle qu'elle était au moment de son installation, pas telle qu'elle est aujourd'hui.\"},\n  {\"index\": 13, \"type\": \"none\", \"name\": null, \"raw\": \"Tant qu'elle n'est pas générée à partir de l'inventaire réel, ça se reproduira.\"},\n  {\"index\": 14, \"type\": \"none\", \"name\": null, \"raw\": \"Est-ce qu'on a un inventaire réel exploitable ?\"},\n  {\"index\": 15, \"type\": \"none\", \"name\": null, \"raw\": \"Partiellement. L'inventaire existe pour les machines virtuelles, pas pour les volumes attachés.\"},\n  {\"index\": 16, \"type\": \"none\", \"name\": null, \"raw\": \"Il faudrait étendre la collecte, ce qui représente une charge de deux à trois semaines, et une modification du droit de lecture\"},\n  {\"index\": 17, \"type\": \"none\", \"name\": null, \"raw\": \"sur l'hyperviseur.\"},\n  {\"index\": 18, \"type\": \"none\", \"name\": null, \"raw\": \"La modification du droit de lecture demande un passage en comité de sécurité, parce que le référentiel de l'ANSSI l'impose.\"},\n  {\"index\": 19, \"type\": \"none\", \"name\": null, \"raw\": \"Ce n'est pas bloquant, mais il faut compter un mois de délai, parce que le comité ne siège qu'une fois par mois.\"},\n  {\"index\": 20, \"type\": \"none\", \"name\": null, \"raw\": \"On lance la demande cette semaine alors, sinon nous serons en février.\"},\n  {\"index\": 21, \"type\": \"none\", \"name\": null, \"raw\": \"Sujet suivant : la fenêtre de maintenance.\"},\n  {\"index\": 22, \"type\": \"none\", \"name\": null, \"raw\": \"Elle est prévue le premier week-end d'octobre.\"},\n  {\"index\": 23, \"type\": \"none\", \"name\": null, \"raw\": \"Trois opérations sont prévues : la montée de version du serveur de bases, le remplacement d'un commutateur, et la rotation des certificats\"}\n]"
+ },
+ "60418461cbc5f482429006e3f38360c15b0a756111a4f3b3037cc179afd14093": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[{\"index\":396,\"type\":\"none\",\"name\":null,\"raw\":\"Parce qu'il y a des risques très réels pour les travailleurs.\"},{\"index\":397,\"type\":\"none\",\"name\":null,\"raw\":\"Si le management a fait l'objet d'une abondante littérature, de nombreuses définitions, à minima, on s'accordait sur le fait que c'était des relations humaines.\"},{\"index\":398,\"type\":\"none\",\"name\":null,\"raw\":\"Bon, tout ça, c'est fini.\"},{\"index\":399,\"type\":\"none\",\"name\":null,\"raw\":\"Je prends le cas d'Amazon, on va aller directement dans le dur.\"},{\"index\":400,\"type\":\"none\",\"name\":null,\"raw\":\"Par exemple, ils recrutent, contrôlent, licencient par algorithme.\"},{\"index\":401,\"type\":\"none\",\"name\":null,\"raw\":\"On s'est rendu compte dans l'entrepôt de Baltimore que 12% des effectifs avaient été licenciés en une année uniquement par algorithme.\"},{\"index\":402,\"type\":\"none\",\"name\":null,\"raw\":\"Et il y a une journaliste qui est en immersion qui a pu montrer cela.\"},{\"index\":403,\"type\":\"none\",\"name\":null,\"raw\":\"Et en termes d'effet, ça produit quoi ?\"},{\"index\":404,\"type\":\"none\",\"name\":null,\"raw\":\"Ça produit que les individus, par peur de perdre leur taux de productivité, ils ne vont plus aux toilettes.\"},{\"index\":405,\"type\":\"none\",\"name\":null,\"raw\":\"Parce que c'est compliqué de discuter avec une machine.\"},{\"index\":406,\"type\":\"none\",\"name\":null,\"raw\":\"Hors les murs, vous avez l'IA Mentor.\"},{\"index\":407,\"type\":\"none\",\"name\":null,\"raw\":\"J'ai entendu ce matin qu'on utilise une également pour former.\"}]"
+ },
+ "623ae459e1043b9eb28357107de3a2efdb1ab755783888d688434e051ed37c1b": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "6343d9a4b9f12b18844977eeb4d4dab1e30e4e4cf9494342fc8c9da93b322a07": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\"choix\": \"MinIO\", \"confiance\": 0.95}"
+ },
+ "63619fc9641c36f76b018be8a1ecd86ca282ada73a82a99188f95cebfc9f5574": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "63f7276c0ff008462ae3a11df23af733dad07ddb3ca1ceb9360890d09f31d922": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 588, \"type\": \"none\", \"name\": null, \"raw\": \"Et des catastrophes qui peuvent se répéter, ça pourrait aussi décrédibiliser l'État, et ça pour moi, c'est le plus grave, la légitimité de l'État.\"},\n  {\"index\": 589, \"type\": \"none\", \"name\": null, \"raw\": \"Et ensuite, une perte de confiance des agents, mais également des citoyens envers ces systèmes-là.\"},\n  {\"index\": 590, \"type\": \"none\", \"name\": null, \"raw\": \"Ça nous amène au troisième point de cette table ronde qui concerne l'acculturation.\"},\n  {\"index\": 591, \"type\": \"mention\", \"name\": null, \"raw\": \"Peut-être, Yann Ferguson, vous pourriez revenir sur cette question-là à travers la question du dialogue social.\"},\n  {\"index\": 592, \"type\": \"none\", \"name\": null, \"raw\": \"Quel rôle ça...\"},\n  {\"index\": 593, \"type\": \"none\", \"name\": null, \"raw\": \"Ça pourrait jouer et où on en est aujourd'hui du dialogue social dans le travail sur cette question ?\"},\n  {\"index\": 594, \"type\": \"none\", \"name\": null, \"raw\": \"Ce n'est pas évident d'acculturer.\"},\n  {\"index\": 595, \"type\": \"none\", \"name\": null, \"raw\": \"Il y a une étude de l'IFOP qui montre qu'en France, 61% des actifs français n'ont pas eu de formation à l'IA et ne souhaitent pas en avoir.\"},\n  {\"index\": 596, \"type\": \"none\", \"name\": null, \"raw\": \"Donc, je dis ça aussi pour les responsables d'équipe, les managers.\"},\n  {\"index\": 597, \"type\": \"none\", \"name\": null, \"raw\": \"Si vous pensez arriver comme un bienfaiteur parce que vous allez proposer une formation à l'IA, vous ne serez peut-être pas très bien reçu.\"},\n  {\"index\": 598, \"type\": \"none\", \"name\": null, \"raw\": \"Il y en a 10% des actifs français qui disent en avoir eu une, mais que 5% qui disent qu'ils ont une formation pertinente dans le cadre de leur travail.\"},\n  {\"index\": 599, \"type\": \"none\", \"name\": null, \"raw\": \"Donc, c'est un vrai sujet important.\"}\n]"
  },
  "650a242b6fa16c537d0c74b7cab5332fd5e547d23a9a7432b5834881f3313e35": {
   "model": "openweight-large",
   "name": "acronym-decide",
   "reply": "{\"choix\": \"Keycloak\", \"confiance\": 0.95}"
  },
+ "65c2d5fa17e21fc961c77bb5837f63f7220ed32fa47b25a3ead57772fe7acea0": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 432, \"type\": \"none\", \"name\": null, \"raw\": \"Donc, autant vous dire qu'on a tout ça sur une oreille bientôt.\"},\n  {\"index\": 433, \"type\": \"none\", \"name\": null, \"raw\": \"Alors, écoutez, en termes de recrutement, Microsoft en 2019, sur le recruteur plutôt, ils ont diminué de 30% les personnels RH parce qu'ils ont lié à Watson Maison qui fait le travail.\"},\n  {\"index\": 434, \"type\": \"none\", \"name\": null, \"raw\": \"Et en 2023, ils ont annoncé la diminution de 30% des personnels support.\"},\n  {\"index\": 435, \"type\": \"none\", \"name\": null, \"raw\": \"Je fais rebouquer la première question.\"},\n  {\"index\": 436, \"type\": \"none\", \"name\": null, \"raw\": \"Alors j'ai trouvé une belle magnifique étude sur le sujet, sur le recrutement, l'impact de l'IA sur le recrutement, fait par Harvard et Accenture.\"},\n  {\"index\": 437, \"type\": \"none\", \"name\": null, \"raw\": \"Ils ont interrogé 8000, alors c'est un anglicisme, pardonnez-moi, ou non d'ailleurs, les IDEN workers, comprenez les candidats au profil non conventionnel, vétérans, personnes en situation de handicap, et ils ont aussi interrogé 2250 cadres RH.\"},\n  {\"index\": 438, \"type\": \"none\", \"name\": null, \"raw\": \"Alors les résultats de tout ça, qu'est-ce qui leur sort ?\"},\n  {\"index\": 439, \"type\": \"none\", \"name\": null, \"raw\": \"Les IA font appel en majorité pour le recrutement à des filtres,\"},\n  {\"index\": 440, \"type\": \"none\", \"name\": null, \"raw\": \"négatif pour exclure les candidats plutôt qu'à une logique de filtre positif.\"},\n  {\"index\": 441, \"type\": \"none\", \"name\": null, \"raw\": \"Il en découle que 88% des employeurs déclarent que des candidats hautement qualifiés sont écartés par les processus de recrutement automatisé.\"},\n  {\"index\": 442, \"type\": \"none\", \"name\": null, \"raw\": \"Les entreprises ont du mal à trouver de la main d'oeuvre, alors que dans le même temps, ces travailleurs-là, hidden workers, sont disponibles et rencontrent des difficultés.\"},\n  {\"index\": 443, \"type\": \"none\", \"name\": null, \"raw\": \"On parle de 27 millions de personnes sur une population de 334 millions.\"}\n]"
+ },
+ "65e495aabac8f60bddfcb29ddf946292fc62f9867f17b8ab302ec58cff1f218a": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
  "665dc2114b4c694154183b8537f0d6689ec20769aef10f94c7d90c18db71e4a8": {
   "model": "openweight-large",
   "name": "acronym-detect",
   "reply": "{\"suspects\":[{\"span\":\"mini eau\"}]}"
+ },
+ "6673dc91338c8cffd115cece08eb90850babbdb4db4b9ca549a17c5e3bf47e6c": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"Tchad GPT\"},{\"span\":\"Tchad GPT\"},{\"span\":\"Tchad GPT\"}]}"
+ },
+ "6a6b983ce84b0750e411cb98baf508bb40ef0107316130416e3959786f2aaaa7": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\n    \"index\": 552,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"D'ailleurs, je crois qu'il y a eu monsieur Ben Bouzid à droite, que je lis, que je cite sur ces questions-là, il connaît très bien le sujet.\"\n  },\n  {\n    \"index\": 553,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Et donc là, le chercheur Tita du MIT disait, les individus ont tendance à perdre leur sens de l'agentivité en présence d'un système intelligent, une perte du sens de la responsabilité.\"\n  },\n  {\n    \"index\": 554,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Donc la solution actuelle de mettre un humain dans la boucle,\"\n  },\n  {\n    \"index\": 555,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"et disqualifié.\"\n  },\n  {\n    \"index\": 556,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Et la question qu'il faut se poser, et là vraiment, elle est magnifique, je le cite, comment encourager les humains à accepter qu'ils ont une responsabilité proactive et à l'exercer ?\"\n  },\n  {\n    \"index\": 557,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Et d'ailleurs, c'est même la Cour de justice européenne qui l'évoque, c'est l'arrêt Chufat de décembre 2023.\"\n  },\n  {\n    \"index\": 558,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"En gros, qui dit, il y a une manque allemande,\"\n  },\n  {\n    \"index\": 559,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"avec un système d'évaluation pour déterminer si l'individu a droit à un crédit ou non.\"\n  },\n  {\n    \"index\": 560,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Bien sûr, il y a un humain dans la boucle, mais à la fin des fins, les humains suivent la machine bêtement et méchamment, tout le temps.\"\n  },\n  {\n    \"index\": 561,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Alors, est-ce que c'est des raisons organisationnelles, des effets de déstabilisation ou autre ?\"\n  },\n  {\n    \"index\": 562,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Donc, il y a un monsieur qui a attaqué la banque, c'est remonté, parce que lorsque les humains ne font que suivre la machine, là, vous déclenchez l'article 22 du RGPD qui dispose que toutes les personnes ont le droit à ne pas faire l'objet d'une décision fondée uniquement sur un traitement automatique.\"\n  },\n  {\n    \"index\": 563,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Et là, cet effet-là, on le retrouve.\"\n  }\n]"
+ },
+ "6b24ec92c92686cbb53b5ef16fed544e6749917de44b72d6cd44fa8410bc5d9c": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"couille de la reconnaissance\"}]}"
+ },
+ "6b4c9b38d57b7da725713d5d0505975785588ac165370d1b1b8a661a0bdd32cd": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "6b5c718fcbd5edfc82a480ebe4af896e7fa7dc5e37bdb1069ac2747c3e442355": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "6b7b11227b293bf3893470d10046c7c27d1612508aea6c45b140c13f5e0ff523": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\"choix\": \"WOPI\", \"confiance\": 0.9}"
  },
  "6b9399a78fed83ad82c546a3b72c3b11a58a71d0478320133754160e1550cea0": {
   "model": "openweight-large",
   "name": "acronym-decide",
   "reply": "{\n  \"choix\": null,\n  \"confiance\": 0.85\n}"
  },
+ "6c80425a60ffdd4be08a22ab4078542259a4a17799624e4ce859ce3e5a40e2ac": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\"choix\":\"Yjs\",\"confiance\":0.96}"
+ },
+ "6c805a359c1f1cedd419a2b15f9e63c22612eb26a61ff851f64ca23a57de2637": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "6e936707404c5801716792fc880aa0266a5c2da549fc413788234658ac6bd6b8": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"IDEN workers\"}]}"
+ },
  "705dbfd7b5cca7712db3995831e28c22223fccbde0296c37bc7a784ff8576205": {
   "model": "openweight-large",
   "name": "acronym-detect",
   "reply": "{\"suspects\":[{\"span\":\"dos pecs\"}]}"
  },
+ "709e7ca1464dc231da8d09f64362133a0f475d118f1254782d29f074ba33abe2": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "70b02a4b4f6e78c4686aebf7fb5f6d8bc9a543b13709e01c73e0355d83411bd1": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "70e0b40f08debf087ea3eeef1d8225f9d36ba1bbcc5af07e7aae2bd7950e7086": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
  "72b1e2c72cb915856467bb41a99a40342646f40786de6215b4ecc5e7143af2de": {
   "model": "openweight-large",
   "name": "acronym-decide",
   "reply": "{\n  \"choix\": \"MinIO\",\n  \"confiance\": 0.85\n}"
+ },
+ "738742388c3002f8d7a0bcf62a16ba26722e9e454c4e277b0b87ac088ac0b941": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "739cadc15c135cfd541501a1c37a49f40a7d792a30602fc41bb82374093233f0": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "746bff24950e8796b772a8c667a06188fc3c874972ec0bf55a15ae934ec7a9fe": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "75097158639610274176b75f23e2f991757a0d1b4674bc92756b1c95951fd585": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "75f42701d4a521f69da980d5364338a5a56b905ffbac436040465ee2fbbf6428": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "7804c5adb7fc12a9a184dfb8e093459e75fac93240a5afbc075c6e73c782cb72": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\n  \"choix\": null,\n  \"confiance\": 0.3\n}"
+ },
+ "782210beafa04083458ba28f3e627096485f641b73d4ad508cc207eabeb5e1b8": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
  },
  "78627b65458e61094ca48f0c63a32fc437f94883dc38ae51b62187dd28186472": {
   "model": "openweight-large",
@@ -154,22 +759,132 @@
   "name": "acronym-decide",
   "reply": "{\"choix\":\"OIDC\",\"confiance\":0.93}"
  },
+ "78f2d9273e96b14182ed86a47dd0bd4db3f4aff8cd3b7a640c9fac26814da32a": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "7a6f0e59086ca4e977604da0822aa2599034ec23153cee0fdbc5037c61090fc4": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "7a84280adbcd659c7e68a6dd476a7e891487d07d6e3e528c01d4847b071b0ad2": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\"choix\": \"Menshen\", \"confiance\": 0.95}"
+ },
  "7abff15c2447b0990d7638ba5d9aa80fb69fe03e30a289759f7537669c833d71": {
   "model": "openweight-large",
   "name": "acronym-decide",
   "reply": "{\"choix\": \"Yjs\", \"confiance\": 0.95}"
+ },
+ "7d04acb5df49f742c6f197cae5fc198c1d3b3efe69e6c3e49e20f07b483a6cad": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\"choix\": \"OIDC\", \"confiance\": 0.95}"
+ },
+ "7d4283a86cc6e837c7941f824bf19890e118852de281ef3737d3f1aa9ab71f46": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"main chêne\"}]}"
+ },
+ "7e497bc2768dafb92b868ee4b7fd9876e9050dced46cbaf1670b65608d99de57": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "7f987b4aaced0c70f01a13d1660bc355690420c15b54696656cc3fc0da8337e3": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "83e99f42de95fb5798ef3da307323afbbfeaaf566ad9feacb7feac52de84befc": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"produit que\"},{\"span\":\"une également\"}]}"
+ },
+ "853c80ebb5d604974595d8e2d0853af94bea6e1b46bd70affe53226980f1cc6e": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 372, \"type\": \"none\", \"name\": null, \"raw\": \"Et au milieu, il y a tous les pays européens.\"},\n  {\"index\": 373, \"type\": \"none\", \"name\": null, \"raw\": \"Un peu plus la France et l'Allemagne, et puis un peu moins l'Italie et l'Espagne.\"},\n  {\"index\": 374, \"type\": \"none\", \"name\": null, \"raw\": \"Tout ça pour dire que ces outils sont déjà utilisés.\"},\n  {\"index\": 375, \"type\": \"none\", \"name\": null, \"raw\": \"Parfois, ces outils sont assez simples.\"},\n  {\"index\": 376, \"type\": \"none\", \"name\": null, \"raw\": \"C'est simplement une allocation de tâches, par exemple, qui est assez commun déjà, ou suivre l'emploi de temps des personnes alloquées.\"},\n  {\"index\": 377, \"type\": \"none\", \"name\": null, \"raw\": \"Ça, ça existe déjà.\"},\n  {\"index\": 378, \"type\": \"none\", \"name\": null, \"raw\": \"Ça pourrait être neutre.\"},\n  {\"index\": 379, \"type\": \"none\", \"name\": null, \"raw\": \"Attention, ce n'est pas toujours neutre, mais ça pourrait être plutôt neutre.\"},\n  {\"index\": 380, \"type\": \"none\", \"name\": null, \"raw\": \"Après, il y a des applications un peu plus intrusives, ou même beaucoup plus intrusives, où on suit, par exemple, les mails que les gens écrivent, on enregistre les coups de téléphone, on suit les personnes même quand ils quittent l'entreprise.\"},\n  {\"index\": 381, \"type\": \"none\", \"name\": null, \"raw\": \"Ça, c'est moins utilisé, mais déjà, dans certaines entreprises, et surtout aux États-Unis, on l'utilise aussi.\"},\n  {\"index\": 382, \"type\": \"none\", \"name\": null, \"raw\": \"Alors, pas tout est négatif, parce que les gestionneurs nous disent que ça...\"},\n  {\"index\": 383, \"type\": \"none\", \"name\": null, \"raw\": \"Ça améliore les décisions qu'ils prennent, la qualité des décisions, la rapidité, l'objectivité, etc.\"}\n]"
+ },
+ "875035ae4e70020f45c9dc837c17e546746886d9263db4da26da2750fa5d9679": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "881d1c48bfc96fb90534d2c216ad44a0d38d173d34c11dd61a25468d7acc5742": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[{\"index\":180,\"type\":\"none\",\"name\":null,\"raw\":\"De 2013 à 2019, résultat, 30 000 familles endettées, 2 090 enfants retirent leur famille.\"},\n{\"index\":181,\"type\":\"none\",\"name\":null,\"raw\":\"Alors, à chaque fois que j'évoque ce cas-là, c'est pour m'effrayer.\"},\n{\"index\":182,\"type\":\"none\",\"name\":null,\"raw\":\"Qui était au courant de ce cas-là ?\"},\n{\"index\":183,\"type\":\"none\",\"name\":null,\"raw\":\"Est-ce que vous pouvez lever la main ?\"},\n{\"index\":184,\"type\":\"none\",\"name\":null,\"raw\":\"C'est vraiment pour que je prenne...\"},\n{\"index\":185,\"type\":\"none\",\"name\":null,\"raw\":\"Je vous remercie.\"},\n{\"index\":186,\"type\":\"none\",\"name\":null,\"raw\":\"Alors, c'est plus que d'habitude.\"},\n{\"index\":187,\"type\":\"none\",\"name\":null,\"raw\":\"Habituellement, on a 10 %, on en a un petit peu plus, mais vous voyez, c'est des cas pourtant vraiment très importants.\"},\n{\"index\":188,\"type\":\"none\",\"name\":null,\"raw\":\"C'est dommage qu'on n'en parle pas beaucoup plus.\"},\n{\"index\":189,\"type\":\"none\",\"name\":null,\"raw\":\"Alors, pour être un peu plus drôle, il y a la mairie de New York, là, avec de l'IA générative, ils utilisent un agent conversationnel qui est censé aider les entrepreneurs, mais bon, le truc vous dit de frauder la loi.\"},\n{\"index\":190,\"type\":\"none\",\"name\":null,\"raw\":\"Là, le problème, ce n'est pas tant l'IA, c'est qu'on a des gens très idiots qui utilisent des systèmes sans s'intéresser sérieusement à la question.\"},\n{\"index\":191,\"type\":\"none\",\"name\":null,\"raw\":\"Je ne veux pas être méchant avec ici GPT d'ici Les Moulineaux.\"}]"
+ },
+ "8873c907ad0176b344669c0ca747f587be802719aba5cf1240633908ec6826ea": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 48, \"type\": \"none\", \"name\": null, \"raw\": \"Si ces personnes sont plus productives, il y aura aussi un impact sur la demande pour ce genre de travailleurs.\"},\n  {\"index\": 49, \"type\": \"none\", \"name\": null, \"raw\": \"Alors c'est surtout pour des travailleurs hautement qualifiés.\"},\n  {\"index\": 50, \"type\": \"none\", \"name\": null, \"raw\": \"Et donc je reviendrai sur ce point, le point de l'inclusivité.\"},\n  {\"index\": 51, \"type\": \"none\", \"name\": null, \"raw\": \"Sur l'impact sur l'emploi en global, je ne pense pas qu'on a de grandes craintes pour le moment.\"},\n  {\"index\": 52, \"type\": \"none\", \"name\": null, \"raw\": \"Deuxièmement, l'impact sur la qualité du travail.\"},\n  {\"index\": 53, \"type\": \"none\", \"name\": null, \"raw\": \"Alors là, on a fait des enquêtes en 2022 dans le secteur de l'industrie et le secteur des finances dans sept pays au CDE, il inclut la France.\"},\n  {\"index\": 54, \"type\": \"none\", \"name\": null, \"raw\": \"Et l'enquête a été faite parmi les travailleurs et les employeurs.\"},\n  {\"index\": 55, \"type\": \"none\", \"name\": null, \"raw\": \"Et les réponses des travailleurs nous ont surpris un peu parce que les travailleurs qui travaillaient avec l'IA étaient vraiment assez positifs sur l'impact de l'IA sur leur travail, sur leur productivité, sur la jouissance, le plaisir de travailler, mais aussi sur la sécurité et la santé au travail.\"},\n  {\"index\": 56, \"type\": \"none\", \"name\": null, \"raw\": \"Ça ne veut pas dire de nouveau que c'est une question noire et blanche.\"},\n  {\"index\": 57, \"type\": \"none\", \"name\": null, \"raw\": \"C'est vraiment une zone grise.\"},\n  {\"index\": 58, \"type\": \"none\", \"name\": null, \"raw\": \"On sait qu'il y a des grands risques quand on utilise l'IA au sein du travail, des risques de protection de données, des risques de transparence dans les décisions qui sont prises, l'explicabilité dans les décisions qui sont prises, des risques dans les billets, la discrimination.\"},\n  {\"index\": 59, \"type\": \"none\", \"name\": null, \"raw\": \"Et tout cela aussi peut avoir un effet négatif sur la qualité du travail.\"}\n]"
+ },
+ "8884be4739b6bff0c01253839ad8b2a3cf6c50f4bdb888eeaad18c62d6c8ad2e": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[{\"index\": 420, \"type\": \"none\", \"name\": null, \"raw\": \"Voilà où on en est pour gagner quelques secondes.\"},\n{\"index\": 421, \"type\": \"none\", \"name\": null, \"raw\": \"Mais on va aller plus loin encore.\"},\n{\"index\": 422, \"type\": \"none\", \"name\": null, \"raw\": \"L'IA pour gérer les émotions en fonction du niveau de sourire.\"},\n{\"index\": 423, \"type\": \"none\", \"name\": null, \"raw\": \"Alors là, on est au Japon.\"},\n{\"index\": 424, \"type\": \"none\", \"name\": null, \"raw\": \"Il y a une chaîne de magasins qui utilise Monsieur Sourire, une IA qui utilise 450 facteurs.\"},\n{\"index\": 425, \"type\": \"none\", \"name\": null, \"raw\": \"Je ne vais pas tous les énumérer, mais manière de saluer, posture, expression du visage, ton, la voix, etc.\"},\n{\"index\": 426, \"type\": \"none\", \"name\": null, \"raw\": \"Je cite pour standardiser, je rigole, mais c'est terrible, standardiser les sourires des membres du personnel et de satisfaire au maximum les clients.\"},\n{\"index\": 427, \"type\": \"none\", \"name\": null, \"raw\": \"On peut aller encore plus loin encore.\"},\n{\"index\": 428, \"type\": \"none\", \"name\": null, \"raw\": \"Émotive, une entreprise qui ne propose rien de moins\"},\n{\"index\": 429, \"type\": \"none\", \"name\": null, \"raw\": \"que de mesurer les ondes cérébrales des employés grâce à un petit dispositif que vous mettez sur l'oreille.\"},\n{\"index\": 430, \"type\": \"none\", \"name\": null, \"raw\": \"Et ça permettra donc de comprendre votre niveau de stress, de distraction afin d'informer, je cite le manager sur le bien-être, la sécurité et la productivité au travail.\"},\n{\"index\": 431, \"type\": \"none\", \"name\": null, \"raw\": \"Alors, ça pourrait faire sourire, mais émotive, c'est associé avec SAP.\"}]"
+ },
+ "88d0480f59855269bf2830bfec643ba7d01a9fc233430de0e96f007219adaa75": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\"choix\": \"WOPI\", \"confiance\": 0.95}"
+ },
+ "8ad56105c9dadb1f8eddb9983b8b76dff033e48f7bcfbb0d65fe63f8b8bdbee3": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 492, \"type\": \"none\", \"name\": null, \"raw\": \"Ah pardon, excusez-moi.\"},\n  {\"index\": 493, \"type\": \"none\", \"name\": null, \"raw\": \"Donc le programme est positionné au sein d'une équipe qui est directement rattachée au directeur général.\"},\n  {\"index\": 494, \"type\": \"none\", \"name\": null, \"raw\": \"Et avant de lancer un projet, on a un comité de qualification avec un go-no-go qui cherche à qualifier vraiment le nombre d'agents qui sont touchés, l'impact sur la simplification du processus métier.\"},\n  {\"index\": 495, \"type\": \"none\", \"name\": null, \"raw\": \"et la faisabilité tout simplement du projet.\"},\n  {\"index\": 496, \"type\": \"none\", \"name\": null, \"raw\": \"On apporte aussi une vision, une gestion de projet qui est très importante.\"},\n  {\"index\": 497, \"type\": \"none\", \"name\": null, \"raw\": \"Quel est le planning du delivery ?\"},\n  {\"index\": 498, \"type\": \"none\", \"name\": null, \"raw\": \"Quel impact en termes de coût ?\"},\n  {\"index\": 499, \"type\": \"none\", \"name\": null, \"raw\": \"Et quel est l'impact sur la conduite du changement ?\"},\n  {\"index\": 500, \"type\": \"none\", \"name\": null, \"raw\": \"Et comment on peut prévoir le plus tôt possible le changement de processus, le changement de méthode, l'outillage des équipes, tout ce qui est...\"},\n  {\"index\": 501, \"type\": \"none\", \"name\": null, \"raw\": \"tout ce qui va dans le quotidien de la préparation du lancement de produit.\"},\n  {\"index\": 502, \"type\": \"none\", \"name\": null, \"raw\": \"Alors, excusez-moi... Donc, pour faire tout ça, on a quelques... Bon, c'est pas forcément des KPI, mais en tout cas des grandes orientations.\"},\n  {\"index\": 503, \"type\": \"none\", \"name\": null, \"raw\": \"C'est premièrement un système d'IA, qu'il soit de première génération ou de dernière génération, doit être surveillé en temps réel.\"}\n]"
+ },
+ "8bd2c1aa3518cde36e4ee8890d9562625a783106fc6826c42cdba890be624d1d": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 192, \"type\": \"none\", \"name\": null, \"raw\": \"Je vous invite à lire le très bon numéro d'acteurs publics spécialisés sur l'IA, qui est en ligne, qui est gratuit, 50 pages, assez intéressante en la matière.\"},\n  {\"index\": 193, \"type\": \"none\", \"name\": null, \"raw\": \"Alors, mais comme on est à Bercy, on va consommer local.\"},\n  {\"index\": 194, \"type\": \"none\", \"name\": null, \"raw\": \"Je prends foncier innovant pour détecter les piscines.\"},\n  {\"index\": 195, \"type\": \"none\", \"name\": null, \"raw\": \"Dans les contrats de transformation, ils sont en ligne.\"},\n  {\"index\": 196, \"type\": \"mention\", \"name\": null, \"raw\": \"Merci acteur public et Emile Marsol d'avoir fait appel à la CADA pour qu'on ait accès à ça.\"},\n  {\"index\": 197, \"type\": \"none\", \"name\": null, \"raw\": \"Il écrit noir sur blanc que l'objectif est la suppression de 300 postes, soit 7% des effectifs.\"},\n  {\"index\": 198, \"type\": \"none\", \"name\": null, \"raw\": \"Donc, c'est écrit noir sur blanc.\"},\n  {\"index\": 199, \"type\": \"none\", \"name\": null, \"raw\": \"Mais mon préféré, moi, c'est l'éducation nationale.\"},\n  {\"index\": 200, \"type\": \"mention\", \"name\": null, \"raw\": \"Alors là, c'était Coquerel qui avait levé le lièvre.\"},\n  {\"index\": 201, \"type\": \"none\", \"name\": null, \"raw\": \"Un millier de postes d'assistants d'éducation qui sont supprimés en 2024 et en même temps, appel d'offres pour des assistants pédagogiques par IA.\"},\n  {\"index\": 202, \"type\": \"none\", \"name\": null, \"raw\": \"Donc là, on est en plein chassé-croisé.\"},\n  {\"index\": 203, \"type\": \"none\", \"name\": null, \"raw\": \"On est en plein dedans.\"}\n]"
  },
  "8c1c09fa05e5de978d4f930bf316a32d5c95a5aa3593169af9b80d2685783bbc": {
   "model": "openweight-large",
   "name": "acronym-decide",
   "reply": "{\n  \"choix\": null,\n  \"confiance\": 0.2\n}"
  },
+ "8c4f02d655950923bfb04dcee61a11daa9140da04890f4ec501be5811d3baac2": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
  "8e0dfad63c77ef5587b9cee4af6c830f84669779ca75f19309984b118f173330": {
   "model": "openweight-large",
   "name": "speaker-cues",
   "reply": "[{\"index\": 36, \"type\": \"none\", \"name\": null, \"raw\": \"Bonne journée à tous.\"}]"
  },
+ "8e13c5816df607ffdeeabeb1067264ebd11621e9a2d329e173c640439c86d499": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "8e206c0dd1d517fcd705b80b28e08f3ef2ff335c18320156e4a15d8c061729cc": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"Stingbroekhe\"}]}"
+ },
+ "8f61a5d8b85e24507c8b208c0911fa74de1adeee7f049a750ba4cd934f818d45": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
  "8f685d128c1c6ceb590cf6b620fb61a0a828213077f2e421b300172e2f978cd3": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "9002456e72c75846a51adcb36984ad11a96e9d6af45adadf9e870de4840ed827": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"industrialise\"}]}"
+ },
+ "9128e660ec12b310408aa3a6339d732c9f37a7a05211c8e3b10f5e82903c2c81": {
   "model": "openweight-large",
   "name": "acronym-detect",
   "reply": "{\"suspects\":[]}"
@@ -179,22 +894,157 @@
   "name": "acronym-detect",
   "reply": "{\"suspects\":[]}"
  },
+ "916346d3f94e7ee736d842417e252808fdbf5f666b4a9a0c6bf94bff25ac385e": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "916f8f438b211919cfd559588eb55061d41acf862c63701aab474931742189f7": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\"choix\": \"OIDC\", \"confiance\": 0.95}"
+ },
+ "92b57e92094e17f69c56d1e9bfa467fc5b6ee792f4c5c443930210c584237045": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 36, \"type\": \"none\", \"name\": null, \"raw\": \"2 sur la qualité des emplois et 3 l'impact sur l'inclusivité.\"},\n  {\"index\": 37, \"type\": \"none\", \"name\": null, \"raw\": \"Dans la pratique, quand on essaie de regarder le lien entre l'exposition à l'IA et l'impact sur l'emploi, jusqu'à présent, on voit très peu d'impact.\"},\n  {\"index\": 38, \"type\": \"none\", \"name\": null, \"raw\": \"Au fait, il n'y en a pas.\"},\n  {\"index\": 39, \"type\": \"none\", \"name\": null, \"raw\": \"Et même dans certains cas, on trouve une relation positive entre l'exposition à l'IA et la croissance en emploi.\"},\n  {\"index\": 40, \"type\": \"none\", \"name\": null, \"raw\": \"Ça ne veut pas dire pour autant qu'il n'y a pas de tâches qui vont disparaître ou qui ont déjà disparu.\"},\n  {\"index\": 41, \"type\": \"none\", \"name\": null, \"raw\": \"Ça ne veut pas dire pour autant qu'il y a des emplois qui ne vont pas disparaître.\"},\n  {\"index\": 42, \"type\": \"none\", \"name\": null, \"raw\": \"Si, on voit, ça va arriver ou ça arrive déjà.\"},\n  {\"index\": 43, \"type\": \"none\", \"name\": null, \"raw\": \"Mais dans le global, on ne voit pas d'impact négatif.\"},\n  {\"index\": 44, \"type\": \"none\", \"name\": null, \"raw\": \"On voit même un léger impact positif dans surtout des professions qui sont assez hautement qualifiées.\"},\n  {\"index\": 45, \"type\": \"none\", \"name\": null, \"raw\": \"Pourquoi ?\"},\n  {\"index\": 46, \"type\": \"none\", \"name\": null, \"raw\": \"Parce qu'on pense que l'IA augmentera surtout ces personnes qui travaillent dans ces professions-là.\"},\n  {\"index\": 47, \"type\": \"none\", \"name\": null, \"raw\": \"L'IA aura un effet positif sur la productivité de ces personnes-là.\"}\n]"
+ },
+ "93df14fab1083d6fb773d6231c977642e5941d16a93a452d661548fa81d78790": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 300, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_02) On oublie qu'on utilise beaucoup de technologies qui n'étaient pas...\"},\n  {\"index\": 301, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_02) qui à un moment sont arrivés sur des marchés pas aboutis.\"},\n  {\"index\": 302, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_02) Il y en a même qui ont tué des gens.\"},\n  {\"index\": 303, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_02) Moi, je viens de Toulouse, donc dans l'aéronautique, on a un musée des pionniers de l'aéronautique et il y a des pionniers de l'aéronautique qui sont morts parce que leur avion, à un moment, a eu un problème et que l'industrie n'était pas mature.\"},\n  {\"index\": 304, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_02) À la différence près qu'on veut bien que Saint-Exupéry prenne les risques pour nous, mais là, c'est nous qui avons l'impression d'être les cobayes.\"},\n  {\"index\": 305, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_02) Donc ça change un petit peu.\"},\n  {\"index\": 306, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_02) Mais dans les faits, l'innovation a toujours fonctionné à un moment, avec la mise sur le marché de choses peu abouties et avec effectivement des réussites et des échecs.\"},\n  {\"index\": 307, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_02) Ça, ce n'est pas nouveau.\"},\n  {\"index\": 308, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_02) Ce qui est peut-être nouveau, c'est notre capacité à accepter cette situation-là.\"},\n  {\"index\": 309, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_02) Donc ça, c'est des choses que l'on voit, qui posent des questions, d'ailleurs, sur qu'est-ce qu'on fait ?\"},\n  {\"index\": 310, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_02) On a un nouveau pouvoir, on peut prédire la démission d'un collaborateur, on peut mieux identifier le risque pour nos top 10% de talent.\"},\n  {\"index\": 311, \"type\": \"none\", \"name\": null, \"raw\": \"(SPEAKER_02) Vous savez, les entreprises, ils classent un peu les gens sur l'échelle des talents.\"}\n]"
+ },
+ "93f1bf2393a7bac1089400816d6941718cb3c9c17966c236d2c3b2dd132e5815": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "94d7a42b99ff0cf5c1cb5608a2f19cad7b074f12008e22527e37f4bbbadd884b": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\n  \"choix\": \"DOPC\",\n  \"confiance\": 0.55\n}"
+ },
  "95d624dc71ecb0ff312b8dd8357178e24a4efc2c272c5423dae304061c772be3": {
   "model": "openweight-large",
   "name": "acronym-decide",
   "reply": "{\n  \"choix\": \"DOPC\",\n  \"confiance\": 0.6\n}"
+ },
+ "972b2a52ec5f112cf09e946e30b1d90f19fa185bbaeb17a9ef93239995f5c0f8": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\n    \"index\": 144,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Ça partait aussi du postulat que le métier du douanier, tout d'abord, c'est un métier qui est très ancré dans la data.\"\n  },\n  {\n    \"index\": 145,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Et généralement, on a un enjeu à bien comprendre nos bases de données, que ce soit des bases de données déclaratives ou des bases de données contentieuses, et d'essayer d'en tirer un maximum d'informations.\"\n  },\n  {\n    \"index\": 146,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Donc ces expérimentations-là ont commencé de manière assez in situ avec le data scientist qui manipulait des algorithmes, des systèmes d'IA de première génération avec des algorithmes type Random Forest assez classiques qui ont démontré assez rapidement l'utilité de ce type de configuration.\"\n  },\n  {\n    \"index\": 147,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Petit à petit, l'orientation au sein de la direction générale des douanes, c'était de dire on va prendre cette expérimentation et on va essayer de la généraliser au sein de l'ensemble des métiers pour mettre au service de l'ensemble des métiers de la douane des compétences de data science et des compétences de data analyse.\"\n  },\n  {\n    \"index\": 148,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Donc la douane s'est organisée en programme de transformation numérique qui est organisé en méthode agile à l'échelle.\"\n  },\n  {\n    \"index\": 149,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Pourquoi j'en parle ?\"\n  },\n  {\n    \"index\": 150,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Tout simplement, c'est très très important dans le volet de la construction du cas d'usage du produit, mais également dans l'embarquement des métiers.\"\n  },\n  {\n    \"index\": 151,\n    \"type\": \"mention\",\n    \"name\": null,\n    \"raw\": \"Je rejoins les propos de Yann.\"\n  },\n  {\n    \"index\": 152,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Le fait que les métiers contribuent à la construction de l'outil, que ce soit une intelligence artificielle de première génération ou une intelligence artificielle générative comme on le fait aujourd'hui,\"\n  },\n  {\n    \"index\": 153,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"En fait, l'appropriation est faite par nature et donc l'agent, que ce soit un analyste ou un agent d'un bureau réglementaire, se sent en maîtrise de son périmètre et devient plutôt un promoteur de l'outil.\"\n  },\n  {\n    \"index\": 154,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Donc l'outil n'est pas subi dans son quotidien, il a participé au build et il participe au run du produit.\"\n  },\n  {\n    \"index\": 155,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Ça c'est assez important pour nous.\"\n  }\n]"
+ },
+ "97499323a056a12d0f9a5134e15bc7cc29dc66003b819423653635e90e4ba7fa": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\n    \"index\": 480,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[480] (SPEAKER_03) Pareil, la sphère SI, on est très tendu d'un point de vue ressources humaines dans la sphère SI.\"\n  },\n  {\n    \"index\": 481,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[481] (SPEAKER_03) On s'est doté d'une infrastructure qui est assez ambitieuse en interne.\"\n  },\n  {\n    \"index\": 482,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[482] (SPEAKER_03) Et tout ce qu'on peut apporter en termes d'aide et soutien à cette force, à cette population-là, ça va dans le bon sens.\"\n  },\n  {\n    \"index\": 483,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[483] (SPEAKER_03) On a un enjeu sur l'automatisation de la documentation.\"\n  },\n  {\n    \"index\": 484,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[484] (SPEAKER_03) On a aussi des codes legacy qui sont assez conséquents.\"\n  },\n  {\n    \"index\": 485,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[485] (SPEAKER_03) Et on estime que cette technologie-là peut apporter vraiment une force de frappe dans la traduction, dans la mise en conformité des logiciels où on a tout simplement perdu la connaissance parce que la personne est partie ou parce qu'on a un turnover dans l'équipe.\"\n  },\n  {\n    \"index\": 486,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[486] (SPEAKER_03) Voilà le quotidien auquel on est confronté.\"\n  },\n  {\n    \"index\": 487,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[487] (SPEAKER_03) Qu'est-ce qu'on met en place en termes de garde-fous ?\"\n  },\n  {\n    \"index\": 488,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[488] (SPEAKER_03) Ce qu'on essaie de se donner comme objectif, c'est que la technologie doit répondre à un enjeu, c'est la simplification des processus métiers et l'amélioration du quotidien de l'agence.\"\n  },\n  {\n    \"index\": 489,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[489] (SPEAKER_03) C'est la première commande.\"\n  },\n  {\n    \"index\": 490,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[490] (SPEAKER_03) C'est suivi à haut niveau au sein de la direction générale.\"\n  },\n  {\n    \"index\": 491,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"[491] (SPEAKER_03) Le programme est positionné\"\n  }\n]"
+ },
+ "97a151d368a2cf8a1a7454f2931a546ab847f4fa96efd5d3580c424fb08a6e04": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 384, \"type\": \"none\", \"name\": null, \"raw\": \"Mais ils nous disent aussi qu'ils ont des soucis parfois sur les règles qu'il y a au sein de l'entreprise qui gèrent l'utilisation de ces outils.\"},\n  {\"index\": 385, \"type\": \"none\", \"name\": null, \"raw\": \"Et ils ont des craintes sur l'effet que ces outils ont sur la santé des travailleurs, sur la discrimination aussi, tous les risques qu'on connaît déjà.\"},\n  {\"index\": 386, \"type\": \"none\", \"name\": null, \"raw\": \"Finalement, dernier mot, à la fin de l'enquête, on a posé une question sur l'utilisation de ces outils dans le recrutement.\"},\n  {\"index\": 387, \"type\": \"none\", \"name\": null, \"raw\": \"Parce que là, moi j'avais l'impression que c'était quelque chose dont on a parlé, c'est des outils qui existent déjà et qui ne sont pas toujours prêts à être utilisés, mais qui sont déjà vendus et qu'on utilise déjà dans le recrutement.\"},\n  {\"index\": 388, \"type\": \"none\", \"name\": null, \"raw\": \"Et dans les ressources humaines, parfois on n'a pas toujours conscience des limites, des risques de ce genre d'outils.\"},\n  {\"index\": 389, \"type\": \"none\", \"name\": null, \"raw\": \"Et de nouveau, là on voit que ces outils sont déjà utilisés\"},\n  {\"index\": 390, \"type\": \"none\", \"name\": null, \"raw\": \"Je ne dirais pas dans la majorité des entreprises, mais dans une grande minorité des entreprises.\"},\n  {\"index\": 391, \"type\": \"none\", \"name\": null, \"raw\": \"Parfois, c'est pour, par exemple, rédiger les notices de vacature.\"},\n  {\"index\": 392, \"type\": \"none\", \"name\": null, \"raw\": \"Parfois, c'est pour faire des entretiens, même parfois pour décider qui est choisi et qui n'est pas choisi.\"},\n  {\"index\": 393, \"type\": \"none\", \"name\": null, \"raw\": \"Donc voilà pour dire, je pense que ça, c'est vraiment quelque chose auquel, au final, on n'est pas entièrement prêt.\"},\n  {\"index\": 394, \"type\": \"none\", \"name\": null, \"raw\": \"Parce que quand on regarde la législation qu'on a en place en ce moment, il y a beaucoup de trous.\"},\n  {\"index\": 395, \"type\": \"none\", \"name\": null, \"raw\": \"Et je pense que c'est des trous qu'il faut remplir rapidement.\"}\n]"
+ },
+ "99edf24b3aea6fb7269b240fe648b761e58c7830c7e8aa697f725fd38be99ce3": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"foncier innovant\"}]}"
+ },
+ "9a0faada31e09dfbf90b82acc3dfc47823c09f1dda341d81401b155d43a2d7d7": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
  },
  "9a5a19356cb1e2c3a9f6e5d01ddc438fbe08823a300026ccdbd8a424c442d9a7": {
   "model": "openweight-large",
   "name": "acronym-detect",
   "reply": "{\"suspects\":[{\"span\":\"qui cloaque\"},{\"span\":\"oh idée sait\"}]}"
  },
+ "9ab6ba6c146275eec3c9c02320317aa5b16a3f1fd54cb8347495e350a03c03fb": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "9be8c1273f76fdb35762595cc744d9e48a82dd54496899e94f57dc78c5708a92": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "9c664ae936336a62f8bd1bf2376c5a122cc49b91d1030ea8e3f302419b04aa57": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
  "9ccd4076af0a6540c6aeb4fbe8c8119fab5160e0249bdb1ffe93516d7cbbf85b": {
   "model": "openweight-large",
   "name": "acronym-decide",
   "reply": "{\"choix\": \"CRDT\", \"confiance\": 0.95}"
  },
+ "9d66e44eebfbf4c80313267bc5333be236a163b4b8a44cde365b7aed96df05be": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"en même machine\"}]}"
+ },
+ "9ed3487e4c2ecdab53465f5599f57267e454d44662a09262b8aa1ff0a575aeff": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "9fb37ab29d23bdfb7c27b396a7b0759e2061d7415cd4fd667693477a153eb87c": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "a06249c8338de5476386cd788c48f9a8d6c97cff82d6189e5c3209be93c14b36": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "a09ada4c2edfd9364286186976937656a98c9828780449cf766b91526e9fcb49": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "a1e69221e8455bcf3480fc99c7d88c54dd64039a5ae4634f5620b8b4f9db79c5": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 108, \"type\": \"none\", \"name\": null, \"raw\": \"Et donc là, le rapport à l'objet du travail évolue.\"},\n  {\"index\": 109, \"type\": \"none\", \"name\": null, \"raw\": \"Et donc, la visibilité subjective et objective, c'est-à-dire ma compréhension de ce que j'apporte et la compréhension du point de vue du manager de ce que j'apporte, est troublée.\"},\n  {\"index\": 110, \"type\": \"none\", \"name\": null, \"raw\": \"Ça ne veut pas dire que c'est définitif, mais pour l'instant, il peut y avoir une inquiétude sur ce sujet-là.\"},\n  {\"index\": 111, \"type\": \"none\", \"name\": null, \"raw\": \"Il peut aussi y avoir des sujets autour des relations humaines au travail.\"},\n  {\"index\": 112, \"type\": \"none\", \"name\": null, \"raw\": \"Dans quelle mesure l'introduction d'un système d'intelligence artificielle dans un métier ?\"},\n  {\"index\": 113, \"type\": \"none\", \"name\": null, \"raw\": \"amène à ce qu'on traite une tâche d'une façon où on remplace la coopération avec le collègue par une coopération avec la machine.\"},\n  {\"index\": 114, \"type\": \"none\", \"name\": null, \"raw\": \"On parle beaucoup de la coopération avec la machine dans l'IA ou de l'interaction avec la machine.\"},\n  {\"index\": 115, \"type\": \"none\", \"name\": null, \"raw\": \"Eh bien, les travaux et nos travaux sur les usages de l'IA montrent que parfois,\"},\n  {\"index\": 116, \"type\": \"none\", \"name\": null, \"raw\": \"on va plus solliciter la supervision de l'IA sur son travail que la supervision de son collègue.\"},\n  {\"index\": 117, \"type\": \"none\", \"name\": null, \"raw\": \"Lorsqu'on a produit un document, plutôt que de dire au collègue qu'est-ce que tu en penses, on va l'envoyer dans un système d'IA et lui dire est-ce que tu peux me l'analyser avec tel critère, tel critère.\"},\n  {\"index\": 118, \"type\": \"none\", \"name\": null, \"raw\": \"Et donc là, quelque part, on a une coopération sociale qui, petit à petit, peut être un peu atomisée par des coopérations en même machine.\"},\n  {\"index\": 119, \"type\": \"none\", \"name\": null, \"raw\": \"Dernier exemple, la question de l'autonomie dans le travail.\"}\n]"
+ },
+ "a3b701fa7c6b067a69fe5b6714e534cdf41448a5beb23e97c874065f2aaeb097": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 156, \"type\": \"none\", \"name\": null, \"raw\": \"On continue à vraiment se battre pour maintenir ces cycles de production itérative sur des cycles assez courts qui permettent de démontrer assez rapidement des résultats et qui permettent de garder le métier, l'utilisateur final dans la boucle de construction et pendant tout le cycle de vie du produit.\"},\n  {\"index\": 157, \"type\": \"none\", \"name\": null, \"raw\": \"Ce n'est pas simple.\"},\n  {\"index\": 158, \"type\": \"none\", \"name\": null, \"raw\": \"Il faut savoir qu'aujourd'hui, la sphère, en tout cas en ce qui concerne notre administration, la sphère des systèmes d'information, c'est plutôt une sphère qui est chargée de la production quotidienne, qui a une certaine méthode de travail, qui est plutôt organisée en gestion de projets cycles en V. Et donc on vient percuter des usages, des organisations existantes.\"},\n  {\"index\": 159, \"type\": \"none\", \"name\": null, \"raw\": \"et tout l'enjeu c'est de trouver un modèle hybride qui permet à la fois d'aller vers des résultats assez rapidement, de garder l'analyste ou le douanier du terrain dans la boucle de conception mais en s'intégrant dans la gestion d'un assis classique parce que c'est à travers ces processus d'industrialisation\"},\n  {\"index\": 160, \"type\": \"none\", \"name\": null, \"raw\": \"qu'on est en capacité de contrôler, je passe mes mots, contrôler l'IA, c'est plutôt assurer une traçabilité, s'assurer que les KPI qui sont utilisés lors du build, elles continuent à être monitorées lors du run, c'est un chantier.\"},\n  {\"index\": 161, \"type\": \"none\", \"name\": null, \"raw\": \"Honnêtement, en toute transparence, on a encore du travail à faire, c'est pas forcément des sujets simples.\"},\n  {\"index\": 162, \"type\": \"none\", \"name\": null, \"raw\": \"Ça veut aussi dire d'être en capacité de maintenir l'ensemble de la stack technique,\"},\n  {\"index\": 163, \"type\": \"none\", \"name\": null, \"raw\": \"Pour une petite administration comme la nôtre, c'est un défi de ressources, de compétences, c'est aussi un défi de moyens, parce que ça coûte assez cher de maintenir une IAS on-premise.\"},\n  {\"index\": 164, \"type\": \"none\", \"name\": null, \"raw\": \"Voilà, dans les grandes lignes, ce que j'avais à dire, c'est vrai que c'est une vision plutôt opérationnelle.\"},\n  {\"index\": 165, \"type\": \"none\", \"name\": null, \"raw\": \"Oui, mais c'est ça qui est intéressant justement.\"},\n  {\"index\": 166, \"type\": \"mention\", \"name\": null, \"raw\": \"Alors, Marius Bertolucci, on sait que l'IA va agir sur la place du travail dans nos sociétés, ça c est quand même acquis, soit en libérant du temps pour des tâches plus complexes, soit à l'autre bout du spectre, en créant potentiellement du chômage de masse.\"},\n  {\"index\": 167, \"type\": \"none\", \"name\": null, \"raw\": \"Selon vous, quelles sont les perspectives possibles en la matière ?\"}\n]"
+ },
+ "a409891e229bb1f7b5b027f4b6ac95b00aee79f6a3d68b9d652f9f82a419bce6": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "a6bf66e3ca3e6d32a7a859fbff40f3975fe7da25f9f1ff4bf48882b0b6895911": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "a7299ca4978c5898e1715a5c5fdee37c1caa28d66b6075845029534074069230": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
  "a7525a8982efd9543926a198f058fb5b4f13d8c8251d370d8c0954e75ae7239d": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "a7ab1e61f68be9ce16cb24ac1c501964731188218b912e20d99dc8dd95952605": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "a7f5288386d6599846ad90337ea804e87350d48ac6463e066146ca738824c3b5": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "a9260f9808219e247116cdb7155b8e7a0dc22ec43ad31336cb3cefaf1a8d5460": {
   "model": "openweight-large",
   "name": "acronym-detect",
   "reply": "{\"suspects\":[]}"
@@ -204,7 +1054,42 @@
   "name": "acronym-detect",
   "reply": "{\"suspects\":[]}"
  },
+ "aa3a2577861d2f2ef06ba0cf3677103e776bee4dd08a0f43bb32b078ee226dd3": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 240, \"type\": \"none\", \"name\": null, \"raw\": \"Parce que prendre les 15 heures d'écran par jour, aux 10 heures, les 3-4 heures de TikTok, vraiment, il faut les encaisser.\"},\n  {\"index\": 241, \"type\": \"none\", \"name\": null, \"raw\": \"Faites l'alternative, j'ai essayé, ce n'est pas facile.\"},\n  {\"index\": 242, \"type\": \"none\", \"name\": null, \"raw\": \"Parce que le capitalisme classique de production avait besoin de corps puissants.\"},\n  {\"index\": 243, \"type\": \"mention\", \"name\": null, \"raw\": \"Stakhanov.\"},\n  {\"index\": 244, \"type\": \"mention\", \"name\": null, \"raw\": \"Mais là, il a été remplacé par cette feignasse de Blomov.\"},\n  {\"index\": 245, \"type\": \"none\", \"name\": null, \"raw\": \"En gros, il faut qu'on reste sur nos écrans à produire dans nos canapés.\"},\n  {\"index\": 246, \"type\": \"none\", \"name\": null, \"raw\": \"Et l'exemple de cela, on ne travaille pas.\"},\n  {\"index\": 247, \"type\": \"none\", \"name\": null, \"raw\": \"Et pourtant, si, je terminerai avec ça.\"},\n  {\"index\": 248, \"type\": \"none\", \"name\": null, \"raw\": \"WhatsApp, 55 employés rachetés 19 milliards par Facebook.\"},\n  {\"index\": 249, \"type\": \"none\", \"name\": null, \"raw\": \"Pourquoi ?\"},\n  {\"index\": 250, \"type\": \"none\", \"name\": null, \"raw\": \"Parce que c'est nous les producteurs.\"},\n  {\"index\": 251, \"type\": \"none\", \"name\": null, \"raw\": \"Ce n'est pas les 55 personnes.\"}\n]"
+ },
+ "aaf8af98c816ca87343c6b71f39978464090dad8201ba239c29416c106055ae2": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[{\"index\":288,\"type\":\"none\",\"name\":null,\"raw\":\"Mais là, on est en train vraiment de créer ça à l'échelle plus industrielle.\"},\n{\"index\":289,\"type\":\"none\",\"name\":null,\"raw\":\"Donc vous avez des RH et des managers qui peuvent recevoir comme ça une prédiction en disant ce collaborateur.\"},\n{\"index\":290,\"type\":\"none\",\"name\":null,\"raw\":\"est susceptible de démissionner.\"},\n{\"index\":291,\"type\":\"none\",\"name\":null,\"raw\":\"Et ce qui est intéressant, c'est que parfois, les fournisseurs proposent des remédiations et évaluent l'impact de la remédiation proposée sur la prédiction.\"},\n{\"index\":292,\"type\":\"none\",\"name\":null,\"raw\":\"Par exemple, ce collaborateur a 40% de chances de démissionner dans les 4 mois.\"},\n{\"index\":293,\"type\":\"none\",\"name\":null,\"raw\":\"Mais si vous avez un entretien avec lui, pour savoir comment il va, c'est tout bête, mais on oublie, la prédiction va diminuer.\"},\n{\"index\":294,\"type\":\"none\",\"name\":null,\"raw\":\"Mais en fait, le mécanisme le plus performant pour réduire la prédiction de démission, selon ce système, c'est le changement de manager.\"},\n{\"index\":295,\"type\":\"none\",\"name\":null,\"raw\":\"Voilà.\"},\n{\"index\":296,\"type\":\"none\",\"name\":null,\"raw\":\"Quand vous êtes vous-même le manager de cette personne, vous êtes un peu embêté.\"},\n{\"index\":297,\"type\":\"none\",\"name\":null,\"raw\":\"Bon, donc tout ça, évidemment, est à l'échelle encore de réflexion, de développement.\"},\n{\"index\":298,\"type\":\"mention\",\"name\":null,\"raw\":\"Il y a des solutions qui sont commercialisées, mais comme l'a dit Marius, et je peux le rejoindre là-dessus, il y a des choses qui sont commercialisées, mais qui ne sont pas abouties.\"},\n{\"index\":299,\"type\":\"none\",\"name\":null,\"raw\":\"Alors c'est toute la question de l'innovation.\"}]"
+ },
  "ab137047ee28f74a98a90f649604e447cfade2cdafffb073d85438ed30975ca0": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "ab153960463b6f37de5d473204c521b9e712f5fe801cd8e23e804350c9e1a643": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "abba60ba480f9fa26dce5e7dfe3c94d0dbf7f1f8b85c129549a441d1c1907b20": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 660, \"type\": \"none\", \"name\": null, \"raw\": \"On n'avait pas comme objectif forcément d'acculturer l'intelligence artificielle, mais de montrer par l'exemple ce que ça veut dire d'utiliser une brique technologique qui fait appel\"},\n  {\"index\": 661, \"type\": \"none\", \"name\": null, \"raw\": \"à l'intelligence artificielle qui est développée et hébergée en douane dans les centres de calcul douaniers.\"},\n  {\"index\": 662, \"type\": \"none\", \"name\": null, \"raw\": \"Je tiens à appuyer ce point, c'est très important pour nous.\"},\n  {\"index\": 663, \"type\": \"none\", \"name\": null, \"raw\": \"Très clairement, je ne sais pas si je suis dans un cadre privilégié, mais les agents étaient plutôt enthousiastes.\"},\n  {\"index\": 664, \"type\": \"none\", \"name\": null, \"raw\": \"Très certainement, chacun a ses réticences à ses peurs, mais globalement, on a formé l'ensemble des cadres supérieurs, l'ensemble des cadres intermédiaires et les agents.\"},\n  {\"index\": 665, \"type\": \"none\", \"name\": null, \"raw\": \"C'était un programme de formation assez ambitieux, plutôt très bien accueilli.\"},\n  {\"index\": 666, \"type\": \"none\", \"name\": null, \"raw\": \"Encore une fois, on était très humbles en termes d'objectifs.\"},\n  {\"index\": 667, \"type\": \"none\", \"name\": null, \"raw\": \"On n'a pas cherché forcément à vraiment acculturer ni à évangéliser l'utilisation de l'intelligence artificielle, mais plutôt de démontrer par l'exemple ce que ça veut dire d'utiliser des cas d'usage qui font appel à cette technologie dans le cadre du contexte douanier.\"},\n  {\"index\": 668, \"type\": \"none\", \"name\": null, \"raw\": \"Dans les enquêtes dont je vous ai parlé, les travailleurs qui ont été formés pour travailler avec l'IA sont ceux qui sont le plus positifs sur l'impact de l'IA sur leur travail.\"},\n  {\"index\": 669, \"type\": \"none\", \"name\": null, \"raw\": \"Au contraire, ceux qui n'ont pas reçu de formation sont moins positifs.\"},\n  {\"index\": 670, \"type\": \"none\", \"name\": null, \"raw\": \"Donc la formation est importante.\"},\n  {\"index\": 671, \"type\": \"none\", \"name\": null, \"raw\": \"La formation est importante aussi pour les entreprises parce qu'on sait que les entreprises citent le manque de compétences comme une des barrières les plus importantes à l'adoption de l'IA.\"}\n]"
+ },
+ "abbd3fa25ba333a3a5b092fdd1e73ebe06f3ea9fd188ba7633c6a008ccd09ae8": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\n    \"index\": 684,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"On a vu une légère baisse dans ces entreprises en compétences en matière de gestion de projets, de budgétisation, de comptabilité.\"\n  },\n  {\n    \"index\": 685,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"d'administration, compétences en finance, ressources humaines, services juridiques, communication, pardon, traitement de texte, tableur, donc ce genre de compétences et pour vous dire que c'est des compétences de métiers, des métiers de soutien en col blanc, donc des métiers en finance, des métiers en ressources humaines, services juridiques, communication, adjoints administratifs, chefs de projets.\"\n  },\n  {\n    \"index\": 686,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Donc c'est le genre de tâches que l'IA commence à pouvoir faire et donc\"\n  },\n  {\n    \"index\": 687,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"On voit aussi parmi ces entreprises que la demande pour ces genres de compétences est en diminution.\"\n  },\n  {\n    \"index\": 688,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"C'est léger en ce moment, mais ça pourrait s'accélérer à l'avenir.\"\n  },\n  {\n    \"index\": 689,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Et juste pour finir, je pense qu'une chose qui est très importante, c'est qu'on investit dans une sensibilisation générale de la population en ce qui concerne l'intelligence artificielle, dans ce qui...\"\n  },\n  {\n    \"index\": 690,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"comprendre ce que ces technologies peuvent et ne peuvent pas faire, quels sont les risques, et aussi quels sont nos droits en tant que citoyens, nos droits en tant que travailleurs, quand on a affaire à ce genre de technologies.\"\n  },\n  {\n    \"index\": 691,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Et d'ailleurs, le dernier mot sur ceci, à l'Union européenne, on a créé un bureau européen de l'IA, et je sais qu'en ce moment, ils sont en train d'explorer ce que l'Europe peut faire dans ce sens-là, en termes de sensibilisation de la population sur l'IA.\"\n  },\n  {\n    \"index\": 692,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Merci beaucoup.\"\n  }\n]"
+ },
+ "acf3502a88859ead7a376af0f3576c95b45705505f4aba3b6b49e41f43c435de": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[{\"index\":228,\"type\":\"none\",\"name\":null,\"raw\":\"Mais paradoxalement, c'est une calamité.\"},{\"index\":229,\"type\":\"none\",\"name\":null,\"raw\":\"Pourquoi ?\"},{\"index\":230,\"type\":\"none\",\"name\":null,\"raw\":\"Arendt a raison, me semble-t-il, quand elle dit que la société n'est plus qu'une société de travailleurs, incapables d'aspirer à des activités plus hautes, spirituelles, politiques, artistiques.\"},{\"index\":231,\"type\":\"none\",\"name\":null,\"raw\":\"D'où sa sentence célèbre, qui me semble-t-il est d'une actualité absolue,\"},{\"index\":232,\"type\":\"none\",\"name\":null,\"raw\":\"Ce que nous avons devant nous, c'est la perspective d'une société de travailleurs sans travail, c'est-à-dire privée de la seule activité qui leur reste.\"},{\"index\":233,\"type\":\"none\",\"name\":null,\"raw\":\"On ne peut rien imaginer de pire.\"},{\"index\":234,\"type\":\"none\",\"name\":null,\"raw\":\"J'ajouterais que ce que nous appelons aujourd'hui du temps libre, pour ma part, je constate qu'il est absorbé par les écrans.\"},{\"index\":235,\"type\":\"none\",\"name\":null,\"raw\":\"Et donc, c'est la continuation du temps de travail par d'autres moyens.\"},{\"index\":236,\"type\":\"none\",\"name\":null,\"raw\":\"Qu'on appelle le capitalisme de surveillance.\"},{\"index\":237,\"type\":\"none\",\"name\":null,\"raw\":\"de l'attention.\"},{\"index\":238,\"type\":\"none\",\"name\":null,\"raw\":\"Là, c'est mon concept du CIPCOG, contraction de cybernétique cognition.\"},{\"index\":239,\"type\":\"none\",\"name\":null,\"raw\":\"Parce que ce capitalisme-là, pour vous faire accepter ces conditions de travail, de production, il faut qu'il vous diminue dans vos corps et dans vos psychés.\"}]"
+ },
+ "ad137d2341e3df6522e84cbbde6dacfdfc2c07cd982a44254edb0b84c0d3096e": {
   "model": "openweight-large",
   "name": "acronym-detect",
   "reply": "{\"suspects\":[]}"
@@ -214,54 +1099,489 @@
   "name": "acronym-decide",
   "reply": "{\n  \"choix\": null,\n  \"confiance\": 0.87\n}"
  },
+ "af05cbf2d99222d715d87ce07ded203ec32a1ec4c375ae801dd25d8aced29d65": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "b416a103205a0ee5d462f5b94098458853258581e6f8915c23412fb331f56e18": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "b46d3960d1784698bc3198223ad0a8380c9c3295218ab3b63c3b9ba1162294cb": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "b687dd67b76ec9d75b3b06b1b30a0f89363ae72b110eb52c90a34e263ffce289": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "bac611b59ff475d89163d27de2b7eec85514c2cc92a84e3dee66dd00bb2a48e9": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "bcbcca864bcb013bb2c4c0a98198ecc03eaf2f7671e0b76abf29aad25c17cfca": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 84, \"type\": \"none\", \"name\": null, \"raw\": \"Et là...\"},\n  {\"index\": 85, \"type\": \"none\", \"name\": null, \"raw\": \"À mesure qu'on commence à mieux considérer toutes ces dimensions qui constituent le travail, on se rend compte qu'il faut revenir sur la phase de l'outil.\"},\n  {\"index\": 86, \"type\": \"none\", \"name\": null, \"raw\": \"C'est-à-dire qu'on avait bien une performance, mais on n'a pas encore un outil que l'on peut intégrer dans un environnement de travail.\"},\n  {\"index\": 87, \"type\": \"none\", \"name\": null, \"raw\": \"Actuellement, la majorité des situations que j'observe, c'est soit on a obtenu dans la phase d'expérimentation\"},\n  {\"index\": 88, \"type\": \"none\", \"name\": null, \"raw\": \"une belle performance, donc KPI atteint, mais on se dit « mais on ne sait pas du tout comment on peut l'intégrer », soit on est dans la situation où on se dit « voilà, maintenant on va y aller et on va l'intégrer ».\"},\n  {\"index\": 89, \"type\": \"none\", \"name\": null, \"raw\": \"Et ce qui commence à arriver, c'est une forme de maturité chez les organisations qui ont un peu d'expérience, c'est de dire « ces enjeux-là, on va les considérer avant ».\"},\n  {\"index\": 90, \"type\": \"none\", \"name\": null, \"raw\": \"Le plus tôt possible et notamment on va embarquer dès la phase d'idéation les futurs utilisateurs qui sont pour moi pas des utilisateurs qui doivent adopter une solution mais des travailleurs qui doivent s'approprier une solution.\"},\n  {\"index\": 91, \"type\": \"none\", \"name\": null, \"raw\": \"Quand on parle d'utilisateurs on a l'impression qu'ils sont un peu passifs et quand on parle adoption on se dit on va un peu les convaincre, on va les former etc. Non l'appropriation c'est un professionnel qui dit c'est mon outil.\"},\n  {\"index\": 92, \"type\": \"none\", \"name\": null, \"raw\": \"C'est mon outil de travail, comme on le dit.\"},\n  {\"index\": 93, \"type\": \"none\", \"name\": null, \"raw\": \"Et là, c'est un enjeu qui est beaucoup plus long que la performance technique.\"},\n  {\"index\": 94, \"type\": \"none\", \"name\": null, \"raw\": \"Donc c'est ça que l'on observe.\"},\n  {\"index\": 95, \"type\": \"none\", \"name\": null, \"raw\": \"Ensuite, évidemment, on a des sujets typiques pour essayer d'évaluer une expérience de travail qu'on n'a pas réinventé, mais on regarde comment l'IA les actualise.\"}\n]"
+ },
+ "be5f5df8c5821711b7da210a3a426a7b06af8ae88de7f4b940c1e1afe73c367a": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "bf044a59101a5963dd703edccf287ec9dfccccd050fdc4d01d447e146872953b": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "bf6bf3605d9b3d5a1d0ab96a7c974c270fe5695c84990696ed5934e2afe43175": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 528, \"type\": \"none\", \"name\": null, \"raw\": \"On a 50% de bons choix.\"},\n  {\"index\": 529, \"type\": \"none\", \"name\": null, \"raw\": \"Et donc, la machine serait capable d'être plus juste que l'humain, le juste se déployant en justesse et en justice.\"},\n  {\"index\": 530, \"type\": \"none\", \"name\": null, \"raw\": \"On est plus précis.\"},\n  {\"index\": 531, \"type\": \"none\", \"name\": null, \"raw\": \"Parce que la machine, pardon, c'est la machine, la machine ciblerait les compétences.\"},\n  {\"index\": 532, \"type\": \"none\", \"name\": null, \"raw\": \"Là où nous, on serait beaucoup sur la poignée de main, sur le sourire, sur l'école que la personne a fait.\"},\n  {\"index\": 533, \"type\": \"none\", \"name\": null, \"raw\": \"Ah, on a fait la même école de suite.\"},\n  {\"index\": 534, \"type\": \"none\", \"name\": null, \"raw\": \"On n'est plus, on est un alumni, on n'est plus un recruteur.\"},\n  {\"index\": 535, \"type\": \"none\", \"name\": null, \"raw\": \"et bien elle serait plus précise, et puis elle aurait plus de justice aussi, c'est-à-dire elle serait plus équitable, elle aurait pas de discrimination.\"},\n  {\"index\": 536, \"type\": \"none\", \"name\": null, \"raw\": \"En fait, on se rend compte que les machines sont également biaisées de deux façons.\"},\n  {\"index\": 537, \"type\": \"none\", \"name\": null, \"raw\": \"Ce qu'on appelle les biais explicites, c'est-à-dire que leurs critères de décision sont extrêmement liés aux origines culturelles et sociales et aux visions du monde de ceux qui ont développé cette machine.\"},\n  {\"index\": 538, \"type\": \"none\", \"name\": null, \"raw\": \"et des biais implicites qui sont liés plutôt au dataset, au jeu de données, qui est souvent d'ailleurs le reflet de nos propres déséquilibres sociaux.\"},\n  {\"index\": 539, \"type\": \"none\", \"name\": null, \"raw\": \"Donc ces deux conditions, ces deux types de biais font que si on n'y prend pas garde, et il y a des moyens pour y prendre garde, on va créer une machine qui va industrialiser plutôt les biais humains.\"}\n]"
+ },
+ "c00043ca33a702d69d522e5ec59b2fd769bf814d4851658caf2408ebb8c6918a": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "c022a728048aa498eae0b1d7a66c19a4db9067207abd0ab79dff9fd71eb35ec7": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "c0525f03c6555e13072780a9165b98ab31f5b52b1957f446d79d234caa781f4f": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 132, \"type\": \"none\", \"name\": null, \"raw\": \"Là, je ne suis pas en train de parler de la destruction de l'emploi, je suis en train plutôt de parler de la qualité du travail et de l'expérience sensible que l'on a au travail.\"},\n  {\"index\": 133, \"type\": \"none\", \"name\": null, \"raw\": \"Dans les sociétés modernes, le travail est supposé nous apporter encore deux choses, une dignité matérielle,\"},\n  {\"index\": 134, \"type\": \"none\", \"name\": null, \"raw\": \"Bien vivre de son travail et si possible vivre de mieux en mieux de son travail.\"},\n  {\"index\": 135, \"type\": \"none\", \"name\": null, \"raw\": \"On ne cherche pas que seulement à bien vivre, mais à vivre de mieux en mieux.\"},\n  {\"index\": 136, \"type\": \"none\", \"name\": null, \"raw\": \"Et ce que j'appelle une dignité spirituelle, c'est-à-dire un travail qui a du sens par lequel je me réalise.\"},\n  {\"index\": 137, \"type\": \"none\", \"name\": null, \"raw\": \"Et donc nous, ces deux grandes questions sont celles qui nous animent lorsque l'on étudie une solution à base d'IA dans un environnement de travail.\"},\n  {\"index\": 138, \"type\": \"none\", \"name\": null, \"raw\": \"Merci.\"},\n  {\"index\": 139, \"type\": \"handoff\", \"name\": null, \"raw\": \"Sontes Caraoui, pour qu'on s'ancre encore plus dans le réel, est-ce que vous pouvez nous décrire les usages de l'IA au sein des douanes ?\"},\n  {\"index\": 140, \"type\": \"none\", \"name\": null, \"raw\": \"Les impacts potentiels sur le métier des douaniers ou d'autres métiers d'ailleurs qui seraient concernés ?\"},\n  {\"index\": 141, \"type\": \"none\", \"name\": null, \"raw\": \"Et est-ce que dans ce que vous observez, dans l'usage quotidien de l'IA, il y a déjà des effets sur des tâches particulières qui étaient effectuées auparavant et sur les activités des douaniers ?\"},\n  {\"index\": 142, \"type\": \"none\", \"name\": null, \"raw\": \"Les premiers cas d'usage de data mining en douane datent de 2016.\"},\n  {\"index\": 143, \"type\": \"none\", \"name\": null, \"raw\": \"L'expérimentation à l'époque, l'idée c'était de dire tout simplement de manière hyper pragmatique, je vais mettre un data scientiste juste à côté dans le même bureau que l'analyste.\"}\n]"
+ },
+ "c0d4068c614e65115a9918c1dca12f53fb8f384ab4cc539e5f58e113b01da610": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"Nubo\"}]}"
+ },
+ "c11d7c13485a2e11c2e2765c9b675efc9fdfdb71272f4de272fe097c85ddb5c7": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "c14c03375a8698b82eac7cc856c4089a8c28a5adefc892c93c392577b33f12ef": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "c174ce886a3c14073f3cf4343dbbbffb1c59b38ed268e761314179d8ebcf8fa9": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "c1ba31ac5679e387b116a59108d01076875cfc6f8def696175719f6e06761ba3": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "c23f7227329fa954cd3691472bc38742aef54baadcfa39b8e22393a4bd769e13": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "c56d8a929b5077df4d6dad1380acc9d68848bc2f866caccd4095fe271c3b1160": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 564, \"type\": \"none\", \"name\": null, \"raw\": \"Une étude sur les visas au Royaume-Uni,\"},\n  {\"index\": 565, \"type\": \"none\", \"name\": null, \"raw\": \"des gens qui vous disent, ben oui, mais si je ne respecte pas la machine, ça prend plus de travail.\"},\n  {\"index\": 566, \"type\": \"none\", \"name\": null, \"raw\": \"Bon, je prends le cas de l'IA à la vende.\"},\n  {\"index\": 567, \"type\": \"none\", \"name\": null, \"raw\": \"Alors, sans divulgacher mon effet de manche, je cite une personne, je vous dis après son état, je vais passer 20 secondes sur chaque cible, zéro valeur ajoutée en tant qu'humain, à part pour valider sans discuter.\"},\n  {\"index\": 568, \"type\": \"none\", \"name\": null, \"raw\": \"C'est un militaire de l'armée israélienne, avec une IA avec un taux d'erreur de 10%.\"},\n  {\"index\": 569, \"type\": \"none\", \"name\": null, \"raw\": \"C'est-à-dire que ce mécanisme-là, on le retrouve un peu partout.\"},\n  {\"index\": 570, \"type\": \"mention\", \"name\": null, \"raw\": \"Cet été, j'étais dans ce beau pays de Chartreuse en train de travailler sur la philosophie de Francis Cabrel, très sérieusement.\"},\n  {\"index\": 571, \"type\": \"none\", \"name\": null, \"raw\": \"Et je vois que le MIT sort une étude magnifique sur les 777 risques liés à l'IA.\"},\n  {\"index\": 572, \"type\": \"none\", \"name\": null, \"raw\": \"Forcément, ça m'intéresse.\"},\n  {\"index\": 573, \"type\": \"none\", \"name\": null, \"raw\": \"Il y en a un, c'est classé en sept domaines.\"},\n  {\"index\": 574, \"type\": \"none\", \"name\": null, \"raw\": \"Il y a l'interaction humain-machine.\"},\n  {\"index\": 575, \"type\": \"none\", \"name\": null, \"raw\": \"Il y a deux sous-domaines, perte d'agence et d'autonomie humaine, et surdépendance et utilisation non sécurisée.\"}\n]"
+ },
+ "c7afbfadc96ef7457c331c07fc88039b8f17d0fb4fab2cd72aff55ec79f5a5f6": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 348, \"type\": \"none\", \"name\": null, \"raw\": \"Je pense qu'une des grandes tendances qu'on va voir dans les années qui viennent, c'est...\"},\n  {\"index\": 349, \"type\": \"none\", \"name\": null, \"raw\": \"J'ai dit tendance, mais attendez, ce n'est pas une tendance.\"},\n  {\"index\": 350, \"type\": \"none\", \"name\": null, \"raw\": \"C'est la question de la gestion algorithmique.\"},\n  {\"index\": 351, \"type\": \"none\", \"name\": null, \"raw\": \"La gestion algorithmique, c'est quoi ?\"},\n  {\"index\": 352, \"type\": \"none\", \"name\": null, \"raw\": \"C'est l'automatisation de tâches de gestion.\"},\n  {\"index\": 353, \"type\": \"none\", \"name\": null, \"raw\": \"À l'OCDE, on regarde...\"},\n  {\"index\": 354, \"type\": \"none\", \"name\": null, \"raw\": \"On les divise en trois tâches à peu près.\"},\n  {\"index\": 355, \"type\": \"none\", \"name\": null, \"raw\": \"Les tâches, donner des instructions aux travailleurs.\"},\n  {\"index\": 356, \"type\": \"none\", \"name\": null, \"raw\": \"Deuxièmement, suivre les travailleurs ou les surveiller.\"},\n  {\"index\": 357, \"type\": \"none\", \"name\": null, \"raw\": \"Et troisièmement, les évaluer.\"},\n  {\"index\": 358, \"type\": \"none\", \"name\": null, \"raw\": \"Alors nous, à l'ECD, on a décidé de faire une autre enquête.\"},\n  {\"index\": 359, \"type\": \"none\", \"name\": null, \"raw\": \"Pas de travailleurs, mais de gestionneurs dans les entreprises.\"}\n]"
+ },
+ "c83f2c160b61b494205d6d985eff4f748a11988f47f6887421d829b060cf238d": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "c86488cdabdad09c4e642fe337de5c68d1012db5b69ed09837cb876c446d11ec": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "c88358f3a5a3aca7d38ce4b31ef237d5aeacde5004e565d9420d4d0e2f5a9142": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"Chufat\"}]}"
+ },
  "c8c9e6550d95d3b61e075f7a241a38ae37cf738b791b1304319311e8f485feb3": {
   "model": "openweight-large",
   "name": "acronym-decide",
   "reply": "{\"choix\": \"Yjs\", \"confiance\": 0.95}"
+ },
+ "c9340add5ebae00c7dcd662a9d8807d5649c253ec43f6706077d33a66f24e3a3": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "ca7fbee6c1e2bbdf5c780d8337decb5b2b592091ad3c7b655d168b1b417771f4": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "caaf83e8b5b35c7989f1f114bb6a3972ccfb04630bd50bc76846c61f806fb8e0": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "cbde40559eac4209fc5cb2e90a33fbb70edd176d28442997322b05fcc3a28a4c": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "cbe85f5eaff89d491dd2cc86fbc6d88956e3a3a932810b7a25872d76c429c1e4": {
+  "model": "openweight-large",
+  "name": "acronym-decide",
+  "reply": "{\"choix\": \"WOPI\", \"confiance\": 0.9}"
+ },
+ "cc3e602dfda0904f02f156bdbec60193535934dc8401a75da1d51b491ebbd61c": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "cd7015cef21bdf63e7a6642eb92fd8d34e729a0141b142f2e935f00a9d53c335": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"I1\"},{\"span\":\"ONLP\"}]}"
  },
  "cd961e093c6e981e2f5cb38659f1d2e806ab500457a722554ef828fa329c51be": {
   "model": "openweight-large",
   "name": "speaker-cues",
   "reply": "[\n  {\"index\": 60, \"type\": \"none\", \"name\": null, \"raw\": \"On décale d'une semaine ?\"},\n  {\"index\": 61, \"type\": \"none\", \"name\": null, \"raw\": \"On décale. Je renvoie une invitation cet après-midi.\"},\n  {\"index\": 62, \"type\": \"none\", \"name\": null, \"raw\": \"Merci à toutes et à tous, bonne journée.\"}\n]"
  },
+ "cda82dae9bc1cb9cec7a14d43ea5ee5e3387fd486c41ef060020ba3d81420a64": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "cffb09f10c9bfad632ccaeaefef9c893ab851369e3c08a85efd3d736022c7405": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 120, \"type\": \"none\", \"name\": null, \"raw\": \"[120] (SPEAKER_02) L'autonomie dans le travail, c'est essentiel.\"},\n  {\"index\": 121, \"type\": \"none\", \"name\": null, \"raw\": \"[121] (SPEAKER_02) Toutes les études montrent que c'est la valeur par laquelle les gens expriment la justice dans leur travail.\"},\n  {\"index\": 122, \"type\": \"none\", \"name\": null, \"raw\": \"[122] (SPEAKER_02) Ils estiment qu'un travail juste, c'est un travail qui leur confère une certaine autonomie pour s'engager dans la tâche.\"},\n  {\"index\": 123, \"type\": \"none\", \"name\": null, \"raw\": \"[123] (SPEAKER_02) Et à partir du moment où vous avez des systèmes d'IA qui...\"},\n  {\"index\": 124, \"type\": \"none\", \"name\": null, \"raw\": \"[124] (SPEAKER_02) Ne disent pas forcément comme un GPS fait si, fait ça.\"},\n  {\"index\": 125, \"type\": \"none\", \"name\": null, \"raw\": \"[125] (SPEAKER_02) Ça existe, mais les gens ne sont pas fous, ils ne produisent pas ce genre de choses.\"},\n  {\"index\": 126, \"type\": \"none\", \"name\": null, \"raw\": \"[126] (SPEAKER_02) Mais envoient des notifications, des petites alertes, proposent des remédiations, etc.\"},\n  {\"index\": 127, \"type\": \"none\", \"name\": null, \"raw\": \"[127] (SPEAKER_02) Le manager a beau dire, mais tu es libre de le suivre comme tu veux, etc.\"},\n  {\"index\": 128, \"type\": \"none\", \"name\": null, \"raw\": \"[128] (SPEAKER_02) Dans les faits, ça change un peu le rapport que l'on peut avoir.\"},\n  {\"index\": 129, \"type\": \"none\", \"name\": null, \"raw\": \"[129] (SPEAKER_02) Donc tout ça, ce sont des situations qu'on a observées.\"},\n  {\"index\": 130, \"type\": \"none\", \"name\": null, \"raw\": \"[130] (SPEAKER_02) qui ne permettent pas de dire que c'est ça qui va se déployer massivement et que l'IA c'est mal, etc., que l'IA il ne faut surtout pas le faire, mais ça montre qu'il y a des sujets qui existaient sur les autres technologies, qui se réactualisent à travers l'IA et qu'il faut pouvoir suivre pour que les projets d'IA\"},\n  {\"index\": 131, \"type\": \"none\", \"name\": null, \"raw\": \"[131] (SPEAKER_02) n'est pas une casse sociale trop élevée.\"}\n]"
+ },
+ "d439ce80b6ecb7eaef5ee0f8cf71eceffbb54f68a907283dbf5231997c81c4dd": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
  "d4605e33f413f92098ee81a5d86a994797a2d83cf447c912377a5a4fdd936ea2": {
   "model": "openweight-large",
   "name": "acronym-detect",
   "reply": "{\n  \"suspects\": [\n    {\n      \"span\": \"main chêne\"\n    }\n  ]\n}"
+ },
+ "d4a55941a17f38db411c3b01fd74e429f03931f636b88d34f1101edb323a2a7f": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"vacatures\"}]}"
+ },
+ "d5076ec81bc008d1661a0e350a60cade4fcb4ee781f8ae019973e752a9bb393c": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "d5ffb6fb9a11b7f23697aceaed200f650a627fcfba25773b9d110810aada6931": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 624, \"type\": \"none\", \"name\": null, \"raw\": \"pour le pour le méfcine sur l'utilisation de l'IA sur les sujets que j'ai que j'ai pu évoquer donc régulièrement nous sommes en face de toutes les de tous les représentants du personnel et qui nous pose des questions qui nous secoue un peu et c'est extrêmement important voilà il n'y a pas de problème avec ça je suis aussi dans le laboria dans le laboria dans notre comex on a toutes les confédérations donc là on parle pas d'un projet IA en particulier donc c'est plus détendu\"},\n  {\"index\": 625, \"type\": \"none\", \"name\": null, \"raw\": \"mais on fait un peu l'actualité du sujet, à la fois dans sa partie technologique, dans sa partie sociale et dans le dialogue social.\"},\n  {\"index\": 626, \"type\": \"none\", \"name\": null, \"raw\": \"Je suis régulièrement invité par les fédérations pour leurs événements, pour l'anniversaire, les 40 ans de CFECGC, pour FOCAD, etc. Donc c'est curieux, c'est que parfois je suis invité dans ces événements et en même temps parfois je les ai en face de moi quand je suis perçu comme plutôt un prestataire.\"},\n  {\"index\": 627, \"type\": \"none\", \"name\": null, \"raw\": \"Et ils n'ont pas du tout la même attitude, mais ça fait partie évidemment de l'histoire du dialogue social.\"},\n  {\"index\": 628, \"type\": \"none\", \"name\": null, \"raw\": \"Et ce qui est intéressant, et je terminerai par là, c'est de voir comment le sujet de l'IA générative, notamment grand public, parce qu'aujourd'hui, on discute beaucoup de l'IA quand elle est un projet de l'employeur, ce qui est évidemment quelque chose d'actualité.\"},\n  {\"index\": 629, \"type\": \"none\", \"name\": null, \"raw\": \"Mais il ne faut pas oublier que l'écrasante majorité des cas d'usage de l'IA au travail, ce sont des initiatives d'employés.\"},\n  {\"index\": 630, \"type\": \"none\", \"name\": null, \"raw\": \"Ce sont des employés qui utilisent UNI à grand public non validé par les SI sur leur lieu de travail.\"},\n  {\"index\": 631, \"type\": \"none\", \"name\": null, \"raw\": \"Et ce n'est pas parce qu'on est dans une organisation hyper procédurière, hyper soucieuse de la sécurité, etc. que ce n'est pas vrai.\"},\n  {\"index\": 632, \"type\": \"none\", \"name\": null, \"raw\": \"J'ai été dans un ministère il n'y a pas très longtemps qui m'a dit que dans les six premiers mois de la sortie mondiale de Tchad GPT, il y avait eu 1 200 000 connexions.\"},\n  {\"index\": 633, \"type\": \"none\", \"name\": null, \"raw\": \"à Tchad GPT sur le lieu de travail.\"},\n  {\"index\": 634, \"type\": \"none\", \"name\": null, \"raw\": \"Montpellier, qui l'a interdit médiatiquement à ses salariés, a eu 1000 connexions avec le matériel professionnel sur le lieu de travail à Tchad GPT, alors même qu'ils ont répété partout qu'ils l'avaient interdit.\"},\n  {\"index\": 635, \"type\": \"none\", \"name\": null, \"raw\": \"Donc, il se passe quelque chose qui relève plus de l'initiative d'employés.\"}\n]"
+ },
+ "d68ca6da8542968e512ae0083d93b757810263db4b24048e52d1f3daa73226b3": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "d72fef5a7913a987087bb84d77348d6899709b186a2dc42c4a6aae53964432fc": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
  },
  "d793144084d03e942984bf88cc059df2e14dfbd3a554d946cb007e017085b818": {
   "model": "openweight-large",
   "name": "speaker-cues",
   "reply": "[{\"index\":12,\"type\":\"self_id\",\"name\":\"Mathilde Roux\",\"raw\":\"Mathilde, bonjour. Est-ce que ça se voit côté utilisateur ?\"},{\"index\":13,\"type\":\"none\",\"name\":null,\"raw\":\"Oui, une latence de deux à trois secondes à la reprise.\"},{\"index\":14,\"type\":\"none\",\"name\":null,\"raw\":\"Ce n'est pas bloquant, mais c'est visible, surtout sur les documents partagés à plus de dix personnes.\"},{\"index\":15,\"type\":\"none\",\"name\":null,\"raw\":\"On le garde en risque ouvert pour l'instant.\"},{\"index\":16,\"type\":\"handoff\",\"name\":\"Karim Sahli\",\"raw\":\"Karim, le stockage ?\"},{\"index\":17,\"type\":\"self_id\",\"name\":\"Karim Sahli\",\"raw\":\"Karim, bonjour à tous. Les deux applications écrivent dans mini eau, mais avec deux conventions de nommage différentes.\"},{\"index\":18,\"type\":\"none\",\"name\":null,\"raw\":\"Drive préfixe les objets par identifiant d'espace, Docs par identifiant de document.\"},{\"index\":19,\"type\":\"none\",\"name\":null,\"raw\":\"Pour la sauvegarde et pour la purge, ça complique beaucoup le tri.\"},{\"index\":20,\"type\":\"none\",\"name\":null,\"raw\":\"On ne sait pas dire, aujourd'hui, quels objets appartiennent à quel service.\"},{\"index\":21,\"type\":\"none\",\"name\":null,\"raw\":\"Et pour Drive, on passe toujours par whoopee pour l'édition bureautique ?\"},{\"index\":22,\"type\":\"none\",\"name\":null,\"raw\":\"Oui. Le protocole impose son propre système de jetons, donc on se retrouve avec deux chaînes d'autorisation en parallèle.\"},{\"index\":23,\"type\":\"none\",\"name\":null,\"raw\":\"C'est le principal point de dette technique sur cette partie.\"}]"
  },
+ "d99eb62a999cf20f7e6c407e0b7bf3e1ea3b2a055200b7f66cd8fc47dcda5be2": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "db0cdde47ef3fab8092c5e03000acfd4fb777d8d6bb4202ada827816a7c6eb2a": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "dbb9711640da212559e603a92c9412261787c8e1cccb4d77e6258be2abc915fc": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "dc4f64e80f2fa82901dab22ec66c16b197cdb048e59cfe1b1e28d9ab350d1b1b": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "dc9d4fbeda9cb8c05ef814dab00ce96e59e58d14babe18c4dbdfd22f6434e424": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "dd622f76db5f56a8fd95854bbfe48cafbd139eccb091c00ef2ee9178deae6e17": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\n    \"index\": 648,\n    \"type\": \"mention\",\n    \"name\": null,\n    \"raw\": \"(SPEAKER_04) Peut-être juste pour avoir un exemple, Sonne Descaroui, dans votre organisation, comment ça a été accueilli ?\"\n  },\n  {\n    \"index\": 649,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"(SPEAKER_04) Est-ce qu'il y a eu des réticences qui se sont exprimées ?\"\n  },\n  {\n    \"index\": 650,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"(SPEAKER_04) Et est-ce que vous avez mis en œuvre des programmes de formation ?\"\n  },\n  {\n    \"index\": 651,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"(SPEAKER_04) sensibilisation à l'IA et à la façon dont elle s'intégrait dans votre organisation ?\"\n  },\n  {\n    \"index\": 652,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"(SPEAKER_03) Il y a forcément des réticences, il y a forcément des peurs, enfin on évolue aussi dans une sphère personnelle avec chacun ses convictions personnelles.\"\n  },\n  {\n    \"index\": 653,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"(SPEAKER_03) Alors nous on a pris le parti pris encore une fois, je reviens au cas d'usage,\"\n  },\n  {\n    \"index\": 654,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"(SPEAKER_03) Au sein du programme de formation à la donnée, on a une partie qui est consacrée à tout ce qu'on dispense classiquement dans une organisation autour de la gouvernance de la donnée, autour de l'organisation, tout ce qui est sécurité des systèmes d'information.\"\n  },\n  {\n    \"index\": 655,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"(SPEAKER_03) Donc ça, c'est une première matinée.\"\n  },\n  {\n    \"index\": 656,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"(SPEAKER_03) Une deuxième partie de la journée est consacrée...\"\n  },\n  {\n    \"index\": 657,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"(SPEAKER_03) à la démonstration des cas d'usage qui font appel à l'intelligence artificielle première deuxième génération et associé à cette démonstration l'un des ateliers pratiques pour utiliser en fait\"\n  },\n  {\n    \"index\": 658,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"(SPEAKER_03) concrètement ces outils.\"\n  },\n  {\n    \"index\": 659,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"(SPEAKER_03) Donc on ne s'est pas du tout lancé dans l'évangélisation de l'IA.\"\n  }\n]"
+ },
+ "dd71fb83afce80ca0d90b2c5e3200573d84ae2e30591e5dbd74982269593ecba": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"qui cloaque\"},{\"span\":\"oh idée sait\"}]}"
+ },
+ "e0c22a444dc8fabeee4e9b0fabadba5e25970f90c7acc780f0812e8c86235cef": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "e1a7139740057796a387fe0c1b4ed5ca38c9bfad3aeddcacb0cc4ae80f7da093": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 600, \"type\": \"none\", \"name\": null, \"raw\": \"Et par ailleurs, quand c'est bien fait, c'est-à-dire...\"},\n  {\"index\": 601, \"type\": \"none\", \"name\": null, \"raw\": \"Ça, c'est une recommandation qu'on avait faite dans le partenariat mondial en 2021.\"},\n  {\"index\": 602, \"type\": \"none\", \"name\": null, \"raw\": \"Quand ce n'est pas fait par votre fournisseur ou par votre équipe d'IA, parce que très vite, évidemment, les partenaires sociaux et les travailleurs, ils sentent bien que vous êtes plutôt en train d'évangéliser et non pas en train d'acculturer.\"},\n  {\"index\": 603, \"type\": \"none\", \"name\": null, \"raw\": \"Donc là, ça, c'est un vrai sujet.\"},\n  {\"index\": 604, \"type\": \"none\", \"name\": null, \"raw\": \"Et par ailleurs, ça reste quand même intéressant d'acculturer...\"},\n  {\"index\": 605, \"type\": \"none\", \"name\": null, \"raw\": \"en asynchrone par rapport au projet d'IA.\"},\n  {\"index\": 606, \"type\": \"none\", \"name\": null, \"raw\": \"C'est-à-dire que quand vous êtes formé avec le stress qu'il y a un projet d'IA qui est réalisé, et qu'en plus vous êtes formé par la personne qui est chef de ce projet d'IA, quelque part, vous n'êtes pas dans un climat de sérénité et d'apaisement.\"},\n  {\"index\": 607, \"type\": \"none\", \"name\": null, \"raw\": \"Donc ça, c'est une recommandation notamment qu'on a faite en 2021, d'acculturer, mais en asynchrone par rapport au projet d'IA, pour pouvoir parler sereinement.\"},\n  {\"index\": 608, \"type\": \"none\", \"name\": null, \"raw\": \"Sachant que quand c'est bien fait,\"},\n  {\"index\": 609, \"type\": \"none\", \"name\": null, \"raw\": \"Peut-être que là, il y a un biais parce que moi, c'est mon métier, mais globalement, ce que je revois dans les évaluations de ces formations, quand c'est fait vraiment dans le but d'amener de la culture, ce que ça veut dire, acculturer, les gens sont passionnés.\"},\n  {\"index\": 610, \"type\": \"none\", \"name\": null, \"raw\": \"Ça les passionne.\"},\n  {\"index\": 611, \"type\": \"none\", \"name\": null, \"raw\": \"Même les personnes qui sont arrivées avec vraiment une position contre l'IA,\"}\n]"
+ },
+ "e1d3388b12a8fc53f97cdc3d24f9d62285c8913127b9eae5a66a505ab5362cb3": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\n    \"index\": 0,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Bienvenue à ceux qui nous ont rejoints cet après-midi et rebonjour aux autres.\"\n  },\n  {\n    \"index\": 1,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"On va ouvrir cet après-midi avec une table ronde qu'on a intitulée l'emploi public à l'épreuve de l'IA.\"\n  },\n  {\n    \"index\": 2,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Alors pourquoi on l'a mis en ces termes ?\"\n  },\n  {\n    \"index\": 3,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Parce que l'histoire des révolutions industrielles a montré\"\n  },\n  {\n    \"index\": 4,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"que les technologies jouent un rôle ambivalent par rapport à l'emploi.\"\n  },\n  {\n    \"index\": 5,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Elles sont source de gains de productivité et de création de nouveaux emplois, mais en même temps, elles rendent certaines tâches obsolètes selon un processus économique qu'on appelle la destruction créatrice.\"\n  },\n  {\n    \"index\": 6,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"On a donné trois objectifs à cette table ronde.\"\n  },\n  {\n    \"index\": 7,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"D'abord, questionner les impacts de l'IA sur les métiers, les compétences et les activités au sein du service public.\"\n  },\n  {\n    \"index\": 8,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Quel avenir pour le travail administratif dans un contexte de développement de ce type de technologie ?\"\n  },\n  {\n    \"index\": 9,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Quels sont les métiers et les activités les plus à risque ?\"\n  },\n  {\n    \"index\": 10,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Comment on les identifie ?\"\n  },\n  {\n    \"index\": 11,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Quelles sont les conditions de redéploiement de la force de travail qui serait libérée par l'automatisation ?\"\n  }\n]"
+ },
  "e34b2c97b070f60e62c0897a3f98a4c0cafba52f0cf2175704fc0d8f87c58e3c": {
   "model": "openweight-large",
   "name": "acronym-decide",
   "reply": "{\"choix\": \"DICOM\", \"confiance\": 0.7}"
+ },
+ "e4696e6c3857eb97b96fdc1bb38b971083753ec9978e8ab05d76e92a8358da39": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "e5e0bd7a42ffcd6e89d286a74d3874b132e4b20719437af50eff984bed080b6b": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"CIPCOG\"}]}"
+ },
+ "e6f247305822d22602b6afec81ef243e08f8907076bed4dccaa3a0ddcbe503f3": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[{\"index\":168,\"type\":\"none\",\"name\":null,\"raw\":\"Et est-ce que vous pensez qu'on est à l'aube d'une forme de remise en cause des relations de travail telles qu'on les a connues jusqu'à aujourd'hui ?\"},{\"index\":169,\"type\":\"none\",\"name\":null,\"raw\":\"Vous parlez de remise en cause des relations de travail ?\"},{\"index\":170,\"type\":\"none\",\"name\":null,\"raw\":\"Oui, et ce n'est plus de la perspective désormais, c'est de l'adaptation.\"},{\"index\":171,\"type\":\"none\",\"name\":null,\"raw\":\"J'ai deux grands arguments à évoquer à ce propos.\"},{\"index\":172,\"type\":\"none\",\"name\":null,\"raw\":\"Un, l'IA, ça sert exactement à remplacer les emplois.\"},{\"index\":173,\"type\":\"none\",\"name\":null,\"raw\":\"C'est de l'automatisation, c'est un nouveau en la matière.\"},{\"index\":174,\"type\":\"none\",\"name\":null,\"raw\":\"Et de deux, on n'attend pas qu'une IA fonctionne pour l'utiliser.\"},{\"index\":175,\"type\":\"none\",\"name\":null,\"raw\":\"Alors là, je vais égrener différents exemples durant mes différentes prises de parole.\"},{\"index\":176,\"type\":\"none\",\"name\":null,\"raw\":\"Sans quoi, on n'aurait pas de police prédictive, qui scientifiquement n'ont aucun sens.\"},{\"index\":177,\"type\":\"none\",\"name\":null,\"raw\":\"On pourrait élargir la liste, mais des catastrophes.\"},{\"index\":178,\"type\":\"none\",\"name\":null,\"raw\":\"Il y en a une que j'aime beaucoup, c'est certainement la plus terrible, mais le gouvernement des Pays-Bas en 2021, il tombe.\"},{\"index\":179,\"type\":\"none\",\"name\":null,\"raw\":\"du fait d'un scandale d'usage d'algorithmes pour traquer les fraudeurs à l'occasion familiale.\"}]"
+ },
+ "e743bf8c571ac926b1bd73e9161f1401875f9b7e3f8e8d130bc63191c7c78fc3": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "e7d3520eb8231c7b298101fd249aae893dd27cc9d01fa88d6881d7a304c94b06": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "e7dc2af560dfb28e24cb24fce46f0641c5472fa198e412f7bbc7959963bfd2cc": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "e81a0351bdd29807648fd7321141dfddbc746a95c1506f55c8a414ca69fdfa60": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "e841a2f2583032a9e53cb36fabb31d517c2e79b1efd9bcd8da2a4a4359707660": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
  },
  "e8c7220900feed110eeea672cfaa34f823b9e0e152a298fe23cc13dd65157e05": {
   "model": "openweight-large",
   "name": "acronym-detect",
   "reply": "{\"suspects\":[]}"
  },
+ "e8f3a664ee1d8424524b290a3af95e958a559a20796535d575ac02be30bc787e": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "e9ad16009a6c6ea16d4976b826406919601ea7e084d0bc6fbece0705ff345d69": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"hidden workers\"}]}"
+ },
+ "e9f569b05e1b6b24727ee4632e20eccf20fb1c5cf1075d37c107d09fb88bc7d2": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "ea44a0ec42431201aef7028081aaec96329f5f3cd39fe382de12e7983278e32a": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "ea71fc9b43b3cbcffc7859ae3beb25814f2ee818bb9b94881d0e15977e594618": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "eaf8bbbb86037c0900391c6ed9b877a61a1bec72255f6866f3064914b62a6081": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[{\"index\":24,\"type\":\"none\",\"name\":null,\"raw\":\"Et si oui, que perçoit-on de ces impacts ?\"},{\"index\":25,\"type\":\"none\",\"name\":null,\"raw\":\"Et puis, selon ces travaux, quels sont les métiers qui sont les plus susceptibles d'être transformés ou de disparaître ?\"},{\"index\":26,\"type\":\"none\",\"name\":null,\"raw\":\"Je vous propose de commencer.\"},{\"index\":27,\"type\":\"none\",\"name\":null,\"raw\":\"D'accord.\"},{\"index\":28,\"type\":\"none\",\"name\":null,\"raw\":\"C'est automatique, oui ?\"},{\"index\":29,\"type\":\"none\",\"name\":null,\"raw\":\"Oui.\"},{\"index\":30,\"type\":\"none\",\"name\":null,\"raw\":\"À l'OCDE, nos études sont assez macro.\"},{\"index\":31,\"type\":\"none\",\"name\":null,\"raw\":\"Je vais essayer de donner une vue globale sur l'effet de l'IA sur le marché du travail.\"},{\"index\":32,\"type\":\"none\",\"name\":null,\"raw\":\"Je pense qu'il y a beaucoup de craintes.\"},{\"index\":33,\"type\":\"none\",\"name\":null,\"raw\":\"Je vais essayer de rassurer les gens un peu.\"},{\"index\":34,\"type\":\"none\",\"name\":null,\"raw\":\"Quand on analyse l'impact de l'IA sur le marché du travail à l'OCDE, on regarde l'impact sur trois dimensions.\"},{\"index\":35,\"type\":\"none\",\"name\":null,\"raw\":\"D'abord, un, sur le nombre d'emplois, donc la quantité d'emplois.\"}]"
+ },
+ "eb66acd6c278c674cf5e386b1ddc11a860be6b0e8fa390328bd2cfce12b055d3": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "eb7d5eade495e460e0241a848a6476455609eb2487d146572e66dbdc3c7bf143": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "eb92b3194bc3f85440671cc71b784b6b3e764eeab05a440162933009955a9583": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 636, \"type\": \"none\", \"name\": null, \"raw\": \"Ce qui fait qu'aujourd'hui,\"},\n  {\"index\": 637, \"type\": \"none\", \"name\": null, \"raw\": \"On peut avoir des rapports très différents.\"},\n  {\"index\": 638, \"type\": \"mention\", \"name\": null, \"raw\": \"Il n'y a pas très longtemps, on s'est vu avec Marius à Grenoble où il y avait énormément de confédérations.\"},\n  {\"index\": 639, \"type\": \"mention\", \"name\": null, \"raw\": \"La température était plus côté Marius que mon côté, si je puis dire, même si je ne suis pas dans la promotion de l'IA.\"},\n  {\"index\": 640, \"type\": \"none\", \"name\": null, \"raw\": \"Mais cette même personne qui était très virulente en public, on faisait la file d'attente au buffet et il me dit...\"},\n  {\"index\": 641, \"type\": \"none\", \"name\": null, \"raw\": \"Par ailleurs, vous me conseillez quel IA génératif pour mes comptes rendus de réunion syndicale ?\"},\n  {\"index\": 642, \"type\": \"none\", \"name\": null, \"raw\": \"Parce que moi, ça me gêne d'écrire, ça me prend du temps et ça m'aiderait d'avoir... Vous voyez donc, en fait, ce rapport, il n'est plus devenu si polarisé que ça, il est devenu très ambigu.\"},\n  {\"index\": 643, \"type\": \"none\", \"name\": null, \"raw\": \"Avec d'un côté des craintes et en même temps des utilisations qui sont en train de se développer dans différentes sphères de notre vie professionnelle et de notre vie personnelle.\"},\n  {\"index\": 644, \"type\": \"none\", \"name\": null, \"raw\": \"Donc on a dans le dialogue social cette ambiguïté qu'on ressent progressivement entre des personnes qui peuvent être utilisatrices.\"},\n  {\"index\": 645, \"type\": \"none\", \"name\": null, \"raw\": \"Mais ça ne les dérange pas tant que c'est eux qui l'ont décidé et qui deviennent du coup très inquiètes quand c'est leur employeur qui l'a décidé pour eux.\"},\n  {\"index\": 646, \"type\": \"none\", \"name\": null, \"raw\": \"Et je dirais qu'aujourd'hui, la ligne de crête, peut-être dans le dialogue social, elle est moins dans IA contre IA, mais plus je décide d'utiliser l'IA ou on décide à ma place d'utiliser l'IA, de changer mes process.\"},\n  {\"index\": 647, \"type\": \"none\", \"name\": null, \"raw\": \"Ça, c'est une autre ligne de partage qui est en train d'émerger.\"}\n]"
+ },
  "ecd78382a80315a55420816f8bbc6a0c9c204bf88c368eb78096fb3ed74e4543": {
   "model": "openweight-large",
   "name": "acronym-decide",
   "reply": "{\"choix\": \"MinIO\", \"confiance\": 0.86}"
+ },
+ "ed3720f7302ffde4498c533722ad0291250be2b5b4a07b96bdcda15ddef02106": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "ed4fabb97c60d32d8276e474af1dad890366d046e78ebc0a4160aecfff19d3b5": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "ed712950874aec558c678db86dad9262b8ddbee78044f0a90f4c909c07575fc2": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "edc99b197390d49e775795326a574b8aa64780d727ced06959bf255977274daf": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 456, \"type\": \"none\", \"name\": null, \"raw\": \"La douane s'est intéressée à la valorisation de la donnée à travers des algorithmes un peu poussés, tout simplement parce qu'on était assez pragmatique.\"},\n  {\"index\": 457, \"type\": \"none\", \"name\": null, \"raw\": \"Dans la grande famille des systèmes I1, il y a un sous-ensemble qui est le traitement naturel du langage, et plus particulièrement,\"},\n  {\"index\": 458, \"type\": \"none\", \"name\": null, \"raw\": \"une méthode qui s'assimile beaucoup à ONLP qui est la méthode des entity resolution qui est aujourd'hui très intéressante pour les douaniers parce que les douaniers dans leur quotidien tous les jours il faut qu'ils croisent plusieurs millions de lignes de bases de données et donc l'entity resolution est très intéressante parce qu'elle permet de trouver des liens entre une même entité dans plusieurs bases de données\"},\n  {\"index\": 459, \"type\": \"none\", \"name\": null, \"raw\": \"Tout simplement, ça nous permet aussi d'aller vers...\"},\n  {\"index\": 460, \"type\": \"none\", \"name\": null, \"raw\": \"Alors désolé, je vais utiliser le mot organisation datacentrique.\"},\n  {\"index\": 461, \"type\": \"none\", \"name\": null, \"raw\": \"Pourquoi c'est important pour nous ?\"},\n  {\"index\": 462, \"type\": \"none\", \"name\": null, \"raw\": \"Parce que tout simplement, pour pouvoir avoir une donnée de qualité au sein d'une organisation, il faut que l'ensemble de l'organisation se sente propriétaire de cette donnée et contribue collectivement à sa mise en qualité.\"},\n  {\"index\": 463, \"type\": \"none\", \"name\": null, \"raw\": \"Et le fait de pouvoir lier des bases de données à travers des algorithmes assez avancés, ça nous fait économiser énormément de temps.\"},\n  {\"index\": 464, \"type\": \"none\", \"name\": null, \"raw\": \"Et les analystes sont plutôt très enthousiastes avec ces méthodes-là.\"},\n  {\"index\": 465, \"type\": \"none\", \"name\": null, \"raw\": \"Et contrairement à notre appréhension initiale, ces méthodes ont plutôt créé de l'activité.\"},\n  {\"index\": 466, \"type\": \"none\", \"name\": null, \"raw\": \"On traite plus de dossiers de manière plus précise et de manière plus rapide.\"},\n  {\"index\": 467, \"type\": \"none\", \"name\": null, \"raw\": \"C'est vrai que dans certaines grandes orientations, on assimile souvent la transformation numérique à la suppression d'emplois.\"}\n]"
+ },
+ "ee8b4a609424d86799dd2f4b3ae0c6ee26ec93107316468a1e9def746e36138f": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
  },
  "ef355494cb5b8878317cdf3948abcc7ff3fb62bb0fac26210e0dd2e7a7d98b40": {
   "model": "openweight-large",
   "name": "acronym-detect",
   "reply": "{\"suspects\":[{\"span\":\"dix nomme\"},{\"span\":\"y grec js\"},{\"span\":\"serre des thés\"}]}"
  },
+ "efa3b3d1a25b3f2730632b0604eedc83bf1c1d1822c89bf7db2d1ba4c5d26b93": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"un assis\"}]}"
+ },
+ "efe5bedff2e29f65e8f687880f52827841cba79d309f5fefaf8da50bc8af0499": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"whoopee\"}]}"
+ },
+ "f058d4ec1b86a84b1e66e653b8466b7cdbc9dc566998f572b204682e10695d83": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "f1c0165ba6b679f0350839885dd2f0f200116202ad2822371e24b109748b28df": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[{\"span\":\"Worldcon\"}]}"
+ },
  "f1d27aae436765ae3c24121f9a2037aa4b6713184aefa27c478a71d6d0979708": {
   "model": "openweight-large",
   "name": "acronym-decide",
   "reply": "{\n  \"choix\": \"DINUM\",\n  \"confiance\": 0.75\n}"
  },
+ "f299911c609ef3b832313d4a6a52b33a4a8084f59e01bbfc17c0069ff23aad8f": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "f2c07d4eda99df1849ecb9a53b85c6352f47ac115399b1d894daed253fa526f7": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\n    \"index\": 264,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"On va revenir à quelque chose d'un petit peu plus terre-à-terre qui est l'IA comme outil d'aide à la décision pour la gestion des ressources humaines publiques.\"\n  },\n  {\n    \"index\": 265,\n    \"type\": \"mention\",\n    \"name\": null,\n    \"raw\": \"Je m'adresse à vous Yann Ferguson et peut-être Sting Broek derrière.\"\n  },\n  {\n    \"index\": 266,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Pour quelles tâches de GRH, recrutement, gestion de la paie, etc., l'IA est-elle déjà utilisée aujourd'hui ?\"\n  },\n  {\n    \"index\": 267,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Est-ce qu'il y a des expérimentations, des cas d'usage qui seraient intéressants d'évoquer pour voir comment ça fonctionne déjà ?\"\n  },\n  {\n    \"index\": 268,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Dans quels termes les choses sont utilisées ?\"\n  },\n  {\n    \"index\": 269,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Alors effectivement, les développeurs de solutions IA sont très créatifs sur la question des GRH.\"\n  },\n  {\n    \"index\": 270,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Pour moi, il y a deux grandes familles.\"\n  },\n  {\n    \"index\": 271,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Il y a celle qui essaie plutôt d'optimiser des processus existants.\"\n  },\n  {\n    \"index\": 272,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Donc là, on va aller vers des systèmes d'IA pour de la planification, pour essayer d'analyser des données dans les entretiens annuels, etc. Donc des choses que l'on fait, mais qu'on essaie de faire mieux avec l'IA.\"\n  },\n  {\n    \"index\": 273,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Et comment, par exemple, on peut aussi aider les gens à réfléchir sur leur évolution à l'intérieur de leur entreprise ou de leur organisation à partir des soft skills.\"\n  },\n  {\n    \"index\": 274,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Il y a eu des solutions d'IA comme ça qui se basent sur un ensemble d'exercices ou de questionnaires où on répertorie un peu ces expériences.\"\n  },\n  {\n    \"index\": 275,\n    \"type\": \"none\",\n    \"name\": null,\n    \"raw\": \"Et la difficulté que l'on a parfois lorsqu'on fait un métier qui...\"\n  }\n]"
+ },
+ "f31dadafde0298d36f27049393ced47c5872d0992bbff53813aefc0cc0e0ba57": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "f339ddf60dbfdd0b065e730b3783d486b527796c0c70548f3c9e76b34fa71309": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
  "f35f9ad09d409b81e0560c88b34ed46b997a824210484d72c1197f244a43fa56": {
   "model": "openweight-large",
   "name": "acronym-decide",
   "reply": "{\n  \"choix\": \"Menshen\",\n  \"confiance\": 0.85\n}"
+ },
+ "f54821fb3543c7187a74db3607a816436b4ccb2f0c8e8f5df070f231f6aae215": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 12, \"type\": \"none\", \"name\": null, \"raw\": \"Est-ce qu'on va les redéployer vers des tâches ou des activités plus complexes ?\"},\n  {\"index\": 13, \"type\": \"none\", \"name\": null, \"raw\": \"Ensuite, un deuxième point qui nous a semblé important à aborder, c'est de regarder les potentialités et les risques que présente l'IA comme outil d'aide à la décision en matière de gestion des ressources humaines.\"},\n  {\"index\": 14, \"type\": \"none\", \"name\": null, \"raw\": \"Et donc en matière de recrutement et d'appariement entre offre et demande d'emploi, de personnalisation de l'accompagnement et des carrières, de personnalisation des plans de formation, de gestion des affectations, des mobilités, des transitions et des réinsertions professionnelles.\"},\n  {\"index\": 15, \"type\": \"none\", \"name\": null, \"raw\": \"Et enfin, le troisième temps qu'on souhaite aborder sera consacré à la problématique de l'acculturation.\"},\n  {\"index\": 16, \"type\": \"none\", \"name\": null, \"raw\": \"On en a déjà un petit peu parlé ce matin et évoqué ces questions-là, de l'acculturation des agents et des dirigeants publics aux outils et aux utilisations de l'intelligence artificielle.\"},\n  {\"index\": 17, \"type\": \"none\", \"name\": null, \"raw\": \"Ce sont donc des enjeux de formation qui sont au cœur de l'intégration de l'IA au sein de l'administration.\"},\n  {\"index\": 18, \"type\": \"none\", \"name\": null, \"raw\": \"Former à l'IA nécessite de s'interroger sur les manières d'organiser et d'adapter les compétences d'aujourd'hui présentes au sein de l'État, à la fois des directions numériques, mais aussi des agents publics non spécialisés qui seront amenés à utiliser de l'IA avec des opérations spécifiques de calibrage, de maintenance, d'utilisation, de contrôle des machines.\"},\n  {\"index\": 19, \"type\": \"none\", \"name\": null, \"raw\": \"dans des processus de travail qui sont aujourd'hui parfois très ancrés, dans des cultures professionnelles très ancrées.\"},\n  {\"index\": 20, \"type\": \"none\", \"name\": null, \"raw\": \"Et en creux, évidemment, ce sont tous les enjeux évoqués aussi un petit peu déjà ce matin autour du thème de l'explicabilité, mais donc les enjeux d'acceptabilité de l'usage de l'IA dans le travail administratif qui se décide.\"},\n  {\"index\": 21, \"type\": \"mention\", \"name\": null, \"raw\": \"Je vous propose pour débuter cet échange, peut-être avec vous Stingbroekhe et avec vous Yann Ferguson après.\"},\n  {\"index\": 22, \"type\": \"none\", \"name\": null, \"raw\": \"Est-ce que vous pouvez un peu nous dire ce que les travaux de recherche disent sur l'impact de l'IA sur les métiers ?\"},\n  {\"index\": 23, \"type\": \"none\", \"name\": null, \"raw\": \"Est-ce qu'il y a déjà des impacts qui sont perceptibles ?\"}\n]"
+ },
+ "f59e4e1badf45c014161324c69ebef71af07702a11a91325f1e05e095c9884c1": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "f7cacb0de704ab8c087a20a90d30a10a968b4666644ee4dd444cec9fdb8dbcaf": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "fa3d03b6e6918352e555ab56fe0507e58ce717dc36c8c28e4b6b3a7d9af972e9": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "fb5a8ff2806f032f6373f39de3b214e5f720237f68a90dc3bc9636a3e19ee386": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "fc762d88c85098a8c5564bcaa8012de393d8c1cf88ae3f12c46a1142508c6943": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "fd58aeb82fcc19fdb141c70d623407d9995d2f5da70d3f51b3b95b35deddc845": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "fdb57495154146fa8cb74f7c82233e41776e5fbd5faf741b449c84708a4f8e2d": {
+  "model": "openweight-large",
+  "name": "acronym-detect",
+  "reply": "{\"suspects\":[]}"
+ },
+ "fe03029e55558ac676aa096e618528b56d7c4f9ba81203e0bb4ffc7940966e10": {
+  "model": "openweight-large",
+  "name": "speaker-cues",
+  "reply": "[\n  {\"index\": 360, \"type\": \"none\", \"name\": null, \"raw\": \"Pas dans le top, mais vraiment des gens qui supervisent des personnes.\"},\n  {\"index\": 361, \"type\": \"none\", \"name\": null, \"raw\": \"Pour compléter un peu cette étude européenne, qui d'ailleurs l'année prochaine sera faite dans tous les pays européens, donc on aura des données pour tous les pays européens.\"},\n  {\"index\": 362, \"type\": \"none\", \"name\": null, \"raw\": \"Le problème avec une enquête des travailleurs, c'est que les travailleurs ne sont pas toujours conscients que ces programmes, ces algorithmes sont utilisés par leurs entreprises.\"},\n  {\"index\": 363, \"type\": \"none\", \"name\": null, \"raw\": \"Donc nous l'idée c'était on va rapprocher les gestionneurs, on va leur poser la question sur ce type d'IA ou d'autres algorithmes, c'est pas que l'IA.\"},\n  {\"index\": 364, \"type\": \"none\", \"name\": null, \"raw\": \"Et ce qu'on a trouvé c'est que c'est pas une question de future of work, de l'avenir, c'est quelque chose en fait qui est déjà la norme.\"},\n  {\"index\": 365, \"type\": \"none\", \"name\": null, \"raw\": \"Ce genre de programme, ce genre d'outils sont déjà utilisés dans la plupart des entreprises.\"},\n  {\"index\": 366, \"type\": \"none\", \"name\": null, \"raw\": \"Et ce qui est intéressant, c'est qu'il y a des grandes différences entre les pays.\"},\n  {\"index\": 367, \"type\": \"none\", \"name\": null, \"raw\": \"Donc pour vous dire, on a fait l'étude aux États-Unis, puis en Espagne, France, Italie, Allemagne et au Japon.\"},\n  {\"index\": 368, \"type\": \"none\", \"name\": null, \"raw\": \"Et de loin, le pays qui utilise ce genre d'outils le plus, devinez-le, c'est les États-Unis, sans aucune surprise.\"},\n  {\"index\": 369, \"type\": \"none\", \"name\": null, \"raw\": \"De l'autre côté, on voit le Japon, où on a très peu d'utilisation de ce genre d'outils.\"},\n  {\"index\": 370, \"type\": \"none\", \"name\": null, \"raw\": \"Et un collègue japonais qui m'a raconté que c'est peut-être parce qu'au Japon, on fait très attention en ce qui concerne la gestion, surtout parce qu'en japonais, il y a un mot pour « suicide au travail ».\"},\n  {\"index\": 371, \"type\": \"none\", \"name\": null, \"raw\": \"Donc on fait très attention avec ce genre d'outils.\"}\n]"
  }
 }
