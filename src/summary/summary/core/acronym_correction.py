@@ -206,6 +206,16 @@ class _Position(NamedTuple):
     has_words: bool
 
 
+def _text_token_spans(text: str) -> list[tuple[int, int]]:
+    """Return the character span of every whitespace-separated token of a text.
+
+    The single tokeniser of the text path: `_segment_tokens` reads the tokens
+    through it and `_apply_text_correction` rewrites through it, so the tokens
+    a window was matched on and the offsets it is spliced at cannot drift.
+    """
+    return [match.span() for match in re.finditer(r"\S+", text)]
+
+
 def _segment_tokens(segment: dict[str, Any]) -> tuple[list[str], bool]:
     """Return a segment's tokens, and whether they came from per-word timings.
 
@@ -218,12 +228,8 @@ def _segment_tokens(segment: dict[str, Any]) -> tuple[list[str], bool]:
     words = segment.get("words") or []
     if words:
         return [word.get("word", "") or "" for word in words], True
-    return (segment.get("text", "") or "").split(), False
-
-
-def _text_token_spans(text: str) -> list[tuple[int, int]]:
-    """Return the character span of every whitespace-separated token of a text."""
-    return [match.span() for match in re.finditer(r"\S+", text)]
+    text = segment.get("text", "") or ""
+    return [text[start:end] for start, end in _text_token_spans(text)], False
 
 
 def _locate_span(segments: list[dict[str, Any]], span: str) -> Optional[_Position]:

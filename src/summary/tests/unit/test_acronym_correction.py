@@ -590,6 +590,29 @@ def test_locate_span_matches_a_token_holding_an_elided_article(index):
     assert _locate_span(segments, "d'Inhomme") == _Position(0, 1, 1, False)
 
 
+def test_elided_acronym_wins_against_the_whole_shipped_glossary(monkeypatch):
+    """The measured case, against all 7769 shipped acronyms, not the test four.
+
+    Passing the shortlist stage in a four-acronym test glossary proves the
+    plumbing, not the premise. In the real one "d'Inhomme" has to clear the
+    similarity floor and outrank DICOM, its nearest homonym, before the list is
+    cut to top_k -- otherwise DINUM never reaches the deciding model at all.
+    """
+    shipped = acronym_correction._load_glossary_file()
+    glossary = {acronym: entry[0] for acronym, entry in shipped.items()}
+    weights = {acronym: entry[1] for acronym, entry in shipped.items()}
+    monkeypatch.setattr(acronym_correction, "get_acronym_glossary", lambda: glossary)
+    monkeypatch.setattr(acronym_correction, "get_acronym_weights", lambda: weights)
+
+    # the token as the text path hands it over, trailing comma and all
+    shortlist, where = acronym_correction._shortlist(
+        PhoneticIndex(glossary), ["d'Inhomme,"], 0, 1
+    )
+
+    assert [acronym for acronym, _ in shortlist][0] == "DINUM"
+    assert where["DINUM"][0] == "d'Inhomme"
+
+
 def test_elided_article_still_matches_its_acronym():
     """Whisper glues the elided article on: "d'Inhomme" must still reach DINUM.
 
