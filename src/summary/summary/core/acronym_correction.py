@@ -60,6 +60,12 @@ WINDOW_MARGIN = 0
 # the uploader knows their own vocabulary. Large enough to beat a phonetic near-tie
 # (DINUM 0.80 vs DICOM 0.80), small enough not to force a clearly worse match.
 USER_GLOSSARY_BONUS = 0.20
+# Homonyms arrive phonetically tied: "dix nomme" matches DINUM and DICOM at 0.80
+# each, so the winner was arbitrary. The shipped glossary records how many
+# independent corpora confirmed each acronym -- DINUM 5, DICOM 2 -- which breaks
+# the tie. Deliberately small: it must not override a real similarity gap.
+EVIDENCE_BONUS_PER_SOURCE = 0.015
+EVIDENCE_BONUS_CAP = 0.06
 
 # Longest token sequence considered when locating a flagged passage.
 MAX_LOCATE_WORDS = 8
@@ -78,10 +84,25 @@ oui non merci bonjour oh euh ah eh bon ben""".split()
 
 
 @lru_cache(maxsize=1)
-def get_acronym_glossary() -> dict[str, str]:
-    """Load the {acronym: expansion} glossary shipped with the service."""
+@lru_cache(maxsize=1)
+def _load_glossary_file() -> dict[str, list]:
+    """Read the shipped {acronym: [expansion, source_count]} file once."""
     with GLOSSARY_PATH.open(encoding="utf-8") as glossary_file:
         return json.load(glossary_file)
+
+
+def get_acronym_glossary() -> dict[str, str]:
+    """The {acronym: expansion} mapping shipped with the service."""
+    return {
+        acronym: entry[0] for acronym, entry in _load_glossary_file().items()
+    }
+
+
+def get_acronym_weights() -> dict[str, int]:
+    """How many independent corpora confirmed each shipped acronym."""
+    return {
+        acronym: entry[1] for acronym, entry in _load_glossary_file().items()
+    }
 
 
 @lru_cache(maxsize=1)
@@ -266,6 +287,7 @@ def _shortlist(
 
     windows = _window_candidates(index, words, low, high)
     windows.sort(key=lambda window: (-window[0], window[1]))
+    weights = get_acronym_weights()
 
     pool: dict[str, tuple[float, str, int, int]] = {}
     claimed: set[int] = set()
@@ -275,11 +297,14 @@ def _shortlist(
             continue
         claimed |= positions
         for acronym, raw_score in candidates:
-            score = (
-                min(1.0, raw_score + USER_GLOSSARY_BONUS)
-                if user_acronyms and acronym in user_acronyms
-                else raw_score
-            )
+            if user_acronyms and acronym in user_acronyms:
+                score = min(1.0, raw_score + USER_GLOSSARY_BONUS)
+            else:
+                evidence = min(
+                    EVIDENCE_BONUS_CAP,
+                    EVIDENCE_BONUS_PER_SOURCE * (weights.get(acronym, 1) - 1),
+                )
+                score = min(1.0, raw_score + evidence)
             if acronym not in pool or score > pool[acronym][0]:
                 pool[acronym] = (score, text, start, length)
 

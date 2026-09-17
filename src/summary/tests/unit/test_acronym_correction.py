@@ -370,3 +370,55 @@ def test_user_glossary_lowers_the_confidence_floor():
     # the case that motivated it: 0.75 passes only when declared
     assert 0.75 >= declared
     assert 0.75 < plain
+
+
+def test_shipped_glossary_exposes_evidence_weights():
+    """Each shipped acronym records how many corpora confirmed it."""
+    weights = acronym_correction.get_acronym_weights()
+    assert weights["DINUM"] > weights["DICOM"]
+    assert all(isinstance(value, int) and value >= 1 for value in weights.values())
+
+
+def test_expansions_still_load_as_plain_strings():
+    """The prompt needs {acronym: expansion}, not the raw file shape."""
+    glossary = acronym_correction.get_acronym_glossary()
+    assert isinstance(glossary["DINUM"], str)
+    assert "numérique" in glossary["DINUM"]
+
+
+def test_better_attested_acronym_wins_a_phonetic_tie(monkeypatch):
+    """Homonyms tie phonetically; the one more corpora confirmed ranks first."""
+    glossary = {
+        "DINUM": "direction interministérielle du numérique",
+        "DICOM": "délégation à l'information et la communication",
+    }
+    monkeypatch.setattr(acronym_correction, "get_acronym_glossary", lambda: glossary)
+    monkeypatch.setattr(
+        acronym_correction, "get_acronym_weights", lambda: {"DINUM": 5, "DICOM": 2}
+    )
+    words = [
+        {"word": "dix", "start": 0.0, "end": 0.3},
+        {"word": "nomme", "start": 0.3, "end": 0.7},
+    ]
+
+    shortlist, _ = acronym_correction._shortlist(PhoneticIndex(glossary), words, 0, 2)
+    ranked = [acronym for acronym, _ in shortlist]
+
+    assert ranked.index("DINUM") < ranked.index("DICOM")
+
+
+def test_evidence_bonus_cannot_override_a_real_similarity_gap(monkeypatch):
+    """Attestation breaks ties; it must not promote a clearly worse match."""
+    glossary = {"DINUM": "direction du numérique", "XYZ": "sans rapport"}
+    monkeypatch.setattr(acronym_correction, "get_acronym_glossary", lambda: glossary)
+    monkeypatch.setattr(
+        acronym_correction, "get_acronym_weights", lambda: {"DINUM": 1, "XYZ": 7}
+    )
+    words = [
+        {"word": "dix", "start": 0.0, "end": 0.3},
+        {"word": "nomme", "start": 0.3, "end": 0.7},
+    ]
+
+    shortlist, _ = acronym_correction._shortlist(PhoneticIndex(glossary), words, 0, 2)
+
+    assert shortlist[0][0] == "DINUM"
