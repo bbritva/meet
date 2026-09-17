@@ -8,6 +8,7 @@ import pytest
 from summary.core import acronym_correction, prompt
 from summary.core.acronym_correction import (
     _locate_span,
+    _Position,
     _shortlist,
     correct_acronyms,
 )
@@ -135,9 +136,7 @@ def test_similarity_is_normalised():
 
 def test_longest_window_claims_its_words(index):
     """A two-word window wins as DINUM instead of its first word as DID."""
-    words = [make_word("dix", 0.0), make_word("nomme", 0.5)]
-
-    shortlist, where = _shortlist(index, words, 0, 2)
+    shortlist, where = _shortlist(index, ["dix", "nomme"], 0, 2)
 
     assert [acronym for acronym, _ in shortlist] == ["DINUM"]
     assert where["DINUM"] == ("dix nomme", 0, 2)
@@ -145,9 +144,7 @@ def test_longest_window_claims_its_words(index):
 
 def test_single_word_still_matches_when_alone(index):
     """A one-word window is shortlisted when no longer window claims it."""
-    words = [make_word("dix", 0.0)]
-
-    shortlist, _ = _shortlist(index, words, 0, 1)
+    shortlist, _ = _shortlist(index, ["dix"], 0, 1)
 
     assert [acronym for acronym, _ in shortlist] == ["DID"]
 
@@ -156,7 +153,7 @@ def test_locate_span_ignores_punctuation_and_case():
     """A flagged passage is found even when its punctuation differs."""
     segments = make_transcription()["segments"]
 
-    assert _locate_span(segments, "Dix nomme") == (0, 1, 2)
+    assert _locate_span(segments, "Dix nomme") == _Position(0, 1, 2, True)
     assert _locate_span(segments, "") is None
 
 
@@ -277,8 +274,12 @@ def test_rejected_span_leaves_the_transcript_untouched(index):
     assert corrected == make_transcription()
 
 
-def test_segment_without_words_is_skipped(index):
-    """A segment carrying a null words field does not break the chain."""
+def test_segment_with_a_null_words_field_is_corrected_on_the_text_path(index):
+    """A segment carrying a null words field is corrected from its text.
+
+    It used to be skipped, which silently dropped every correction on output
+    from a recogniser that runs no forced alignment.
+    """
     transcription = {"segments": [{"text": "Côté dix nomme.", "words": None}]}
     llm_service = StubLLMService(
         spans=["dix nomme"], decisions=[{"choix": "DINUM", "confiance": 0.95}]
@@ -286,7 +287,9 @@ def test_segment_without_words_is_skipped(index):
 
     corrected, corrections = correct_acronyms(transcription, llm_service, index=index)
 
-    assert corrections == []
+    assert [correction["correct"] for correction in corrections] == ["DINUM"]
+    assert corrected["segments"][0]["text"] == "Côté DINUM."
+    # There were no words to rewrite, so the field is left exactly as it was.
     assert corrected["segments"][0]["words"] is None
 
 
@@ -318,14 +321,10 @@ def test_user_glossary_adds_unknown_acronyms():
 
 def test_user_glossary_outranks_the_shipped_one():
     """A user entry beats a public homonym that scores the same phonetically."""
-    words = [
-        {"word": "dix", "start": 0.0, "end": 0.3},
-        {"word": "nomme", "start": 0.3, "end": 0.7},
-    ]
     index = acronym_correction.build_index({"DINUM": "Direction du numérique"})
 
-    plain, _ = acronym_correction._shortlist(index, words, 0, 2)
-    boosted, _ = acronym_correction._shortlist(index, words, 0, 2, {"DINUM"})
+    plain, _ = acronym_correction._shortlist(index, ["dix", "nomme"], 0, 2)
+    boosted, _ = acronym_correction._shortlist(index, ["dix", "nomme"], 0, 2, {"DINUM"})
 
     plain_rank = [acronym for acronym, _ in plain].index("DINUM")
     boosted_rank = [acronym for acronym, _ in boosted].index("DINUM")
@@ -355,10 +354,8 @@ def test_context_words_do_not_create_wider_windows(index):
     With a margin, "Côté dix nomme" is tried as a window, matches a worse
     acronym and swallows the words of the correct one.
     """
-    words = [make_word("Côté", 0.0), make_word("dix", 0.5), make_word("nomme", 1.0)]
-
-    # stage 1 flagged only "dix nomme": words 1-2
-    shortlist, where = _shortlist(index, words, 1, 2)
+    # stage 1 flagged only "dix nomme": tokens 1-2
+    shortlist, where = _shortlist(index, ["Côté", "dix", "nomme"], 1, 2)
 
     assert [acronym for acronym, _ in shortlist] == ["DINUM"]
     assert where["DINUM"] == ("dix nomme", 1, 2)
@@ -402,12 +399,10 @@ def test_better_attested_acronym_wins_a_phonetic_tie(monkeypatch):
     monkeypatch.setattr(
         acronym_correction, "get_acronym_weights", lambda: {"DINUM": 5, "DICOM": 2}
     )
-    words = [
-        {"word": "dix", "start": 0.0, "end": 0.3},
-        {"word": "nomme", "start": 0.3, "end": 0.7},
-    ]
 
-    shortlist, _ = acronym_correction._shortlist(PhoneticIndex(glossary), words, 0, 2)
+    shortlist, _ = acronym_correction._shortlist(
+        PhoneticIndex(glossary), ["dix", "nomme"], 0, 2
+    )
     ranked = [acronym for acronym, _ in shortlist]
 
     assert ranked.index("DINUM") < ranked.index("DICOM")
@@ -420,12 +415,10 @@ def test_evidence_bonus_cannot_override_a_real_similarity_gap(monkeypatch):
     monkeypatch.setattr(
         acronym_correction, "get_acronym_weights", lambda: {"DINUM": 1, "XYZ": 7}
     )
-    words = [
-        {"word": "dix", "start": 0.0, "end": 0.3},
-        {"word": "nomme", "start": 0.3, "end": 0.7},
-    ]
 
-    shortlist, _ = acronym_correction._shortlist(PhoneticIndex(glossary), words, 0, 2)
+    shortlist, _ = acronym_correction._shortlist(
+        PhoneticIndex(glossary), ["dix", "nomme"], 0, 2
+    )
 
     assert shortlist[0][0] == "DINUM"
 
@@ -438,21 +431,163 @@ def test_decision_prompt_explains_the_organisation_marker():
     assert "glossaire de l'organisation" in prompt.PROMPT_SYSTEM_ACRONYM_DECIDE
 
 
-def test_transcription_without_word_timings_warns_and_stops(caplog):
-    """No per-word timings means nothing can be located: say so, do not pretend."""
+def test_transcription_without_word_timings_says_so_and_still_corrects(index, caplog):
+    """No per-word timings is not a dead end: correct the text, and say so.
+
+    This used to return early. Thirty-three suspect passages on a real
+    hour-long transcript then produced zero corrections, indistinguishable
+    from a clean transcript.
+    """
     transcription = {
         "segments": [{"start": 0.0, "end": 6.0, "text": "Côté dix nomme, la brique."}],
         "word_segments": [],
     }
+    llm_service = StubLLMService(
+        spans=["dix nomme"], decisions=[{"choix": "DINUM", "confiance": 0.95}]
+    )
 
-    with caplog.at_level(logging.WARNING):
+    with caplog.at_level(logging.INFO):
         corrected, corrections = acronym_correction.correct_acronyms(
-            transcription=transcription, llm_service=None
+            transcription=transcription, llm_service=llm_service, index=index
         )
 
-    assert corrections == []
-    assert corrected == transcription
-    assert any("no per-word timings" in record.message for record in caplog.records)
+    assert [correction["correct"] for correction in corrections] == ["DINUM"]
+    assert corrected["segments"][0]["text"] == "Côté DINUM, la brique."
+    assert any("per-word timings" in record.getMessage() for record in caplog.records)
+
+
+def test_text_path_correction_reports_no_word_level_position(index):
+    """Without words there is nothing to index into: the fields are None.
+
+    The rest of the correction keeps the shape the word path produces, so a
+    caller reading the audit trail does not need to know which path ran.
+    """
+    transcription = {"segments": [{"text": "Côté dix nomme, la brique."}]}
+    llm_service = StubLLMService(
+        spans=["dix nomme"], decisions=[{"choix": "DINUM", "confiance": 0.95}]
+    )
+
+    _, corrections = correct_acronyms(transcription, llm_service, index=index)
+
+    assert corrections == [
+        {
+            "segment_index": 0,
+            "word_index": None,
+            "n_words": None,
+            "wrong": "dix nomme",
+            "correct": "DINUM",
+            "confidence": 0.95,
+            "applied": True,
+        }
+    ]
+
+
+def test_text_path_corrects_a_real_albert_segment(index):
+    """The measured case: plain Whisper output, an acronym under an elision.
+
+    Albert's transcription endpoint serves Whisper without forced alignment, so
+    segments carry text only. Whisper writes the elided article onto the
+    acronym -- "Côté dix nomme" comes back as "Côté d'Inhomme" -- and the
+    correction has to survive both at once.
+    """
+    transcription = {
+        "segments": [
+            {
+                "start": 0.031,
+                "end": 6.342,
+                "speaker": None,
+                "text": (
+                    "Bonjour, ici Camille. Côté d'Inhomme, la brique de "
+                    "collaboration a bien avancé ce mois-ci."
+                ),
+            }
+        ]
+    }
+    llm_service = StubLLMService(
+        spans=["d'Inhomme"], decisions=[{"choix": "DINUM", "confiance": 0.95}]
+    )
+
+    corrected, corrections = correct_acronyms(transcription, llm_service, index=index)
+
+    assert [correction["correct"] for correction in corrections] == ["DINUM"]
+    assert corrections[0]["applied"] is True
+    # The comma that hung off the token stays where it was.
+    assert corrected["segments"][0]["text"] == (
+        "Bonjour, ici Camille. Côté DINUM, la brique de collaboration "
+        "a bien avancé ce mois-ci."
+    )
+
+
+def test_word_path_is_preferred_when_a_segment_has_both(index):
+    """A segment with words keeps the word path, timings and all."""
+    transcription = make_transcription()
+    llm_service = StubLLMService(
+        spans=["dix nomme"], decisions=[{"choix": "DINUM", "confiance": 0.95}]
+    )
+
+    corrected, corrections = correct_acronyms(transcription, llm_service, index=index)
+
+    assert corrections[0]["word_index"] == 1
+    assert corrections[0]["n_words"] == 2
+    assert corrected["segments"][0]["words"][1]["start"] == 0.5
+
+
+def test_both_paths_run_in_one_transcription(index):
+    """A mixed transcription corrects each segment the way that segment allows."""
+    transcription = make_transcription()
+    transcription["segments"].append(
+        {"start": 3.0, "end": 6.0, "text": "La quenil a publié sa délibération."}
+    )
+    llm_service = StubLLMService(
+        spans=["dix nomme", "quenil"],
+        decisions=[
+            {"choix": "DINUM", "confiance": 0.95},
+            {"choix": "CNIL", "confiance": 0.95},
+        ],
+    )
+
+    corrected, corrections = correct_acronyms(transcription, llm_service, index=index)
+
+    assert [correction["correct"] for correction in corrections] == ["DINUM", "CNIL"]
+    assert corrected["segments"][0]["text"] == "Côté DINUM, la brique a avancé."
+    assert corrected["segments"][1]["text"] == "La CNIL a publié sa délibération."
+    # The word path kept its timings; the text path had none to keep.
+    assert corrections[0]["word_index"] == 1
+    assert corrections[1]["word_index"] is None
+
+
+def test_word_segments_survive_a_wordless_segment(index):
+    """A text-path correction must not reach into the flat word list.
+
+    word_segments belongs to the word path. Letting a wordless segment mirror
+    into it rewrites a window that was never located there.
+    """
+    transcription = {
+        "segments": [{"start": 0.0, "end": 3.0, "text": "Côté dix nomme, la brique."}],
+        "word_segments": [make_word("Côté", 0.0), make_word("ailleurs", 0.5)],
+    }
+    llm_service = StubLLMService(
+        spans=["dix nomme"], decisions=[{"choix": "DINUM", "confiance": 0.95}]
+    )
+
+    corrected, corrections = correct_acronyms(transcription, llm_service, index=index)
+
+    assert corrections[0]["correct"] == "DINUM"
+    assert [word["word"] for word in corrected["word_segments"]] == [
+        "Côté",
+        "ailleurs",
+    ]
+
+
+def test_locate_span_matches_a_token_holding_an_elided_article(index):
+    """One token can normalise to two words: compare the flattened streams.
+
+    "d'Inhomme" normalises to "d inhomme", so a token-for-word comparison never
+    matches the span the detector reported.
+    """
+    segments = [{"text": "Côté d'Inhomme, la brique."}]
+
+    assert _locate_span(segments, "d'Inhomme") == _Position(0, 1, 1, False)
 
 
 def test_elided_article_still_matches_its_acronym():
@@ -470,7 +605,8 @@ def test_elided_article_still_matches_its_acronym():
 
 
 def test_gluing_does_not_break_a_genuine_elided_article():
-    """"l'ANOM" must stay ANOM, not become "lanom" and match something else."""
+    """A genuine elided article stays one: "l'ANOM" must still reach ANOM."""
+
     def best(acronym: str) -> float:
         return max(
             similarity(query, key)

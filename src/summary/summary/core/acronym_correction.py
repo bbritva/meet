@@ -11,6 +11,14 @@ The chain has four stages:
 4. accepted corrections above the configured confidence floor are written into
    the transcription, and the rewritten tokens are marked `corrected`.
 
+Stages 2 and 4 run on one of two paths, chosen per segment. A segment carrying
+`words[]` -- meet-whisperx runs a forced alignment pass, so its segments do --
+is located and rewritten word by word, and the correction inherits the timings
+of the words it replaced. A segment carrying only `text` -- plain Whisper, as
+served by Albert's transcription endpoint -- is tokenised from that text and
+rewritten at character offsets. The text path reports no word-level timings,
+but it is the only one that works without forced alignment.
+
 Precision matters more than recall here: a wrong correction changes the
 meaning of a document colleagues read, while a missed one merely leaves the
 transcript as it was. Corrections below the floor are recorded but not applied.
@@ -24,7 +32,7 @@ import re
 import unicodedata
 from functools import lru_cache
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any, NamedTuple, Optional
 
 from summary.core.config import get_settings
 from summary.core.phonetic import MIN_WORD_LIKE_LENGTH, PhoneticIndex
@@ -70,6 +78,11 @@ EVIDENCE_BONUS_CAP = 0.06
 # Longest token sequence considered when locating a flagged passage.
 MAX_LOCATE_WORDS = 8
 
+# Punctuation that hangs off a token and is not part of the word it carries.
+# WhisperX attaches it to the word ("nomme,"), and so does splitting a segment
+# text on whitespace, so both paths strip the same set.
+EDGE_PUNCTUATION = " ,.;:!?"
+
 # Common French words are never an acronym on their own, and they match a lot
 # of short acronyms by sound.
 STOPWORDS = frozenset(
@@ -93,16 +106,12 @@ def _load_glossary_file() -> dict[str, list]:
 
 def get_acronym_glossary() -> dict[str, str]:
     """The {acronym: expansion} mapping shipped with the service."""
-    return {
-        acronym: entry[0] for acronym, entry in _load_glossary_file().items()
-    }
+    return {acronym: entry[0] for acronym, entry in _load_glossary_file().items()}
 
 
 def get_acronym_weights() -> dict[str, int]:
     """How many independent corpora confirmed each shipped acronym."""
-    return {
-        acronym: entry[1] for acronym, entry in _load_glossary_file().items()
-    }
+    return {acronym: entry[1] for acronym, entry in _load_glossary_file().items()}
 
 
 @lru_cache(maxsize=1)
@@ -183,69 +192,107 @@ def _detect_suspect_spans(segments: list[dict[str, Any]], llm_service) -> list[s
     return suspects
 
 
-def _locate_span(
-    segments: list[dict[str, Any]], span: str
-) -> Optional[tuple[int, int, int]]:
-    """Find a flagged passage in the word stream.
+class _Position(NamedTuple):
+    """Where a flagged passage sits, in whichever shape its segment has.
+
+    `token_index` and `n_tokens` index the segment's tokens -- its `words[]`
+    entries when `has_words`, otherwise the whitespace-separated chunks of its
+    text. `has_words` is what picks the path at every later stage.
+    """
+
+    segment_index: int
+    token_index: int
+    n_tokens: int
+    has_words: bool
+
+
+def _segment_tokens(segment: dict[str, Any]) -> tuple[list[str], bool]:
+    """Return a segment's tokens, and whether they came from per-word timings.
+
+    Output of a recogniser with forced alignment carries `words[]`, and the
+    tokens are those words. Plain Whisper output carries only `text`, and the
+    tokens are its whitespace-separated chunks -- the same shape, punctuation
+    still attached, which is why the two paths can share everything between
+    locating and deciding.
+    """
+    words = segment.get("words") or []
+    if words:
+        return [word.get("word", "") or "" for word in words], True
+    return (segment.get("text", "") or "").split(), False
+
+
+def _text_token_spans(text: str) -> list[tuple[int, int]]:
+    """Return the character span of every whitespace-separated token of a text."""
+    return [match.span() for match in re.finditer(r"\S+", text)]
+
+
+def _locate_span(segments: list[dict[str, Any]], span: str) -> Optional[_Position]:
+    """Find a flagged passage among a segment's tokens.
 
     The LLM answers with text, not indices, and its punctuation and casing
     rarely match the tokens exactly, so the match is done on normalised token
     sequences, with the longest contiguous run as a fallback.
+
+    One token can normalise to several words -- `_normalize("d'Inhomme")` is
+    "d inhomme" -- so the comparison is made on the flattened stream. Without
+    that, a span Whisper glued an elided article onto never locates at all.
 
     Args:
         segments: the transcription segments.
         span: the passage reported by the detection stage.
 
     Returns:
-        A (segment index, word index, word count) tuple, or None when the
-        passage cannot be found.
+        The position of the passage, or None when it cannot be found.
     """
     targets = [token for token in _normalize(span).split() if token]
     if not targets:
         return None
 
-    best: Optional[tuple[int, int, int]] = None
-    best_length = 0
+    best: Optional[_Position] = None
+    best_matched = 0
 
     for segment_index, segment in enumerate(segments):
-        words = segment.get("words") or []
-        normalized = [_normalize(word.get("word", "")) for word in words]
+        tokens, has_words = _segment_tokens(segment)
+        normalized = [_normalize(token).split() for token in tokens]
 
-        for index in range(len(words)):
-            for length in range(1, min(MAX_LOCATE_WORDS, len(words) - index) + 1):
+        for index in range(len(tokens)):
+            for length in range(1, min(MAX_LOCATE_WORDS, len(tokens) - index) + 1):
                 window = [
-                    token for token in normalized[index : index + length] if token
+                    word
+                    for token in normalized[index : index + length]
+                    for word in token
                 ]
                 if window == targets:
-                    return segment_index, index, length
+                    return _Position(segment_index, index, length, has_words)
 
-        for index in range(len(words)):
+        for index in range(len(tokens)):
             length = 0
-            while (
-                index + length < len(words)
-                and length < len(targets)
-                and normalized[index + length] == targets[length]
-            ):
+            matched = 0
+            while index + length < len(tokens) and matched < len(targets):
+                words = normalized[index + length]
+                if targets[matched : matched + len(words)] != words:
+                    break
+                matched += len(words)
                 length += 1
-            if length > best_length:
-                best = (segment_index, index, length)
-                best_length = length
+            if matched > best_matched:
+                best = _Position(segment_index, index, length, has_words)
+                best_matched = matched
 
     return best
 
 
 def _window_candidates(
-    index: PhoneticIndex, words: list[dict[str, Any]], low: int, high: int
+    index: PhoneticIndex, tokens: list[str], low: int, high: int
 ) -> list[tuple[int, int, str, list[tuple[str, float]]]]:
-    """Score every word window of a region against the glossary."""
+    """Score every token window of a region against the glossary."""
     scored = []
     for start in range(low, high):
         for length in range(1, min(MAX_WINDOW_WORDS, high - start) + 1):
-            tokens = [
-                word.get("word", "").strip(" ,.;:!?")
-                for word in words[start : start + length]
+            stripped = [
+                token.strip(EDGE_PUNCTUATION)
+                for token in tokens[start : start + length]
             ]
-            text = " ".join(token for token in tokens if token)
+            text = " ".join(token for token in stripped if token)
             if not text.strip():
                 continue
             if length == 1 and _normalize(text) in STOPWORDS:
@@ -266,26 +313,30 @@ def _window_candidates(
 
 def _shortlist(
     index: PhoneticIndex,
-    words: list[dict[str, Any]],
-    word_index: int,
-    n_words: int,
+    tokens: list[str],
+    token_index: int,
+    n_tokens: int,
     user_acronyms: Optional[set[str]] = None,
 ) -> tuple[list[tuple[str, float]], dict[str, tuple[str, int, int]]]:
     """Build one ranked shortlist for the region around a flagged passage.
 
-    Windows are claimed longest first: once a window owns its word positions,
+    Takes plain token texts, so it is shared by both paths: the tokens are the
+    segment's words when it has per-word timings, and the whitespace-separated
+    chunks of its text when it does not.
+
+    Windows are claimed longest first: once a window owns its token positions,
     shorter overlapping windows are skipped. Without this maximal munch, "dix"
     matching DI at 1.00 outranks "dix nomme" matching DINUM at 0.80 and splits
     the acronym in two.
 
     Returns:
         The ranked (acronym, similarity) shortlist, and a mapping from acronym
-        to the (text, word index, word count) window it matched.
+        to the (text, token index, token count) window it matched.
     """
-    low = max(0, word_index - WINDOW_MARGIN)
-    high = min(len(words), word_index + n_words + WINDOW_MARGIN)
+    low = max(0, token_index - WINDOW_MARGIN)
+    high = min(len(tokens), token_index + n_tokens + WINDOW_MARGIN)
 
-    windows = _window_candidates(index, words, low, high)
+    windows = _window_candidates(index, tokens, low, high)
     windows.sort(key=lambda window: (-window[0], window[1]))
     weights = get_acronym_weights()
 
@@ -377,18 +428,22 @@ def _rewrite_text(text: str, tokens: list[str], acronym: str) -> str:
     return re.sub(pattern, acronym, text, count=1)
 
 
-def _apply_correction(segment: dict[str, Any], correction: dict[str, Any]) -> bool:
-    """Rewrite one word window of a segment into its acronym."""
+def _apply_word_correction(
+    segment: dict[str, Any], position: _Position, acronym: str
+) -> bool:
+    """Merge a window of timed words into one corrected word, and fix the text.
+
+    The merged word spans the replaced ones, so the correction keeps the
+    timings the alignment pass produced.
+    """
     words = list(segment.get("words") or [])
-    word_index = correction["word_index"]
-    n_words = correction["n_words"]
-    if word_index + n_words > len(words):
+    if position.n_tokens < 1 or position.token_index + position.n_tokens > len(words):
         return False
 
-    replaced = words[word_index : word_index + n_words]
+    replaced = words[position.token_index : position.token_index + position.n_tokens]
     scores = [word.get("score") for word in replaced if word.get("score") is not None]
     merged = {
-        "word": correction["correct"],
+        "word": acronym,
         "start": replaced[0].get("start"),
         "end": replaced[-1].get("end"),
         "score": min(scores) if scores else None,
@@ -396,19 +451,65 @@ def _apply_correction(segment: dict[str, Any], correction: dict[str, Any]) -> bo
         "corrected": True,
     }
 
-    segment["words"] = words[:word_index] + [merged] + words[word_index + n_words :]
+    segment["words"] = (
+        words[: position.token_index]
+        + [merged]
+        + words[position.token_index + position.n_tokens :]
+    )
     segment["text"] = _rewrite_text(
         segment.get("text", ""),
-        [word.get("word", "").strip(" ,.;:!?") for word in replaced],
-        correction["correct"],
+        [word.get("word", "").strip(EDGE_PUNCTUATION) for word in replaced],
+        acronym,
     )
     return True
 
 
+def _apply_text_correction(
+    segment: dict[str, Any], position: _Position, acronym: str
+) -> bool:
+    """Splice a token window of a segment text into its acronym.
+
+    There are no words to merge on this path, so the whole edit is on the text.
+    The window is addressed by character offset rather than by pattern, because
+    the tokens were read from this very text: the offsets are exact, where a
+    pattern would rewrite the first identical passage instead of this one. The
+    punctuation hanging off the window is kept, so "d'Inhomme," becomes
+    "DINUM," and not "DINUM".
+    """
+    text = segment.get("text", "") or ""
+    spans = _text_token_spans(text)
+    last = position.token_index + position.n_tokens - 1
+    if position.n_tokens < 1 or last >= len(spans):
+        return False
+
+    start = spans[position.token_index][0]
+    end = spans[last][1]
+    while start < end and text[start] in EDGE_PUNCTUATION:
+        start += 1
+    while end > start and text[end - 1] in EDGE_PUNCTUATION:
+        end -= 1
+
+    segment["text"] = text[:start] + acronym + text[end:]
+    return True
+
+
+def _apply_correction(
+    segment: dict[str, Any], position: _Position, acronym: str
+) -> bool:
+    """Rewrite one located window of a segment into its acronym."""
+    if position.has_words:
+        return _apply_word_correction(segment, position, acronym)
+    return _apply_text_correction(segment, position, acronym)
+
+
 def _apply_to_word_segments(
-    word_segments: list[dict[str, Any]], correction: dict[str, Any], merged: list[str]
+    word_segments: list[dict[str, Any]], acronym: str, merged: list[str]
 ) -> None:
-    """Mirror an applied correction into the flat word_segments list."""
+    """Mirror an applied correction into the flat word_segments list.
+
+    Only the word path calls this. A segment without per-word timings has no
+    words anywhere, so there is nothing to mirror.
+    """
     for index in range(len(word_segments) - len(merged) + 1):
         window = [
             _normalize(word.get("word", ""))
@@ -422,7 +523,7 @@ def _apply_to_word_segments(
         ]
         word_segments[index : index + len(merged)] = [
             {
-                "word": correction["correct"],
+                "word": acronym,
                 "start": replaced[0].get("start"),
                 "end": replaced[-1].get("end"),
                 "score": min(scores) if scores else None,
@@ -466,34 +567,36 @@ def correct_acronyms(
 
     Returns:
         The corrected transcription as a dict, and the list of corrections.
-        Every correction records its position, the wrong and correct text, the
-        confidence reported by the LLM, and whether it was applied: corrections
-        below `acronym_correction_min_confidence` are reported but left out of
-        the transcription.
+        Every correction records the wrong and correct text, the confidence
+        reported by the LLM, and whether it was applied: corrections below
+        `acronym_correction_min_confidence` are reported but left out of the
+        transcription. `word_index` and `n_words` locate the correction in the
+        segment's words, and are None for a correction found on the text path,
+        where the segment carried no per-word timings to index into.
     """
     corrected = _as_dict(transcription)
     segments = corrected.get("segments") or []
     if not segments:
         return corrected, []
 
-    # Whisper served without forced alignment (Albert's endpoint, for one) returns
-    # segments with no per-word timings. Every span then fails to locate and the
-    # run reports zero corrections, which is indistinguishable from a clean
-    # transcript. Say so instead of failing silently.
-    if segments and not any(segment.get("words") for segment in segments):
-        logger.warning(
-            "Acronym correction skipped: the transcription has no per-word "
-            "timings (%d segments). This output came from a speech recogniser "
-            "without forced alignment, so suspect passages cannot be located.",
+    # Whisper served without forced alignment (Albert's endpoint, for one)
+    # returns segments with no per-word timings. The text path handles them, but
+    # the corrections it finds carry no timings of their own, so say so rather
+    # than let a caller wonder where they went.
+    if not any(segment.get("words") for segment in segments):
+        logger.info(
+            "No per-word timings in this transcription (%d segments): it came "
+            "from a speech recogniser without forced alignment. Acronyms are "
+            "matched on the segment text instead, and the corrections carry no "
+            "word-level timings.",
             len(segments),
         )
-        return corrected, []
 
     phonetic_index = index if index is not None else build_index(user_glossary)
     user_acronyms = set(user_glossary) if user_glossary else None
 
-    located: list[tuple[str, tuple[int, int, int]]] = []
-    seen: set[tuple[int, int, int]] = set()
+    located: list[tuple[str, _Position]] = []
+    seen: set[_Position] = set()
     for span in _detect_suspect_spans(segments, llm_service):
         position = _locate_span(segments, span)
         if position is None:
@@ -502,54 +605,63 @@ def correct_acronyms(
             seen.add(position)
             located.append((span, position))
 
-    corrections: list[dict[str, Any]] = []
-    for span, (segment_index, word_index, n_words) in located:
-        words = list(segments[segment_index].get("words") or [])
+    # Each correction is kept next to the position it was matched at: the
+    # position drives the rewrite, while the correction is the audit trail
+    # handed back to the caller.
+    found: list[tuple[dict[str, Any], _Position]] = []
+    for span, position in located:
+        segment = segments[position.segment_index]
+        tokens, _ = _segment_tokens(segment)
         shortlist, where = _shortlist(
-            phonetic_index, words, word_index, n_words, user_acronyms
+            phonetic_index,
+            tokens,
+            position.token_index,
+            position.n_tokens,
+            user_acronyms,
         )
         if not shortlist:
             continue
 
         choice, confidence = _decide(
-            segments[segment_index].get("text", ""),
-            span,
-            shortlist,
-            llm_service,
-            user_glossary,
+            segment.get("text", ""), span, shortlist, llm_service, user_glossary
         )
         if not choice or choice not in where:
             continue
 
         wrong, start, length = where[choice]
-        corrections.append(
-            {
-                "segment_index": segment_index,
-                "word_index": start,
-                "n_words": length,
-                "wrong": wrong,
-                "correct": choice,
-                "confidence": confidence,
-                "applied": confidence >= _floor_for(choice, user_acronyms),
-            }
+        found.append(
+            (
+                {
+                    "segment_index": position.segment_index,
+                    "word_index": start if position.has_words else None,
+                    "n_words": length if position.has_words else None,
+                    "wrong": wrong,
+                    "correct": choice,
+                    "confidence": confidence,
+                    "applied": confidence >= _floor_for(choice, user_acronyms),
+                },
+                position._replace(token_index=start, n_tokens=length),
+            )
         )
 
+    corrections = [correction for correction, _ in found]
     word_segments = list(corrected.get("word_segments") or [])
-    # Apply from the end so earlier word indices stay valid.
-    for correction in sorted(
-        (item for item in corrections if item["applied"]),
-        key=lambda item: (-item["segment_index"], -item["word_index"]),
+    # Apply from the end so the token indices of earlier windows stay valid --
+    # on the text path, so do their character offsets.
+    for correction, position in sorted(
+        (item for item in found if item[0]["applied"]),
+        key=lambda item: (-item[1].segment_index, -item[1].token_index),
     ):
-        segment = corrected["segments"][correction["segment_index"]]
+        segment = corrected["segments"][position.segment_index]
         original = [
             word.get("word", "")
             for word in (segment.get("words") or [])[
-                correction["word_index"] : correction["word_index"]
-                + correction["n_words"]
+                position.token_index : position.token_index + position.n_tokens
             ]
         ]
-        if _apply_correction(segment, correction) and word_segments:
-            _apply_to_word_segments(word_segments, correction, original)
+        applied = _apply_correction(segment, position, correction["correct"])
+        if applied and position.has_words and word_segments:
+            _apply_to_word_segments(word_segments, correction["correct"], original)
 
     if word_segments:
         corrected["word_segments"] = word_segments
