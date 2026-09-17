@@ -4,7 +4,7 @@ import json
 
 import pytest
 
-from summary.core import acronym_correction
+from summary.core import acronym_correction, prompt
 from summary.core.acronym_correction import (
     _locate_span,
     _shortlist,
@@ -422,3 +422,11 @@ def test_evidence_bonus_cannot_override_a_real_similarity_gap(monkeypatch):
     shortlist, _ = acronym_correction._shortlist(PhoneticIndex(glossary), words, 0, 2)
 
     assert shortlist[0][0] == "DINUM"
+
+
+def test_decision_prompt_explains_the_organisation_marker():
+    """The candidate list renders a marker; the prompt must say what it means.
+
+    Without this the model sees an undocumented annotation and cannot weigh it.
+    """
+    assert "glossaire de l'organisation" in prompt.PROMPT_SYSTEM_ACRONYM_DECIDE
