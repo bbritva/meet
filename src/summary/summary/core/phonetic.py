@@ -137,8 +137,20 @@ def phon(text: str, nasal: bool = True) -> str:
 
 
 def keyset(text: str) -> set[str]:
-    """Return every plausible pronunciation key for a piece of text."""
-    return {key for key in (phon(text, True), phon(text, False)) if key}
+    """Return every plausible pronunciation key for a piece of text.
+
+    French elision is the reason this is not a single key. Whisper writes the
+    elided article onto the acronym -- "d'Inhomme" for DINUM -- and splitting on
+    the apostrophe gives "d inhomme", which scores 0.60 against DINUM and falls
+    under the similarity floor. Glued together it scores 0.80. Both readings are
+    generated because neither is right in general: gluing "l'ANOM" into "lanom"
+    would be just as wrong.
+    """
+    keys: set[str] = set()
+    for variant in (text, text.replace("\u2019", "'").replace("'", "")):
+        keys.add(phon(variant, True))
+        keys.add(phon(variant, False))
+    return {key for key in keys if key}
 
 
 def acronym_keys(acronym: str) -> set[str]:

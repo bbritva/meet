@@ -476,6 +476,19 @@ def correct_acronyms(
     if not segments:
         return corrected, []
 
+    # Whisper served without forced alignment (Albert's endpoint, for one) returns
+    # segments with no per-word timings. Every span then fails to locate and the
+    # run reports zero corrections, which is indistinguishable from a clean
+    # transcript. Say so instead of failing silently.
+    if segments and not any(segment.get("words") for segment in segments):
+        logger.warning(
+            "Acronym correction skipped: the transcription has no per-word "
+            "timings (%d segments). This output came from a speech recogniser "
+            "without forced alignment, so suspect passages cannot be located.",
+            len(segments),
+        )
+        return corrected, []
+
     phonetic_index = index if index is not None else build_index(user_glossary)
     user_acronyms = set(user_glossary) if user_glossary else None
 

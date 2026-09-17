@@ -1,6 +1,7 @@
 """Tests for the acronym correction service."""
 
 import json
+import logging
 
 import pytest
 
@@ -10,7 +11,12 @@ from summary.core.acronym_correction import (
     _shortlist,
     correct_acronyms,
 )
-from summary.core.phonetic import PhoneticIndex, acronym_keys, keyset, similarity
+from summary.core.phonetic import (
+    PhoneticIndex,
+    acronym_keys,
+    keyset,
+    similarity,
+)
 from summary.core.shared_models import WhisperXResponse
 
 GLOSSARY = {
@@ -430,3 +436,46 @@ def test_decision_prompt_explains_the_organisation_marker():
     Without this the model sees an undocumented annotation and cannot weigh it.
     """
     assert "glossaire de l'organisation" in prompt.PROMPT_SYSTEM_ACRONYM_DECIDE
+
+
+def test_transcription_without_word_timings_warns_and_stops(caplog):
+    """No per-word timings means nothing can be located: say so, do not pretend."""
+    transcription = {
+        "segments": [{"start": 0.0, "end": 6.0, "text": "Côté dix nomme, la brique."}],
+        "word_segments": [],
+    }
+
+    with caplog.at_level(logging.WARNING):
+        corrected, corrections = acronym_correction.correct_acronyms(
+            transcription=transcription, llm_service=None
+        )
+
+    assert corrections == []
+    assert corrected == transcription
+    assert any("no per-word timings" in record.message for record in caplog.records)
+
+
+def test_elided_article_still_matches_its_acronym():
+    """Whisper glues the elided article on: "d'Inhomme" must still reach DINUM.
+
+    Splitting on the apostrophe gives "d inhomme" (0.60), under the similarity
+    floor, so DINUM never reached the model at all.
+    """
+    score = max(
+        similarity(query, key)
+        for query in keyset("d'Inhomme")
+        for key in acronym_keys("DINUM")
+    )
+    assert score >= 0.8
+
+
+def test_gluing_does_not_break_a_genuine_elided_article():
+    """"l'ANOM" must stay ANOM, not become "lanom" and match something else."""
+    def best(acronym: str) -> float:
+        return max(
+            similarity(query, key)
+            for query in keyset("l'ANOM")
+            for key in acronym_keys(acronym)
+        )
+
+    assert best("ANOM") > best("DINUM")
